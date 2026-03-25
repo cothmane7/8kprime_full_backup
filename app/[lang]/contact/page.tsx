@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Mail, Phone, MessageCircle, Clock, ShieldCheck, MapPin } from "lucide-react";
 import Contact from "@/components/Contact";
 import { getDictionary } from "@/get-dictionary";
