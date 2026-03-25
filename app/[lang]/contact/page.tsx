@@ -20,7 +20,7 @@ export default async function ContactPage(props: {
                         {dictionary.contact.badge}
                     </div>
                     <h1 className="text-5xl md:text-8xl font-black text-white mb-6 leading-none tracking-tighter uppercase">
-                        {dictionary.contact.title_line1} <span className="text-primary italic">{dictionary.contact.title_line2}</span>
+                        {dictionary.contact.title_part1} <span className="text-primary italic">{dictionary.contact.title_part2}</span>
                     </h1>
                     <p className="text-gray-400 text-lg md:text-xl font-medium max-w-2xl mx-auto">
                         {dictionary.contact.subtext}
