@@ -25,7 +25,7 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
     }, []);
 
     return (
-        <section className="relative h-[100dvh] min-h-[600px] flex items-center pt-24 md:pt-16 overflow-hidden bg-[#0A0A0F]">
+        <section className="relative h-[100dvh] min-h-[600px] flex items-center pt-32 md:pt-16 overflow-hidden bg-[#0A0A0F]">
             {/* Background Layer: Cinematic Full-Bleed Image Slideshow */}
             <div className="absolute inset-0 z-0 overflow-hidden bg-[#0A0A0F]">
                 <AnimatePresence initial={false}>
@@ -55,7 +55,23 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                 <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
                     {/* Left Content */}
                     <div className="flex-1 text-center lg:text-left">
-                        <div className="flex justify-center lg:justify-start mb-6">
+                        <motion.h1 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.1 }}
+                            className="text-5xl md:text-[5.5rem] xl:text-[7rem] font-black text-white leading-[0.85] tracking-tighter mb-8 hero-text-glow italic uppercase"
+                        >
+                            {dictionary.title_part1}<br />
+                            <span 
+                                className="text-transparent bg-clip-text bg-gradient-to-b from-[#FFF2B2] via-[#D4AF37] to-[#805A16] italic inline-block"
+                                style={{ WebkitTextStroke: "1px #FFD700" }}
+                            >
+                                {dictionary.title_part2}<br />
+                                {dictionary.title_part3} {dictionary.title_part4}
+                            </span>
+                        </motion.h1>
+
+                        <div className="flex justify-center lg:justify-start mb-8">
                             <motion.div 
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
@@ -67,22 +83,6 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                                 </span>
                             </motion.div>
                         </div>
-
-                        <motion.h1 
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 }}
-                            className="text-5xl md:text-[5.5rem] xl:text-[7rem] font-black text-white leading-[0.85] tracking-tighter mb-6 hero-text-glow italic uppercase"
-                        >
-                            {dictionary.title_part1}<br />
-                            <span 
-                                className="text-transparent bg-clip-text bg-gradient-to-b from-[#FFF2B2] via-[#D4AF37] to-[#805A16] italic inline-block"
-                                style={{ WebkitTextStroke: "1px #FFD700" }}
-                            >
-                                {dictionary.title_part2}<br />
-                                {dictionary.title_part3} {dictionary.title_part4}
-                            </span>
-                        </motion.h1>
 
                         <motion.p 
                             initial={{ opacity: 0 }}
