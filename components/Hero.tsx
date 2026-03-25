@@ -59,12 +59,11 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
-                            className="text-5xl md:text-[5.5rem] xl:text-[7rem] font-black text-white leading-[0.85] tracking-tighter mb-8 hero-text-glow italic uppercase"
+                            className="text-5xl md:text-[5.5rem] xl:text-[7rem] font-black text-white leading-[0.85] tracking-tighter mb-8 italic uppercase antialiased"
                         >
                             {dictionary.title_part1}<br />
                             <span 
-                                className="text-transparent bg-clip-text bg-gradient-to-b from-[#FFF2B2] via-[#D4AF37] to-[#805A16] italic inline-block"
-                                style={{ WebkitTextStroke: "1px #FFD700" }}
+                                className="text-transparent bg-clip-text bg-gradient-to-b from-[#FBF3D5] via-[#D4AF37] to-[#8E6927] italic inline-block drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
                             >
                                 {dictionary.title_part2}<br />
                                 {dictionary.title_part3} {dictionary.title_part4}
