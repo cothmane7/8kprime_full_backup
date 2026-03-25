@@ -25,7 +25,7 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
     }, []);
 
     return (
-        <section className="relative h-[100dvh] min-h-[600px] flex items-center pt-16 overflow-hidden bg-[#0A0A0F]">
+        <section className="relative h-[100dvh] min-h-[600px] flex items-center pt-24 md:pt-16 overflow-hidden bg-[#0A0A0F]">
             {/* Background Layer: Cinematic Full-Bleed Image Slideshow */}
             <div className="absolute inset-0 z-0 overflow-hidden bg-[#0A0A0F]">
                 <AnimatePresence initial={false}>
@@ -55,16 +55,18 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                 <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
                     {/* Left Content */}
                     <div className="flex-1 text-center lg:text-left">
-                        <motion.div 
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-primary/10 border border-primary/20 mb-6 shadow-[0_0_20px_rgba(176,141,62,0.15)] group hover:border-primary/40 transition-all gold-reflection"
-                        >
-                            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                            <span className="text-primary font-black uppercase tracking-[0.3em] text-[10px] md:text-xs">
-                                {dictionary.badge}
-                            </span>
-                        </motion.div>
+                        <div className="flex justify-center lg:justify-start mb-6">
+                            <motion.div 
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-primary/10 border border-primary/20 shadow-[0_0_20px_rgba(176,141,62,0.15)] group hover:border-primary/40 transition-all gold-reflection"
+                            >
+                                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                                <span className="text-primary font-black uppercase tracking-[0.3em] text-[10px] md:text-xs">
+                                    {dictionary.badge}
+                                </span>
+                            </motion.div>
+                        </div>
 
                         <motion.h1 
                             initial={{ opacity: 0, y: 20 }}
