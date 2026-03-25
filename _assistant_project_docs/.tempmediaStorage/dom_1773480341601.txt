@@ -1,0 +1,82 @@
+<current_dom_explanation>
+This is a temporary snapshot of the current page's DOM structure. The DOM will change if you navigate to or interact with another page. Use a tool like browser_get_dom to capture and preserve the DOM in your trajectory if needed for later reference.
+</current_dom_explanation>
+<current_dom>
+[0] (266,39)<a href='/' />
+	[1] (266,39)<img  />
+[2] (374,39)<a href='/'>HOME />
+	[3] (365,39)<span >🏠 />
+[4] (437,39)<a href='/whats-included'>WHAT'S INCLUDED />
+	[5] (410,39)<span >📋 />
+[6] (508,39)<a href='/installation-tutorial'>SETUP GUIDE />
+	[7] (489,39)<span >📚 />
+[8] (566,39)<a href='/prices'>PRICING />
+	[9] (553,39)<span >💰 />
+[10] (620,39)<a href='/contact'>CONTACT />
+	[11] (605,39)<span >💬 />
+[12] (726,39)<a href='/login'>ACCOUNT />
+Setup
+Guides
+Follow these simple tutorials to set up 4KTVZ on your preferred device.
+⚠
+🔒 Important: Download Only Official Apps
+Beware of fake apps!
+Many fraudulent clones exist in app stores that can compromise your device or steal your credentials.
+✅
+Always use the authentic apps
+from official sources only:
+🌐
+Official Website:
+[13] (384,395)<a href='https://iboplayer.com/'>iboplayer.com />
+⚡ Don't risk your security — download from trusted sources!
+Select Your Device
+[14] (356,556)<button class='tvz-setup__device-btn tvz-active' />
+	[15] (314,556)<div  />
+	[16] (352,556)<span >Android Devices />
+[17] (356,616)<button class='tvz-setup__device-btn' />
+	[18] (314,616)<div  />
+	[19] (361,616)<span >Firestick & Android TV />
+[20] (356,676)<button class='tvz-setup__device-btn' />
+	[21] (314,676)<div  />
+	[22] (362,676)<span >Smart TVs (All Brands) />
+[23] (356,736)<button class='tvz-setup__device-btn' />
+	[24] (314,736)<div  />
+	[25] (357,736)<span >Apple (iOS/Apple TV) />
+[26] (356,796)<button class='tvz-setup__device-btn' />
+	[27] (314,796)<div  />
+	[28] (345,796)<span >Windows PC />
+[29] (356,856)<button class='tvz-setup__device-btn' />
+	[30] (314,856)<div  />
+	[31] (337,856)<span >macOS />
+[32] (356,916)<button class='tvz-setup__device-btn' />
+	[33] (314,916)<div  />
+	[34] (334,916)<span >Linux />
+[35] (356,976)<button class='tvz-setup__device-btn' />
+	[36] (314,976)<div  />
+	[37] (347,976)<span >MAG Box / STB />
+Android Devices
+Step-by-Step Guide
+1
+Open the
+Google Play Store
+on your device and search for one of the apps below.
+2
+Choose any of the recommended apps and install:
+ProPlayerTVIBO
+[38] (500,761)<a class='tvz-setup__app-link tvz-link-play' href='https://play.google.com/store/apps/details?id=com.rifftica.proplayerpulse'>▶ Play Store />
+IBO XPlayer
+[39] (575,761)<a class='tvz-setup__app-link tvz-link-play' href='https://play.google.com/store/apps/details?id=com.eedvistore.iboexplayer'>▶ Play Store />
+IBOSS TV
+[40] (500,885)<a class='tvz-setup__app-link tvz-link-play' href='https://play.google.com/store/apps/details?id=com.laalten.oochomaut'>▶ Play Store />
+📲
+After installing the app,
+open it
+and then
+send your MAC address to our team
+on
+WhatsApp
+or
+Live Chat
+to activate the app for you.
+
+</current_dom>
