@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, PlayCircle } from "lucide-react";
+import { ArrowRight, PlayCircle, ShieldCheck, Star } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -95,6 +95,34 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                             {dictionary.cta_main}
                             <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
                         </Link>
+                    </motion.div>
+
+                    {/* Trust Indicators */}
+                    <motion.div 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.4 }}
+                        className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-10 text-white/90"
+                    >
+                        <div className="flex items-center gap-3">
+                            <div className="bg-orange-500/20 p-2 rounded-xl border border-orange-500/20 shadow-[0_0_15px_rgba(249,115,22,0.1)]">
+                                <ShieldCheck size={20} className="text-orange-500" />
+                            </div>
+                            <span className="text-sm md:text-base font-black uppercase tracking-wider">{dictionary.trust_guarantee}</span>
+                        </div>
+                        
+                        <div className="h-4 w-[1px] bg-white/10 hidden sm:block" />
+
+                        <div className="flex items-center gap-4 bg-white/5 border border-white/10 px-6 py-3 rounded-2xl backdrop-blur-md">
+                            <span className="text-sm md:text-base font-black uppercase tracking-widest">{dictionary.trust_score_label}</span>
+                            <div className="flex gap-1.5">
+                                {[1, 2, 3, 4, 5].map((i) => (
+                                    <div key={i} className="bg-[#00B67A] p-1.5 rounded-md shadow-lg shadow-[#00B67A]/20">
+                                        <Star size={12} fill="white" className="text-white" />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </motion.div>
                 </div>
             </div>
