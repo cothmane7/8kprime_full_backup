@@ -4,14 +4,14 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Globe } from "lucide-react";
 
-const regions = [
-    { id: "europe", name: "Europe", icon: "🇪🇺" },
-    { id: "middle-east", name: "Middle East", icon: "🕌" },
-    { id: "asia", name: "Asia", icon: "🌏" },
-    { id: "latin-america", name: "Latin America", icon: "🌎" },
-    { id: "north-america", name: "North America", icon: "🇺🇸" },
-    { id: "africa", name: "Africa", icon: "🌍" },
-    { id: "oceania", name: "Oceania", icon: "🇦🇺" },
+const getRegions = (dict: any) => [
+    { id: "europe", name: dict.regions.europe, icon: "🇪🇺" },
+    { id: "middle-east", name: dict.regions.middle_east || dict.regions["middle-east"], icon: "🕌" },
+    { id: "asia", name: dict.regions.asia, icon: "🌏" },
+    { id: "latin-america", name: dict.regions.latin_america || dict.regions["latin-america"], icon: "🌎" },
+    { id: "north-america", name: dict.regions.north_america || dict.regions["north-america"], icon: "🇺🇸" },
+    { id: "africa", name: dict.regions.africa, icon: "🌍" },
+    { id: "oceania", name: dict.regions.oceania, icon: "🇦🇺" },
 ];
 
 const countriesData = {
@@ -95,6 +95,7 @@ export default function ChannelsList({ lang, dictionary, pricingDict }: {
     pricingDict: any;
 }) {
     const [activeRegion, setActiveRegion] = useState("europe");
+    const regions = getRegions(dictionary);
 
     const stats = [
         { label: dictionary.stat_live, value: "30,000+", color: "from-orange-400 to-primary" },
@@ -177,16 +178,16 @@ export default function ChannelsList({ lang, dictionary, pricingDict }: {
                             className="glass-premium p-8 md:p-12 rounded-[2.5rem] border border-primary/20 text-center shadow-2xl backdrop-blur-xl"
                         >
                             <h3 className="text-2xl md:text-3xl font-black text-white mb-4 uppercase italic">
-                                UNLOCK <span className="text-gradient-premium">FULL ACCESS</span>
+                                {dictionary.unlock_banner.title_part1} <span className="text-gradient-premium">{dictionary.unlock_banner.title_part2}</span>
                             </h3>
                             <p className="text-gray-400 font-medium mb-8 max-w-sm mx-auto">
-                                Subscribe now to access over 60,000+ premium global channels in 8K resolution.
+                                {dictionary.unlock_banner.subtext}
                             </p>
                             <a 
                                 href={`/${lang}/pricing`}
                                 className="inline-flex items-center gap-3 bg-primary text-black px-8 py-4 rounded-2xl font-black uppercase tracking-widest hover:scale-105 transition-transform shadow-xl shadow-primary/20"
                             >
-                                Get Started Now
+                                {dictionary.unlock_banner.cta}
                             </a>
                         </motion.div>
                     </div>

@@ -16,7 +16,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
             isPopular: false,
             tag: dictionary.trial_plan,
             saveLabel: "",
-            cta: "Subscribe Now",
+            cta: dictionary.cta_subscribe,
             features: [
                 { icon: PlayCircle, text: dictionary.feature_live_channels },
                 { icon: Film, text: dictionary.feature_vod },
@@ -34,7 +34,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
             isPopular: false,
             tag: dictionary.smart_choice,
             saveLabel: `${dictionary.save} 44%`,
-            cta: "Subscribe Now",
+            cta: dictionary.cta_subscribe,
             features: [
                 { icon: PlayCircle, text: dictionary.feature_live_channels },
                 { icon: Film, text: dictionary.feature_vod },
@@ -52,7 +52,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
             isPopular: true,
             tag: dictionary.best_value,
             saveLabel: `${dictionary.save} 61%`,
-            cta: "Subscribe Now",
+            cta: dictionary.cta_subscribe,
             features: [
                 { icon: PlayCircle, text: dictionary.feature_live_channels },
                 { icon: Film, text: dictionary.feature_vod },
@@ -70,7 +70,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
             isPopular: false,
             tag: dictionary.max_savings,
             saveLabel: `${dictionary.save} 69%`,
-            cta: "Subscribe Now",
+            cta: dictionary.cta_subscribe,
             features: [
                 { icon: PlayCircle, text: dictionary.feature_live_channels },
                 { icon: Film, text: dictionary.feature_vod },

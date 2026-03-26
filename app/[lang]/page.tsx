@@ -24,8 +24,8 @@ export default async function Home(props: {
       <Stats dictionary={dictionary.stats} />
       {/* 
       <MovieGrid lang={lang} dictionary={dictionary.movie_grid} />
-      <LeaguesCarousel />
-      <StreamingCarousel />
+      <LeaguesCarousel dictionary={dictionary.leagues_carousel} />
+      <StreamingCarousel dictionary={dictionary.streaming_apps} />
       */}
       <ComparisonTable dictionary={dictionary.comparison} />
       <Pricing lang={lang} dictionary={dictionary.pricing} common={dictionary.common} />

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 
-export default function StreamingCarousel() {
+export default function StreamingCarousel({ dictionary }: { dictionary: any }) {
     const services = [
         { name: "Service 1", img: "/premium/09b79481f4e3f0e52e7642e4ac8d47e8.jpg" },
         { name: "Service 2", img: "/premium/0a282f8d039b51d0da3740d836a78844.jpg" },
@@ -31,12 +31,12 @@ export default function StreamingCarousel() {
                         <div className="h-[1px] w-12 md:w-24 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
                         <span className="text-xl md:text-3xl font-black text-white tracking-[0.2em] uppercase flex items-center gap-4 shadow-[0_0_15px_rgba(212,175,55,0.3)] gold-reflection soft-gold-glow">
                             <span className="text-2xl md:text-4xl">🍿</span>
-                            <span className="text-primary/90">PREMIUM</span> <span className="text-gradient-premium italic">APPS</span>
+                            <span className="text-primary/90">{dictionary.badge_part1}</span> <span className="text-gradient-premium italic">{dictionary.badge_part2}</span>
                             <span className="text-2xl md:text-4xl">✨</span>
                         </span>
                         <div className="h-[1px] w-12 md:w-24 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
                     </div>
-                    <p className="text-gray-500 font-bold text-[10px] md:text-xs tracking-[0.4em] uppercase">ALL YOUR FAVORITE SERVICES IN ONE PLACE</p>
+                    <p className="text-gray-500 font-bold text-[10px] md:text-xs tracking-[0.4em] uppercase">{dictionary.subtext}</p>
                 </div>
             </div>
 

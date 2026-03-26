@@ -27,8 +27,11 @@
     "cta_main": "SUBSCRIBE NOW",
     "cta_secondary": "EXPLORE 60K+ CHANNELS →",
     "stat_resolution": "RESOLUTION",
+    "stat_resolution_val": "8K UHD",
     "stat_channels": "CHANNELS",
-    "stat_uptime": "UPTIME"
+    "stat_channels_val": "60,000+",
+    "stat_uptime": "UPTIME",
+    "stat_uptime_val": "99.9%"
   },
   "stats": {
     "active_subs": "Active Subs",
@@ -76,7 +79,8 @@
     "smart_choice": "Smart Choice",
     "best_value": "Best Value",
     "max_savings": "Maximum Savings",
-    "lock_in_savings": "Lock in Savings"
+    "lock_in_savings": "Lock in Savings",
+    "cta_subscribe": "Subscribe Now"
   },
   "faq": {
     "badge": "HAVE QUESTIONS?",
@@ -144,6 +148,8 @@
     "mac_address_banner": "After installing the app, Open it and find your Device MAC Address. Send it to our elite support team via WhatsApp or Live Chat for instant activation.",
     "download": "Download",
     "search_on_tv": "Search on your TV",
+    "downloader_code": "Downloader Code",
+    "all_others": "& All Others",
     "android": {
       "name": "ANDROID DEVICES",
       "step1": "Install the Downloader app by AFT News from the Google Play Store on your device.",
@@ -204,7 +210,22 @@
     "stat_live": "LIVE CHANNELS",
     "stat_vod": "MOVIES & SERIES",
     "stat_countries": "COUNTRIES COVERED",
-    "stat_uptime": "SERVER UPTIME"
+    "stat_uptime": "SERVER UPTIME",
+    "regions": {
+      "europe": "Europe",
+      "middle-east": "Middle East",
+      "asia": "Asia",
+      "latin-america": "Latin America",
+      "north-america": "North America",
+      "africa": "Africa",
+      "oceania": "Oceania"
+    },
+    "unlock_banner": {
+      "title_part1": "UNLOCK",
+      "title_part2": "FULL ACCESS",
+      "subtext": "Subscribe now to access over 60,000+ premium global channels in 8K resolution.",
+      "cta": "Get Started Now"
+    }
   },
   "footer": {
     "cta_title_line1": "START YOUR",
@@ -263,9 +284,27 @@
     "buyer_protection_title": "BUYER PROTECTION",
     "buyer_protection_desc": "Industry-leading 7-day money-back guarantee. We stand behind the quality of our streaming experience."
   },
+  "streaming_apps": {
+    "badge_part1": "PREMIUM",
+    "badge_part2": "APPS",
+    "subtext": "ALL YOUR FAVORITE SERVICES IN ONE PLACE"
+  },
+  "leagues_carousel": {
+    "badge_part1": "EVERY",
+    "badge_part2": "LEAGUE",
+    "subtext": "EVERY MATCH — LIVE & INTERACTIVE"
+  },
   "legal": {
     "privacy_title": "Privacy Policy",
     "refund_title": "Refund Policy",
-    "last_updated": "Last updated: March 2024"
+    "last_updated": "Last updated: March 2024",
+    "disclaimer_title": "LEGAL DISCLAIMER",
+    "disclaimer_badge": "LEGAL CENTER",
+    "dmca_title": "DMCA & Content Policy",
+    "dmca_text": "We do not host, store, or distribute any media content. All services provided are for access to third-party content. 8KPRIME respects the intellectual property of others and expects its users to do the same. If you believe your copyrighted work has been infringed by third-party feeds linked through our service, please contact us immediately.",
+    "terms_title": "TERMS OF SERVICE",
+    "terms_subtitle": "By accessing or using our services, you agree to comply with and be bound by the following terms and conditions.",
+    "global_access_title": "Global Content Access",
+    "global_access_text": "8KPRIME provides access to third-party streaming content. We do not host, store, reproduce, or distribute any media content on our servers. The service acts purely as a conduit to global premium entertainment feeds."
   }
 }

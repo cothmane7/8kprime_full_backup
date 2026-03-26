@@ -27,8 +27,11 @@
     "cta_main": "COMMENCER MAINTENANT",
     "cta_secondary": "VOIR LES CHAÎNES",
     "stat_resolution": "RÉSOLUTION",
+    "stat_resolution_val": "8K UHD",
     "stat_channels": "CHAÎNES",
-    "stat_uptime": "DISPONIBILITÉ"
+    "stat_channels_val": "60 000+",
+    "stat_uptime": "DISPONIBILITÉ",
+    "stat_uptime_val": "99,9%"
   },
   "stats": {
     "active_subs": "Abonnés Actifs",
@@ -75,7 +78,8 @@
     "smart_choice": "Choix Intelligent",
     "best_value": "Meilleure Valeur",
     "max_savings": "Économies Maximales",
-    "lock_in_savings": "Bloquez vos économies"
+    "lock_in_savings": "Bloquez vos économies",
+    "cta_subscribe": "S'abonner maintenant"
   },
   "faq": {
     "badge": "DES QUESTIONS ?",
@@ -143,6 +147,8 @@
     "mac_address_banner": "Après avoir installé l'application, ouvrez-la et trouvez l'adresse MAC de votre appareil. Envoyez-la à notre équipe de support d'élite via WhatsApp ou Live Chat pour une activation instantanée.",
     "download": "Télécharger",
     "search_on_tv": "Rechercher sur votre TV",
+    "downloader_code": "Code Downloader",
+    "all_others": "& Tous les autres",
     "android": {
       "name": "APPAREILS ANDROID",
       "step1": "Ouvrez le Google Play Store sur votre appareil et recherchez l'une des applications ci-dessous.",
@@ -202,7 +208,22 @@
     "stat_live": "CHAÎNES EN DIRECT",
     "stat_vod": "FILMS & SÉRIES",
     "stat_countries": "PAYS COUVERTS",
-    "stat_uptime": "DISPONIBILITÉ SERVEUR"
+    "stat_uptime": "DISPONIBILITÉ SERVEUR",
+    "regions": {
+      "europe": "Europe",
+      "middle-east": "Moyen-Orient",
+      "asia": "Asie",
+      "latin-america": "Amérique latine",
+      "north-america": "Amérique du Nord",
+      "africa": "Afrique",
+      "oceania": "Océanie"
+    },
+    "unlock_banner": {
+      "title_part1": "DÉBLOQUER",
+      "title_part2": "ACCÈS COMPLET",
+      "subtext": "Abonnez-vous maintenant pour accéder à plus de 60 000 chaînes mondiales premium en résolution 8K.",
+      "cta": "Commencer maintenant"
+    }
   },
   "footer": {
     "cta_title_line1": "COMMENCEZ VOTRE",
@@ -261,9 +282,27 @@
     "buyer_protection_title": "PROTECTION DE L'ACHETEUR",
     "buyer_protection_desc": "Garantie de remboursement de 7 jours, leader du secteur. Nous sommes garants de la qualité de notre expérience de streaming."
   },
+  "streaming_apps": {
+    "badge_part1": "APPLICATIONS",
+    "badge_part2": "PREMIUM",
+    "subtext": "TOUS VOS SERVICES PRÉFÉRÉS EN UN SEUL ENDROIT"
+  },
+  "leagues_carousel": {
+    "badge_part1": "CHAQUE",
+    "badge_part2": "LIGUE",
+    "subtext": "CHAQUE MATCH — EN DIRECT & INTERACTIF"
+  },
   "legal": {
     "privacy_title": "Politique de Confidentialité",
     "refund_title": "Politique de Remboursement",
-    "last_updated": "Dernière mise à jour : Mars 2024"
+    "last_updated": "Dernière mise à jour : Mars 2024",
+    "disclaimer_title": "AVIS DE NON-RESPONSABILITÉ",
+    "disclaimer_badge": "CENTRE JURIDIQUE",
+    "dmca_title": "DMCA & Politique de contenu",
+    "dmca_text": "Nous n'hébergeons, ne stockons ni ne distribuons aucun contenu multimédia. Tous les services fournis permettent d'accéder à du contenu tiers. 8KPRIME respecte la propriété intellectuelle d'autrui et attend de ses utilisateurs qu'ils fassent de même. Si vous pensez que votre œuvre protégée par le droit d'auteur a été enfreinte par des flux tiers liés via notre service, veuillez nous contacter immédiatement.",
+    "terms_title": "CONDITIONS D'UTILISATION",
+    "terms_subtitle": "En accédant à nos services ou en les utilisant, vous acceptez de vous conformer aux conditions générales suivantes.",
+    "global_access_title": "Accès au contenu mondial",
+    "global_access_text": "8KPRIME donne accès à des contenus en streaming de tiers. Nous n'hébergeons, ne stockons, ne reproduisons ni ne distribuons aucun contenu multimédia sur nos serveurs. Le service agit purement comme un conduit vers les flux de divertissement premium mondiaux."
   }
 }

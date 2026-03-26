@@ -27,8 +27,11 @@
     "cta_main": "JETZT LOSLEGEN",
     "cta_secondary": "KANÄLE ANSEHEN",
     "stat_resolution": "AUFLÖSUNG",
+    "stat_resolution_val": "8K UHD",
     "stat_channels": "KANÄLE",
-    "stat_uptime": "UPTIME"
+    "stat_channels_val": "60.000+",
+    "stat_uptime": "UPTIME",
+    "stat_uptime_val": "99,9%"
   },
   "stats": {
     "active_subs": "Aktive Abos",
@@ -75,7 +78,8 @@
     "smart_choice": "Kluge Wahl",
     "best_value": "Bestes Preis-Leistungs-Verhältnis",
     "max_savings": "Maximale Ersparnis",
-    "lock_in_savings": "Ersparnis sichern"
+    "lock_in_savings": "Ersparnis sichern",
+    "cta_subscribe": "Jetzt abonnieren"
   },
   "faq": {
     "badge": "HABEN SIE FRAGEN?",
@@ -143,6 +147,8 @@
     "mac_address_banner": "Öffnen Sie die App nach der Installation und suchen Sie Ihre Geräte-MAC-Adresse. Senden Sie diese an unser Elite-Support-Team per WhatsApp oder Live-Chat für eine sofortige Aktivierung.",
     "download": "Herunterladen",
     "search_on_tv": "Auf Ihrem Fernseher suchen",
+    "downloader_code": "Downloader-Code",
+    "all_others": "& Alle anderen",
     "android": {
       "name": "ANDROID-GERÄTE",
       "step1": "Öffnen Sie den Google Play Store auf Ihrem Gerät und suchen Sie nach einer der unten stehenden Apps.",
@@ -202,7 +208,22 @@
     "stat_live": "LIVE-KANÄLE",
     "stat_vod": "FILME & SERIEN",
     "stat_countries": "ABGEDECKTE LÄNDER",
-    "stat_uptime": "SERVER-UPTIME"
+    "stat_uptime": "SERVER-UPTIME",
+    "regions": {
+      "europe": "Europa",
+      "middle-east": "Mittlerer Osten",
+      "asia": "Asien",
+      "latin-america": "Lateinamerika",
+      "north-america": "Nordamerika",
+      "africa": "Afrika",
+      "oceania": "Ozeanien"
+    },
+    "unlock_banner": {
+      "title_part1": "FREISCHALTEN",
+      "title_part2": "VOLLZUGRIFF",
+      "subtext": "Abonnieren Sie jetzt, um auf über 60.000 Premium-Kanäle weltweit in 8K-Auflösung zuzugreifen.",
+      "cta": "Jetzt loslegen"
+    }
   },
   "footer": {
     "cta_title_line1": "STARTEN SIE IHRE",
@@ -261,9 +282,27 @@
     "buyer_protection_title": "KÄUFERSCHUTZ",
     "buyer_protection_desc": "Branchenführende 7-Tage-Geld-zurück-Garantie. Wir stehen hinter der Qualität unseres Streaming-Erlebnisses."
   },
+  "streaming_apps": {
+    "badge_part1": "PREMIUM",
+    "badge_part2": "APPS",
+    "subtext": "ALLE IHRE LIEBLINGSDIENSTE AN EINEM ORT"
+  },
+  "leagues_carousel": {
+    "badge_part1": "JEDE",
+    "badge_part2": "LIGA",
+    "subtext": "JEDES SPIEL — LIVE & INTERAKTIV"
+  },
   "legal": {
     "privacy_title": "Datenschutzrichtlinie",
     "refund_title": "Rückerstattungsrichtlinie",
-    "last_updated": "Zuletzt aktualisiert: März 2024"
+    "last_updated": "Zuletzt aktualisiert: März 2024",
+    "disclaimer_title": "RECHTLICHER HAFTUNGSAUSSCHLUSS",
+    "disclaimer_badge": "RECHTSZENTRUM",
+    "dmca_title": "DMCA & Inhaltsrichtlinie",
+    "dmca_text": "Wir hosten, speichern oder verbreiten keine Medieninhalte. Alle bereitgestellten Dienste dienen dem Zugriff auf Inhalte Dritter. 8KPRIME respektiert das geistige Eigentum anderer und erwartet von seinen Nutzern dasselbe. Wenn Sie glauben, dass Ihr urheberrechtlich geschütztes Werk durch über unseren Dienst verlinkte Feeds Dritter verletzt wurde, kontaktieren Sie uns bitte umgehend.",
+    "terms_title": "NUTZUNGSBEDINGUNGEN",
+    "terms_subtitle": "Durch den Zugriff auf oder die Nutzung unserer Dienste erklären Sie sich damit einverstanden, die folgenden Bedingungen einzuhalten.",
+    "global_access_title": "Globaler Inhaltszugriff",
+    "global_access_text": "8KPRIME bietet Zugriff auf Streaming-Inhalte von Drittanbietern. Wir hosten, speichern, reproduzieren oder verbreiten keine Medieninhalte auf unseren Servern. Der Dienst fungiert rein als Vermittler für globale Premium-Entertainment-Feeds."
   }
 }

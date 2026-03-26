@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 
-export default function LeaguesCarousel() {
+export default function LeaguesCarousel({ dictionary }: { dictionary: any }) {
     const leagues = [
         { name: "League 1", img: "/leagues/1278ef345eb81a9285ddf06433e3a07d.jpg" },
         { name: "League 2", img: "/leagues/1e0492d9c6b3b0409a62a2d7babc380e.jpg" },
@@ -37,12 +37,12 @@ export default function LeaguesCarousel() {
                         <div className="h-[1px] w-12 md:w-24 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
                         <span className="text-xl md:text-3xl font-black text-white tracking-[0.2em] uppercase flex items-center gap-4 shadow-[0_0_15px_rgba(212,175,55,0.3)] gold-reflection soft-gold-glow">
                             <span className="text-2xl md:text-4xl">⚽</span>
-                            <span className="text-primary/90">EVERY</span> <span className="text-gradient-premium italic">LEAGUE</span>
+                            <span className="text-primary/90">{dictionary.badge_part1}</span> <span className="text-gradient-premium italic">{dictionary.badge_part2}</span>
                             <span className="text-2xl md:text-4xl">🏆</span>
                         </span>
                         <div className="h-[1px] w-12 md:w-24 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
                     </div>
-                    <p className="text-gray-500 font-bold text-[10px] md:text-xs tracking-[0.4em] uppercase">EVERY MATCH — LIVE & INTERACTIVE</p>
+                    <p className="text-gray-500 font-bold text-[10px] md:text-xs tracking-[0.4em] uppercase">{dictionary.subtext}</p>
                 </div>
             </div>
 

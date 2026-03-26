@@ -27,8 +27,11 @@
     "cta_main": "NU AAN DE SLAG",
     "cta_secondary": "BEKIJK KANALEN",
     "stat_resolution": "RESOLUTIE",
+    "stat_resolution_val": "8K UHD",
     "stat_channels": "KANALEN",
-    "stat_uptime": "UPTIME"
+    "stat_channels_val": "60.000+",
+    "stat_uptime": "UPTIME",
+    "stat_uptime_val": "99.9%"
   },
   "stats": {
     "active_subs": "Actieve Leden",
@@ -75,7 +78,8 @@
     "smart_choice": "Slimme Keuze",
     "best_value": "Beste Waarde",
     "max_savings": "Maximale Besparing",
-    "lock_in_savings": "Zet besparing vast"
+    "lock_in_savings": "Zet besparing vast",
+    "cta_subscribe": "Nu abonneren"
   },
   "faq": {
     "badge": "VRAGEN?",
@@ -143,6 +147,8 @@
     "mac_address_banner": "Nadat je de app hebt geïnstalleerd, open je deze en zoek je het MAC-adres van je apparaat. Stuur dit naar ons elite ondersteuningsteam via WhatsApp of Live Chat voor directe activering.",
     "download": "Downloaden",
     "search_on_tv": "Zoek op je TV",
+    "downloader_code": "Downloader Code",
+    "all_others": "& Alle andere",
     "android": {
       "name": "ANDROID APPARATEN",
       "step1": "Open de Google Play Store op je apparaat en zoek naar een van de onderstaande apps.",
@@ -202,7 +208,22 @@
     "stat_live": "LIVE KANALEN",
     "stat_vod": "FILMS & SERIES",
     "stat_countries": "LANDEN GEDEKT",
-    "stat_uptime": "SERVER UPTIME"
+    "stat_uptime": "SERVER UPTIME",
+    "regions": {
+      "europe": "Europa",
+      "middle-east": "Midden-Oosten",
+      "asia": "Azië",
+      "latin-america": "Latijns-Amerika",
+      "north-america": "Noord-Amerika",
+      "africa": "Afrika",
+      "oceania": "Oceanië"
+    },
+    "unlock_banner": {
+      "title_part1": "ONTGRENDEL",
+      "title_part2": "VOLLEDIGE TOEGANG",
+      "subtext": "Abonneer nu voor toegang tot meer dan 60.000 premium wereldwijde kanalen in 8K resolutie.",
+      "cta": "Nu aan de slag"
+    }
   },
   "footer": {
     "cta_title_line1": "START JE",
@@ -261,9 +282,27 @@
     "buyer_protection_title": "KOPERSBESCHERMING",
     "buyer_protection_desc": "Toonaangevende 7-dagen geld-terug-garantie. Wij staan achter de kwaliteit van onze streamingervaring."
   },
+  "streaming_apps": {
+    "badge_part1": "PREMIUM",
+    "badge_part2": "APPS",
+    "subtext": "AL JE FAVORIETE DIENSTEN OP ÉÉN PLEK"
+  },
+  "leagues_carousel": {
+    "badge_part1": "ELKE",
+    "badge_part2": "COMPETITIE",
+    "subtext": "ELKE WEDSTRIJD — LIVE & INTERACTIEF"
+  },
   "legal": {
     "privacy_title": "Privacybeleid",
     "refund_title": "Restitutiebeleid",
-    "last_updated": "Laatst bijgewerkt: maart 2024"
+    "last_updated": "Laatst bijgewerkt: maart 2024",
+    "disclaimer_title": "JURIDISCHE DISCLAIMER",
+    "disclaimer_badge": "JURIDISCH CENTRUM",
+    "dmca_title": "DMCA & Inhoudsbeleid",
+    "dmca_text": "Wij hosten, bewaren of distribueren geen media-inhoud. Alle geleverde diensten zijn voor toegang tot inhoud van derden. 8KPRIME respecteert de intellectuele eigendom van anderen en verwacht van zijn gebruikers dat zij hetzelfde doen. Als u van mening bent dat er inbreuk is gemaakt op uw auteursrechtelijk beschermde werk door feeds van derden die via onze service zijn gelinkt, neem dan onmiddellijk contact met ons op.",
+    "terms_title": "SERVICEVOORWAARDEN",
+    "terms_subtitle": "Door onze diensten te bezoeken of te gebruiken, gaat u ermee akkoord gebonden te zijn aan de volgende algemene voorwaarden.",
+    "global_access_title": "Wereldwijde Content Toegang",
+    "global_access_text": "8KPRIME biedt toegang tot streaminginhoud van derden. Wij hosten, bewaren, reproduceren of distribueren geen media-inhoud op onze servers. De service fungeert puur als een kanaal naar wereldwijde premium entertainmentfeeds."
   }
 }

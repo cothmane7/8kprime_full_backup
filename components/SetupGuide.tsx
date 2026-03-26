@@ -96,7 +96,7 @@ export default function SetupGuide({ dictionary }: { dictionary: any }) {
             ],
             brands: [
                 "Samsung", "LG webOS", "Sony", "Hisense", "Philips", "TCL",
-                "Vizio", "Sharp", "Toshiba", "Android TV", "Google TV", "& All Others"
+                "Vizio", "Sharp", "Toshiba", "Android TV", "Google TV", dictionary.all_others
             ]
         },
         {
@@ -354,7 +354,7 @@ export default function SetupGuide({ dictionary }: { dictionary: any }) {
                                                             <div className="p-6 flex flex-col items-center flex-1">
                                                                 <div className="text-[50px] mb-4">{app.icon}</div>
                                                                 <h4 className="text-white font-black text-sm uppercase">{app.name}</h4>
-                                                                <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-2 mb-4">Downloader Code</p>
+                                                                <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-2 mb-4">{dictionary.downloader_code}</p>
                                                             </div>
                                                             <div className="bg-[#2A2000]/30 border-t border-[#B08D3E]/20 py-4 px-4 text-center">
                                                                 <span className="text-[#B08D3E] font-black text-xl tracking-widest drop-shadow-[0_0_8px_rgba(176,141,62,0.4)]">{app.code}</span>
@@ -383,7 +383,7 @@ export default function SetupGuide({ dictionary }: { dictionary: any }) {
                                                             <h4 className="text-white font-bold mb-3">{app.name}</h4>
                                                             {app.code && (
                                                                 <div className="bg-[#2A2000]/50 border border-[#B08D3E]/30 rounded-xl py-2 px-4 mb-3 w-full text-center">
-                                                                    <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest block">Downloader Code</span>
+                                                                    <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest block">{dictionary.downloader_code}</span>
                                                                     <span className="text-[#B08D3E] font-black text-xl tracking-widest drop-shadow-[0_0_8px_rgba(176,141,62,0.4)]">{app.code}</span>
                                                                 </div>
                                                             )}

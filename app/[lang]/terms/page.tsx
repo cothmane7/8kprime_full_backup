@@ -25,13 +25,13 @@ export default async function TermsPage(props: { params: Promise<{ lang: string 
                 <div className="max-w-4xl mx-auto text-center mb-20">
                     <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 px-6 py-2 rounded-full mb-8">
                         <Shield className="w-4 h-4 text-primary" />
-                        <span className="text-white text-xs font-black uppercase tracking-[0.2em]">LEGAL CENTER</span>
+                        <span className="text-white text-xs font-black uppercase tracking-[0.2em]">{dictionary.legal.disclaimer_badge}</span>
                     </div>
                     <h1 className="text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter uppercase italic">
-                        TERMS <span className="text-gradient-premium">OF SERVICE</span>
+                        {dictionary.legal.terms_title.split(' ')[0]} <span className="text-gradient-premium">{dictionary.legal.terms_title.split(' ').slice(1).join(' ')}</span>
                     </h1>
                     <p className="text-gray-400 text-xl font-medium leading-relaxed">
-                        By accessing or using our services, you agree to comply with and be bound by the following terms and conditions.
+                        {dictionary.legal.terms_subtitle}
                     </p>
                 </div>
 
@@ -41,10 +41,10 @@ export default async function TermsPage(props: { params: Promise<{ lang: string 
                             <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center border border-primary/20">
                                 <FileText className="text-primary w-6 h-6" />
                             </div>
-                            <h2 className="text-2xl font-black text-white uppercase tracking-widest">Global Content Access</h2>
+                            <h2 className="text-2xl font-black text-white uppercase tracking-widest">{dictionary.legal.global_access_title}</h2>
                         </div>
                         <p className="text-gray-400 leading-relaxed text-lg font-medium">
-                            8KPRIME provides access to third-party streaming content. We do not host, store, reproduce, or distribute any media content on our servers. The service acts purely as a conduit to global premium entertainment feeds. 
+                            {dictionary.legal.global_access_text}
                         </p>
                     </section>
                 </div>
