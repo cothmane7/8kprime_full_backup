@@ -62,7 +62,7 @@ export default function ComparisonTable({ dictionary }: { dictionary: any }) {
                             <div className="bg-[#1A1A22] border border-white/5 p-3 md:p-4 rounded-2xl mb-3 md:mb-4">
                                 <X className="w-6 h-6 md:w-8 md:h-8 text-gray-300" />
                             </div>
-                            <div className="text-gray-500 font-black uppercase tracking-widest text-xs md:text-sm">
+                            <div className="text-gray-300 font-black uppercase tracking-widest text-xs md:text-sm">
                                 {dictionary.others_name}
                             </div>
                         </div>
