@@ -62,16 +62,19 @@ export default function FloatingActions({ lang }: { lang: string }) {
                             initial={{ opacity: 0, y: 10, scale: 0.9 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 10, scale: 0.9 }}
-                            className="absolute bottom-full mb-4 left-0 glass p-2 rounded-2xl border border-white/10 min-w-[160px] shadow-2xl overflow-hidden z-[70]"
+                            className="absolute bottom-full mb-4 left-0 bg-[#15151A] p-2 rounded-2xl border border-white/20 min-w-[200px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden z-[70] backdrop-blur-md"
                         >
+                            <div className="px-4 py-2 mb-1">
+                                <span className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Select Language</span>
+                            </div>
                             {languages.map((l) => (
                                 <button
                                     key={l.code}
                                     onClick={() => handleLangChange(l.code)}
-                                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-[10px] font-black transition-all hover:bg-white/10 active:scale-95 uppercase tracking-widest ${lang === l.code ? "text-primary bg-primary/5" : "text-gray-200"
+                                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-[11px] font-black transition-all hover:bg-white/10 active:scale-95 uppercase tracking-widest ${lang === l.code ? "text-primary bg-primary/10" : "text-gray-200 hover:text-white"
                                         }`}
                                 >
-                                    <span className="text-base">{l.flag}</span>
+                                    <span className="text-lg">{l.flag}</span>
                                     {l.name}
                                 </button>
                             ))}
@@ -85,11 +88,11 @@ export default function FloatingActions({ lang }: { lang: string }) {
                     transition={{ delay: 1.2, type: "spring" }}
                     onClick={() => setIsLangOpen(!isLangOpen)}
                     whileHover={{ scale: 1.05 }}
-                    className="glass w-14 h-14 rounded-full flex items-center justify-center border border-white/10 shadow-2xl relative group overflow-hidden"
+                    className="bg-[#15151A] w-16 h-16 rounded-full flex items-center justify-center border-2 border-white/10 hover:border-primary/50 shadow-2xl relative group overflow-hidden transition-all duration-300"
                 >
-                    <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <Globe className="w-5 h-5 text-white group-hover:text-primary transition-colors relative z-10" />
-                    <div className="absolute -top-1 -right-1 bg-metallic-gold text-black text-[7px] font-black px-1.5 py-0.5 rounded-full uppercase shadow-lg border border-black/10">
+                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <Globe className="w-6 h-6 text-white group-hover:text-primary transition-colors relative z-10" />
+                    <div className="absolute -top-1 -right-1 bg-primary text-black text-[8px] font-black px-2 py-1 rounded-full uppercase shadow-lg border-2 border-[#15151A] z-20">
                         {lang.toUpperCase()}
                     </div>
                 </motion.button>
