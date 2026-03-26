@@ -30,7 +30,7 @@ export default async function TermsPage(props: { params: Promise<{ lang: string 
                     <h1 className="text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter uppercase italic">
                         {dictionary.legal.terms_title.split(' ')[0]} <span className="text-gradient-premium">{dictionary.legal.terms_title.split(' ').slice(1).join(' ')}</span>
                     </h1>
-                    <p className="text-gray-400 text-xl font-medium leading-relaxed">
+                    <p className="text-gray-200 text-xl font-medium leading-relaxed">
                         {dictionary.legal.terms_subtitle}
                     </p>
                 </div>
@@ -43,7 +43,7 @@ export default async function TermsPage(props: { params: Promise<{ lang: string 
                             </div>
                             <h2 className="text-2xl font-black text-white uppercase tracking-widest">{dictionary.legal.global_access_title}</h2>
                         </div>
-                        <p className="text-gray-400 leading-relaxed text-lg font-medium">
+                        <p className="text-gray-200 leading-relaxed text-lg font-medium">
                             {dictionary.legal.global_access_text}
                         </p>
                     </section>

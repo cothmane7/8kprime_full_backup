@@ -11,13 +11,13 @@ export default function RegisterPage() {
                         IPTV<span className="text-white">PRO</span>
                     </Link>
                     <h1 className="text-2xl font-bold text-white">Create your account</h1>
-                    <p className="text-gray-400 text-sm">Start your 24-hour free trial today.</p>
+                    <p className="text-gray-200 text-sm">Start your 24-hour free trial today.</p>
                 </div>
 
                 <div className="bg-surface rounded-[2.5rem] border border-white/5 p-10 shadow-2xl">
                     <form className="space-y-6">
                         <div className="space-y-2">
-                            <label className="text-xs font-bold text-gray-400 uppercase tracking-widest px-1">Full Name</label>
+                            <label className="text-xs font-bold text-gray-200 uppercase tracking-widest px-1">Full Name</label>
                             <input
                                 type="text"
                                 placeholder="John Doe"
@@ -26,7 +26,7 @@ export default function RegisterPage() {
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-xs font-bold text-gray-400 uppercase tracking-widest px-1">Email Address</label>
+                            <label className="text-xs font-bold text-gray-200 uppercase tracking-widest px-1">Email Address</label>
                             <input
                                 type="email"
                                 placeholder="john@example.com"
@@ -35,7 +35,7 @@ export default function RegisterPage() {
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-xs font-bold text-gray-400 uppercase tracking-widest px-1">Password</label>
+                            <label className="text-xs font-bold text-gray-200 uppercase tracking-widest px-1">Password</label>
                             <input
                                 type="password"
                                 placeholder="••••••••"
@@ -45,7 +45,7 @@ export default function RegisterPage() {
 
                         <div className="flex items-center gap-2 px-1">
                             <input type="checkbox" className="w-4 h-4 rounded border-gray-600 bg-zinc-800 text-primary focus:ring-primary" />
-                            <span className="text-xs text-gray-400">I agree to the <Link href="/terms" className="text-white underline">Terms & Conditions</Link></span>
+                            <span className="text-xs text-gray-200">I agree to the <Link href="/terms" className="text-white underline">Terms & Conditions</Link></span>
                         </div>
 
                         <button className="bg-primary hover:bg-primary-hover text-white w-full py-5 rounded-xl font-bold shadow-xl shadow-primary/20 transition-all">
@@ -54,14 +54,14 @@ export default function RegisterPage() {
                     </form>
 
                     <div className="mt-8 pt-8 border-t border-white/5 text-center">
-                        <p className="text-sm text-gray-400">
+                        <p className="text-sm text-gray-200">
                             Already have an account? <Link href="/login" className="text-white font-bold hover:text-primary transition-colors">Sign In</Link>
                         </p>
                     </div>
                 </div>
 
                 <div className="mt-8 text-center">
-                    <Link href="/" className="text-xs text-gray-500 hover:text-white transition-colors">← Back to Homepage</Link>
+                    <Link href="/" className="text-xs text-gray-300 hover:text-white transition-colors">← Back to Homepage</Link>
                 </div>
             </div>
         </div>

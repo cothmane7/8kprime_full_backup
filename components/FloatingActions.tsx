@@ -68,7 +68,7 @@ export default function FloatingActions({ lang }: { lang: string }) {
                                 <button
                                     key={l.code}
                                     onClick={() => handleLangChange(l.code)}
-                                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-[10px] font-black transition-all hover:bg-white/10 active:scale-95 uppercase tracking-widest ${lang === l.code ? "text-primary bg-primary/5" : "text-gray-400"
+                                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-[10px] font-black transition-all hover:bg-white/10 active:scale-95 uppercase tracking-widest ${lang === l.code ? "text-primary bg-primary/5" : "text-gray-200"
                                         }`}
                                 >
                                     <span className="text-base">{l.flag}</span>

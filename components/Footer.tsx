@@ -36,7 +36,7 @@ export default function Footer({ lang, dictionary, common }: { lang: string; dic
                     <motion.p
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        className="text-gray-400 text-base md:text-xl font-medium mb-10 md:mb-16 max-w-2xl mx-auto"
+                        className="text-gray-200 text-base md:text-xl font-medium mb-10 md:mb-16 max-w-2xl mx-auto"
                     >
                         {dictionary.cta_subtext}
                     </motion.p>
@@ -64,12 +64,12 @@ export default function Footer({ lang, dictionary, common }: { lang: string; dic
                                 PRIME<span className="text-primary">TV</span>
                             </span>
                         </Link>
-                        <p className="text-gray-500 font-medium leading-relaxed">
+                        <p className="text-gray-300 font-medium leading-relaxed">
                             {dictionary.brand_text}
                         </p>
                         <div className="flex items-center gap-4">
                             {[Twitter, Youtube, Instagram].map((Icon, i) => (
-                                <a key={i} href="#" className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-gray-400 hover:text-primary hover:bg-primary/10 transition-all border border-transparent hover:border-primary/20">
+                                <a key={i} href="#" className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-gray-200 hover:text-primary hover:bg-primary/10 transition-all border border-transparent hover:border-primary/20">
                                     <Icon size={20} />
                                 </a>
                             ))}
@@ -88,7 +88,7 @@ export default function Footer({ lang, dictionary, common }: { lang: string; dic
                                 { name: common.faq, href: `/${lang}/#faq` }
                             ].map((link) => (
                                 <li key={link.name}>
-                                    <Link href={link.href} className="text-gray-500 font-bold hover:text-primary transition-colors text-sm uppercase tracking-widest">{link.name}</Link>
+                                    <Link href={link.href} className="text-gray-300 font-bold hover:text-primary transition-colors text-sm uppercase tracking-widest">{link.name}</Link>
                                 </li>
                             ))}
                         </ul>
@@ -107,7 +107,7 @@ export default function Footer({ lang, dictionary, common }: { lang: string; dic
                                 { name: "Disclaimer", href: `/${lang}/disclaimer` }
                             ].map((link) => (
                                 <li key={link.name}>
-                                    <Link href={link.href} className="text-gray-500 font-bold hover:text-primary transition-colors text-sm uppercase tracking-widest">{link.name}</Link>
+                                    <Link href={link.href} className="text-gray-300 font-bold hover:text-primary transition-colors text-sm uppercase tracking-widest">{link.name}</Link>
                                 </li>
                             ))}
                         </ul>
@@ -119,15 +119,15 @@ export default function Footer({ lang, dictionary, common }: { lang: string; dic
                         <ul className="space-y-6">
                             <li className="flex items-start gap-4">
                                 <MapPin className="text-primary shrink-0" size={18} />
-                                <span className="text-gray-500 font-bold text-sm tracking-wide">{dictionary.hq_location}</span>
+                                <span className="text-gray-300 font-bold text-sm tracking-wide">{dictionary.hq_location}</span>
                             </li>
                              <li className="flex items-center gap-4">
                                 <Mail className="text-primary shrink-0" size={18} />
-                                <span className="text-gray-500 font-bold text-sm tracking-wide">infos@8kprime.com</span>
+                                <span className="text-gray-300 font-bold text-sm tracking-wide">infos@8kprime.com</span>
                             </li>
                             <li className="flex items-center gap-4">
                                 <MessageCircle className="text-[#25D366] shrink-0" size={18} />
-                                <a href="https://wa.me/18185656691" target="_blank" rel="noopener noreferrer" className="text-gray-500 font-bold text-sm tracking-wide hover:text-[#25D366] transition-colors">{dictionary.whatsapp_support}</a>
+                                <a href="https://wa.me/18185656691" target="_blank" rel="noopener noreferrer" className="text-gray-300 font-bold text-sm tracking-wide hover:text-[#25D366] transition-colors">{dictionary.whatsapp_support}</a>
                             </li>
                             <li className="flex items-center gap-4 text-green-500">
                                 <Globe className="shrink-0" size={18} />
@@ -142,33 +142,33 @@ export default function Footer({ lang, dictionary, common }: { lang: string; dic
                         <h3 className="text-xl md:text-2xl font-black text-white mb-4 flex items-center gap-3">
                             🎯 🛡️ 7-Day Money Back Guarantee
                         </h3>
-                        <p className="text-gray-400 font-medium mb-8 text-sm md:text-base leading-relaxed">
+                        <p className="text-gray-200 font-medium mb-8 text-sm md:text-base leading-relaxed">
                             We stand behind the quality of our service and want you to feel completely confident in your purchase.
                         </p>
                         
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                             <div className="space-y-3">
                                 <h4 className="text-primary font-bold text-base tracking-wide flex items-center gap-2">✅ 100% Risk-Free</h4>
-                                <p className="text-gray-500 text-sm leading-relaxed font-medium">No Questions Asked</p>
+                                <p className="text-gray-300 text-sm leading-relaxed font-medium">No Questions Asked</p>
                             </div>
                             <div className="space-y-3">
                                 <h4 className="text-white font-bold text-base tracking-wide flex items-center gap-2">7 Days Coverage</h4>
-                                <p className="text-gray-500 text-sm leading-relaxed font-medium">You are eligible for a refund within 7 days from the purchase date.</p>
+                                <p className="text-gray-300 text-sm leading-relaxed font-medium">You are eligible for a refund within 7 days from the purchase date.</p>
                             </div>
                             <div className="space-y-3">
                                 <h4 className="text-white font-bold text-base tracking-wide flex items-center gap-2">Full Refund</h4>
-                                <p className="text-gray-500 text-sm leading-relaxed font-medium">Get 100% of your money back — no hidden fees, no partial refunds.</p>
+                                <p className="text-gray-300 text-sm leading-relaxed font-medium">Get 100% of your money back — no hidden fees, no partial refunds.</p>
                             </div>
                             <div className="space-y-3">
                                 <h4 className="text-white font-bold text-base tracking-wide flex items-center gap-2">Simple Process</h4>
-                                <p className="text-gray-500 text-sm leading-relaxed font-medium">If the service does not work properly, just contact our support team, and we’ll take care of the rest.</p>
+                                <p className="text-gray-300 text-sm leading-relaxed font-medium">If the service does not work properly, just contact our support team, and we’ll take care of the rest.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div className="pt-10 border-t border-white/5 flex flex-col items-center gap-8 md:gap-10 relative z-10">
-                    <p className="text-gray-500 font-bold uppercase tracking-[0.05em] text-[9px] md:text-[10px] text-center max-w-4xl px-4">
+                    <p className="text-gray-300 font-bold uppercase tracking-[0.05em] text-[9px] md:text-[10px] text-center max-w-4xl px-4">
                         We do not host, store, or distribute any media content. All services provided are for access to third-party content.
                     </p>
                     <p className="text-gray-600 font-bold uppercase tracking-[0.1em] text-[10px] md:text-xs text-center max-w-4xl px-4">

@@ -130,7 +130,7 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                         ].map((stat, i) => (
                             <div key={i} className="text-center">
                                 <div className="text-white font-black text-2xl md:text-4xl mb-1.5 tracking-tighter italic">{stat.value}</div>
-                                <div className="text-gray-500 font-bold text-[9px] md:text-[11px] uppercase tracking-[0.25em]">{stat.label}</div>
+                                <div className="text-gray-300 font-bold text-[9px] md:text-[11px] uppercase tracking-[0.25em]">{stat.label}</div>
                             </div>
                         ))}
                     </motion.div>

@@ -35,7 +35,7 @@ export default async function DisclaimerPage(props: { params: Promise<{ lang: st
                 <div className="max-w-4xl mx-auto space-y-12">
                     <section className="glass-premium p-10 rounded-[2.5rem] border border-white/5">
                         <h2 className="text-2xl font-black text-primary uppercase tracking-widest mb-4">{dictionary.legal.dmca_title}</h2>
-                        <p className="text-gray-400 leading-relaxed text-lg font-medium">
+                        <p className="text-gray-200 leading-relaxed text-lg font-medium">
                             {dictionary.legal.dmca_text}
                         </p>
                     </section>

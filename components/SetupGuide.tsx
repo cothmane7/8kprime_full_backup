@@ -206,7 +206,7 @@ export default function SetupGuide({ dictionary }: { dictionary: any }) {
                     <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-4 text-white uppercase italic">
                         {dictionary.title_line1} <span className="text-gradient-premium">{dictionary.title_line2}</span>
                     </h1>
-                    <p className="text-gray-400 text-lg font-medium">
+                    <p className="text-gray-200 text-lg font-medium">
                         {dictionary.subtext}
                     </p>
                 </div>
@@ -234,11 +234,11 @@ export default function SetupGuide({ dictionary }: { dictionary: any }) {
                                     >
                                         <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-all duration-500 ${isActive
                                             ? "bg-primary text-black shadow-lg shadow-primary/30"
-                                            : "bg-[#111115] border border-white/5 text-gray-500 group-hover:text-gray-300"
+                                            : "bg-[#111115] border border-white/5 text-gray-300 group-hover:text-gray-300"
                                             }`}>
                                             <Icon size={20} />
                                         </div>
-                                        <span className={`font-black text-xs ${isActive ? "text-white" : "text-gray-500"} uppercase tracking-widest`}>
+                                        <span className={`font-black text-xs ${isActive ? "text-white" : "text-gray-300"} uppercase tracking-widest`}>
                                             {device.name}
                                         </span>
                                     </button>
@@ -282,7 +282,7 @@ export default function SetupGuide({ dictionary }: { dictionary: any }) {
                                                     <div className="w-10 h-10 rounded-2xl bg-primary/10 border border-primary/30 flex items-center justify-center text-primary font-black shrink-0 mt-1 shadow-[0_0_20px_rgba(176,141,62,0.1)] text-sm italic">
                                                         {index + 1}
                                                     </div>
-                                                    <div className="text-gray-400 font-medium leading-relaxed pt-2 text-[15px]">
+                                                    <div className="text-gray-200 font-medium leading-relaxed pt-2 text-[15px]">
                                                         {step.text}
                                                     </div>
                                                 </div>
@@ -354,7 +354,7 @@ export default function SetupGuide({ dictionary }: { dictionary: any }) {
                                                             <div className="p-6 flex flex-col items-center flex-1">
                                                                 <div className="text-[50px] mb-4">{app.icon}</div>
                                                                 <h4 className="text-white font-black text-sm uppercase">{app.name}</h4>
-                                                                <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-2 mb-4">{dictionary.downloader_code}</p>
+                                                                <p className="text-[10px] text-gray-300 font-bold uppercase tracking-widest mt-2 mb-4">{dictionary.downloader_code}</p>
                                                             </div>
                                                             <div className="bg-[#2A2000]/30 border-t border-[#B08D3E]/20 py-4 px-4 text-center">
                                                                 <span className="text-[#B08D3E] font-black text-xl tracking-widest drop-shadow-[0_0_8px_rgba(176,141,62,0.4)]">{app.code}</span>
@@ -383,7 +383,7 @@ export default function SetupGuide({ dictionary }: { dictionary: any }) {
                                                             <h4 className="text-white font-bold mb-3">{app.name}</h4>
                                                             {app.code && (
                                                                 <div className="bg-[#2A2000]/50 border border-[#B08D3E]/30 rounded-xl py-2 px-4 mb-3 w-full text-center">
-                                                                    <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest block">{dictionary.downloader_code}</span>
+                                                                    <span className="text-[10px] text-gray-300 font-bold uppercase tracking-widest block">{dictionary.downloader_code}</span>
                                                                     <span className="text-[#B08D3E] font-black text-xl tracking-widest drop-shadow-[0_0_8px_rgba(176,141,62,0.4)]">{app.code}</span>
                                                                 </div>
                                                             )}
@@ -406,7 +406,7 @@ export default function SetupGuide({ dictionary }: { dictionary: any }) {
                                         <div className="mt-1 shrink-0 text-primary bg-primary/10 p-3 rounded-2xl border border-primary/20 shadow-lg shadow-primary/5">
                                             <Smartphone size={24} />
                                         </div>
-                                        <p className="text-[15px] text-gray-400 font-medium leading-relaxed">
+                                        <p className="text-[15px] text-gray-200 font-medium leading-relaxed">
                                             {dictionary.mac_address_banner}
                                         </p>
                                     </div>
@@ -425,7 +425,7 @@ export default function SetupGuide({ dictionary }: { dictionary: any }) {
                                                     ) : (
                                                         <Check size={16} className="text-[#10B981] mb-1" />
                                                     )}
-                                                    <span className={`text-[11px] font-bold text-center ${brand === '& All Others' ? 'text-[#E11D48]' : 'text-gray-400'}`}>
+                                                    <span className={`text-[11px] font-bold text-center ${brand === '& All Others' ? 'text-[#E11D48]' : 'text-gray-200'}`}>
                                                         {brand}
                                                     </span>
                                                 </div>

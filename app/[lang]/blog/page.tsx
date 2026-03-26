@@ -17,7 +17,7 @@ export default async function BlogIndex(props: { params: Promise<{ lang: string 
                     <h1 className="text-5xl md:text-7xl font-black text-white mb-6 uppercase tracking-tighter">
                         KNOWLEDGE <span className="text-gradient-premium italic">HUB</span>
                     </h1>
-                    <p className="text-gray-400 text-lg md:text-xl font-medium max-w-2xl mx-auto">
+                    <p className="text-gray-200 text-lg md:text-xl font-medium max-w-2xl mx-auto">
                         Latest guides, troubleshooting tips, and IPTV industry insights to turbocharge your streaming experience.
                     </p>
                 </div>
@@ -29,14 +29,14 @@ export default async function BlogIndex(props: { params: Promise<{ lang: string 
                                 {/* Decorative hover gradient */}
                                 <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                                 
-                                <div className="flex items-center gap-4 text-xs font-bold text-gray-500 uppercase tracking-widest mb-6 relative z-10">
+                                <div className="flex items-center gap-4 text-xs font-bold text-gray-300 uppercase tracking-widest mb-6 relative z-10">
                                     <div className="flex items-center gap-2">
                                         <Calendar size={14} className="text-primary" />
                                         <span>{blog.date}</span>
                                     </div>
                                     <div className="w-1 h-1 rounded-full bg-white/20" />
                                     <div className="flex items-center gap-2">
-                                        <BookOpen size={14} className="text-gray-400" />
+                                        <BookOpen size={14} className="text-gray-200" />
                                         <span>Article</span>
                                     </div>
                                 </div>
@@ -45,7 +45,7 @@ export default async function BlogIndex(props: { params: Promise<{ lang: string 
                                     {blog.title}
                                 </h2>
                                 
-                                <p className="text-gray-400 font-medium leading-relaxed mb-8 flex-grow line-clamp-3 relative z-10">
+                                <p className="text-gray-200 font-medium leading-relaxed mb-8 flex-grow line-clamp-3 relative z-10">
                                     {blog.excerpt}
                                 </p>
                                 

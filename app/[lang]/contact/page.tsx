@@ -21,7 +21,7 @@ export default async function ContactPage(props: {
                     <h1 className="text-5xl md:text-8xl font-black text-white mb-6 leading-none tracking-tighter uppercase">
                         {dictionary.contact.title_part1} <span className="text-primary italic">{dictionary.contact.title_part2}</span>
                     </h1>
-                    <p className="text-gray-400 text-lg md:text-xl font-medium max-w-2xl mx-auto">
+                    <p className="text-gray-200 text-lg md:text-xl font-medium max-w-2xl mx-auto">
                         {dictionary.contact.subtext}
                     </p>
                 </div>
@@ -37,21 +37,21 @@ export default async function ContactPage(props: {
                                 <Clock className="w-8 h-8" />
                             </div>
                             <h4 className="text-xl font-black text-white mb-3">{dictionary.contact.trust_item1_title}</h4>
-                            <p className="text-gray-500 font-bold text-sm">{dictionary.contact.trust_item1_text}</p>
+                            <p className="text-gray-300 font-bold text-sm">{dictionary.contact.trust_item1_text}</p>
                         </div>
                         <div className="bg-[#15151E]/40 border border-white/5 rounded-[40px] p-10 text-center glass-premium">
                             <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-primary">
                                 <ShieldCheck className="w-8 h-8" />
                             </div>
                             <h4 className="text-xl font-black text-white mb-3">{dictionary.contact.trust_item2_title}</h4>
-                            <p className="text-gray-500 font-bold text-sm">{dictionary.contact.trust_item2_text}</p>
+                            <p className="text-gray-300 font-bold text-sm">{dictionary.contact.trust_item2_text}</p>
                         </div>
                         <div className="bg-[#15151E]/40 border border-white/5 rounded-[40px] p-10 text-center glass-premium">
                             <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-primary">
                                 <MessageCircle className="w-8 h-8" />
                             </div>
                             <h4 className="text-xl font-black text-white mb-3">{dictionary.contact.trust_item3_title}</h4>
-                            <p className="text-gray-500 font-bold text-sm">{dictionary.contact.trust_item3_text}</p>
+                            <p className="text-gray-300 font-bold text-sm">{dictionary.contact.trust_item3_text}</p>
                         </div>
                     </div>
                 </div>

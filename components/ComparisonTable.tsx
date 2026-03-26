@@ -45,7 +45,7 @@ export default function ComparisonTable({ dictionary }: { dictionary: any }) {
                         {/* Golden Highlight over our column */}
                         <div className="absolute inset-y-0 left-1/3 w-1/3 bg-gradient-to-b from-primary/10 to-transparent pointer-events-none" />
 
-                        <div className="flex items-center text-gray-500 font-black uppercase tracking-widest text-[10px] md:text-xs">
+                        <div className="flex items-center text-gray-300 font-black uppercase tracking-widest text-[10px] md:text-xs">
                             {dictionary.feature_label}
                         </div>
 
@@ -60,7 +60,7 @@ export default function ComparisonTable({ dictionary }: { dictionary: any }) {
 
                         <div className="flex flex-col items-center opacity-70">
                             <div className="bg-[#1A1A22] border border-white/5 p-3 md:p-4 rounded-2xl mb-3 md:mb-4">
-                                <X className="w-6 h-6 md:w-8 md:h-8 text-gray-500" />
+                                <X className="w-6 h-6 md:w-8 md:h-8 text-gray-300" />
                             </div>
                             <div className="text-gray-500 font-black uppercase tracking-widest text-xs md:text-sm">
                                 {dictionary.others_name}

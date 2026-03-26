@@ -18,7 +18,7 @@ export default function LivePreview({ lang, dictionary }: { lang: string; dictio
                         <h2 className="text-sm font-bold text-primary uppercase tracking-[0.3em] mb-4">{dictionary.badge}</h2>
                         <h3 className="text-3xl md:text-5xl font-extrabold text-white leading-tight">{dictionary.title}</h3>
                     </div>
-                    <p className="text-gray-400 text-sm max-w-xs md:text-right">
+                    <p className="text-gray-200 text-sm max-w-xs md:text-right">
                         {dictionary.subtext}
                     </p>
                 </div>

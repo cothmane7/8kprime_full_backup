@@ -42,7 +42,7 @@ export default function LeaguesCarousel({ dictionary }: { dictionary: any }) {
                         </span>
                         <div className="h-[1px] w-12 md:w-24 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
                     </div>
-                    <p className="text-gray-500 font-bold text-[10px] md:text-xs tracking-[0.4em] uppercase">{dictionary.subtext}</p>
+                    <p className="text-gray-300 font-bold text-[10px] md:text-xs tracking-[0.4em] uppercase">{dictionary.subtext}</p>
                 </div>
             </div>
 

@@ -39,7 +39,7 @@ export default function ThankYouPage() {
                         <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tighter">
                             ORDER <span className="text-gradient-premium">RECEIVED!</span>
                         </h1>
-                        <p className="text-gray-400 text-xl font-medium mb-12 max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-gray-200 text-xl font-medium mb-12 max-w-2xl mx-auto leading-relaxed">
                             Thank you for choosing <span className="text-white font-bold">8KPRIME</span>. Your request has been successfully processed and our deployment team is now setting up your elite access.
                         </p>
                     </motion.div>
@@ -54,7 +54,7 @@ export default function ThankYouPage() {
                         >
                             <Mail className="text-primary w-8 h-8 mb-4" />
                             <h3 className="text-white font-black uppercase tracking-widest text-sm mb-2">Check Your Email</h3>
-                            <p className="text-gray-500 text-sm font-medium leading-relaxed">
+                            <p className="text-gray-300 text-sm font-medium leading-relaxed">
                                 We've sent your login details and a complete setup guide to your inbox. Please check your **spam/junk** folder if you don't see it.
                             </p>
                         </motion.div>
@@ -67,7 +67,7 @@ export default function ThankYouPage() {
                         >
                             <Clock className="text-primary w-8 h-8 mb-4" />
                             <h3 className="text-white font-black uppercase tracking-widest text-sm mb-2">Delivery Time</h3>
-                            <p className="text-gray-500 text-sm font-medium leading-relaxed">
+                            <p className="text-gray-300 text-sm font-medium leading-relaxed">
                                 Your delivery usually takes **2-5 minutes**. We're working fast to get you streaming in record time!
                             </p>
                         </motion.div>
@@ -96,7 +96,7 @@ export default function ThankYouPage() {
                                 <ArrowRight className="group-hover:translate-x-1 transition-transform" />
                             </Link>
 
-                            <div className="flex items-center gap-3 text-gray-500 font-black text-[10px] uppercase tracking-[0.2em]">
+                            <div className="flex items-center gap-3 text-gray-300 font-black text-[10px] uppercase tracking-[0.2em]">
                                 <ShieldCheck size={16} className="text-emerald-500" />
                                 Secure Checkout Completed
                             </div>

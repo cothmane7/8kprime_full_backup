@@ -123,7 +123,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-gray-400 text-base md:text-lg font-medium"
+                        className="text-gray-200 text-base md:text-lg font-medium"
                     >
                         {dictionary.subtext}
                     </motion.p>
@@ -131,7 +131,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
 
                 {/* Device Selector */}
                 <div className="flex flex-col items-center mb-16 md:mb-20 relative z-20">
-                    <p className="text-[10px] md:text-xs text-gray-500 font-black mb-5 uppercase tracking-[0.4em]">{dictionary.device_selector_label}</p>
+                    <p className="text-[10px] md:text-xs text-gray-300 font-black mb-5 uppercase tracking-[0.4em]">{dictionary.device_selector_label}</p>
                     <div className="inline-flex bg-[#0A0A0F] p-1.5 rounded-[3rem] border border-white/10 shadow-2xl relative overflow-hidden">
                         <motion.div 
                             className="absolute inset-y-1.5 rounded-[2.5rem] bg-metallic-gold shadow-[0_0_20px_rgba(212,175,55,0.4)]"
@@ -148,10 +148,10 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                                 onClick={() => setActiveDevices(num)}
                                 className={`relative z-10 w-24 sm:w-32 md:w-40 py-3 md:py-4 rounded-[2.5rem] text-sm md:text-base font-black transition-colors duration-500 flex items-center justify-center gap-2 flex-shrink-0 touch-target ${activeDevices === num
                                     ? "text-black"
-                                    : "text-gray-500 hover:text-white"
+                                    : "text-gray-300 hover:text-white"
                                     }`}
                             >
-                                <Monitor size={16} className={activeDevices === num ? "text-black" : "text-gray-500"} />
+                                <Monitor size={16} className={activeDevices === num ? "text-black" : "text-gray-300"} />
                                 <span className="uppercase tracking-widest">
                                     {num} <span className="hidden sm:inline">{num === 1 ? dictionary.device : dictionary.devices}</span>
                                     <span className="sm:hidden">{num === 1 ? dictionary.dev : dictionary.devs}</span>
@@ -204,7 +204,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
 
                             <div className="space-y-4 mb-10 flex-grow">
                                 {plan.features.map((feature, i) => (
-                                    <div key={i} className="flex items-start gap-3 text-xs md:text-[13px] font-semibold text-gray-400">
+                                    <div key={i} className="flex items-start gap-3 text-xs md:text-[13px] font-semibold text-gray-200">
                                         <div className="mt-0.5">
                                             <feature.icon className="w-4 h-4 text-primary" />
                                         </div>
@@ -238,7 +238,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                                 <ShieldCheck className="w-6 h-6 text-emerald-500" />
                             </div>
                             <h4 className="text-white font-black text-sm uppercase tracking-widest">{common.secure_payment}</h4>
-                            <p className="text-gray-400 text-xs leading-relaxed font-medium">{dictionary.trust_secure_text}</p>
+                            <p className="text-gray-200 text-xs leading-relaxed font-medium">{dictionary.trust_secure_text}</p>
                         </div>
 
                         <div className="flex flex-col items-center text-center gap-3 p-4 md:border-x border-white/5">
@@ -246,7 +246,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                                 <Zap className="w-6 h-6 text-primary" />
                             </div>
                             <h4 className="text-white font-black text-sm uppercase tracking-widest">{common.instant_activation}</h4>
-                            <p className="text-gray-400 text-xs leading-relaxed font-medium">{dictionary.trust_global_text}</p>
+                            <p className="text-gray-200 text-xs leading-relaxed font-medium">{dictionary.trust_global_text}</p>
                         </div>
 
                         <div className="flex flex-col items-center text-center gap-3 p-4">
@@ -254,12 +254,12 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                                 <Clock className="w-6 h-6 text-blue-500" />
                             </div>
                             <h4 className="text-white font-black text-sm uppercase tracking-widest">{common.vip_support}</h4>
-                            <p className="text-gray-400 text-xs leading-relaxed font-medium">{dictionary.trust_multi_text}</p>
+                            <p className="text-gray-200 text-xs leading-relaxed font-medium">{dictionary.trust_multi_text}</p>
                         </div>
                     </div>
 
                     <div className="text-center">
-                        <p className="text-gray-500 font-bold text-xs uppercase tracking-widest">
+                        <p className="text-gray-300 font-bold text-xs uppercase tracking-widest">
                             {dictionary.guarantee}
                         </p>
                     </div>

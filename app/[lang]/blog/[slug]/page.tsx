@@ -26,14 +26,14 @@ export default async function BlogPost(props: { params: Promise<{ lang: string; 
             <article className="container mx-auto px-6 relative z-10 max-w-4xl">
                 <Link 
                     href={`/${params.lang}/blog`}
-                    className="inline-flex items-center gap-2 text-gray-500 hover:text-primary transition-colors font-bold text-xs uppercase tracking-widest mb-12"
+                    className="inline-flex items-center gap-2 text-gray-300 hover:text-primary transition-colors font-bold text-xs uppercase tracking-widest mb-12"
                 >
                     <ArrowLeft size={16} />
                     Back to Knowledge Hub
                 </Link>
 
                 <header className="mb-16">
-                    <div className="flex items-center gap-6 text-sm font-bold text-gray-400 uppercase tracking-widest mb-6">
+                    <div className="flex items-center gap-6 text-sm font-bold text-gray-200 uppercase tracking-widest mb-6">
                         <div className="flex items-center gap-2">
                             <Calendar size={16} className="text-primary" />
                             {blog.date}
@@ -50,7 +50,7 @@ export default async function BlogPost(props: { params: Promise<{ lang: string; 
                 </header>
 
                 <div 
-                    className="max-w-none [&>h2]:text-3xl [&>h2]:md:text-4xl [&>h2]:font-black [&>h2]:text-white [&>h2]:tracking-tighter [&>h2]:mt-16 [&>h2]:mb-8 [&>h3]:text-2xl [&>h3]:font-bold [&>h3]:text-white [&>h3]:mt-10 [&>h3]:mb-4 [&>p]:text-gray-300 [&>p]:text-lg [&>p]:leading-relaxed [&>p]:mb-8 [&>a]:text-primary [&>a]:font-bold [&>a:hover]:underline [&>ul]:text-gray-300 [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:mb-8 [&>ol]:text-gray-300 [&>ol]:list-decimal [&>ol]:pl-6 [&>ol]:mb-8 [&>ul>li]:mb-3 [&>ol>li]:mb-3 [&>strong]:text-white [&>blockquote]:border-l-4 [&>blockquote]:border-primary [&>blockquote]:pl-6 [&>blockquote]:italic [&>blockquote]:text-gray-400 [&>img]:rounded-3xl [&>img]:shadow-2xl [&>img]:shadow-black/50 [&>img]:my-10"
+                    className="max-w-none [&>h2]:text-3xl [&>h2]:md:text-4xl [&>h2]:font-black [&>h2]:text-white [&>h2]:tracking-tighter [&>h2]:mt-16 [&>h2]:mb-8 [&>h3]:text-2xl [&>h3]:font-bold [&>h3]:text-white [&>h3]:mt-10 [&>h3]:mb-4 [&>p]:text-gray-300 [&>p]:text-lg [&>p]:leading-relaxed [&>p]:mb-8 [&>a]:text-primary [&>a]:font-bold [&>a:hover]:underline [&>ul]:text-gray-300 [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:mb-8 [&>ol]:text-gray-300 [&>ol]:list-decimal [&>ol]:pl-6 [&>ol]:mb-8 [&>ul>li]:mb-3 [&>ol>li]:mb-3 [&>strong]:text-white [&>blockquote]:border-l-4 [&>blockquote]:border-primary [&>blockquote]:pl-6 [&>blockquote]:italic [&>blockquote]:text-gray-200 [&>img]:rounded-3xl [&>img]:shadow-2xl [&>img]:shadow-black/50 [&>img]:my-10"
                     dangerouslySetInnerHTML={{ __html: blog.content }}
                 />
 

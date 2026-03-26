@@ -36,7 +36,7 @@ export default async function PrivacyPage(props: {
                     <h1 className="text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter uppercase italic">
                         {dictionary.legal.privacy_title.split(' ')[0]} <span className="text-gradient-premium">{dictionary.legal.privacy_title.split(' ').slice(1).join(' ')}</span>
                     </h1>
-                    <p className="text-gray-400 text-xl font-medium leading-relaxed">
+                    <p className="text-gray-200 text-xl font-medium leading-relaxed">
                         Your privacy is our priority. Learn how 8KPRIME protects your data and ensures a secure streaming experience.
                     </p>
                 </div>
@@ -49,7 +49,7 @@ export default async function PrivacyPage(props: {
                             </div>
                             <h2 className="text-2xl font-black text-white uppercase tracking-widest">Introduction</h2>
                         </div>
-                        <p className="text-gray-400 leading-relaxed text-lg font-medium">
+                        <p className="text-gray-200 leading-relaxed text-lg font-medium">
                             At 8KPRIME, we are committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal information when you use our premium IPTV services. By subscribing to 8KPRIME, you agree to the terms outlined in this policy.
                         </p>
                     </section>
@@ -73,7 +73,7 @@ export default async function PrivacyPage(props: {
                                     </div>
                                     <div>
                                         <h3 className="text-white font-bold mb-1 tracking-wide">{item.title}</h3>
-                                        <p className="text-gray-500 font-medium">{item.desc}</p>
+                                        <p className="text-gray-300 font-medium">{item.desc}</p>
                                     </div>
                                 </div>
                             ))}
@@ -87,7 +87,7 @@ export default async function PrivacyPage(props: {
                             </div>
                             <h2 className="text-2xl font-black text-white uppercase tracking-widest">Data Security</h2>
                         </div>
-                        <p className="text-gray-400 leading-relaxed text-lg font-medium">
+                        <p className="text-gray-200 leading-relaxed text-lg font-medium">
                             We implement military-grade encryption and advanced security protocols to protect your data. Your information is stored on secure servers with restricted access, and all payment transactions are processed through verified, secure gateways.
                         </p>
                     </section>

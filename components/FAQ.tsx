@@ -70,7 +70,7 @@ export default function FAQ({ dictionary }: { dictionary: any }) {
                                 <span className="text-xl font-bold text-white group-hover:text-primary transition-colors tracking-tight">
                                     {faq.question}
                                 </span>
-                                <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${activeIndex === index ? "bg-primary text-white" : "bg-white/5 text-gray-500"
+                                <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${activeIndex === index ? "bg-primary text-white" : "bg-white/5 text-gray-300"
                                     }`}>
                                     {activeIndex === index ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                                 </div>
@@ -84,7 +84,7 @@ export default function FAQ({ dictionary }: { dictionary: any }) {
                                         exit={{ height: 0, opacity: 0 }}
                                         transition={{ duration: 0.3, ease: "easeInOut" }}
                                     >
-                                        <div className="px-8 pb-8 text-gray-400 font-medium leading-relaxed">
+                                        <div className="px-8 pb-8 text-gray-200 font-medium leading-relaxed">
                                             {faq.answer}
                                         </div>
                                     </motion.div>

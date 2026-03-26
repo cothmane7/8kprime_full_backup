@@ -17,7 +17,7 @@ export default async function PricingPage(props: {
                     <h1 className="text-5xl md:text-8xl font-black text-white mb-6 leading-none tracking-tighter uppercase">
                         {dictionary.pricing.hero_title_part1} <span className="text-primary italic">{dictionary.pricing.hero_title_part2}</span>
                     </h1>
-                    <p className="text-gray-400 text-lg md:text-xl font-medium max-w-2xl mx-auto">
+                    <p className="text-gray-200 text-lg md:text-xl font-medium max-w-2xl mx-auto">
                         {dictionary.pricing.hero_subtext}
                     </p>
                 </div>
@@ -31,21 +31,21 @@ export default async function PricingPage(props: {
                                 <Shield className="w-8 h-8" />
                             </div>
                             <h4 className="text-xl font-black text-white mb-3">{dictionary.pricing.trust_secure_title}</h4>
-                            <p className="text-gray-500 font-bold text-sm">{dictionary.pricing.trust_secure_text}</p>
+                            <p className="text-gray-300 font-bold text-sm">{dictionary.pricing.trust_secure_text}</p>
                         </div>
                         <div className="bg-[#15151E]/40 border border-white/5 rounded-[40px] p-10 text-center glass-premium">
                             <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-primary">
                                 <Globe className="w-8 h-8" />
                             </div>
                             <h4 className="text-xl font-black text-white mb-3">{dictionary.pricing.trust_global_title}</h4>
-                            <p className="text-gray-500 font-bold text-sm">{dictionary.pricing.trust_global_text}</p>
+                            <p className="text-gray-300 font-bold text-sm">{dictionary.pricing.trust_global_text}</p>
                         </div>
                         <div className="bg-[#15151E]/40 border border-white/5 rounded-[40px] p-10 text-center glass-premium">
                             <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-primary">
                                 <Monitor className="w-8 h-8" />
                             </div>
                             <h4 className="text-xl font-black text-white mb-3">{dictionary.pricing.trust_multi_title}</h4>
-                            <p className="text-gray-500 font-bold text-sm">{dictionary.pricing.trust_multi_text}</p>
+                            <p className="text-gray-300 font-bold text-sm">{dictionary.pricing.trust_multi_text}</p>
                         </div>
                     </div>
                 </div>

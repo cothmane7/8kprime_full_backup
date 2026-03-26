@@ -45,7 +45,7 @@ export default function MovieGrid({ lang, dictionary }: { lang: string; dictiona
                     </div>
 
                     <div className="flex w-full md:w-auto items-center justify-between md:justify-end gap-6 border-t md:border-t-0 border-white/5 pt-6 md:pt-0 text-right">
-                        <Link href={`/${lang}/channels`} className="text-gray-400 font-black uppercase tracking-widest text-[10px] md:text-xs hover:text-white transition-colors flex items-center gap-2 group touch-target">
+                        <Link href={`/${lang}/channels`} className="text-gray-200 font-black uppercase tracking-widest text-[10px] md:text-xs hover:text-white transition-colors flex items-center gap-2 group touch-target">
                             {dictionary.explore_cta}
                             <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </Link>

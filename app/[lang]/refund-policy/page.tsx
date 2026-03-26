@@ -36,7 +36,7 @@ export default async function RefundPolicyPage(props: {
                     <h1 className="text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter uppercase italic">
                         {dictionary.legal.refund_title.split(' ')[0]} <span className="text-gradient-premium">{dictionary.legal.refund_title.split(' ').slice(1).join(' ')}</span>
                     </h1>
-                    <p className="text-gray-400 text-xl font-medium leading-relaxed">
+                    <p className="text-gray-200 text-xl font-medium leading-relaxed">
                         We stand behind our service. Experience 8KPRIME completely risk-free with our premium protection guarantee.
                     </p>
                 </div>
@@ -49,7 +49,7 @@ export default async function RefundPolicyPage(props: {
                             </div>
                             <div>
                                 <h2 className="text-3xl font-black text-white mb-4 uppercase tracking-tighter italic">7-Day Money-Back Guarantee</h2>
-                                <p className="text-gray-400 text-lg leading-relaxed font-medium">
+                                <p className="text-gray-200 text-lg leading-relaxed font-medium">
                                     Subscription services shouldn't be a gamble. If our service cannot be made to work properly on your device after assistance from our support team, we will provide a <span className="text-white font-bold">full refund</span> within 7 days of your purchase.
                                 </p>
                             </div>
@@ -74,7 +74,7 @@ export default async function RefundPolicyPage(props: {
                             ].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3 group">
                                     <div className="w-2 h-2 bg-primary rounded-full group-hover:scale-150 transition-transform" />
-                                    <span className="text-gray-400 font-bold text-sm tracking-wide group-hover:text-white transition-colors">{item}</span>
+                                    <span className="text-gray-200 font-bold text-sm tracking-wide group-hover:text-white transition-colors">{item}</span>
                                 </li>
                             ))}
                         </ul>
@@ -87,7 +87,7 @@ export default async function RefundPolicyPage(props: {
                             </div>
                             <h2 className="text-2xl font-black text-white uppercase tracking-widest">No-Refund Cases</h2>
                         </div>
-                        <p className="text-gray-500 leading-relaxed font-medium mb-6">
+                        <p className="text-gray-300 leading-relaxed font-medium mb-6">
                             Refunds are generally not available for the following scenarios:
                         </p>
                         <ul className="space-y-4">
@@ -99,7 +99,7 @@ export default async function RefundPolicyPage(props: {
                             ].map((item, i) => (
                                 <li key={i} className="flex items-start gap-4">
                                     <ChevronRight className="w-5 h-5 text-gray-700 mt-1" />
-                                    <span className="text-gray-400 font-medium">{item}</span>
+                                    <span className="text-gray-200 font-medium">{item}</span>
                                 </li>
                             ))}
                         </ul>
@@ -108,7 +108,7 @@ export default async function RefundPolicyPage(props: {
                     <section className="glass-premium p-10 rounded-[2.5rem] border border-white/5 text-center">
                         <HelpCircle className="text-primary w-12 h-12 mx-auto mb-6" />
                         <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-widest">How to Request?</h2>
-                        <p className="text-gray-400 leading-relaxed font-medium mb-8">
+                        <p className="text-gray-200 leading-relaxed font-medium mb-8">
                             Simply contact our elite support team at <span className="text-primary font-bold">vip@8kprime.tv</span> with your order details. We'll handle it within 24 hours.
                         </p>
                     </section>

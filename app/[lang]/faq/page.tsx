@@ -29,7 +29,7 @@ export default async function FAQPage(props: {
                 <h1 className="text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter uppercase italic">
                     {dictionary.faq.title_part1} <span className="text-gradient-premium">{dictionary.faq.title_part2}</span>
                 </h1>
-                <p className="text-gray-400 text-lg md:text-xl font-medium max-w-2xl mx-auto">
+                <p className="text-gray-200 text-lg md:text-xl font-medium max-w-2xl mx-auto">
                     {dictionary.faq.subtext}
                 </p>
             </div>

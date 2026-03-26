@@ -51,7 +51,7 @@ export default function DashboardPage() {
                                     </div>
                                 </div>
                                 <h3 className="text-xl font-black text-white">{user.name}</h3>
-                                <p className="text-gray-500 font-bold text-xs uppercase tracking-widest mt-1">{user.email}</p>
+                                <p className="text-gray-300 font-bold text-xs uppercase tracking-widest mt-1">{user.email}</p>
                             </div>
 
                             <nav className="space-y-2">
@@ -65,7 +65,7 @@ export default function DashboardPage() {
                                         key={i}
                                         className={`w-full flex items-center gap-4 px-6 py-4 rounded-2xl font-bold transition-all ${item.active
                                                 ? "bg-primary text-white shadow-lg shadow-primary/20"
-                                                : item.danger ? "text-red-500 hover:bg-red-500/10" : "text-gray-500 hover:bg-white/5 hover:text-white"
+                                                : item.danger ? "text-red-500 hover:bg-red-500/10" : "text-gray-300 hover:bg-white/5 hover:text-white"
                                             }`}
                                     >
                                         {item.icon}
@@ -95,7 +95,7 @@ export default function DashboardPage() {
                                         <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter leading-none mb-2">
                                             {subscription.plan}
                                         </h2>
-                                        <p className="text-gray-500 font-bold">Renewal Date: {subscription.expiryDate}</p>
+                                        <p className="text-gray-300 font-bold">Renewal Date: {subscription.expiryDate}</p>
                                     </div>
                                     <button className="bg-white text-black px-10 py-5 rounded-3xl font-black text-sm uppercase tracking-widest hover:bg-primary hover:text-white transition-all shadow-xl">
                                         Extend Subscription
@@ -105,17 +105,17 @@ export default function DashboardPage() {
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                     <div className="bg-white/5 rounded-3xl p-8 border border-white/5">
                                         <Calendar className="w-6 h-6 text-primary mb-4" />
-                                        <div className="text-gray-500 text-[10px] font-black uppercase tracking-widest mb-1">Duration</div>
+                                        <div className="text-gray-300 text-[10px] font-black uppercase tracking-widest mb-1">Duration</div>
                                         <div className="text-xl font-black text-white">12 Months</div>
                                     </div>
                                     <div className="bg-white/5 rounded-3xl p-8 border border-white/5">
                                         <Monitor className="w-6 h-6 text-primary mb-4" />
-                                        <div className="text-gray-500 text-[10px] font-black uppercase tracking-widest mb-1">Max Devices</div>
+                                        <div className="text-gray-300 text-[10px] font-black uppercase tracking-widest mb-1">Max Devices</div>
                                         <div className="text-xl font-black text-white">{subscription.devices} Simultaneous</div>
                                     </div>
                                     <div className="bg-white/5 rounded-3xl p-8 border border-white/5">
                                         <Zap className="w-6 h-6 text-primary mb-4" />
-                                        <div className="text-gray-500 text-[10px] font-black uppercase tracking-widest mb-1">Quality</div>
+                                        <div className="text-gray-300 text-[10px] font-black uppercase tracking-widest mb-1">Quality</div>
                                         <div className="text-xl font-black text-white">4K / 8K UHD</div>
                                     </div>
                                 </div>
@@ -132,10 +132,10 @@ export default function DashboardPage() {
                                 <table className="w-full border-collapse">
                                     <thead>
                                         <tr className="border-b border-white/5">
-                                            <th className="py-6 px-4 text-left text-gray-500 text-[10px] font-black uppercase tracking-widest">Order ID</th>
-                                            <th className="py-6 px-4 text-left text-gray-500 text-[10px] font-black uppercase tracking-widest">Date</th>
-                                            <th className="py-6 px-4 text-left text-gray-500 text-[10px] font-black uppercase tracking-widest">Amount</th>
-                                            <th className="py-6 px-4 text-left text-gray-500 text-[10px] font-black uppercase tracking-widest">Status</th>
+                                            <th className="py-6 px-4 text-left text-gray-300 text-[10px] font-black uppercase tracking-widest">Order ID</th>
+                                            <th className="py-6 px-4 text-left text-gray-300 text-[10px] font-black uppercase tracking-widest">Date</th>
+                                            <th className="py-6 px-4 text-left text-gray-300 text-[10px] font-black uppercase tracking-widest">Amount</th>
+                                            <th className="py-6 px-4 text-left text-gray-300 text-[10px] font-black uppercase tracking-widest">Status</th>
                                             <th className="py-6 px-4 text-right"></th>
                                         </tr>
                                     </thead>
@@ -143,7 +143,7 @@ export default function DashboardPage() {
                                         {subscription.orderHistory.map((order) => (
                                             <tr key={order.id} className="border-b border-white/[0.02] hover:bg-white/[0.02] transition-colors">
                                                 <td className="py-6 px-4 text-white font-bold">{order.id}</td>
-                                                <td className="py-6 px-4 text-gray-400 font-medium">{order.date}</td>
+                                                <td className="py-6 px-4 text-gray-200 font-medium">{order.date}</td>
                                                 <td className="py-6 px-4 text-white font-black">{order.amount}</td>
                                                 <td className="py-6 px-4">
                                                     <span className="bg-green-500/10 text-green-500 px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest">

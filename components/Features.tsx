@@ -81,7 +81,7 @@ export default function Features({ dictionary }: { dictionary: any }) {
                             <h3 className="text-xl md:text-2xl font-black text-white mb-3 md:mb-4 tracking-tight uppercase group-hover:text-gold-light transition-colors">
                                 {feature.title}
                             </h3>
-                            <p className="text-gray-400 md:text-gray-300 text-base md:text-lg leading-relaxed font-semibold group-hover:text-white transition-colors">
+                            <p className="text-gray-200 md:text-gray-200 text-base md:text-lg leading-relaxed font-semibold group-hover:text-white transition-colors">
                                 {feature.description}
                             </p>
                         </motion.div>

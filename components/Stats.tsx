@@ -65,7 +65,7 @@ export default function Stats({ dictionary }: { dictionary: any }) {
                             <div className="text-3xl md:text-5xl font-black text-white mb-2 tracking-tighter">
                                 <Counter from={0} to={stat.value} />
                             </div>
-                            <div className="text-[10px] md:text-xs font-black text-gray-500 uppercase tracking-widest">
+                            <div className="text-[10px] md:text-xs font-black text-gray-300 uppercase tracking-widest">
                                 {stat.label}
                             </div>
                         </motion.div>

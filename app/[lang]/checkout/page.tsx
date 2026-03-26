@@ -96,7 +96,7 @@ function CheckoutContent() {
                             <h1 className="text-4xl md:text-6xl font-black text-white mb-4 tracking-tighter">
                                 SECURE <span className="text-gradient-premium">CHECKOUT</span>
                             </h1>
-                            <p className="text-gray-400 font-medium text-lg">
+                            <p className="text-gray-200 font-medium text-lg">
                                 You're moments away from elite entertainment. Complete your details below.
                             </p>
                         </div>
@@ -112,7 +112,7 @@ function CheckoutContent() {
 
                             <div className="space-y-6">
                                 <div className="space-y-2">
-                                    <label className="text-xs font-black text-gray-500 uppercase tracking-widest ml-1">Email Address</label>
+                                    <label className="text-xs font-black text-gray-300 uppercase tracking-widest ml-1">Email Address</label>
                                     <div className="relative group">
                                         <input
                                             type="email"
@@ -137,7 +137,7 @@ function CheckoutContent() {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-xs font-black text-gray-500 uppercase tracking-widest ml-1">Confirm Email</label>
+                                    <label className="text-xs font-black text-gray-300 uppercase tracking-widest ml-1">Confirm Email</label>
                                     <div className="relative group">
                                         <input
                                             type="email"
@@ -163,7 +163,7 @@ function CheckoutContent() {
 
                                 <div className="bg-primary/5 border border-primary/20 p-5 rounded-2xl flex gap-4">
                                     <BadgeCheck className="text-primary w-6 h-6 shrink-0 mt-1" />
-                                    <p className="text-gray-400 text-sm font-medium leading-relaxed">
+                                    <p className="text-gray-200 text-sm font-medium leading-relaxed">
                                         🚀 <span className="text-white font-bold">Important:</span> We'll deliver your subscription credentials and setup instructions to this email immediately after payment.
                                     </p>
                                 </div>
@@ -189,12 +189,12 @@ function CheckoutContent() {
                                             : 'bg-[#111115] border-white/5 hover:border-white/20'
                                             }`}
                                     >
-                                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors ${paymentMethod === opt.id ? 'bg-primary text-black' : 'bg-white/5 text-gray-500 group-hover:text-gray-300'}`}>
+                                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors ${paymentMethod === opt.id ? 'bg-primary text-black' : 'bg-white/5 text-gray-300 group-hover:text-gray-300'}`}>
                                             <opt.icon size={24} />
                                         </div>
                                         <div className="flex-grow">
                                             <div className="text-white font-black uppercase tracking-widest text-sm mb-0.5">{opt.label}</div>
-                                            <div className="text-gray-500 text-xs font-bold">{opt.description}</div>
+                                            <div className="text-gray-300 text-xs font-bold">{opt.description}</div>
                                         </div>
                                         <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${paymentMethod === opt.id ? 'border-primary bg-primary' : 'border-white/10'}`}>
                                             {paymentMethod === opt.id && <CheckCircle2 className="text-black w-4 h-4" />}
@@ -222,7 +222,7 @@ function CheckoutContent() {
                             onClick={handleProceed}
                             disabled={isSubmitting}
                             className={`w-full py-7 rounded-[2rem] font-black text-lg uppercase tracking-widest flex items-center justify-center gap-4 transition-all duration-500 relative overflow-hidden group/btn ${isSubmitting
-                                ? 'bg-gray-800 text-gray-500 cursor-not-allowed'
+                                ? 'bg-gray-800 text-gray-300 cursor-not-allowed'
                                 : 'bg-primary text-black shadow-2xl shadow-primary/30 hover:scale-[1.02] active:scale-95'
                                 }`}
                         >
@@ -263,18 +263,18 @@ function CheckoutContent() {
                                     </div>
                                     <div className="text-white font-black text-2xl">Premium</div>
                                 </div>
-                                <div className="flex justify-between items-center text-gray-400 font-bold">
+                                <div className="flex justify-between items-center text-gray-200 font-bold">
                                     <span>Instant Activation</span>
                                     <span className="text-emerald-500 uppercase text-xs tracking-widest">FREE</span>
                                 </div>
-                                <div className="flex justify-between items-center text-gray-400 font-bold">
+                                <div className="flex justify-between items-center text-gray-200 font-bold">
                                     <span>24/7 VIP Support</span>
                                     <span className="text-emerald-500 uppercase text-xs tracking-widest">INCLUDED</span>
                                 </div>
                             </div>
 
                             <div className="flex justify-between items-end">
-                                <div className="text-gray-500 font-black text-xs uppercase tracking-widest mb-1">Total to Pay</div>
+                                <div className="text-gray-300 font-black text-xs uppercase tracking-widest mb-1">Total to Pay</div>
                                 <div className="text-white font-black text-5xl tracking-tighter">
                                     <span className="text-2xl align-top mt-2 inline-block">€</span>
                                     {plan === '12mo' ? '79.99' : plan === '3mo' ? '39.99' : plan === '6mo' ? '59.99' : '129.99'}
@@ -290,7 +290,7 @@ function CheckoutContent() {
                                 </div>
                                 <div>
                                     <div className="text-white font-black text-xs uppercase tracking-widest mb-0.5">SSL Encrypted Checkout</div>
-                                    <div className="text-gray-500 text-[10px] font-bold uppercase tracking-widest">Bank-level security standards</div>
+                                    <div className="text-gray-300 text-[10px] font-bold uppercase tracking-widest">Bank-level security standards</div>
                                 </div>
                             </div>
                             <div className="flex items-center gap-5 p-6 bg-white/5 rounded-[2rem] border border-white/5">
@@ -299,7 +299,7 @@ function CheckoutContent() {
                                 </div>
                                 <div>
                                     <div className="text-white font-black text-xs uppercase tracking-widest mb-0.5">7-Day Refund Guarantee</div>
-                                    <div className="text-gray-500 text-[10px] font-bold uppercase tracking-widest">No-risk, satisfaction protected</div>
+                                    <div className="text-gray-300 text-[10px] font-bold uppercase tracking-widest">No-risk, satisfaction protected</div>
                                 </div>
                             </div>
                             <div className="text-center pt-4">

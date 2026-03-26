@@ -50,7 +50,7 @@ export default function Navbar({ lang, dictionary }: { lang: string; dictionary:
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-sm xl:text-base font-black text-gray-400 hover:text-primary uppercase tracking-wider transition-all relative group"
+                className="text-sm xl:text-base font-black text-gray-200 hover:text-primary uppercase tracking-wider transition-all relative group"
               >
                 {link.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-gold-light to-primary transition-all group-hover:w-full" />

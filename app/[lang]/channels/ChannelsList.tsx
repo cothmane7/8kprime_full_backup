@@ -115,7 +115,7 @@ export default function ChannelsList({ lang, dictionary, pricingDict }: {
                 <div className="flex flex-col items-center mb-20 text-center">
                     <div className="flex items-center justify-center gap-4 mb-6">
                         <div className="h-[1px] w-12 md:w-24 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
-                        <span className="text-gray-400 font-black text-[10px] md:text-xs tracking-[0.4em] uppercase">{dictionary.badge}</span>
+                        <span className="text-gray-200 font-black text-[10px] md:text-xs tracking-[0.4em] uppercase">{dictionary.badge}</span>
                         <div className="h-[1px] w-12 md:w-24 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
                     </div>
 
@@ -123,7 +123,7 @@ export default function ChannelsList({ lang, dictionary, pricingDict }: {
                         {dictionary.title_part1} <span className="text-gradient-premium">{dictionary.title_part2}</span>
                     </h1>
 
-                    <p className="text-gray-400 text-lg md:text-2xl max-w-3xl font-medium">
+                    <p className="text-gray-200 text-lg md:text-2xl max-w-3xl font-medium">
                         {dictionary.subtext}
                     </p>
                 </div>
@@ -135,7 +135,7 @@ export default function ChannelsList({ lang, dictionary, pricingDict }: {
                             onClick={() => setActiveRegion(region.id)}
                             className={`group relative flex items-center gap-3 px-6 py-4 rounded-xl font-black text-xs uppercase tracking-widest transition-all duration-500 ${activeRegion === region.id
                                 ? "bg-gradient-to-r from-orange-400 to-primary text-black shadow-[0_0_30px_rgba(176,141,62,0.3)] scale-105"
-                                : "bg-[#111115] text-gray-400 border border-white/5 hover:border-white/20"
+                                : "bg-[#111115] text-gray-200 border border-white/5 hover:border-white/20"
                                 }`}
                         >
                             <span className="text-xl">{region.icon}</span>
@@ -180,7 +180,7 @@ export default function ChannelsList({ lang, dictionary, pricingDict }: {
                             <h3 className="text-2xl md:text-3xl font-black text-white mb-4 uppercase italic">
                                 {dictionary.unlock_banner.title_part1} <span className="text-gradient-premium">{dictionary.unlock_banner.title_part2}</span>
                             </h3>
-                            <p className="text-gray-400 font-medium mb-8 max-w-sm mx-auto">
+                            <p className="text-gray-200 font-medium mb-8 max-w-sm mx-auto">
                                 {dictionary.unlock_banner.subtext}
                             </p>
                             <a 
@@ -202,7 +202,7 @@ export default function ChannelsList({ lang, dictionary, pricingDict }: {
                             <div className={`text-3xl md:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r ${stat.color} group-hover:scale-110 transition-transform duration-500`}>
                                 {stat.value}
                             </div>
-                            <div className="text-[10px] md:text-xs font-black text-gray-500 tracking-[0.3em] uppercase">
+                            <div className="text-[10px] md:text-xs font-black text-gray-300 tracking-[0.3em] uppercase">
                                 {stat.label}
                             </div>
                         </div>

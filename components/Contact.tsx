@@ -41,7 +41,7 @@ export default function Contact({ dictionary, common }: { dictionary: any; commo
                                 </div>
                                 <div className="flex flex-col justify-center">
                                     <h4 className="text-white font-black uppercase tracking-widest text-[10px] mb-1">{dictionary.email_us}</h4>
-                                    <p className="text-gray-400 font-bold text-lg md:text-xl group-hover:text-primary transition-colors truncate max-w-[200px] xs:max-w-none">infos@8kprime.com</p>
+                                    <p className="text-gray-200 font-bold text-lg md:text-xl group-hover:text-primary transition-colors truncate max-w-[200px] xs:max-w-none">infos@8kprime.com</p>
                                 </div>
                             </motion.div>
 
@@ -59,7 +59,7 @@ export default function Contact({ dictionary, common }: { dictionary: any; commo
                                 </div>
                                 <div className="flex flex-col justify-center">
                                     <h4 className="text-white font-black uppercase tracking-widest text-[10px] mb-1">{dictionary.whatsapp}</h4>
-                                    <p className="text-gray-400 font-bold text-lg md:text-xl group-hover:text-[#25D366] transition-colors">+1 (818) 565-6691</p>
+                                    <p className="text-gray-200 font-bold text-lg md:text-xl group-hover:text-[#25D366] transition-colors">+1 (818) 565-6691</p>
                                 </div>
                             </motion.a>
 
@@ -74,7 +74,7 @@ export default function Contact({ dictionary, common }: { dictionary: any; commo
                                 </div>
                                 <div>
                                     <h4 className="text-white font-black uppercase tracking-widest text-xs mb-2">{dictionary.response_time}</h4>
-                                    <p className="text-gray-400 font-bold text-xl group-hover:text-primary transition-colors">{dictionary.under_15_mins}</p>
+                                    <p className="text-gray-200 font-bold text-xl group-hover:text-primary transition-colors">{dictionary.under_15_mins}</p>
                                 </div>
                             </motion.div>
                         </div>
@@ -90,7 +90,7 @@ export default function Contact({ dictionary, common }: { dictionary: any; commo
                                     <p className="text-primary font-black text-[10px] uppercase tracking-[0.2em]">{dictionary.trust_subtitle}</p>
                                 </div>
                             </div>
-                            <p className="text-gray-500 font-medium leading-relaxed italic">
+                            <p className="text-gray-300 font-medium leading-relaxed italic">
                                 {dictionary.trust_text}
                             </p>
                         </div>
@@ -104,7 +104,7 @@ export default function Contact({ dictionary, common }: { dictionary: any; commo
                     >
                         <form className="space-y-8">
                             <div className="space-y-4">
-                                <label className="text-gray-500 font-black uppercase tracking-widest text-[10px] ml-4">{dictionary.form_name}</label>
+                                <label className="text-gray-300 font-black uppercase tracking-widest text-[10px] ml-4">{dictionary.form_name}</label>
                                 <input
                                     type="text"
                                     placeholder={dictionary.form_name_placeholder}
@@ -112,7 +112,7 @@ export default function Contact({ dictionary, common }: { dictionary: any; commo
                                 />
                             </div>
                             <div className="space-y-4">
-                                <label className="text-gray-500 font-black uppercase tracking-widest text-[10px] ml-4">{dictionary.form_email}</label>
+                                <label className="text-gray-300 font-black uppercase tracking-widest text-[10px] ml-4">{dictionary.form_email}</label>
                                 <input
                                     type="email"
                                     placeholder={dictionary.form_email_placeholder}
@@ -120,7 +120,7 @@ export default function Contact({ dictionary, common }: { dictionary: any; commo
                                 />
                             </div>
                             <div className="space-y-4">
-                                <label className="text-gray-500 font-black uppercase tracking-widest text-[10px] ml-4">{dictionary.form_message}</label>
+                                <label className="text-gray-300 font-black uppercase tracking-widest text-[10px] ml-4">{dictionary.form_message}</label>
                                 <textarea
                                     placeholder={dictionary.form_message_placeholder}
                                     rows={4}

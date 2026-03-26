@@ -39,7 +39,7 @@ export default function AdminPage() {
                         <h1 className="text-4xl md:text-5xl font-black text-white tracking-tighter leading-none mb-2">
                             ADMIN <span className="text-primary italic">PANEL</span>
                         </h1>
-                        <p className="text-gray-500 font-bold uppercase text-[10px] tracking-widest pl-1">Management Console</p>
+                        <p className="text-gray-300 font-bold uppercase text-[10px] tracking-widest pl-1">Management Console</p>
                     </div>
                     <div className="flex gap-4">
                         <button className="bg-white/5 hover:bg-white/10 text-white px-6 py-3 rounded-2xl font-bold flex items-center gap-2 transition-all border border-white/5">
@@ -66,7 +66,7 @@ export default function AdminPage() {
                             <div className={`${stat.color} w-12 h-12 rounded-2xl flex items-center justify-center text-white mb-6 shadow-xl`}>
                                 {stat.icon}
                             </div>
-                            <div className="text-gray-500 text-[10px] font-black uppercase tracking-widest mb-1">{stat.label}</div>
+                            <div className="text-gray-300 text-[10px] font-black uppercase tracking-widest mb-1">{stat.label}</div>
                             <div className="text-3xl font-black text-white">{stat.value}</div>
                         </motion.div>
                     ))}
@@ -86,7 +86,7 @@ export default function AdminPage() {
                                     placeholder="Search orders..."
                                     className="w-full bg-white/5 border border-white/5 rounded-2xl px-5 py-3 pl-12 text-sm text-white font-bold focus:outline-none focus:border-primary transition-all"
                                 />
-                                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+                                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-300" />
                             </div>
                         </div>
 
@@ -94,11 +94,11 @@ export default function AdminPage() {
                             <table className="w-full">
                                 <thead>
                                     <tr className="border-b border-white/5">
-                                        <th className="pb-6 text-left text-gray-500 text-[10px] font-black uppercase tracking-widest">Order ID</th>
-                                        <th className="pb-6 text-left text-gray-500 text-[10px] font-black uppercase tracking-widest">Customer</th>
-                                        <th className="pb-6 text-left text-gray-500 text-[10px] font-black uppercase tracking-widest">Plan</th>
-                                        <th className="pb-6 text-left text-gray-500 text-[10px] font-black uppercase tracking-widest">Status</th>
-                                        <th className="pb-6 text-right text-gray-500 text-[10px] font-black uppercase tracking-widest">Actions</th>
+                                        <th className="pb-6 text-left text-gray-300 text-[10px] font-black uppercase tracking-widest">Order ID</th>
+                                        <th className="pb-6 text-left text-gray-300 text-[10px] font-black uppercase tracking-widest">Customer</th>
+                                        <th className="pb-6 text-left text-gray-300 text-[10px] font-black uppercase tracking-widest">Plan</th>
+                                        <th className="pb-6 text-left text-gray-300 text-[10px] font-black uppercase tracking-widest">Status</th>
+                                        <th className="pb-6 text-right text-gray-300 text-[10px] font-black uppercase tracking-widest">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody className="divide-y divide-white/[0.02]">
@@ -127,7 +127,7 @@ export default function AdminPage() {
                                                 </div>
                                             </td>
                                             <td className="py-6 text-right">
-                                                <button className="text-gray-500 hover:text-white transition-colors p-2 bg-white/5 rounded-xl">
+                                                <button className="text-gray-300 hover:text-white transition-colors p-2 bg-white/5 rounded-xl">
                                                     <MoreVertical className="w-4 h-4" />
                                                 </button>
                                             </td>
@@ -153,7 +153,7 @@ export default function AdminPage() {
                                     { label: "Stripe Webhook", status: "Healthy", color: "text-green-500" },
                                 ].map((item, i) => (
                                     <div key={i} className="flex items-center justify-between border-b border-white/5 pb-4 last:border-0 last:pb-0">
-                                        <span className="text-gray-400 font-bold text-sm">{item.label}</span>
+                                        <span className="text-gray-200 font-bold text-sm">{item.label}</span>
                                         <span className={`text-[10px] font-black uppercase tracking-widest ${item.color}`}>{item.status}</span>
                                     </div>
                                 ))}
