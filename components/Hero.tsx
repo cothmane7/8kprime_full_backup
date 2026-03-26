@@ -63,11 +63,11 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                         className="flex flex-col items-center text-center mb-8 w-full"
                     >
                         {[
-                            { text: dictionary.title_part1, gold: false, scale: "scale-[1]", size: "text-[clamp(1.3rem,4.8vw,2rem)] md:text-[clamp(2rem,3.8vw,3.2rem)] xl:text-[clamp(2.8rem,3.5vw,3.8rem)]" },
-                            { text: dictionary.title_part2, gold: false, scale: "scale-[0.92]", size: "text-[clamp(1.2rem,4.4vw,1.85rem)] md:text-[clamp(1.85rem,3.5vw,2.9rem)] xl:text-[clamp(2.5rem,3.2vw,3.4rem)]" },
-                            { text: dictionary.title_part3, gold: true, scale: "scale-[0.84]", size: "text-[clamp(1.1rem,4vw,1.7rem)] md:text-[clamp(1.7rem,3.2vw,2.6rem)] xl:text-[clamp(2.2rem,2.9vw,3rem)]" },
-                            { text: dictionary.title_part4, gold: true, scale: "scale-[0.76]", size: "text-[clamp(1rem,3.6vw,1.55rem)] md:text-[clamp(1.55rem,2.9vw,2.3rem)] xl:text-[clamp(2rem,2.6vw,2.6rem)]" },
-                            { text: dictionary.title_part5, gold: true, scale: "scale-[0.68]", size: "text-[clamp(0.9rem,3.2vw,1.4rem)] md:text-[clamp(1.4rem,2.6vw,2rem)] xl:text-[clamp(1.8rem,2.3vw,2.2rem)]" },
+                            { text: dictionary.title_part1, gold: false, scale: "scale-[1]", size: "text-[clamp(1.7rem,5.5vw,2.2rem)] md:text-[clamp(2rem,3.8vw,3.2rem)] xl:text-[clamp(2.8rem,3.5vw,3.8rem)]" },
+                            { text: dictionary.title_part2, gold: false, scale: "scale-[0.92]", size: "text-[clamp(1.55rem,5vw,2rem)] md:text-[clamp(1.85rem,3.5vw,2.9rem)] xl:text-[clamp(2.5rem,3.2vw,3.4rem)]" },
+                            { text: dictionary.title_part3, gold: true, scale: "scale-[0.84]", size: "text-[clamp(1.4rem,4.5vw,1.85rem)] md:text-[clamp(1.7rem,3.2vw,2.6rem)] xl:text-[clamp(2.2rem,2.9vw,3rem)]" },
+                            { text: dictionary.title_part4, gold: true, scale: "scale-[0.76]", size: "text-[clamp(1.25rem,4vw,1.7rem)] md:text-[clamp(1.55rem,2.9vw,2.3rem)] xl:text-[clamp(2rem,2.6vw,2.6rem)]" },
+                            { text: dictionary.title_part5, gold: true, scale: "scale-[0.68]", size: "text-[clamp(1.1rem,3.5vw,1.55rem)] md:text-[clamp(1.4rem,2.6vw,2rem)] xl:text-[clamp(1.8rem,2.3vw,2.2rem)]" },
                         ].map((line, i) => (
                             <motion.span
                                 key={i}
@@ -90,7 +90,7 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.2 }}
-                        className="text-gray-100 text-[17px] md:text-xl lg:text-2xl font-medium mb-12 max-w-2xl mx-auto leading-[1.8] text-balance"
+                        className="text-gray-100 text-[18px] md:text-xl lg:text-2xl font-medium mb-10 max-w-2xl mx-auto leading-[1.8] text-balance"
                     >
                         {dictionary.subtext}
                     </motion.p>
@@ -104,13 +104,13 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                     >
                         <Link 
                             href={`/${lang}/pricing`} 
-                            className="w-full sm:w-auto bg-metallic-gold text-black px-14 py-6 md:px-16 md:py-7 rounded-[2rem] font-extrabold hover:scale-105 active:scale-95 transition-all shadow-[0_0_40px_rgba(212,175,55,0.4),0_0_80px_rgba(212,175,55,0.15)] group/btn relative overflow-hidden flex flex-col items-center justify-center gap-1 border border-yellow-400/30"
+                            className="w-full sm:w-auto bg-metallic-gold text-black px-10 py-4 md:px-14 md:py-5 rounded-[1.5rem] font-extrabold hover:scale-105 active:scale-95 transition-all shadow-[0_0_40px_rgba(212,175,55,0.4),0_0_80px_rgba(212,175,55,0.15)] group/btn relative overflow-hidden flex flex-col items-center justify-center gap-1 border border-yellow-400/30"
                         >
                             {/* Animated shine sweep */}
                             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-200%] group-hover/btn:translate-x-[200%] transition-transform duration-1000" />
                             {/* Pulsing glow ring */}
-                            <div className="absolute inset-0 rounded-[2rem] animate-pulse bg-primary/20 blur-xl -z-10" />
-                            <span className="relative z-10 text-xl md:text-2xl tracking-tight flex items-center gap-3">
+                            <div className="absolute inset-0 rounded-[1.5rem] animate-pulse bg-primary/20 blur-xl -z-10" />
+                            <span className="relative z-10 text-lg md:text-xl tracking-tight flex items-center gap-2">
                                 <PlayCircle className="w-6 h-6 md:w-7 md:h-7" />
                                 {dictionary.cta_main}
                             </span>
