@@ -294,6 +294,17 @@
     "badge_part2": "LIGA",
     "subtext": "JEDES SPIEL — LIVE & INTERAKTIV"
   },
+  "process": {
+    "badge": "SO FUNKTIONIERT'S",
+    "step1_title": "PRODUKT WÄHLEN",
+    "step1_text": "Wählen Sie das Paket, das Sie kaufen möchten",
+    "step2_title": "ZAHLUNG VORNEHMEN",
+    "step2_text": "Schließen Sie den Zahlungsvorgang mit PayPal oder Kreditkarte ab",
+    "step3_title": "ACCOUNT ERHALTEN",
+    "step3_text": "Erhalten Sie Ihre Zugangsdaten per E-Mail/WhatsApp und genießen Sie die 8KPRIME-Dienste.",
+    "step4_title": "IPTV GENIESSEN",
+    "step4_text": "Schauen Sie jetzt alle TV-Kanäle, Filme und Serien auf allen unterstützten Geräten."
+  },
   "legal": {
     "privacy_title": "Datenschutzrichtlinie",
     "refund_title": "Rückerstattungsrichtlinie",

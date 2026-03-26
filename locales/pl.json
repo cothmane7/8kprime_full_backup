@@ -294,6 +294,17 @@
     "badge_part2": "LIGA",
     "subtext": "KAŻDY MECZ — NA ŻYWO I INTERAKTYWNIE"
   },
+  "process": {
+    "badge": "JAK TO DZIAŁA",
+    "step1_title": "WYBIERZ PRODUKT",
+    "step1_text": "Wybierz plan, który chcesz zakupić",
+    "step2_title": "DOKONAJ PŁATNOŚCI",
+    "step2_text": "Dokończ proces płatności za pomocą PayPal lub karty kredytowej",
+    "step3_title": "ODBIERZ KONTO",
+    "step3_text": "Otrzymaj dane do konta przez e-mail/WhatsApp i korzystaj z usług 8KPRIME.",
+    "step4_title": "KORZYSTAJ Z IPTV",
+    "step4_text": "Oglądaj teraz wszystkie kanały TV, filmy i seriale na wszystkich wspieranych urządzeniach."
+  },
   "legal": {
     "privacy_title": "Polityka Prywatności",
     "refund_title": "Polityka Zwrotów",

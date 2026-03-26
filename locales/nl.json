@@ -294,6 +294,17 @@
     "badge_part2": "COMPETITIE",
     "subtext": "ELKE WEDSTRIJD — LIVE & INTERACTIEF"
   },
+  "process": {
+    "badge": "HOE HET WERKT",
+    "step1_title": "KIES UW PRODUCT",
+    "step1_text": "Kies het abonnement dat u wilt kopen",
+    "step2_title": "BETALING UITVOEREN",
+    "step2_text": "Voltooi de betaling met PayPal of een creditcard",
+    "step3_title": "ONTVANG UW ACCOUNT",
+    "step3_text": "Ontvang uw inloggegevens via e-mail/WhatsApp om te genieten van 8KPRIME.",
+    "step4_title": "GENIET VAN UW IPTV",
+    "step4_text": "Bekijk nu alle tv-zenders, films en series op al uw ondersteunde apparaten."
+  },
   "legal": {
     "privacy_title": "Privacybeleid",
     "refund_title": "Restitutiebeleid",

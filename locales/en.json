@@ -296,6 +296,17 @@
     "badge_part2": "LEAGUE",
     "subtext": "EVERY MATCH — LIVE & INTERACTIVE"
   },
+  "process": {
+    "badge": "HOW IT WORKS",
+    "step1_title": "CHOOSE YOUR PRODUCT",
+    "step1_text": "Choose the plan you want to purchase",
+    "step2_title": "MAKE A PAYMENT",
+    "step2_text": "Complete the payment process with PayPal or a credit card",
+    "step3_title": "GET YOUR ACCOUNT",
+    "step3_text": "Receive your account details via Email/WhatsApp to enjoy 8KPRIME subscription services.",
+    "step4_title": "ENJOY YOUR IPTV SERVICE",
+    "step4_text": "Watch all TV channels, Movies & Series now! with all supported devices."
+  },
   "legal": {
     "privacy_title": "Privacy Policy",
     "refund_title": "Refund Policy",
