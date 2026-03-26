@@ -22,7 +22,6 @@ export default async function Home(props: {
   return (
     <div className="flex flex-col min-h-screen bg-[#0B0B0F]">
       <Hero lang={lang} dictionary={dictionary.hero} common={dictionary.common} />
-      <Stats dictionary={dictionary.stats} />
       <Process dictionary={dictionary.process} />
       {/* 
       <MovieGrid lang={lang} dictionary={dictionary.movie_grid} />
