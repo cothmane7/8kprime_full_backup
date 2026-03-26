@@ -73,7 +73,7 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-[clamp(2.5rem,8vw,5rem)] md:text-[clamp(4.5rem,10vw,7.5rem)] xl:text-[8.5rem] font-black text-white leading-[1.05] tracking-tighter mb-8 italic uppercase antialiased"
+                        className="text-[clamp(2.25rem,7vw,3.5rem)] md:text-[clamp(3.5rem,8vw,5.5rem)] xl:text-[clamp(5rem,9vw,6.8rem)] font-black text-white leading-[1.05] tracking-tighter mb-6 italic uppercase antialiased"
                     >
                         {dictionary.title_part1}<br />
                         <span 
