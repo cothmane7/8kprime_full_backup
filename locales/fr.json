@@ -7,7 +7,7 @@
     "devices": "Appareils",
     "faq": "FAQ",
     "contact": "Contact",
-    "get_started": "Commencer",
+    "get_started": "Accès Instantané",
     "view_channels": "Voir les chaînes",
     "explore_catalogue": "Explorer le catalogue",
     "send_message": "Envoyer un message",
@@ -18,15 +18,15 @@
     "multi_device": "Multi-Appareils"
   },
   "hero": {
-    "badge": "Le Gold Standard du Streaming",
-    "title_part1": "TOUT-EN-UN",
-    "title_part2": "PREMIUM",
-    "title_part3": "STREAMING",
-    "title_part4": "SERVICE.",
-    "subtext": "Regardez n'importe quand, n'importe où avec plus de 60 000 chaînes, 160 000 films et séries, les événements sportifs PPV, le tout en un seul endroit.",
-    "trust_guarantee": "Garantie de remboursement de 7 jours",
-    "trust_score_label": "Excellent",
-    "cta_main": "Commencer Maintenant",
+    "badge": "APPROUVÉ PAR 45 000+ ABONNÉS DANS LE MONDE",
+    "title_part1": "60 000+ CHAÎNES EN DIRECT.",
+    "title_part2": "160 000 FILMS.",
+    "title_part3": "UN SEUL",
+    "title_part4": "ABONNEMENT.",
+    "subtext": "Streaming premium sur tous vos appareils — Smart TV, Firestick, Téléphone, Tablette, PC. Qualité 4K/8K cristalline avec technologie anti-freeze. Activation instantanée après paiement.",
+    "trust_guarantee": "Garantie Remboursement 7 Jours",
+    "trust_score_label": "45 000+ Abonnés Actifs",
+    "cta_main": "Voir les Plans — Dès 6,67€/mois",
     "cta_secondary": "VOIR LES CHAÎNES",
     "stat_resolution": "RÉSOLUTION",
     "stat_resolution_val": "8K UHD",
@@ -81,22 +81,32 @@
     "best_value": "Meilleure Valeur",
     "max_savings": "Économies Maximales",
     "lock_in_savings": "Bloquez vos économies",
-    "cta_subscribe": "S'abonner maintenant"
+    "cta_subscribe": "Accès Instantané",
+    "per_month": "/mois",
+    "regular_price": "Régulier"
   },
   "faq": {
     "badge": "DES QUESTIONS ?",
     "title_part1": "FOIRE AUX",
     "title_part2": "QUESTIONS",
-    "subtext": "Tout ce que vous devez savoir sur notre service de streaming d'élite.",
+    "subtext": "Tout ce que vous devez savoir avant de vous abonner.",
     "items": {
-      "q1": "Qu'est-ce que 8KPRIME ?",
-      "a1": "8KPRIME est un service de streaming premium offrant plus de 60 000 chaînes en direct et 160 000+ VODs en résolution allant jusqu'à 8K.",
+      "q1": "Qu'est-ce que 8KPRIME et comment ça marche ?",
+      "a1": "8KPRIME est un service de streaming premium qui diffuse plus de 60 000 chaînes en direct et 160 000+ films et séries directement sur votre appareil via une connexion internet. Pas besoin de parabole — choisissez un forfait, payez et regardez en quelques minutes.",
       "q2": "Quels appareils sont pris en charge ?",
-      "a2": "Nous prenons en charge tous les appareils, y compris Firestick, Android TV, Smart TV (Samsung/LG), iOS, Windows et MacOS.",
-      "q3": "Combien de temps prend l'activation ?",
-      "a3": "L'activation est généralement instantanée après le paiement. Notre équipe vous enverra vos identifiants immédiatement.",
-      "q4": "Proposez-vous un remboursement ?",
-      "a4": "Oui, nous offrons une garantie de remboursement de 7 jours si vous n'êtes pas satisfait du service."
+      "a2": "Nous prenons en charge pratiquement tous les appareils : Smart TV (Samsung, LG, Sony), Amazon Firestick, Android TV, Apple TV, iPhone, iPad, appareils Android, PC Windows, Mac et boîtiers MAG/Formuler.",
+      "q3": "En combien de temps reçois-je l'accès après paiement ?",
+      "a3": "L'activation est instantanée. Après paiement, vous recevez vos identifiants et instructions par email en 2 à 5 minutes.",
+      "q4": "Mon paiement est-il sécurisé ?",
+      "a4": "Absolument. Nous utilisons un checkout crypté SSL avec sécurité bancaire. Nous acceptons PayPal (avec protection acheteur), cartes de crédit et cryptomonnaie.",
+      "q5": "Que se passe-t-il si je ne suis pas satisfait ? Puis-je obtenir un remboursement ?",
+      "a5": "Oui. Nous offrons une garantie de remboursement de 7 jours sans questions. Si le service ne correspond pas à vos attentes, contactez notre équipe pour un remboursement intégral.",
+      "q6": "Y a-t-il des frais cachés ou des renouvellements automatiques ?",
+      "a6": "Aucun frais caché. Le prix affiché est le prix que vous payez. Votre abonnement ne se renouvelle pas automatiquement.",
+      "q7": "Puis-je utiliser un abonnement sur plusieurs appareils ?",
+      "a7": "Oui ! Vous choisissez le nombre de connexions simultanées lors de l'abonnement — 1, 2, 3 ou 4 appareils. Chaque appareil peut streamer indépendamment.",
+      "q8": "Quels pays et chaînes sont couverts ?",
+      "a8": "Nous couvrons 115+ pays avec des chaînes de chaque grande région : Europe, Amérique du Nord, Moyen-Orient, Asie, Afrique, Amérique latine et Océanie."
     }
   },
   "contact": {
@@ -232,7 +242,7 @@
     "cta_title_line2": "VOYAGE",
     "cta_title_line3": "D'OR",
     "cta_subtext": "Rejoignez plus de 45 000 clients satisfaits et découvrez le standard d'élite du divertissement mondial.",
-    "cta_button": "RÉCLAMEZ VOTRE PASS VIP",
+    "cta_button": "Accès Instantané",
     "brand_text": "Le standard d'or de l'expérience streaming premium. Qualité cinématographique 4K/8K partout.",
     "nav_title": "NAVIGATION",
     "support_title": "SUPPORT",
@@ -326,5 +336,28 @@
     "terms_subtitle": "En accédant à nos services ou en les utilisant, vous acceptez de vous conformer aux conditions générales suivantes.",
     "global_access_title": "Accès au contenu mondial",
     "global_access_text": "8KPRIME donne accès à des contenus en streaming de tiers. Nous n'hébergeons, ne stockons, ne reproduisons ni ne distribuons aucun contenu multimédia sur nos serveurs. Le service agit purement comme un conduit vers les flux de divertissement premium mondiaux."
+  },
+  "social_proof": {
+    "subscribers": "Abonnés Actifs",
+    "channels": "Chaînes en Direct",
+    "uptime": "Disponibilité Serveur",
+    "since": "Confiance depuis"
+  },
+  "testimonials": {
+    "badge": "CE QUE DISENT NOS ABONNÉS",
+    "title_part1": "VRAIS UTILISATEURS.",
+    "title_part2": "VRAIS RÉSULTATS.",
+    "t1_name": "Mark T.",
+    "t1_country": "Allemagne",
+    "t1_text": "J'ai changé de fournisseur il y a 6 mois — la différence de qualité est incroyable. Zéro mise en mémoire tampon même pendant les soirées de Ligue des Champions.",
+    "t2_name": "Sophie L.",
+    "t2_country": "France",
+    "t2_text": "J'étais sceptique au début, mais la garantie de 7 jours m'a convaincue d'essayer. Maintenant toute la famille l'utilise au quotidien. La sélection de chaînes est énorme.",
+    "t3_name": "James R.",
+    "t3_country": "Royaume-Uni",
+    "t3_text": "L'installation a pris moins de 5 minutes sur mon Firestick. Le support a répondu instantanément sur WhatsApp. Je l'ai depuis un an — je ne reviendrais jamais au câble.",
+    "t4_name": "Anna K.",
+    "t4_country": "Pologne",
+    "t4_text": "Enfin un service qui fonctionne vraiment sans geler. Je regarde des chaînes polonaises à l'étranger et la qualité est parfaite."
   }
 }

@@ -200,6 +200,19 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                                         <span className="text-xl md:text-2xl font-black text-white">.{calculatePrice(plan.price).split('.')[1]}</span>
                                     </div>
                                 </div>
+
+                                {/* Per-month price breakdown */}
+                                <div className="mt-3 flex flex-col gap-1">
+                                    {plan.months > 3 && (
+                                        <div className="text-gray-500 text-xs font-bold">
+                                            <span>{dictionary.regular_price}: </span>
+                                            <span className="line-through">€{(17.99 * activeDevices * (activeDevices > 1 ? 0.75 : 1)).toFixed(2)}{dictionary.per_month}</span>
+                                        </div>
+                                    )}
+                                    <div className={`text-sm font-extrabold tracking-tight ${plan.isPopular ? 'text-primary' : 'text-primary/80'}`}>
+                                        €{(parseFloat(calculatePrice(plan.price)) / plan.months).toFixed(2)}{dictionary.per_month}
+                                    </div>
+                                </div>
                             </div>
 
                             <div className="space-y-4 mb-10 flex-grow">

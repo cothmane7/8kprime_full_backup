@@ -7,7 +7,7 @@
     "devices": "Apparaten",
     "faq": "Veelgestelde vragen",
     "contact": "Contact",
-    "get_started": "Aan de slag",
+    "get_started": "Direct Toegang",
     "view_channels": "Bekijk kanalen",
     "explore_catalogue": "Verken catalogus",
     "send_message": "Bericht versturen",
@@ -18,15 +18,15 @@
     "multi_device": "Multi-apparaat"
   },
   "hero": {
-    "badge": "De Gouden Standaard van Streaming",
-    "title_part1": "ALLES-IN-ÉÉN",
-    "title_part2": "PREMIUM",
-    "title_part3": "STREAMING",
-    "title_part4": "SERVICE.",
-    "subtext": "Kijk altijd en overal met meer dan 60.000 zenders, 160.000 films en series, PPV-sportevenementen, alles op één plek.",
-    "trust_guarantee": "7 dagen geld-terug-garantie",
-    "trust_score_label": "Uitstekend",
-    "cta_main": "Start Nu",
+    "badge": "VERTROUWD DOOR 45.000+ ABONNEES WERELDWIJD",
+    "title_part1": "60.000+ LIVE KANALEN.",
+    "title_part2": "160.000 FILMS.",
+    "title_part3": "EÉN",
+    "title_part4": "ABONNEMENT.",
+    "subtext": "Premium streaming op elk apparaat — Smart TV, Firestick, Telefoon, Tablet, PC. Kristalheldere 4K/8K-kwaliteit met anti-freeze technologie. Directe activering na betaling.",
+    "trust_guarantee": "7 Dagen Geld-Terug-Garantie",
+    "trust_score_label": "45.000+ Actieve Abonnees",
+    "cta_main": "Bekijk Plannen — Vanaf €6,67/mnd",
     "cta_secondary": "BEKIJK KANALEN",
     "stat_resolution": "RESOLUTIE",
     "stat_resolution_val": "8K UHD",
@@ -81,22 +81,32 @@
     "best_value": "Beste Waarde",
     "max_savings": "Maximale Besparing",
     "lock_in_savings": "Zet besparing vast",
-    "cta_subscribe": "Nu abonneren"
+    "cta_subscribe": "Direct Toegang",
+    "per_month": "/mnd",
+    "regular_price": "Normaal"
   },
   "faq": {
     "badge": "VRAGEN?",
     "title_part1": "VEELGESTELDE",
     "title_part2": "VRAGEN",
-    "subtext": "Alles wat je moet weten over onze elite streamingservice.",
+    "subtext": "Alles wat je moet weten voordat je abonneert.",
     "items": {
-      "q1": "Wat is 8KPRIME?",
-      "a1": "8KPRIME is een premium streaming-service die meer dan 60.000 live kanalen en 160.000+ VOD's aanbiedt in resoluties tot 8K.",
+      "q1": "Wat is 8KPRIME en hoe werkt het?",
+      "a1": "8KPRIME is een premium streamingdienst met 60.000+ live kanalen en 160.000+ films en series rechtstreeks op je apparaat via een internetverbinding. Geen schotel nodig — kies gewoon een plan, betaal en kijk binnen enkele minuten.",
       "q2": "Welke apparaten worden ondersteund?",
-      "a2": "We ondersteunen alle apparaten, inclusief Firestick, Android TV, Smart TV's (Samsung/LG), iOS, Windows en MacOS.",
-      "q3": "Hoe lang duurt de activering?",
-      "a3": "Activering is meestal direct na betaling. Ons team stuurt je inloggegevens onmiddellijk toe.",
-      "q4": "Bieden jullie een terugbetaling aan?",
-      "a4": "Ja, we bieden een 7-dagen geld-terug-garantie als je niet tevreden bent met de service."
+      "a2": "We ondersteunen vrijwel elk apparaat: Smart TV's (Samsung, LG, Sony), Amazon Firestick, Android TV, Apple TV, iPhone, iPad, Android-apparaten, Windows PC, Mac en MAG/Formuler-boxen.",
+      "q3": "Hoe snel krijg ik toegang na betaling?",
+      "a3": "Activering is direct. Na betaling ontvang je je inloggegevens en installatie-instructies per e-mail binnen 2-5 minuten.",
+      "q4": "Is mijn betaling veilig?",
+      "a4": "Absoluut. We gebruiken SSL-versleutelde checkout met beveiliging op bankniveau. We accepteren PayPal (met kopersbescherming), creditcards en cryptocurrency.",
+      "q5": "Wat als ik niet tevreden ben? Kan ik een terugbetaling krijgen?",
+      "a5": "Ja. We bieden een 7-dagen geld-terug-garantie zonder vragen. Als de service niet aan je verwachtingen voldoet, neem contact op met ons supportteam voor een volledige terugbetaling.",
+      "q6": "Zijn er verborgen kosten of automatische verlengingen?",
+      "a6": "Geen verborgen kosten, nooit. De prijs die je ziet is de prijs die je betaalt. Je abonnement wordt niet automatisch verlengd.",
+      "q7": "Kan ik één abonnement op meerdere apparaten gebruiken?",
+      "a7": "Ja! Je kiest het aantal gelijktijdige verbindingen bij het abonneren — 1, 2, 3 of 4 apparaten. Elk apparaat kan onafhankelijk tegelijkertijd streamen.",
+      "q8": "Welke landen en kanalen worden gedekt?",
+      "a8": "We dekken 115+ landen met kanalen uit elke grote regio: Europa, Noord-Amerika, Midden-Oosten, Azië, Afrika, Latijns-Amerika en Oceanië."
     }
   },
   "contact": {
@@ -232,7 +242,7 @@
     "cta_title_line2": "GOUDEN",
     "cta_title_line3": "REIS",
     "cta_subtext": "Sluit je aan bij 45.000+ tevreden klanten en ervaar de elite standaard in wereldwijd entertainment.",
-    "cta_button": "CLAIM JE VIP PASS",
+    "cta_button": "Direct Toegang",
     "brand_text": "De gouden standaard in premium streaming-ervaring. Filmische 4K/8K-kwaliteit overal.",
     "nav_title": "NAVIGATIE",
     "support_title": "ONDERSTEUNING",
@@ -326,5 +336,28 @@
     "terms_subtitle": "Door onze diensten te bezoeken of te gebruiken, gaat u ermee akkoord gebonden te zijn aan de volgende algemene voorwaarden.",
     "global_access_title": "Wereldwijde Content Toegang",
     "global_access_text": "8KPRIME biedt toegang tot streaminginhoud van derden. Wij hosten, bewaren, reproduceren of distribueren geen media-inhoud op onze servers. De service fungeert puur als een kanaal naar wereldwijde premium entertainmentfeeds."
+  },
+  "social_proof": {
+    "subscribers": "Actieve Abonnees",
+    "channels": "Live Kanalen",
+    "uptime": "Server Uptime",
+    "since": "Vertrouwd sinds"
+  },
+  "testimonials": {
+    "badge": "WAT ONZE ABONNEES ZEGGEN",
+    "title_part1": "ECHTE GEBRUIKERS.",
+    "title_part2": "ECHTE RESULTATEN.",
+    "t1_name": "Mark T.",
+    "t1_country": "Duitsland",
+    "t1_text": "6 maanden geleden overgestapt van mijn oude provider — het kwaliteitsverschil is ongelooflijk. Nul buffering, zelfs tijdens Champions League-avonden.",
+    "t2_name": "Sophie L.",
+    "t2_country": "Frankrijk",
+    "t2_text": "Ik was eerst sceptisch, maar de 7-dagengarantie overtuigde me om het te proberen. Nu gebruikt het hele gezin het dagelijks.",
+    "t3_name": "James R.",
+    "t3_country": "Verenigd Koninkrijk",
+    "t3_text": "De installatie op mijn Firestick duurde minder dan 5 minuten. De support reageerde direct op WhatsApp. Ik heb het nu een jaar — zou nooit meer teruggaan naar kabel.",
+    "t4_name": "Anna K.",
+    "t4_country": "Polen",
+    "t4_text": "Eindelijk een dienst die echt werkt zonder te bevriezen. Ik kijk Poolse kanalen in het buitenland en de kwaliteit is perfect."
   }
 }

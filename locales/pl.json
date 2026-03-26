@@ -7,7 +7,7 @@
     "devices": "Urządzenia",
     "faq": "Częste pytania",
     "contact": "Kontakt",
-    "get_started": "Zacznij teraz",
+    "get_started": "Uzyskaj Dostęp",
     "view_channels": "Zobacz kanały",
     "explore_catalogue": "Eksploruj katalog",
     "send_message": "Wyślij wiadomość",
@@ -18,15 +18,15 @@
     "multi_device": "Wiele urządzeń"
   },
   "hero": {
-    "badge": "Złoty standard streamingu",
-    "title_part1": "KOMPLEKSOWA",
-    "title_part2": "PREMIUM",
-    "title_part3": "USŁUGA",
-    "title_part4": "STREAMINGU.",
-    "subtext": "Oglądaj zawsze i wszędzie – ponad 60 000 kanałów, 160 000 filmów i seriali, wydarzenia sportowe PPV, wszystko w jednym miejscu.",
-    "trust_guarantee": "7-dniowa gwarancja zwrotu pieniędzy",
-    "trust_score_label": "Doskonale",
-    "cta_main": "Rozpocznij Teraz",
+    "badge": "ZAUFANY PRZEZ 45 000+ SUBSKRYBENTÓW NA ŚWIECIE",
+    "title_part1": "60 000+ KANAŁÓW NA ŻYWO.",
+    "title_part2": "160 000 FILMÓW.",
+    "title_part3": "JEDEN",
+    "title_part4": "ABONAMENT.",
+    "subtext": "Premium streaming na każdym urządzeniu — Smart TV, Firestick, Telefon, Tablet, PC. Krystalicznie czysta jakość 4K/8K z technologią anti-freeze. Natychmiastowa aktywacja po płatności.",
+    "trust_guarantee": "7-Dniowa Gwarancja Zwrotu",
+    "trust_score_label": "45 000+ Aktywnych Subskrybentów",
+    "cta_main": "Zobacz Plany — Od 6,67€/mies.",
     "cta_secondary": "ZOBACZ KANAŁY",
     "stat_resolution": "ROZDZIELCZOŚĆ",
     "stat_resolution_val": "8K UHD",
@@ -81,22 +81,32 @@
     "best_value": "Najlepsza wartość",
     "max_savings": "Maksymalne oszczędności",
     "lock_in_savings": "Zablokuj oszczędności",
-    "cta_subscribe": "Subskrybuj teraz"
+    "cta_subscribe": "Uzyskaj Dostęp",
+    "per_month": "/mies.",
+    "regular_price": "Regularnie"
   },
   "faq": {
     "badge": "MASZ PYTANIA?",
     "title_part1": "NAJCZĘŚCIEJ ZADAWANE",
     "title_part2": "PYTANIA",
-    "subtext": "Wszystko, co musisz wiedzieć o naszej elitarnej usłudze streamingu.",
+    "subtext": "Wszystko, co musisz wiedzieć przed subskrypcją.",
     "items": {
-      "q1": "Czym jest 8KPRIME?",
-      "a1": "8KPRIME to usługa streamingu premium oferująca ponad 60 000 kanałów na żywo i 160 000+ VOD w rozdzielczości do 8K.",
+      "q1": "Czym jest 8KPRIME i jak działa?",
+      "a1": "8KPRIME to usługa streamingu premium dostarczająca ponad 60 000 kanałów na żywo i 160 000+ filmów i seriali bezpośrednio na Twoje urządzenie. Bez anteny satelitarnej — po prostu wybierz plan, zapłać i oglądaj w kilka minut.",
       "q2": "Które urządzenia są obsługiwane?",
-      "a2": "Obsługujemy wszystkie urządzenia, w tym Firestick, Android TV, Smart TV (Samsung/LG), iOS, Windows i MacOS.",
-      "q3": "Ile czasu trwa aktywacja?",
-      "a3": "Aktywacja następuje zazwyczaj natychmiast po dokonaniu płatności. Nasz zespół niezwłocznie wyśle Twoje dane logowania.",
-      "q4": "Czy oferujecie zwrot pieniędzy?",
-      "a4": "Tak, oferujemy 7-dniową gwarancję zwrotu pieniędzy, jeśli nie będziesz zadowolony z usługi."
+      "a2": "Obsługujemy praktycznie każde urządzenie: Smart TV (Samsung, LG, Sony), Amazon Firestick, Android TV, Apple TV, iPhone, iPad, urządzenia Android, PC Windows, Mac i boxy MAG/Formuler.",
+      "q3": "Jak szybko uzyskam dostęp po płatności?",
+      "a3": "Aktywacja jest natychmiastowa. Po płatności otrzymasz dane logowania i instrukcje konfiguracji e-mailem w ciągu 2-5 minut.",
+      "q4": "Czy moja płatność jest bezpieczna?",
+      "a4": "Absolutnie. Korzystamy z szyfrowanego SSL checkout z zabezpieczeniem na poziomie bankowym. Akceptujemy PayPal (z ochroną kupującego), karty kredytowe i kryptowaluty.",
+      "q5": "Co jeśli nie będę zadowolony? Czy mogę uzyskać zwrot?",
+      "a5": "Tak. Oferujemy 7-dniową gwarancję zwrotu pieniędzy bez pytań. Jeśli usługa nie spełni Twoich oczekiwań, skontaktuj się z nami po pełny zwrot.",
+      "q6": "Czy są ukryte opłaty lub automatyczne przedłużenia?",
+      "a6": "Żadnych ukrytych opłat. Cena którą widzisz to cena którą płacisz. Twój abonament nie jest automatycznie odnawiany.",
+      "q7": "Czy mogę używać jednego abonamentu na wielu urządzeniach?",
+      "a7": "Tak! Wybierasz liczbę jednoczesnych połączeń podczas subskrypcji — 1, 2, 3 lub 4 urządzenia. Każde urządzenie może streamować niezależnie.",
+      "q8": "Jakie kraje i kanały są objęte?",
+      "a8": "Obejmujemy 115+ krajów z kanałami z każdego ważnego regionu: Europa, Ameryka Północna, Bliski Wschód, Azja, Afryka, Ameryka Łacińska i Oceania."
     }
   },
   "contact": {
@@ -232,7 +242,7 @@
     "cta_title_line2": "ZŁOTĄ",
     "cta_title_line3": "PODRÓŻ",
     "cta_subtext": "Dołącz do 45 000+ zadowolonych klientów i poznaj elitarny standard w globalnej rozrywce.",
-    "cta_button": "ODBIERZ SWÓJ PASS VIP",
+    "cta_button": "Uzyskaj Dostęp",
     "brand_text": "Złoty standard w doświadczeniu premium streamingu. Kinowa jakość 4K/8K wszędzie.",
     "nav_title": "NAWIGACJA",
     "support_title": "WSPARCIE",
@@ -326,5 +336,28 @@
     "terms_subtitle": "Uzyskując dostęp do naszych usług lub korzystając z nich, zgadzasz się przestrzegać poniższych warunków.",
     "global_access_title": "Globalny dostęp do treści",
     "global_access_text": "8KPRIME zapewnia dostęp do treści streamingowych osób trzecich. Nie hostujemy, nie przechowujemy, nie reprodukujemy ani nie rozpowszechniamy żadnych treści multimedialnych na naszych serwerach. Usługa działa wyłącznie jako pośrednik w dostępie do globalnych kanałów rozrywki premium."
+  },
+  "social_proof": {
+    "subscribers": "Aktywni Subskrybenci",
+    "channels": "Kanały na Żywo",
+    "uptime": "Niezawodność Serwerów",
+    "since": "Zaufanie od"
+  },
+  "testimonials": {
+    "badge": "CO MÓWIĄ NASI SUBSKRYBENCI",
+    "title_part1": "PRAWDZIWI UŻYTKOWNICY.",
+    "title_part2": "PRAWDZIWE WYNIKI.",
+    "t1_name": "Mark T.",
+    "t1_country": "Niemcy",
+    "t1_text": "Przesiadłem się z starego dostawcy 6 miesięcy temu — różnica jakości jest niesamowita. Zero buforowania, nawet podczas wieczorów Ligi Mistrzów.",
+    "t2_name": "Sophie L.",
+    "t2_country": "Francja",
+    "t2_text": "Początkowo byłam sceptyczna, ale 7-dniowa gwarancja przekonała mnie. Teraz cała rodzina używa tego codziennie. Wybór kanałów jest ogromny.",
+    "t3_name": "James R.",
+    "t3_country": "Wielka Brytania",
+    "t3_text": "Konfiguracja na moim Firesticku zajęła mniej niż 5 minut. Support odpowiedział natychmiast na WhatsApp. Mam to od roku — nigdy nie wróciłbym do kabla.",
+    "t4_name": "Anna K.",
+    "t4_country": "Polska",
+    "t4_text": "W końcu usługa, która naprawdę działa bez zacinania. Oglądam polskie kanały za granicą i jakość jest idealna."
   }
 }

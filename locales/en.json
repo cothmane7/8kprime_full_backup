@@ -7,7 +7,7 @@
     "devices": "Devices",
     "faq": "FAQ",
     "contact": "Contact",
-    "get_started": "Get Started",
+    "get_started": "Get Instant Access",
     "view_channels": "View Channels",
     "explore_catalogue": "Explore Catalogue",
     "send_message": "Send Message",
@@ -18,15 +18,15 @@
     "multi_device": "Multi-Device"
   },
   "hero": {
-    "badge": "The Gold Standard of Streaming",
-    "title_part1": "ALL-IN-ONE",
-    "title_part2": "PREMIUM",
-    "title_part3": "STREAMING",
-    "title_part4": "SERVICE.",
-    "subtext": "Watch anytime, anywhere with 60,000+ channels, 160,000 movies & series, PPV Sport events, all in One Place.",
-    "trust_guarantee": "7 days money back guarantee",
-    "trust_score_label": "Excellent",
-    "cta_main": "Start Now",
+    "badge": "TRUSTED BY 45,000+ SUBSCRIBERS WORLDWIDE",
+    "title_part1": "60,000+ LIVE CHANNELS.",
+    "title_part2": "160,000 MOVIES.",
+    "title_part3": "ONE",
+    "title_part4": "SUBSCRIPTION.",
+    "subtext": "Premium streaming on any device — Smart TV, Firestick, Phone, Tablet, PC. Crystal-clear 4K/8K quality with anti-freeze technology. Instant activation after payment.",
+    "trust_guarantee": "7-Day Money-Back Guarantee",
+    "trust_score_label": "45,000+ Active Subscribers",
+    "cta_main": "See Plans — From €6.67/mo",
     "cta_secondary": "EXPLORE 60K+ CHANNELS →",
     "stat_resolution": "RESOLUTION",
     "stat_resolution_val": "8K UHD",
@@ -82,22 +82,32 @@
     "best_value": "Best Value",
     "max_savings": "Maximum Savings",
     "lock_in_savings": "Lock in Savings",
-    "cta_subscribe": "Subscribe Now"
+    "cta_subscribe": "Get Instant Access",
+    "per_month": "/mo",
+    "regular_price": "Regular"
   },
   "faq": {
     "badge": "HAVE QUESTIONS?",
     "title_part1": "FREQUENTLY ASKED",
     "title_part2": "QUESTIONS",
-    "subtext": "Everything you need to know about our elite streaming service.",
+    "subtext": "Everything you need to know before you subscribe.",
     "items": {
-      "q1": "What is 8KPRIME?",
-      "a1": "8KPRIME is a premium streaming access service offering over 60,000 live channels and 160,000+ VODs in up to 8K resolution.",
+      "q1": "What is 8KPRIME and how does it work?",
+      "a1": "8KPRIME is a premium streaming service that delivers 60,000+ live channels and 160,000+ movies & series directly to your device via an internet connection. No satellite dish or cable box needed — just pick a plan, pay, and start watching within minutes.",
       "q2": "Which devices are supported?",
-      "a2": "We support all devices including Firestick, Android TV, Smart TVs (Samsung/LG), iOS, Windows, and MacOS.",
-      "q3": "How long does activation take?",
-      "a3": "Activation is typically instant after payment. Our team will send your credentials immediately.",
-      "q4": "Do you offer a refund?",
-      "a4": "Yes, we offer a 7-day money-back guarantee if you are not satisfied with the service."
+      "a2": "We support virtually every device: Smart TVs (Samsung, LG, Sony), Amazon Firestick, Android TV, Apple TV, iPhone, iPad, Android phones & tablets, Windows PC, Mac, and MAG/Formuler boxes.",
+      "q3": "How fast will I get access after payment?",
+      "a3": "Activation is instant. After payment, you'll receive your login credentials and setup instructions via email within 2-5 minutes. In rare cases, it may take up to 30 minutes.",
+      "q4": "Is my payment secure?",
+      "a4": "Absolutely. We use SSL-encrypted checkout with bank-level security. We accept PayPal (with buyer protection), credit/debit cards, and cryptocurrency. Your financial data is never stored on our servers.",
+      "q5": "What if I'm not satisfied? Can I get a refund?",
+      "a5": "Yes. We offer a no-questions-asked 7-day money-back guarantee. If the service doesn't meet your expectations, contact our support team and receive a full refund — no hassle, no hidden conditions.",
+      "q6": "Are there hidden fees or auto-renewals?",
+      "a6": "No hidden fees, ever. The price you see is the price you pay. Your subscription does not auto-renew — when it expires, you simply choose whether to renew.",
+      "q7": "Can I use one subscription on multiple devices?",
+      "a7": "Yes! You choose the number of simultaneous connections when you subscribe — 1, 2, 3, or 4 devices. Each device can stream independently at the same time.",
+      "q8": "What countries and channels are covered?",
+      "a8": "We cover 115+ countries with channels from every major region: Europe, North America, Middle East, Asia, Africa, Latin America, and Oceania. All major sports leagues, news networks, and entertainment channels are included."
     }
   },
   "contact": {
@@ -234,7 +244,7 @@
     "cta_title_line2": "GOLD",
     "cta_title_line3": "JOURNEY",
     "cta_subtext": "Join 45,000+ happy customers and experience the elite standard in global entertainment.",
-    "cta_button": "CLAIM YOUR VIP PASS",
+    "cta_button": "Get Instant Access",
     "brand_text": "The gold standard in premium streaming experience. Cinematic 4K/8K quality everywhere.",
     "nav_title": "NAVIGATION",
     "support_title": "SUPPORT",
@@ -328,5 +338,28 @@
     "terms_subtitle": "By accessing or using our services, you agree to comply with and be bound by the following terms and conditions.",
     "global_access_title": "Global Content Access",
     "global_access_text": "8KPRIME provides access to third-party streaming content. We do not host, store, reproduce, or distribute any media content on our servers. The service acts purely as a conduit to global premium entertainment feeds."
+  },
+  "social_proof": {
+    "subscribers": "Active Subscribers",
+    "channels": "Live Channels",
+    "uptime": "Server Uptime",
+    "since": "Trusted Since"
+  },
+  "testimonials": {
+    "badge": "WHAT OUR SUBSCRIBERS SAY",
+    "title_part1": "REAL USERS.",
+    "title_part2": "REAL RESULTS.",
+    "t1_name": "Mark T.",
+    "t1_country": "Germany",
+    "t1_text": "Switched from my old provider 6 months ago — the quality difference is incredible. Zero buffering even during Champions League nights. Best decision I made.",
+    "t2_name": "Sophie L.",
+    "t2_country": "France",
+    "t2_text": "I was skeptical at first, but the 7-day guarantee convinced me to try. Now the whole family uses it daily. The channel selection is massive and the picture quality is stunning.",
+    "t3_name": "James R.",
+    "t3_country": "United Kingdom",
+    "t3_text": "Setup took less than 5 minutes on my Firestick. Support responded instantly on WhatsApp. I've had it for a year now — wouldn't go back to cable.",
+    "t4_name": "Anna K.",
+    "t4_country": "Poland",
+    "t4_text": "Finally a service that actually works without freezing. I watch Polish channels abroad and the quality is perfect. Their anti-freeze technology really works."
   }
 }

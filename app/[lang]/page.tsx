@@ -1,15 +1,11 @@
 import Hero from "@/components/Hero";
-import Stats from "@/components/Stats";
-import Features from "@/components/Features";
-import MovieGrid from "@/components/MovieGrid";
-import LeaguesCarousel from "@/components/LeaguesCarousel";
-import StreamingCarousel from "@/components/StreamingCarousel";
 import Pricing from "@/components/Pricing";
 import ComparisonTable from "@/components/ComparisonTable";
 import FAQ from "@/components/FAQ";
-import Contact from "@/components/Contact";
 import Process from "@/components/Process";
-import WhyChooseUs from "@/components/WhyChooseUs";
+import SocialProofBar from "@/components/SocialProofBar";
+import Testimonials from "@/components/Testimonials";
+import StickyCTA from "@/components/StickyCTA";
 import { getDictionary } from "@/get-dictionary";
 import { Locale } from "@/i18n-config";
 
@@ -23,18 +19,13 @@ export default async function Home(props: {
   return (
     <div className="flex flex-col min-h-screen bg-[#0B0B0F]">
       <Hero lang={lang} dictionary={dictionary.hero} common={dictionary.common} />
-      <WhyChooseUs dictionary={dictionary.why_choose_us} />
-      {/* 
-      <MovieGrid lang={lang} dictionary={dictionary.movie_grid} />
-      <LeaguesCarousel dictionary={dictionary.leagues_carousel} />
-      <StreamingCarousel dictionary={dictionary.streaming_apps} />
-      */}
+      <SocialProofBar dictionary={dictionary.social_proof} />
       <ComparisonTable dictionary={dictionary.comparison} />
-      <Process dictionary={dictionary.process} />
       <Pricing lang={lang} dictionary={dictionary.pricing} common={dictionary.common} />
-      <Features dictionary={dictionary.features} />
+      <Process dictionary={dictionary.process} />
+      <Testimonials dictionary={dictionary.testimonials} />
       <FAQ dictionary={dictionary.faq} />
-      <Contact dictionary={dictionary.contact} common={dictionary.common} />
+      <StickyCTA lang={lang} dictionary={dictionary.hero} />
     </div>
   );
 }

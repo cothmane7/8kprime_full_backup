@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, Globe } from "lucide-react";
+import { MessageCircle, Languages } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { i18n } from "@/i18n-config";
 
@@ -91,7 +91,7 @@ export default function FloatingActions({ lang }: { lang: string }) {
                     className="bg-[#15151A] w-16 h-16 rounded-full flex items-center justify-center border-2 border-white/10 hover:border-primary/50 shadow-2xl relative group overflow-hidden transition-all duration-300"
                 >
                     <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <Globe className="w-6 h-6 text-white group-hover:text-primary transition-colors relative z-10" />
+                    <Languages className="w-6 h-6 text-white group-hover:text-primary transition-colors relative z-10" />
                     <div className="absolute -top-1 -right-1 bg-primary text-black text-[8px] font-black px-2 py-1 rounded-full uppercase shadow-lg border-2 border-[#15151A] z-20">
                         {lang.toUpperCase()}
                     </div>
