@@ -289,7 +289,16 @@
     "badge_part2": "PREMIUM",
     "subtext": "WSZYSTKIE TWOJE ULUBIONE USŁUGI W JEDNYM MIEJSCU"
   },
-  "leagues_carousel": {
+  "why_choose_us": {
+    "title": "Dlaczego warto wybrać 8KPRIME?",
+    "f1_title": "Kanały z całego świata",
+    "f1_text": "Uzyskaj dostęp do treści z ponad 115 krajów dzięki naszej bogatej ofercie kanałów międzynarodowych obejmującej każdy region i język.",
+    "f2_title": "Streamuj wszędzie",
+    "f2_text": "Oglądaj na Smart TV, telefonie, tablecie, Fire TV, Apple TV lub dowolnym innym urządzeniu. Twoja rozrywka podąża za Tobą.",
+    "f3_title": "Jakość 8K",
+    "f3_text": "Ciesz się krystalicznie czystym streamingiem w jakości 8K/4K/FHD/HD. Gwarantowana dostępność 99,9% dzięki serwerom premium na całym świecie."
+  },
+  "soccer_carousel": {
     "badge_part1": "KAŻDA",
     "badge_part2": "LIGA",
     "subtext": "KAŻDY MECZ — NA ŻYWO I INTERAKTYWNIE"

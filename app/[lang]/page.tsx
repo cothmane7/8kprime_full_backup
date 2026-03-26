@@ -9,6 +9,7 @@ import ComparisonTable from "@/components/ComparisonTable";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Process from "@/components/Process";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import { getDictionary } from "@/get-dictionary";
 import { Locale } from "@/i18n-config";
 
@@ -22,6 +23,7 @@ export default async function Home(props: {
   return (
     <div className="flex flex-col min-h-screen bg-[#0B0B0F]">
       <Hero lang={lang} dictionary={dictionary.hero} common={dictionary.common} />
+      <WhyChooseUs dictionary={dictionary.why_choose_us} />
       <Process dictionary={dictionary.process} />
       {/* 
       <MovieGrid lang={lang} dictionary={dictionary.movie_grid} />
