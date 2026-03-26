@@ -55,20 +55,35 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                 {/* Centered Content Block */}
                 <div className="flex flex-col items-center w-full">
 
-                    {/* Headline */}
-                    <motion.h1 
+                    {/* Headline — Pyramid Layout */}
+                    <motion.div 
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-[clamp(2.25rem,7vw,3.5rem)] md:text-[clamp(3.5rem,8vw,5.5rem)] xl:text-[clamp(5rem,9vw,6.8rem)] font-black text-white leading-[1.15] tracking-tighter mb-8 italic uppercase antialiased"
+                        className="flex flex-col items-center text-center mb-8 w-full"
                     >
-                        {dictionary.title_part1}<br />
-                        <span 
-                            className="text-transparent bg-clip-text bg-gradient-to-b from-[#FBF3D5] via-[#D4AF37] to-[#8E6927] italic inline-block drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)] px-6 pb-6 -mb-6"
-                        >
-                            {dictionary.title_part2} {dictionary.title_part3} {dictionary.title_part4}
-                        </span>
-                    </motion.h1>
+                        {[
+                            { text: dictionary.title_part1, gold: false, scale: "scale-[1]", size: "text-[clamp(1.3rem,4.8vw,2rem)] md:text-[clamp(2rem,3.8vw,3.2rem)] xl:text-[clamp(2.8rem,3.5vw,3.8rem)]" },
+                            { text: dictionary.title_part2, gold: false, scale: "scale-[0.92]", size: "text-[clamp(1.2rem,4.4vw,1.85rem)] md:text-[clamp(1.85rem,3.5vw,2.9rem)] xl:text-[clamp(2.5rem,3.2vw,3.4rem)]" },
+                            { text: dictionary.title_part3, gold: true, scale: "scale-[0.84]", size: "text-[clamp(1.1rem,4vw,1.7rem)] md:text-[clamp(1.7rem,3.2vw,2.6rem)] xl:text-[clamp(2.2rem,2.9vw,3rem)]" },
+                            { text: dictionary.title_part4, gold: true, scale: "scale-[0.76]", size: "text-[clamp(1rem,3.6vw,1.55rem)] md:text-[clamp(1.55rem,2.9vw,2.3rem)] xl:text-[clamp(2rem,2.6vw,2.6rem)]" },
+                            { text: dictionary.title_part5, gold: true, scale: "scale-[0.68]", size: "text-[clamp(0.9rem,3.2vw,1.4rem)] md:text-[clamp(1.4rem,2.6vw,2rem)] xl:text-[clamp(1.8rem,2.3vw,2.2rem)]" },
+                        ].map((line, i) => (
+                            <motion.span
+                                key={i}
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.1 + i * 0.06 }}
+                                className={`block whitespace-nowrap ${line.scale} ${line.size} font-black leading-[1.15] tracking-tight italic uppercase antialiased origin-center ${
+                                    line.gold 
+                                        ? "text-transparent bg-clip-text bg-gradient-to-b from-[#FBF3D5] via-[#D4AF37] to-[#8E6927]" 
+                                        : "text-white"
+                                }`}
+                            >
+                                {line.text}
+                            </motion.span>
+                        ))}
+                    </motion.div>
 
                     {/* Subtext */}
                     <motion.p 
@@ -89,11 +104,16 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                     >
                         <Link 
                             href={`/${lang}/pricing`} 
-                            className="w-full sm:w-auto bg-primary text-black px-12 py-6 md:px-14 md:py-7 rounded-[2rem] text-xl md:text-2xl font-extrabold hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-primary/30 group/btn relative overflow-hidden flex items-center justify-center gap-3"
+                            className="w-full sm:w-auto bg-metallic-gold text-black px-14 py-6 md:px-16 md:py-7 rounded-[2rem] font-extrabold hover:scale-105 active:scale-95 transition-all shadow-[0_0_40px_rgba(212,175,55,0.4),0_0_80px_rgba(212,175,55,0.15)] group/btn relative overflow-hidden flex flex-col items-center justify-center gap-1 border border-yellow-400/30"
                         >
-                            <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                            {dictionary.cta_main}
-                            <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+                            {/* Animated shine sweep */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-200%] group-hover/btn:translate-x-[200%] transition-transform duration-1000" />
+                            {/* Pulsing glow ring */}
+                            <div className="absolute inset-0 rounded-[2rem] animate-pulse bg-primary/20 blur-xl -z-10" />
+                            <span className="relative z-10 text-xl md:text-2xl tracking-tight flex items-center gap-3">
+                                <PlayCircle className="w-6 h-6 md:w-7 md:h-7" />
+                                {dictionary.cta_main}
+                            </span>
                         </Link>
                     </motion.div>
 
