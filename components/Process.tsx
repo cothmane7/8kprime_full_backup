@@ -46,17 +46,27 @@ export default function Process({ dictionary }: ProcessProps) {
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden bg-[#0B0B0F]">
+    <section className="py-32 relative overflow-hidden bg-[#0B0B0F]">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col items-center mb-16 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+        <div className="flex flex-col items-center mb-24 text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary font-black text-[10px] tracking-[0.3em] uppercase mb-8"
+            className="text-[clamp(2.5rem,7vw,4.5rem)] font-black text-white tracking-tighter leading-none mb-6 italic uppercase antialiased"
           >
-            {dictionary.badge}
-          </motion.div>
+            {dictionary.badge.split('8k')[0]}
+            <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#FBF3D5] via-[#D4AF37] to-[#8E6927] drop-shadow-[0_4px_12px_rgba(212,175,55,0.3)]">
+              8K
+            </span>
+            {dictionary.badge.split('8k')[1]}
+          </motion.h2>
+          <motion.div 
+            initial={{ width: 0 }}
+            whileInView={{ width: 100 }}
+            viewport={{ once: true }}
+            className="h-2 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full shadow-[0_0_20px_rgba(176,141,62,0.5)]" 
+          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
