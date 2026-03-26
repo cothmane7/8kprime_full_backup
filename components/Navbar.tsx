@@ -17,6 +17,13 @@ export default function Navbar({ lang, dictionary }: { lang: string; dictionary:
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (window.location.pathname === href || window.location.pathname === href + "/") {
+      e.preventDefault();
+      window.location.href = href;
+    }
+  };
+
   const navLinks = [
     { name: dictionary.home, href: `/${lang}` },
     { name: dictionary.setup_guide, href: `/${lang}/setup-guide` },
@@ -32,7 +39,11 @@ export default function Navbar({ lang, dictionary }: { lang: string; dictionary:
       <div className="container-responsive">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href={`/${lang}`} className="flex items-center gap-2 group touch-target">
+          <Link 
+            href={`/${lang}`} 
+            onClick={(e) => handleHomeClick(e, `/${lang}`)}
+            className="flex items-center gap-2 group touch-target"
+          >
             <motion.div
               whileHover={{ rotate: 180 }}
               className="w-9 h-9 md:w-10 md:h-10 bg-metallic-gold rounded-xl flex items-center justify-center shadow-lg shadow-primary/30 gold-reflection soft-gold-glow"
@@ -50,6 +61,7 @@ export default function Navbar({ lang, dictionary }: { lang: string; dictionary:
               <Link
                 key={link.name}
                 href={link.href}
+                onClick={(e) => link.href === `/${lang}` && handleHomeClick(e, link.href)}
                 className="text-sm xl:text-base font-black text-gray-200 hover:text-primary uppercase tracking-wider transition-all relative group"
               >
                 {link.name}
@@ -99,7 +111,10 @@ export default function Navbar({ lang, dictionary }: { lang: string; dictionary:
                 >
                   <Link
                     href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => {
+                      if (link.href === `/${lang}`) handleHomeClick(e, link.href);
+                      setIsMobileMenuOpen(false);
+                    }}
                     className="text-4xl font-black text-white hover:text-primary transition-colors flex items-center justify-between"
                   >
                     {link.name}
