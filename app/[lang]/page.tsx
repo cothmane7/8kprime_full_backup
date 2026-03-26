@@ -24,13 +24,13 @@ export default async function Home(props: {
     <div className="flex flex-col min-h-screen bg-[#0B0B0F]">
       <Hero lang={lang} dictionary={dictionary.hero} common={dictionary.common} />
       <WhyChooseUs dictionary={dictionary.why_choose_us} />
-      <Process dictionary={dictionary.process} />
       {/* 
       <MovieGrid lang={lang} dictionary={dictionary.movie_grid} />
       <LeaguesCarousel dictionary={dictionary.leagues_carousel} />
       <StreamingCarousel dictionary={dictionary.streaming_apps} />
       */}
       <ComparisonTable dictionary={dictionary.comparison} />
+      <Process dictionary={dictionary.process} />
       <Pricing lang={lang} dictionary={dictionary.pricing} common={dictionary.common} />
       <Features dictionary={dictionary.features} />
       <FAQ dictionary={dictionary.faq} />
