@@ -7,6 +7,7 @@ import { i18n, type Locale } from "@/i18n-config";
 import { getDictionary } from "@/get-dictionary";
 import { Barlow_Condensed } from "next/font/google";
 import SecurityShield from "@/components/SecurityShield";
+import CrispChat from "@/components/CrispChat";
 
 const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
@@ -58,6 +59,7 @@ export default async function RootLayout(props: {
         <main>{children}</main>
         <FloatingActions lang={lang} />
         <Footer lang={lang} dictionary={dictionary.footer} common={dictionary.common} />
+        <CrispChat />
       </body>
     </html>
   );
