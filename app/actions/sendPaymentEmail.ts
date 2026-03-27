@@ -137,14 +137,14 @@ export async function sendPaymentEmails({
                         </p>
                     </div>
                     <p style="color: #666; font-size: 11px; text-align: center; margin: 0;">
-                        If you have any questions, reply to this email or contact us at support@8kprime.com
+                        If you have any questions, reply to this email or contact us at infos8kprime@gmail.com
                     </p>
                 </div>
             </div>
         `;
 
-        const fromAddress = process.env.SMTP_FROM || process.env.SMTP_USER || "noreply@8kprime.com";
-
+        const fromAddress = process.env.SMTP_FROM || process.env.SMTP_USER || "infos8kprime@gmail.com";
+        const emailFromName = "8K PRIME TV Support";
         const [adminInfo, userInfo] = await Promise.all([
             transporter.sendMail({
                 from: fromAddress,

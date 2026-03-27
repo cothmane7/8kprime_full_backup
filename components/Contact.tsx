@@ -41,7 +41,7 @@ export default function Contact({ dictionary, common }: { dictionary: any; commo
                                 </div>
                                 <div className="flex flex-col justify-center">
                                     <h4 className="text-white font-black uppercase tracking-widest text-[10px] mb-1">{dictionary.email_us}</h4>
-                                    <p className="text-gray-200 font-bold text-lg md:text-xl group-hover:text-primary transition-colors truncate max-w-[200px] xs:max-w-none">infos@8kprime.com</p>
+                                    <p className="text-gray-200 font-bold text-lg md:text-xl group-hover:text-primary transition-colors truncate max-w-[200px] xs:max-w-none">infos8kprime@gmail.com</p>
                                 </div>
                             </motion.div>
 

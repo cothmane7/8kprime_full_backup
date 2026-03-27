@@ -83,7 +83,7 @@ export default function ThankYouPage() {
                         <div className="bg-white/5 border border-white/10 p-6 rounded-2xl inline-flex items-center gap-4">
                             <MessageSquare className="text-primary w-6 h-6" />
                             <span className="text-gray-300 font-bold">
-                                Haven't received it? Contact <a href="mailto:infos@8kprime.com" className="text-primary hover:underline">infos@8kprime.com</a>
+                                Haven't received it? Contact <a href="mailto:infos8kprime@gmail.com" className="text-primary hover:underline">infos8kprime@gmail.com</a>
                             </span>
                         </div>
 

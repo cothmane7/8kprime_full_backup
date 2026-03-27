@@ -123,7 +123,7 @@ export default function Footer({ lang, dictionary, common }: { lang: string; dic
                             </li>
                              <li className="flex items-center gap-4">
                                 <Mail className="text-primary shrink-0" size={18} />
-                                <span className="text-gray-300 font-bold text-sm tracking-wide">infos@8kprime.com</span>
+                                <span className="text-gray-300 font-bold text-sm tracking-wide">infos8kprime@gmail.com</span>
                             </li>
                             <li className="flex items-center gap-4">
                                 <MessageCircle className="text-[#25D366] shrink-0" size={18} />
