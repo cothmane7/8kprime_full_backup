@@ -68,7 +68,7 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                             { text: dictionary.title_part3, gold: true, scale: "scale-[0.84]", size: "text-[clamp(1.4rem,4.5vw,1.85rem)] md:text-[clamp(1.7rem,3.2vw,2.6rem)] xl:text-[clamp(2.2rem,2.9vw,3rem)]" },
                             { text: dictionary.title_part4, gold: true, scale: "scale-[0.76]", size: "text-[clamp(1.25rem,4vw,1.7rem)] md:text-[clamp(1.55rem,2.9vw,2.3rem)] xl:text-[clamp(2rem,2.6vw,2.6rem)]" },
                             { text: dictionary.title_part5, gold: true, scale: "scale-[0.68]", size: "text-[clamp(1.1rem,3.5vw,1.55rem)] md:text-[clamp(1.4rem,2.6vw,2rem)] xl:text-[clamp(1.8rem,2.3vw,2.2rem)]" },
-                        ].map((line, i) => (
+                        ].filter(line => line.text && line.text.trim() !== "").map((line, i) => (
                             <motion.span
                                 key={i}
                                 initial={{ opacity: 0, y: 10 }}

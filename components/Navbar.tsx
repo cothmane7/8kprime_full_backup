@@ -44,14 +44,13 @@ export default function Navbar({ lang, dictionary }: { lang: string; dictionary:
             onClick={(e) => handleHomeClick(e, `/${lang}`)}
             className="flex items-center gap-2 group touch-target"
           >
-            <motion.div
-              whileHover={{ rotate: 180 }}
-              className="w-9 h-9 md:w-10 md:h-10 bg-metallic-gold rounded-xl flex items-center justify-center shadow-lg shadow-primary/30 gold-reflection soft-gold-glow"
+            <div
+              className="w-9 h-9 md:w-10 md:h-10 bg-[#D4AF37] rounded-xl flex items-center justify-center shadow-lg"
             >
               <span className="text-black font-black text-lg md:text-xl">8K</span>
-            </motion.div>
+            </div>
             <span className="text-xl md:text-2xl font-black tracking-tighter text-white">
-              PRIME<span className="text-primary group-hover:text-gold-light transition-colors">TV</span>
+              PRIME<span className="text-[#D4AF37]">TV</span>
             </span>
           </Link>
 
