@@ -41,7 +41,7 @@ export default function SportsSection({ dictionary }: { dictionary: any }) {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tighter">
               {dictionary.title}
             </h2>
-            <p className="text-gray-400 text-lg md:text-xl leading-relaxed mt-2 max-w-xl">
+            <p className="text-white font-medium text-lg md:text-xl leading-relaxed mt-2 max-w-xl drop-shadow-sm opacity-95">
               {dictionary.description}
             </p>
             
