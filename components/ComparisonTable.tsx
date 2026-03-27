@@ -7,7 +7,6 @@ export default function ComparisonTable({ dictionary }: { dictionary: any }) {
     const comparisons = [
         { feature: dictionary["4k_8k_quality"], premium: true, other: false },
         { feature: dictionary.anti_freeze_10, premium: true, other: false },
-        { feature: dictionary.instant_activation, premium: true, other: dictionary.hours_48 },
         { feature: dictionary.no_buffering, premium: true, other: false },
         { feature: dictionary.all_countries, premium: true, other: dictionary.partial },
         { feature: dictionary.vip_support_24_7, premium: true, other: false },
@@ -45,22 +44,39 @@ export default function ComparisonTable({ dictionary }: { dictionary: any }) {
                         {/* Golden Highlight over our column */}
                         <div className="absolute inset-y-0 left-1/3 w-1/3 bg-gradient-to-b from-primary/10 to-transparent pointer-events-none" />
 
-                        <div className="flex items-center text-gray-300 font-black uppercase tracking-widest text-[10px] md:text-xs">
+                        <div className="flex items-center justify-center text-gray-400 font-bold uppercase tracking-wider text-[11px] md:text-sm">
                             {dictionary.feature_label}
                         </div>
 
-                        <div className="flex flex-col items-center relative z-10">
-                            <div className="bg-gradient-to-br from-primary to-yellow-600 p-3 md:p-4 rounded-2xl mb-3 md:mb-4 shadow-[0_0_20px_rgba(176,141,62,0.4)]">
-                                <Trophy className="w-6 h-6 md:w-8 md:h-8 text-white" />
+                        <div className="flex flex-col items-center relative z-10 group pt-4">
+                            <div className="mb-6 transform scale-110 md:scale-125">
+                              <div className="relative">
+                                {/* Antennas */}
+                                <div className="absolute -top-[14px] left-[6px] md:-top-[16px] md:left-[8px]">
+                                  <div className="absolute top-1 left-0 w-0.5 h-4 bg-[#D4AF37] -rotate-[35deg] origin-bottom group-hover:-rotate-[45deg] transition-transform duration-300">
+                                    <div className="absolute -top-1.5 -left-[3px] w-2 h-2 bg-[#D4AF37] rounded-full shadow-[0_0_5px_rgba(212,175,55,0.5)]"></div>
+                                  </div>
+                                  <div className="absolute top-0 left-3 w-0.5 h-[22px] bg-[#D4AF37] rotate-[20deg] origin-bottom group-hover:rotate-[30deg] transition-transform duration-300">
+                                    <div className="absolute -top-1.5 -left-[3px] w-2 h-2 bg-[#D4AF37] rounded-full shadow-[0_0_5px_rgba(212,175,55,0.5)]"></div>
+                                  </div>
+                                </div>
+                                {/* TV Body */}
+                                <div className="relative z-10 w-11 h-8 md:w-12 md:h-9 bg-black border-2 border-[#D4AF37] rounded-lg flex items-center justify-center shadow-[3px_3px_0px_#D4AF37] group-hover:shadow-[5px_5px_0px_#D4AF37] group-hover:-translate-y-[2px] group-hover:-translate-x-[2px] transition-all duration-300">
+                                  <span className="text-[#D4AF37] font-black text-sm md:text-[17px] tracking-tighter drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">
+                                    8K
+                                  </span>
+                                  <div className="absolute top-0 left-0 w-full h-[30%] bg-gradient-to-b from-white/10 to-transparent rounded-t-lg pointer-events-none"></div>
+                                </div>
+                              </div>
                             </div>
                             <div className="text-white font-black uppercase tracking-widest text-xs md:text-sm drop-shadow-md">
                                 {dictionary.our_name}
                             </div>
                         </div>
 
-                        <div className="flex flex-col items-center opacity-70">
-                            <div className="bg-[#1A1A22] border border-white/5 p-3 md:p-4 rounded-2xl mb-3 md:mb-4">
-                                <X className="w-6 h-6 md:w-8 md:h-8 text-gray-300" />
+                        <div className="flex flex-col items-center opacity-70 group pt-4">
+                            <div className="bg-[#1A1A22] border border-white/5 p-3 md:p-4 rounded-2xl mb-[1.2rem] md:mb-[1.8rem] transition-transform duration-300 group-hover:scale-110">
+                                <X className="w-5 h-5 md:w-6 md:h-6 text-gray-500 group-hover:text-gray-400" />
                             </div>
                             <div className="text-gray-300 font-black uppercase tracking-widest text-xs md:text-sm">
                                 {dictionary.others_name}
@@ -80,17 +96,23 @@ export default function ComparisonTable({ dictionary }: { dictionary: any }) {
                                 className="grid grid-cols-3 py-2 md:py-3 items-center px-4 md:px-6 rounded-2xl hover:bg-[#15151E] transition-all duration-300 border border-transparent hover:border-white/5 group relative"
                             >
                                 {/* Column Highlight */}
-                                <div className="absolute inset-y-0 left-1/3 w-1/3 bg-primary/[0.02] group-hover:bg-primary/[0.05] transition-colors pointer-events-none rounded-xl" />
+                                <div className="absolute inset-y-0 left-1/3 w-1/3 bg-primary/[0.02] group-hover:bg-primary/[0.06] transition-colors pointer-events-none rounded-xl" />
 
-                                <div className="text-white font-black text-[11px] md:text-[15px] tracking-wider md:tracking-widest group-hover:text-primary transition-colors flex items-center gap-3">
+                                <div className="text-gray-300 font-bold text-xs md:text-base tracking-normal group-hover:text-white transition-colors flex items-center gap-3 relative z-10">
                                     <Sparkles size={16} className="text-primary hidden md:inline-block opacity-0 group-hover:opacity-100 transition-opacity" />
                                     {item.feature}
                                 </div>
 
                                 <div className="flex justify-center relative z-10">
-                                    <div className="bg-emerald-500/10 p-2 text-emerald-500 rounded-full group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(16,185,129,0.15)] group-hover:shadow-[0_0_20px_rgba(16,185,129,0.4)]">
-                                        <Check className="w-5 h-5 md:w-6 md:h-6" strokeWidth={3} />
-                                    </div>
+                                    {(item as any).premiumText ? (
+                                        <span className="text-emerald-400 font-black text-[10px] md:text-xs uppercase tracking-widest bg-emerald-500/10 px-3 md:px-4 py-1.5 md:py-2 rounded-full border border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.15)] group-hover:bg-emerald-500 group-hover:text-black transition-all duration-300">
+                                            {(item as any).premiumText}
+                                        </span>
+                                    ) : (
+                                        <div className="bg-emerald-500/10 p-2 text-emerald-500 rounded-full group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(16,185,129,0.15)] group-hover:shadow-[0_0_20px_rgba(16,185,129,0.4)]">
+                                            <Check className="w-5 h-5 md:w-6 md:h-6" strokeWidth={3} />
+                                        </div>
+                                    )}
                                 </div>
 
                                 <div className="flex justify-center relative z-10">
@@ -117,6 +139,49 @@ export default function ComparisonTable({ dictionary }: { dictionary: any }) {
                         </div>
                     </div>
                 </div>
+
+                {/* Cable TV vs Our Service Banner */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mt-8 w-full max-w-[1000px] mx-auto overflow-hidden rounded-2xl border border-primary/50 shadow-[0_0_30px_rgba(212,175,55,0.15)] bg-gradient-to-r from-[#12121A] to-[#1A1A24] relative"
+                >
+                    {/* Decorative elements */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[60px] rounded-full pointer-events-none"></div>
+
+                    <div className="flex flex-col md:flex-row items-center justify-between p-4 md:px-8 md:py-5 relative z-10 gap-4 md:gap-6">
+                        {/* Title / Info */}
+                        <div className="flex flex-col gap-1 text-center md:text-left flex-1">
+                            <div className="inline-flex items-center gap-1.5 text-primary font-black uppercase tracking-[0.2em] text-[9px] md:text-[10px] justify-center md:justify-start">
+                                <Sparkles size={12} className="text-primary" />
+                                {dictionary.price_breakdown || "PRICE BREAKDOWN"}
+                            </div>
+                            <h3 className="text-xl md:text-2xl font-black text-white leading-tight tracking-tight">
+                                {dictionary.ditch_cable || "Ditch Cable & Save Massive"}
+                            </h3>
+                        </div>
+
+                        {/* Comparison blocks */}
+                        <div className="flex flex-col md:flex-row items-center gap-3 w-full md:w-auto">
+                            {/* Cable TV */}
+                            <div className="w-full md:w-auto md:min-w-[160px] bg-black/60 border border-white/5 rounded-xl px-4 py-3 flex flex-col items-center justify-center text-center opacity-80 relative overflow-hidden group">
+                                <div className="absolute inset-0 bg-red-500/5 group-hover:bg-red-500/10 transition-colors"></div>
+                                <span className="text-gray-400 font-bold uppercase tracking-widest text-[9px] mb-1 relative z-10 whitespace-nowrap">{dictionary.cable_tv || "Traditional Cable TV"}</span>
+                                <span className="text-red-400 font-black text-lg md:text-xl relative z-10 line-through decoration-red-500/50 decoration-2 whitespace-nowrap">{dictionary.price_other}</span>
+                            </div>
+
+                            <div className="text-gray-600 font-black text-lg hidden md:block">VS</div>
+
+                            {/* Our Service */}
+                            <div className="w-full md:w-auto md:min-w-[200px] bg-gradient-to-br from-primary/20 to-yellow-600/20 border-2 border-primary rounded-xl px-5 py-3 md:py-4 flex flex-col items-center justify-center text-center relative overflow-hidden shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:scale-105 transition-transform duration-300">
+                                <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent pointer-events-none"></div>
+                                <span className="text-primary font-black uppercase tracking-widest text-[9px] md:text-[10px] mb-1 drop-shadow-md relative z-10 whitespace-nowrap">{dictionary.our_name}</span>
+                                <span className="text-white font-black text-xl md:text-2xl drop-shadow-lg tracking-tighter relative z-10 whitespace-nowrap">{dictionary.price_premium}</span>
+                            </div>
+                        </div>
+                    </div>
+                </motion.div>
             </div>
         </section>
     );

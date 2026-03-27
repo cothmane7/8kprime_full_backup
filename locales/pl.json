@@ -42,6 +42,15 @@
     "vod_content": "Treści VOD",
     "device_types": "Typy urządzeń"
   },
+  "sports": {
+    "badge": "SPORT, FILMY I SERIALE",
+    "title": "Globalny Sport, Hity Filmowe i Najlepsze Seriale",
+    "description": "Oglądaj każde ważne wydarzenie sportowe, tysiące filmów i wciągające seriale w krystalicznie czystej jakości HD i 4K. Nieskończona rozrywka w dowolnym miejscu i czasie.",
+    "feature1": "Sport na Żywo: Piłka Nożna, Koszykówka i Więcej",
+    "feature2": "Ponad 160 000 Filmów i Seriali",
+    "feature3": "Transmisje HD, 4K i Ultra HD",
+    "feature4": "Oglądaj na dowolnym urządzeniu"
+  },
   "pricing": {
     "badge": "PLANY SUBSKRYPCJI",
     "title_part1": "WYBIERZ SWOJE",
@@ -276,7 +285,13 @@
     "all_countries": "WSZYSTKIE KRAJE",
     "vip_support_24_7": "WSPARCIE VIP 24/7",
     "partial": "Częściowo",
-    "hours_48": "24-48 Godzin"
+    "hours_48": "24-48 Godzin",
+    "price_comparison": "CENA",
+    "price_premium": "6.67£/MIES",
+    "price_other": "150£/MIES",
+    "price_breakdown": "PORÓWNANIE CEN",
+    "ditch_cable": "Zrezygnuj z kablówki i oszczędzaj!",
+    "cable_tv": "Tradycyjna kablówka"
   },
   "features": {
     "badge": "ZŁOTY STANDARD",

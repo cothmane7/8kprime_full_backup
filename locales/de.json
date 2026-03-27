@@ -42,6 +42,15 @@
     "vod_content": "VOD-Inhalte",
     "device_types": "Gerätetypen"
   },
+  "sports": {
+    "badge": "SPORT, FILME & SERIEN",
+    "title": "Lokaler Sport, Blockbuster-Filme & Top-Serien streamen",
+    "description": "Erleben Sie jedes große Sportereignis, Tausende von Filmen und fesselnde Serien in kristallklarer HD- und 4K-Qualität. Endlose Unterhaltung jederzeit und überall.",
+    "feature1": "Live-Sport: Fußball, Basketball & mehr",
+    "feature2": "Über 160.000 Filme & Serien",
+    "feature3": "HD, 4K & Ultra HD Streaming",
+    "feature4": "Auf jedem Gerät ansehen"
+  },
   "pricing": {
     "badge": "ABONNEMENT-PLÄNE",
     "title_part1": "WÄHLEN SIE IHRE",
@@ -276,7 +285,13 @@
     "all_countries": "ALLE LÄNDER",
     "vip_support_24_7": "24/7 VIP UNTERSTÜTZUNG",
     "partial": "Teilweise",
-    "hours_48": "24-48 Stunden"
+    "hours_48": "24-48 Stunden",
+    "price_comparison": "PREIS",
+    "price_premium": "6.67£/MONAT",
+    "price_other": "150£/MONAT",
+    "price_breakdown": "PREISVERGLEICH",
+    "ditch_cable": "Kabelfernsehen kündigen & enorm sparen!",
+    "cable_tv": "Kabelfernsehen"
   },
   "features": {
     "badge": "DER GOLDSTANDARD",

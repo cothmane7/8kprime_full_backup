@@ -42,6 +42,15 @@
     "vod_content": "VOD Content",
     "device_types": "Device Types"
   },
+  "sports": {
+    "badge": "SPORTS, MOVIES & SERIES",
+    "title": "Stream Global Sports, Blockbuster Movies & Hit Series",
+    "description": "Catch every major sporting event, thousands of hit movies, and binge-worthy series in crystal-clear HD & 4K quality. Endless entertainment anytime, anywhere.",
+    "feature1": "Live Sports: Football, Basketball & More",
+    "feature2": "160,000+ Movies & TV Series",
+    "feature3": "HD, 4K & Ultra HD Streams",
+    "feature4": "Watch on Any Device"
+  },
   "pricing": {
     "badge": "SUBSCRIPTION PLANS",
     "title_part1": "CHOOSE YOUR",
@@ -278,7 +287,13 @@
     "all_countries": "ALL COUNTRIES",
     "vip_support_24_7": "24/7 VIP SUPPORT",
     "partial": "Partial",
-    "hours_48": "24-48 Hours"
+    "hours_48": "24-48 Hours",
+    "price_comparison": "PRICE",
+    "price_premium": "£6.67/MONTH",
+    "price_other": "£150/MONTH",
+    "price_breakdown": "PRICE BREAKDOWN",
+    "ditch_cable": "Ditch Cable & Save Massive!",
+    "cable_tv": "Traditional Cable TV"
   },
   "features": {
     "badge": "THE GOLD STANDARD",

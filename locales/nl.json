@@ -42,6 +42,15 @@
     "vod_content": "VOD Content",
     "device_types": "Apparaattypes"
   },
+  "sports": {
+    "badge": "SPORT, FILMS & SERIES",
+    "title": "Wereldwijde Sport, Blockbusters & Populaire Series",
+    "description": "Kijk naar elk groot sportevenement, duizenden films en meeslepende series in kristalheldere HD- en 4K-kwaliteit. Eindeloos entertainment, altijd en overal.",
+    "feature1": "Live Sport: Voetbal, Basketbal & Meer",
+    "feature2": "Meer dan 160.000 Films & Series",
+    "feature3": "HD, 4K & Ultra HD Streaming",
+    "feature4": "Kijk op elk apparaat"
+  },
   "pricing": {
     "badge": "ABONNEMENTEN",
     "title_part1": "KIES JE",
@@ -276,7 +285,13 @@
     "all_countries": "ALLE LANDEN",
     "vip_support_24_7": "24/7 VIP ONDERSTEUNING",
     "partial": "Gedeeltelijk",
-    "hours_48": "24-48 uur"
+    "hours_48": "24-48 uur",
+    "price_comparison": "PRIJS",
+    "price_premium": "6.67£/MAAND",
+    "price_other": "150£/MAAND",
+    "price_breakdown": "PRIJSVERGELIJKING",
+    "ditch_cable": "Kabel-tv opzeggen en massaal besparen!",
+    "cable_tv": "Reguliere Kabel-tv"
   },
   "features": {
     "badge": "DE GOUDEN STANDAARD",

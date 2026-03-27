@@ -42,12 +42,29 @@ export default function Navbar({ lang, dictionary }: { lang: string; dictionary:
           <Link 
             href={`/${lang}`} 
             onClick={(e) => handleHomeClick(e, `/${lang}`)}
-            className="flex items-center gap-2 group touch-target"
+            className="flex items-center gap-3 group touch-target pl-1 pt-3"
           >
-            <div
-              className="w-9 h-9 md:w-10 md:h-10 bg-[#D4AF37] rounded-xl flex items-center justify-center shadow-lg"
-            >
-              <span className="text-black font-black text-lg md:text-xl">8K</span>
+            <div className="relative">
+              {/* Antennas */}
+              <div className="absolute -top-[14px] left-[6px] md:-top-[16px] md:left-[8px]">
+                {/* Left Antenna */}
+                <div className="absolute top-1 left-0 w-0.5 h-4 bg-[#D4AF37] -rotate-[35deg] origin-bottom group-hover:-rotate-[45deg] transition-transform duration-300">
+                  <div className="absolute -top-1.5 -left-[3px] w-2 h-2 bg-[#D4AF37] rounded-full shadow-[0_0_5px_rgba(212,175,55,0.5)]"></div>
+                </div>
+                {/* Right Antenna */}
+                <div className="absolute top-0 left-3 w-0.5 h-[22px] bg-[#D4AF37] rotate-[20deg] origin-bottom group-hover:rotate-[30deg] transition-transform duration-300">
+                  <div className="absolute -top-1.5 -left-[3px] w-2 h-2 bg-[#D4AF37] rounded-full shadow-[0_0_5px_rgba(212,175,55,0.5)]"></div>
+                </div>
+              </div>
+
+              {/* TV Body */}
+              <div className="relative z-10 w-11 h-8 md:w-12 md:h-9 bg-black border-2 border-[#D4AF37] rounded-lg flex items-center justify-center shadow-[3px_3px_0px_#D4AF37] group-hover:shadow-[5px_5px_0px_#D4AF37] group-hover:-translate-y-[2px] group-hover:-translate-x-[2px] transition-all duration-300">
+                <span className="text-[#D4AF37] font-black text-sm md:text-[17px] tracking-tighter drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">
+                  8K
+                </span>
+                {/* Vintage Screen Reflection */}
+                <div className="absolute top-0 left-0 w-full h-[30%] bg-gradient-to-b from-white/10 to-transparent rounded-t-lg pointer-events-none"></div>
+              </div>
             </div>
             <span className="text-xl md:text-2xl font-black tracking-tighter text-white">
               PRIME<span className="text-[#D4AF37]">TV</span>

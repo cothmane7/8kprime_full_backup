@@ -42,6 +42,15 @@
     "vod_content": "Contenu VOD",
     "device_types": "Types d'Appareils"
   },
+  "sports": {
+    "badge": "SPORTS, FILMS ET SÉRIES",
+    "title": "Sports Mondiaux, Films à Succès et Séries Incontournables",
+    "description": "Suivez chaque événement sportif majeur, des milliers de films et vos séries préférées en qualité HD & 4K cristalline. Divertissement illimité à tout moment, n'importe où.",
+    "feature1": "Sports en Direct : Football, Basketball & Plus",
+    "feature2": "Plus de 160 000 Films et Séries TV",
+    "feature3": "Streaming HD, 4K et Ultra HD",
+    "feature4": "Regardez sur n'importe quel appareil"
+  },
   "pricing": {
     "badge": "FORFAITS D'ABONNEMENT",
     "title_part1": "CHOISISSEZ VOTRE",
@@ -276,7 +285,13 @@
     "all_countries": "TOUS LES PAYS",
     "vip_support_24_7": "SUPPORT VIP 24/7",
     "partial": "Partiel",
-    "hours_48": "24-48 Heures"
+    "hours_48": "24-48 Heures",
+    "price_comparison": "PRIX",
+    "price_premium": "6.67£/MOIS",
+    "price_other": "150£/MOIS",
+    "price_breakdown": "COMPARAISON DES PRIX",
+    "ditch_cable": "Abandonnez le câble et économisez !",
+    "cable_tv": "Télévision par câble"
   },
   "features": {
     "badge": "LE GOLD STANDARD",

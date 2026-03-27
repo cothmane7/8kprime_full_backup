@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import Pricing from "@/components/Pricing";
 import ComparisonTable from "@/components/ComparisonTable";
+import SportsSection from "@/components/SportsSection";
 import FAQ from "@/components/FAQ";
 import Process from "@/components/Process";
 
@@ -19,7 +20,7 @@ export default async function Home(props: {
   return (
     <div className="flex flex-col min-h-screen bg-[#0B0B0F]">
       <Hero lang={lang} dictionary={dictionary.hero} common={dictionary.common} />
-
+      <SportsSection dictionary={dictionary.sports} />
       <ComparisonTable dictionary={dictionary.comparison} />
       <Pricing lang={lang} dictionary={dictionary.pricing} common={dictionary.common} />
       <Process dictionary={dictionary.process} />
