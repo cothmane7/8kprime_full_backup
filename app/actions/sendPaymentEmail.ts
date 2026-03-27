@@ -109,8 +109,37 @@ export async function sendPaymentEmails({
                     <p style="margin: 8px 0 0; color: #000; font-size: 14px;">Thank you for choosing 8K PRIME TV</p>
                 </div>
                 <div style="padding: 32px;">
-                    <p style="color: #ccc; line-height: 1.6; margin-bottom: 24px;">
-                        Your order has been received successfully! Here's a summary of your purchase:
+                    <p style="color: #fff; line-height: 1.6; margin-bottom: 24px; text-align: center; font-size: 15px;">
+                        To activate your subscription instantly, please complete your secure payment by selecting one of the plans below:
+                    </p>
+
+                    <!-- Nas.io Payment Buttons -->
+                    <div style="text-align: center; margin-bottom: 32px;">
+                        <!-- 3 Months -->
+                        <div style="background: #111; border: 1px solid #333; border-radius: 12px; padding: 20px; margin-bottom: 16px;">
+                            <h3 style="color: #fff; margin: 0 0 8px; font-size: 18px;">3 Months Access</h3>
+                            <p style="color: #d4a843; font-size: 20px; font-weight: bold; margin: 0 0 16px;">€39.99</p>
+                            <a href="https://nas.io/checkout-global?communityId=69a2be48dd35f30983fdb5d9&communityCode=BUSINESS_223679&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.io%2F8kprime&tierId=69c6ff9748ef0799ea7d7df7" style="display: inline-block; background: linear-gradient(135deg, #b08d3e, #d4a843); color: #000; text-decoration: none; font-weight: bold; padding: 12px 24px; border-radius: 8px; text-transform: uppercase; font-size: 14px;">Get Instant Access</a>
+                        </div>
+                        
+                        <!-- 6 Months -->
+                        <div style="background: #111; border: 1px solid #333; border-radius: 12px; padding: 20px; margin-bottom: 16px;">
+                            <h3 style="color: #fff; margin: 0 0 8px; font-size: 18px;">6 Months Access</h3>
+                            <p style="color: #d4a843; font-size: 20px; font-weight: bold; margin: 0 0 16px;">€59.99</p>
+                            <a href="https://nas.io/checkout-global?communityId=69a2be48dd35f30983fdb5d9&communityCode=BUSINESS_223679&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.io%2F8kprime&tierId=69c6ffb50452adfa7b38c19d" style="display: inline-block; background: linear-gradient(135deg, #b08d3e, #d4a843); color: #000; text-decoration: none; font-weight: bold; padding: 12px 24px; border-radius: 8px; text-transform: uppercase; font-size: 14px;">Get Instant Access</a>
+                        </div>
+
+                        <!-- 12 Months -->
+                        <div style="background: #111; border: 1px solid #d4a843; border-radius: 12px; padding: 20px; margin-bottom: 24px;">
+                            <div style="background: #d4a843; color: #000; font-size: 11px; font-weight: bold; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 8px;">Most Popular</div>
+                            <h3 style="color: #fff; margin: 0 0 8px; font-size: 18px;">12 Months Access</h3>
+                            <p style="color: #d4a843; font-size: 20px; font-weight: bold; margin: 0 0 16px;">€79.99</p>
+                            <a href="https://nas.io/checkout-global?communityId=69a2be48dd35f30983fdb5d9&communityCode=BUSINESS_223679&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.io%2F8kprime&tierId=69c6fe4a5e80817cdbe8918b" style="display: inline-block; background: linear-gradient(135deg, #b08d3e, #d4a843); color: #000; text-decoration: none; font-weight: bold; padding: 12px 24px; border-radius: 8px; text-transform: uppercase; font-size: 14px;">Get Instant Access</a>
+                        </div>
+                    </div>
+
+                    <p style="color: #888; font-size: 13px; margin-bottom: 16px; border-top: 1px solid #222; padding-top: 24px;">
+                        Order Request Summary:
                     </p>
                     <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
                         <tr>
