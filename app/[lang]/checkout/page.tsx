@@ -63,7 +63,7 @@ function CheckoutContent() {
         setIsSubmitting(true);
 
         // Send emails asynchronously (fire and forget to not block user experience)
-        sendPaymentEmails({ email, paymentMethod }).catch(console.error);
+        sendPaymentEmails({ email, paymentMethod, plan, devices }).catch(console.error);
 
         // Simulate a slight delay for realism/reassurance
         setTimeout(() => {
