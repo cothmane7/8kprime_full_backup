@@ -11,8 +11,11 @@ import {
     ShieldCheck
 } from "lucide-react";
 import Link from "next/link";
+import { use } from "react";
 
-export default function ThankYouPage() {
+export default function ThankYouPage(props: { params: Promise<{ lang: string }> }) {
+    const params = use(props.params);
+    const lang = params.lang;
     return (
         <div className="pt-32 min-h-screen bg-[#050505] pb-20 relative overflow-hidden flex items-center justify-center">
             {/* Background Effects */}

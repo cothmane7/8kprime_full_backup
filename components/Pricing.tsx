@@ -137,12 +137,12 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                             className="absolute inset-y-1.5 rounded-[2.5rem] bg-metallic-gold shadow-[0_0_20px_rgba(212,175,55,0.4)]"
                             initial={false}
                             animate={{
-                                left: `${(activeDevices - 1) * 25}%`,
-                                width: '25%',
+                                left: `${(activeDevices - 1) * 33.33}%`,
+                                width: '33.33%',
                             }}
                             transition={{ type: "spring", stiffness: 300, damping: 30 }}
                         />
-                        {[1, 2, 3, 4].map((num) => (
+                        {[1, 2, 3].map((num) => (
                             <button
                                 key={num}
                                 onClick={() => setActiveDevices(num)}
@@ -206,11 +206,11 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                                     {plan.months > 3 && (
                                         <div className="text-gray-500 text-xs font-bold">
                                             <span>{dictionary.regular_price}: </span>
-                                            <span className="line-through">€{(17.99 * activeDevices * (activeDevices > 1 ? 0.75 : 1)).toFixed(2)}{dictionary.per_month}</span>
+                                            <span className="line-through">€{(17.99 * activeDevices * (activeDevices > 1 ? 0.75 : 1) / activeDevices).toFixed(2)}{dictionary.per_month}</span>
                                         </div>
                                     )}
                                     <div className={`text-sm font-extrabold tracking-tight ${plan.isPopular ? 'text-primary' : 'text-primary/80'}`}>
-                                        €{(parseFloat(calculatePrice(plan.price)) / plan.months).toFixed(2)}{dictionary.per_month}
+                                        €{(Math.floor((parseFloat(calculatePrice(plan.price)) / plan.months / activeDevices) * 100) / 100).toFixed(2)}{dictionary.per_month} {activeDevices > 1 && <span className="text-[10px] font-medium opacity-60 ml-0.5">/ {activeDevices === 1 ? dictionary.device || "device" : dictionary.device || "device"}</span>}
                                     </div>
                                 </div>
                             </div>

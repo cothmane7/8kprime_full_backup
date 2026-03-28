@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, Suspense } from "react";
+import { useState, Suspense, use } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { sendPaymentEmails } from "@/app/actions/sendPaymentEmail";
 import { Check, Lock, Globe, CreditCard } from "lucide-react";
@@ -240,7 +240,10 @@ function CheckoutContent({ lang }: { lang: string }) {
     );
 }
 
-export default function CheckoutPage({ params: { lang } }: { params: { lang: string } }) {
+export default function CheckoutPage(props: { params: Promise<{ lang: string }> }) {
+    const params = use(props.params);
+    const lang = params.lang;
+
     return (
         <Suspense fallback={
             <div className="min-h-screen bg-[#050505] flex items-center justify-center">

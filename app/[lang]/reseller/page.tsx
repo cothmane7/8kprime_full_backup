@@ -2,8 +2,12 @@
 
 import { motion } from "framer-motion";
 import { Check, ShieldCheck, Zap, Users, Star, ArrowRight } from "lucide-react";
+import { use } from "react";
 
-export default function ResellerPage() {
+export default function ResellerPage(props: { params: Promise<{ lang: string }> }) {
+    const params = use(props.params);
+    const lang = params.lang;
+
     const features = [
         "1 Credit = 1 month",
         "3 Credit = 3 Months",

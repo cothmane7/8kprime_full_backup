@@ -13,8 +13,11 @@ import {
     Zap
 } from "lucide-react";
 import Link from "next/link";
+import { use } from "react";
 
-export default function DashboardPage() {
+export default function DashboardPage(props: { params: Promise<{ lang: string }> }) {
+    const params = use(props.params);
+    const lang = params.lang;
     const user = {
         name: "John Doe",
         email: "john@example.com",
