@@ -28,6 +28,7 @@ export default function Navbar({ lang, dictionary }: { lang: string; dictionary:
     { name: dictionary.home, href: `/${lang}` },
     { name: dictionary.setup_guide, href: `/${lang}/setup-guide` },
     { name: dictionary.pricing, href: `/${lang}/pricing` },
+    { name: "Reseller", href: `/${lang}/reseller` },
     { name: dictionary.channels, href: `/${lang}/channels` },
     { name: "Blog", href: `/${lang}/blog` },
     { name: dictionary.faq, href: `/${lang}/faq` },

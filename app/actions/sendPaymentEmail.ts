@@ -18,9 +18,15 @@ const PLAN_LABELS: Record<string, string> = {
 };
 
 const PAYMENT_LINKS: Record<string, string> = {
-    "3mo": "https://nas.io/checkout-global?communityId=69a2be48dd35f30983fdb5d9&communityCode=BUSINESS_223679&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.io%2F8kprime&tierId=69c6ff9748ef0799ea7d7df7",
-    "6mo": "https://nas.io/checkout-global?communityId=69a2be48dd35f30983fdb5d9&communityCode=BUSINESS_223679&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.io%2F8kprime&tierId=69c6ffb50452adfa7b38c19d",
-    "12mo": "https://nas.io/checkout-global?communityId=69a2be48dd35f30983fdb5d9&communityCode=BUSINESS_223679&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.io%2F8kprime&tierId=69c6fe4a5e80817cdbe8918b",
+    // 1 Device Plans
+    "3mo_1": "https://nas.io/checkout-global?communityId=69a2be48dd35f30983fdb5d9&communityCode=BUSINESS_223679&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.io%2F8kprime&tierId=69c6ff9748ef0799ea7d7df7",
+    "6mo_1": "https://nas.io/checkout-global?communityId=69a2be48dd35f30983fdb5d9&communityCode=BUSINESS_223679&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.io%2F8kprime&tierId=69c6ffb50452adfa7b38c19d",
+    "12mo_1": "https://nas.io/checkout-global?communityId=69a2be48dd35f30983fdb5d9&communityCode=BUSINESS_223679&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.io%2F8kprime&tierId=69c6fe4a5e80817cdbe8918b",
+    
+    // 2 Devices Plans
+    "3mo_2": "https://nas.io/checkout-global?communityId=69a2be48dd35f30983fdb5d9&communityCode=BUSINESS_223679&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.io%2F8kprime&tierId=69c7009ee4011a651a12c9f7",
+    "6mo_2": "https://nas.io/checkout-global?communityId=69a2be48dd35f30983fdb5d9&communityCode=BUSINESS_223679&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.io%2F8kprime&tierId=69c7006dc0b9ebba6d3fe1f5",
+    "12mo_2": "https://nas.io/checkout-global?communityId=69a2be48dd35f30983fdb5d9&communityCode=BUSINESS_223679&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.io%2F8kprime&tierId=69c7004878838a5cc27d0bcd",
 };
 
 export async function sendPaymentEmails({
@@ -38,8 +44,17 @@ export async function sendPaymentEmails({
         const headersList = await headers();
         const ip = headersList.get("x-forwarded-for") || headersList.get("x-real-ip") || "Unknown IP";
         const dateTime = new Date().toLocaleString("en-US", { timeZoneName: "short" });
-        const price = PRICE_MAP[plan] || "N/A";
+        
+        // Compute dynamic price using the device multiplier strategy
+        const basePriceStr = PRICE_MAP[plan] || "0";
+        const basePriceMatch = basePriceStr.match(/[\d.]+/);
+        const basePriceNum = basePriceMatch ? parseFloat(basePriceMatch[0]) : 0;
+        const multipliers: Record<string, number> = { "1": 1, "2": 1.5, "3": 2, "4": 2.5 };
+        const finalPriceNum = basePriceNum * (multipliers[devices] || 1);
+        const price = basePriceNum > 0 ? `€${finalPriceNum.toFixed(2)}` : "N/A";
+        
         const planLabel = PLAN_LABELS[plan] || plan;
+        const paymentKey = `${plan}_${devices}`;
 
         let transporter;
         if (process.env.SMTP_HOST && process.env.SMTP_HOST !== "") {
@@ -120,13 +135,13 @@ export async function sendPaymentEmails({
                     </p>
 
                     <!-- Nas.io Payment Button (Dynamic) -->
-                    ${PAYMENT_LINKS[plan] ? `
+                    ${PAYMENT_LINKS[paymentKey] ? `
                     <div style="text-align: center; margin-bottom: 32px;">
                         <div style="background: #111; border: 1px solid ${plan === '12mo' ? '#d4a843' : '#333'}; border-radius: 12px; padding: 20px; margin-bottom: 16px;">
                             ${plan === '12mo' ? `<div style="background: #d4a843; color: #000; font-size: 11px; font-weight: bold; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 8px;">Most Popular</div>` : ''}
                             <h3 style="color: #fff; margin: 0 0 8px; font-size: 18px;">${planLabel}</h3>
                             <p style="color: #d4a843; font-size: 20px; font-weight: bold; margin: 0 0 16px;">${price}</p>
-                            <a href="${PAYMENT_LINKS[plan]}" style="display: inline-block; background: linear-gradient(135deg, #b08d3e, #d4a843); color: #000; text-decoration: none; font-weight: bold; padding: 12px 24px; border-radius: 8px; text-transform: uppercase; font-size: 14px;">Get Instant Access</a>
+                            <a href="${PAYMENT_LINKS[paymentKey]}" style="display: inline-block; background: linear-gradient(135deg, #b08d3e, #d4a843); color: #000; text-decoration: none; font-weight: bold; padding: 12px 24px; border-radius: 8px; text-transform: uppercase; font-size: 14px;">Get Instant Access</a>
                         </div>
                     </div>
                     ` : `

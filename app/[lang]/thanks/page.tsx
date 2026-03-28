@@ -68,7 +68,7 @@ export default function ThankYouPage() {
                             <Clock className="text-primary w-8 h-8 mb-4" />
                             <h3 className="text-white font-black uppercase tracking-widest text-sm mb-2">Delivery Time</h3>
                             <p className="text-gray-300 text-sm font-medium leading-relaxed">
-                                Your delivery usually takes **2-5 minutes**. We're working fast to get you streaming in record time!
+                                Your delivery usually takes <span className="text-white font-bold">5 minutes to 2 hours</span>, depending on heavy load. We're working securely to get you streaming as fast as possible!
                             </p>
                         </motion.div>
                     </div>
