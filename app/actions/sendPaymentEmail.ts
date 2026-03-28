@@ -27,6 +27,11 @@ const PAYMENT_LINKS: Record<string, string> = {
     "3mo_2": "https://nas.io/checkout-global?communityId=69a2be48dd35f30983fdb5d9&communityCode=BUSINESS_223679&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.io%2F8kprime&tierId=69c7009ee4011a651a12c9f7",
     "6mo_2": "https://nas.io/checkout-global?communityId=69a2be48dd35f30983fdb5d9&communityCode=BUSINESS_223679&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.io%2F8kprime&tierId=69c7006dc0b9ebba6d3fe1f5",
     "12mo_2": "https://nas.io/checkout-global?communityId=69a2be48dd35f30983fdb5d9&communityCode=BUSINESS_223679&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.io%2F8kprime&tierId=69c7004878838a5cc27d0bcd",
+
+    // 3 Devices Plans
+    "3mo_3": "https://nas.io/checkout-global?communityId=69a2be48dd35f30983fdb5d9&communityCode=BUSINESS_223679&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.io%2F8kprime&tierId=69c7ce37264c45daec5bb02b",
+    "6mo_3": "https://nas.io/checkout-global?communityId=69a2be48dd35f30983fdb5d9&communityCode=BUSINESS_223679&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.io%2F8kprime&tierId=69c7ce57a271c8fa78e5b1fc",
+    "12mo_3": "https://nas.io/checkout-global?communityId=69a2be48dd35f30983fdb5d9&communityCode=BUSINESS_223679&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.io%2F8kprime&tierId=69c7ce7b741f22bc85053dd0",
 };
 
 export async function sendPaymentEmails({
