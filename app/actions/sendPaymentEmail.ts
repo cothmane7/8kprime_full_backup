@@ -17,7 +17,7 @@ const PLAN_LABELS: Record<string, string> = {
     "24mo": "24 Months Access",
 };
 
-const PAYMENT_LINKS: Record<string, string> = {
+const NAS_LINKS: Record<string, string> = {
     // 1 Device Plans
     "3mo_1": "https://nas.io/checkout-global?communityId=69a2be48dd35f30983fdb5d9&communityCode=BUSINESS_223679&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.io%2F8kprime&tierId=69c6ff9748ef0799ea7d7df7",
     "6mo_1": "https://nas.io/checkout-global?communityId=69a2be48dd35f30983fdb5d9&communityCode=BUSINESS_223679&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.io%2F8kprime&tierId=69c6ffb50452adfa7b38c19d",
@@ -32,6 +32,13 @@ const PAYMENT_LINKS: Record<string, string> = {
     "3mo_3": "https://nas.io/checkout-global?communityId=69a2be48dd35f30983fdb5d9&communityCode=BUSINESS_223679&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.io%2F8kprime&tierId=69c7ce37264c45daec5bb02b",
     "6mo_3": "https://nas.io/checkout-global?communityId=69a2be48dd35f30983fdb5d9&communityCode=BUSINESS_223679&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.io%2F8kprime&tierId=69c7ce57a271c8fa78e5b1fc",
     "12mo_3": "https://nas.io/checkout-global?communityId=69a2be48dd35f30983fdb5d9&communityCode=BUSINESS_223679&requestor=signupRequestor&linkClicked=https%3A%2F%2Fnas.io%2F8kprime&tierId=69c7ce7b741f22bc85053dd0",
+};
+
+const PAYPAL_LINKS: Record<string, string> = {
+    // 1 Device Plans
+    "3mo_1": "https://www.paypal.com/ncp/payment/J6T5C6H8PP9WA",
+    "6mo_1": "https://www.paypal.com/ncp/payment/GLW8GKB6LW3U8",
+    "12mo_1": "https://www.paypal.com/ncp/payment/5N44QP2Y9CTBG",
 };
 
 export async function sendPaymentEmails({
@@ -60,6 +67,8 @@ export async function sendPaymentEmails({
         
         const planLabel = PLAN_LABELS[plan] || plan;
         const paymentKey = `${plan}_${devices}`;
+        const currentLinks = paymentMethod === "paypal" ? PAYPAL_LINKS : NAS_LINKS;
+        const checkoutUrl = currentLinks[paymentKey];
 
         let transporter;
         if (process.env.SMTP_HOST && process.env.SMTP_HOST !== "") {
@@ -139,14 +148,14 @@ export async function sendPaymentEmails({
                         To activate your subscription instantly, please complete your secure payment by selecting one of the plans below:
                     </p>
 
-                    <!-- Nas.io Payment Button (Dynamic) -->
-                    ${PAYMENT_LINKS[paymentKey] ? `
+                    <!-- Payment Button (Dynamic) -->
+                    ${checkoutUrl ? `
                     <div style="text-align: center; margin-bottom: 32px;">
                         <div style="background: #111; border: 1px solid ${plan === '12mo' ? '#d4a843' : '#333'}; border-radius: 12px; padding: 20px; margin-bottom: 16px;">
                             ${plan === '12mo' ? `<div style="background: #d4a843; color: #000; font-size: 11px; font-weight: bold; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 8px;">Most Popular</div>` : ''}
                             <h3 style="color: #fff; margin: 0 0 8px; font-size: 18px;">${planLabel}</h3>
                             <p style="color: #d4a843; font-size: 20px; font-weight: bold; margin: 0 0 16px;">${price}</p>
-                            <a href="${PAYMENT_LINKS[paymentKey]}" style="display: inline-block; background: linear-gradient(135deg, #b08d3e, #d4a843); color: #000; text-decoration: none; font-weight: bold; padding: 12px 24px; border-radius: 8px; text-transform: uppercase; font-size: 14px;">Get Instant Access</a>
+                            <a href="${checkoutUrl}" style="display: inline-block; background: linear-gradient(135deg, #b08d3e, #d4a843); color: #000; text-decoration: none; font-weight: bold; padding: 12px 24px; border-radius: 8px; text-transform: uppercase; font-size: 14px;">Get Instant Access</a>
                         </div>
                     </div>
                     ` : `
