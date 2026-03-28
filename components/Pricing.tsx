@@ -216,6 +216,12 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                             </div>
 
                             <div className="space-y-4 mb-10 flex-grow">
+                                <div className="flex items-center gap-3 text-xs md:text-[13px] font-bold text-primary bg-primary/10 px-4 py-2.5 rounded-xl border border-primary/20 shadow-[0_0_15px_rgba(212,175,55,0.1)]">
+                                    <Monitor className="w-4 h-4 text-primary shrink-0" />
+                                    <span className="leading-none uppercase tracking-wide">
+                                        {activeDevices} {activeDevices === 1 ? dictionary.device_connection : dictionary.devices_connection}
+                                    </span>
+                                </div>
                                 {plan.features.map((feature, i) => (
                                     <div key={i} className="flex items-start gap-3 text-xs md:text-[13px] font-semibold text-gray-200">
                                         <div className="mt-0.5">

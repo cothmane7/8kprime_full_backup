@@ -75,6 +75,8 @@
     "devices": "DEVICES",
     "dev": "DEV",
     "devs": "DEVS",
+    "device_connection": "Device Connection",
+    "devices_connection": "Devices Connection",
     "most_popular": "MOST POPULAR",
     "month": "Month",
     "cta_main": "Start Watching",
