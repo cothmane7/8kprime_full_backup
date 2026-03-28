@@ -63,9 +63,9 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                         className="flex flex-col items-center text-center mb-8 w-full"
                     >
                         {[
-                            { text: dictionary.title_part1, gold: false, scale: "scale-[1]", size: "text-[clamp(1.7rem,5.5vw,2.2rem)] md:text-[clamp(2rem,3.8vw,3.2rem)] xl:text-[clamp(2.8rem,3.5vw,3.8rem)]" },
-                            { text: dictionary.title_part2, gold: false, scale: "scale-[0.92]", size: "text-[clamp(1.55rem,5vw,2rem)] md:text-[clamp(1.85rem,3.5vw,2.9rem)] xl:text-[clamp(2.5rem,3.2vw,3.4rem)]" },
-                            { text: dictionary.title_part3, gold: true, scale: "scale-[0.84]", size: "text-[clamp(1.4rem,4.5vw,1.85rem)] md:text-[clamp(1.7rem,3.2vw,2.6rem)] xl:text-[clamp(2.2rem,2.9vw,3rem)]" },
+                            { text: dictionary.title_part1, gold: false, scale: "scale-[1]", size: "text-[clamp(1.9rem,6vw,2.5rem)] md:text-[clamp(2.2rem,4.1vw,3.5rem)] xl:text-[clamp(3.1rem,3.8vw,4.2rem)]" },
+                            { text: dictionary.title_part2, gold: false, scale: "scale-[0.92]", size: "text-[clamp(1.7rem,5.5vw,2.2rem)] md:text-[clamp(2rem,3.8vw,3.2rem)] xl:text-[clamp(2.8rem,3.5vw,3.8rem)]" },
+                            { text: dictionary.title_part3, gold: true, scale: "scale-[0.88]", size: "text-[clamp(1.55rem,5vw,2rem)] md:text-[clamp(1.85rem,3.5vw,2.9rem)] xl:text-[clamp(2.5rem,3.2vw,3.4rem)]" },
                             { text: dictionary.title_part4, gold: true, scale: "scale-[0.76]", size: "text-[clamp(1.25rem,4vw,1.7rem)] md:text-[clamp(1.55rem,2.9vw,2.3rem)] xl:text-[clamp(2rem,2.6vw,2.6rem)]" },
                             { text: dictionary.title_part5, gold: true, scale: "scale-[0.68]", size: "text-[clamp(1.1rem,3.5vw,1.55rem)] md:text-[clamp(1.4rem,2.6vw,2rem)] xl:text-[clamp(1.8rem,2.3vw,2.2rem)]" },
                         ].filter(line => line.text && line.text.trim() !== "").map((line, i) => (
@@ -90,7 +90,7 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.2 }}
-                        className="text-gray-100 text-[18px] md:text-xl lg:text-2xl font-medium mb-10 max-w-2xl mx-auto leading-[1.8] text-balance"
+                        className="text-gray-100 text-[20px] md:text-2xl lg:text-3xl font-medium mb-10 max-w-3xl mx-auto leading-[1.6] text-balance"
                     >
                         {dictionary.subtext}
                     </motion.p>
@@ -122,27 +122,10 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.4 }}
-                        className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-10 text-white/90"
+                        className="mt-6 flex items-center justify-center gap-2 text-white/70 text-sm md:text-base font-medium"
                     >
-                        <div className="flex items-center gap-3">
-                            <div className="bg-orange-500/20 p-2 rounded-xl border border-orange-500/20 shadow-[0_0_15px_rgba(249,115,22,0.1)]">
-                                <ShieldCheck size={20} className="text-orange-500" />
-                            </div>
-                            <span className="text-sm md:text-base font-black uppercase tracking-wider">{dictionary.trust_guarantee}</span>
-                        </div>
-                        
-                        <div className="h-4 w-[1px] bg-white/10 hidden sm:block" />
-
-                        <div className="flex items-center gap-4 bg-white/5 border border-white/10 px-6 py-3 rounded-2xl backdrop-blur-md">
-                            <span className="text-sm md:text-base font-black uppercase tracking-widest">{dictionary.trust_score_label}</span>
-                            <div className="flex gap-1.5">
-                                {[1, 2, 3, 4, 5].map((i) => (
-                                    <div key={i} className="bg-[#00B67A] p-1.5 rounded-md shadow-lg shadow-[#00B67A]/20">
-                                        <Star size={12} fill="white" className="text-white" />
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
+                        <ShieldCheck size={18} className="text-white/70" />
+                        <span>{dictionary.trust_single_line || "7-day money-back guarantee · No hidden fees"}</span>
                     </motion.div>
                 </div>
             </div>
