@@ -24,6 +24,23 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
         return () => clearInterval(interval);
     }, []);
 
+    const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        if (href.includes("#")) {
+            const [path, hash] = href.split("#");
+            const currentPath = window.location.pathname.replace(/\/$/, "");
+            const targetPath = path.replace(/\/$/, "");
+
+            if (currentPath === targetPath || (targetPath === "" && (currentPath === `/${lang}` || currentPath === `/${lang}/`))) {
+                e.preventDefault();
+                const element = document.getElementById(hash);
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                    window.history.pushState(null, "", href);
+                }
+            }
+        }
+    };
+
     return (
         <section className="relative min-h-[100vh] flex flex-col items-center justify-center pt-[120px] pb-[80px] overflow-hidden bg-[#050505]">
             {/* Background Layer: Cinematic Full-Bleed Image Slideshow */}
@@ -108,7 +125,8 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                         className="flex flex-col items-center justify-center w-full"
                     >
                         <Link 
-                            href={`/${lang}/pricing`} 
+                            href={`/${lang}#pricing`} 
+                            onClick={(e) => handleScrollTo(e, `/${lang}#pricing`)}
                             className="w-full sm:w-auto bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] bg-[length:200%_auto] hover:bg-right text-black px-12 py-5 md:px-16 md:py-6 rounded-full font-black uppercase tracking-wider hover:scale-[1.02] active:scale-[0.98] transition-all duration-500 shadow-[0_0_50px_rgba(212,175,55,0.5),inset_0_2px_4px_rgba(255,240,179,0.8)] group/btn relative overflow-hidden flex items-center justify-center gap-3 border border-yellow-200/50"
                         >
                             {/* Animated shine sweep */}

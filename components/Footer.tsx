@@ -15,6 +15,23 @@ import {
 import { motion } from "framer-motion";
 
 export default function Footer({ lang, dictionary, common }: { lang: string; dictionary: any; common: any }) {
+    const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        if (href.includes("#")) {
+            const [path, hash] = href.split("#");
+            const currentPath = window.location.pathname.replace(/\/$/, "");
+            const targetPath = path.replace(/\/$/, "");
+
+            if (currentPath === targetPath || (targetPath === "" && (currentPath === `/${lang}/`) || currentPath === `/${lang}`)) {
+                e.preventDefault();
+                const element = document.getElementById(hash);
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                    window.history.pushState(null, "", href);
+                }
+            }
+        }
+    };
+
     return (
         <footer className="bg-[#050505] pt-20 md:pt-32 pb-12 relative overflow-hidden">
             {/* Background Decoration */}
@@ -44,7 +61,11 @@ export default function Footer({ lang, dictionary, common }: { lang: string; dic
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                     >
-                        <Link href={`/${lang}/pricing`} className="bg-primary text-black px-10 md:px-16 py-5 md:py-7 rounded-2xl md:rounded-[2.5rem] text-lg md:text-2xl font-extrabold inline-flex items-center gap-3 shadow-2xl shadow-primary/20 group/btn touch-target">
+                        <Link 
+                            href={`/${lang}#pricing`} 
+                            onClick={(e) => handleScrollTo(e, `/${lang}#pricing`)}
+                            className="bg-primary text-black px-10 md:px-16 py-5 md:py-7 rounded-2xl md:rounded-[2.5rem] text-lg md:text-2xl font-extrabold inline-flex items-center gap-3 shadow-2xl shadow-primary/20 group/btn touch-target"
+                        >
                             {dictionary.cta_button}
                             <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform" />
                         </Link>
@@ -82,13 +103,19 @@ export default function Footer({ lang, dictionary, common }: { lang: string; dic
                         <ul className="space-y-4">
                             {[
                                 { name: common.home, href: `/${lang}` },
-                                { name: common.pricing, href: `/${lang}/pricing` },
+                                { name: common.pricing, href: `/${lang}#pricing` },
                                 { name: common.channels, href: `/${lang}/channels` },
                                 { name: "Blog", href: `/${lang}/blog` },
                                 { name: common.faq, href: `/${lang}/#faq` }
                             ].map((link) => (
                                 <li key={link.name}>
-                                    <Link href={link.href} className="text-gray-300 font-bold hover:text-primary transition-colors text-sm uppercase tracking-widest">{link.name}</Link>
+                                    <Link 
+                                        href={link.href} 
+                                        onClick={(e) => handleScrollTo(e, link.href)}
+                                        className="text-gray-300 font-bold hover:text-primary transition-colors text-sm uppercase tracking-widest"
+                                    >
+                                        {link.name}
+                                    </Link>
                                 </li>
                             ))}
                         </ul>

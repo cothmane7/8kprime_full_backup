@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
 import { i18n, type Locale } from "@/i18n-config";
 import { getDictionary } from "@/get-dictionary";
-import { Barlow_Condensed } from "next/font/google";
+import { Barlow_Condensed, Outfit } from "next/font/google";
 import SecurityShield from "@/components/SecurityShield";
 import CrispChat from "@/components/CrispChat";
 
@@ -14,6 +14,13 @@ const barlowCondensed = Barlow_Condensed({
   weight: ["600", "700", "800", "900"],
   style: ["normal", "italic"],
   variable: "--font-sporty",
+  display: "swap",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-ui",
   display: "swap",
 });
 
@@ -52,7 +59,7 @@ export default async function RootLayout(props: {
   const dictionary = await getDictionary(lang);
 
   return (
-    <html lang={lang} className={barlowCondensed.variable}>
+    <html lang={lang} className={`${barlowCondensed.variable} ${outfit.variable}`}>
       <body className="antialiased bg-background text-foreground">
         <SecurityShield />
         <Navbar lang={lang} dictionary={dictionary.common} />

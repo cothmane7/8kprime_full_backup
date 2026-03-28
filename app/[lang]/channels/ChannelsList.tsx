@@ -104,6 +104,23 @@ export default function ChannelsList({ lang, dictionary, pricingDict }: {
         { label: dictionary.stat_uptime, value: "99.9%", color: "from-green-400 to-emerald-500" },
     ];
 
+    const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        if (href.includes("#")) {
+            const [path, hash] = href.split("#");
+            const currentPath = window.location.pathname.replace(/\/$/, "");
+            const targetPath = path.replace(/\/$/, "");
+
+            if (currentPath === targetPath || (targetPath === "" && (currentPath === `/${lang}` || currentPath === `/${lang}/`))) {
+                e.preventDefault();
+                const element = document.getElementById(hash);
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                    window.history.pushState(null, "", href);
+                }
+            }
+        }
+    };
+
     return (
         <div className="pt-24 min-h-screen bg-[#050505] pb-20 overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
@@ -184,7 +201,8 @@ export default function ChannelsList({ lang, dictionary, pricingDict }: {
                                 {dictionary.unlock_banner.subtext}
                             </p>
                             <a 
-                                href={`/${lang}/pricing`}
+                                href={`/${lang}#pricing`}
+                                onClick={(e: any) => handleScrollTo(e, `/${lang}#pricing`)}
                                 className="inline-flex items-center gap-3 bg-primary text-black px-8 py-4 rounded-2xl font-black uppercase tracking-widest hover:scale-105 transition-transform shadow-xl shadow-primary/20"
                             >
                                 {dictionary.unlock_banner.cta}

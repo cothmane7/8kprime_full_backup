@@ -17,17 +17,30 @@ export default function Navbar({ lang, dictionary }: { lang: string; dictionary:
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (window.location.pathname === href || window.location.pathname === href + "/") {
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.includes("#")) {
+      const [path, hash] = href.split("#");
+      const currentPath = window.location.pathname.replace(/\/$/, "");
+      const targetPath = path.replace(/\/$/, "");
+
+      if (currentPath === targetPath || (targetPath === "" && (currentPath === `/${lang}` || currentPath === `/${lang}/`))) {
+        e.preventDefault();
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+          window.history.pushState(null, "", href);
+        }
+      }
+    } else if (window.location.pathname === href || window.location.pathname === href + "/") {
       e.preventDefault();
-      window.location.href = href;
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
   const navLinks = [
     { name: dictionary.home, href: `/${lang}` },
     { name: dictionary.setup_guide, href: `/${lang}/setup-guide` },
-    { name: dictionary.pricing, href: `/${lang}/pricing` },
+    { name: dictionary.pricing, href: `/${lang}#pricing` },
     { name: "Reseller", href: `/${lang}/reseller` },
     { name: dictionary.channels, href: `/${lang}/channels` },
     { name: "Blog", href: `/${lang}/blog` },
@@ -43,7 +56,7 @@ export default function Navbar({ lang, dictionary }: { lang: string; dictionary:
           {/* Logo */}
           <Link 
             href={`/${lang}`} 
-            onClick={(e) => handleHomeClick(e, `/${lang}`)}
+            onClick={(e) => handleScrollTo(e, `/${lang}`)}
             className="flex items-center gap-3 group touch-target pl-1 pt-3"
           >
             <div className="relative">
@@ -74,23 +87,27 @@ export default function Navbar({ lang, dictionary }: { lang: string; dictionary:
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8 xl:gap-12">
+          <div className="hidden lg:flex items-center gap-7 xl:gap-10">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                onClick={(e) => link.href === `/${lang}` && handleHomeClick(e, link.href)}
-                className="text-sm xl:text-base font-black text-gray-200 hover:text-primary uppercase tracking-wider transition-all relative group"
+                onClick={(e) => handleScrollTo(e, link.href)}
+                className="text-[13px] xl:text-[15px] font-semibold text-gray-200 hover:text-primary uppercase tracking-[0.12em] transition-all relative group font-sans"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-gold-light to-primary transition-all group-hover:w-full" />
+                <span className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-gold-light via-primary to-gold-light transition-all group-hover:w-[120%]" />
               </Link>
             ))}
           </div>
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-4 xl:gap-8">
-            <Link href={`/${lang}/pricing`} className="bg-metallic-gold text-black px-6 xl:px-10 py-4 xl:py-5 rounded-[1.5rem] xl:rounded-[1.8rem] text-sm xl:text-lg font-bold hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/30 button-shine soft-gold-glow">
+            <Link 
+              href={`/${lang}#pricing`} 
+              onClick={(e) => handleScrollTo(e, `/${lang}#pricing`)}
+              className="bg-metallic-gold text-black px-6 xl:px-10 py-4 xl:py-5 rounded-[1.5rem] xl:rounded-[1.8rem] text-sm xl:text-lg font-bold hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/30 button-shine soft-gold-glow"
+            >
               {dictionary.get_started}
             </Link>
           </div>
@@ -141,19 +158,22 @@ export default function Navbar({ lang, dictionary }: { lang: string; dictionary:
                   <Link
                     href={link.href}
                     onClick={(e) => {
-                      if (link.href === `/${lang}`) handleHomeClick(e, link.href);
+                      handleScrollTo(e, link.href);
                       setIsMobileMenuOpen(false);
                     }}
-                    className="text-3xl font-black text-white hover:text-primary transition-colors flex items-center justify-between"
+                    className="text-2xl font-bold text-white hover:text-primary transition-colors flex items-center justify-between font-sans uppercase tracking-[0.05em]"
                   >
                     {link.name}
-                    <ChevronRight className="text-primary/70" size={24} />
+                    <ChevronRight className="text-primary/70" size={20} />
                   </Link>
                 </motion.div>
               ))}
               <Link
-                href={`/${lang}/pricing`}
-                onClick={() => setIsMobileMenuOpen(false)}
+                href={`/${lang}#pricing`}
+                onClick={(e) => {
+                  handleScrollTo(e, `/${lang}#pricing`);
+                  setIsMobileMenuOpen(false);
+                }}
                 className="mt-6 bg-metallic-gold text-black w-full py-5 rounded-[2rem] text-xl font-extrabold text-center shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:scale-105 active:scale-95 transition-all"
               >
                 {dictionary.get_started}

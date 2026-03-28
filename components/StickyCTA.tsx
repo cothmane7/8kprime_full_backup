@@ -18,6 +18,23 @@ export default function StickyCTA({ lang, dictionary }: { lang: string; dictiona
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        if (href.includes("#")) {
+            const [path, hash] = href.split("#");
+            const currentPath = window.location.pathname.replace(/\/$/, "");
+            const targetPath = path.replace(/\/$/, "");
+
+            if (currentPath === targetPath || (targetPath === "" && (currentPath === `/${lang}` || currentPath === `/${lang}/`))) {
+                e.preventDefault();
+                const element = document.getElementById(hash);
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                    window.history.pushState(null, "", href);
+                }
+            }
+        }
+    };
+
     return (
         <AnimatePresence>
             {isVisible && (
@@ -30,7 +47,8 @@ export default function StickyCTA({ lang, dictionary }: { lang: string; dictiona
                 >
                     <div className="bg-[#0A0A0F]/95 backdrop-blur-xl border-t border-primary/20 px-4 py-3 shadow-[0_-4px_30px_rgba(0,0,0,0.5)]">
                         <Link
-                            href={`/${lang}/pricing`}
+                            href={`/${lang}#pricing`}
+                            onClick={(e) => handleScrollTo(e, `/${lang}#pricing`)}
                             className="flex items-center justify-center gap-2 w-full bg-metallic-gold text-black py-4 rounded-2xl font-extrabold text-base shadow-lg shadow-primary/20 active:scale-[0.98] transition-transform"
                         >
                             {dictionary.cta_main}
