@@ -35,6 +35,7 @@ export default function Navbar({ lang, dictionary }: { lang: string; dictionary:
   ];
 
   return (
+    <>
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-[#0B0B0B]/90 backdrop-blur-xl border-b border-primary/10 py-3 shadow-2xl" : "bg-transparent py-5"}`}>
       <div className="container-responsive">
         <div className="flex items-center justify-between">
@@ -96,13 +97,14 @@ export default function Navbar({ lang, dictionary }: { lang: string; dictionary:
           {/* Mobile Menu Toggle: Optimized Touch Target */}
           <button
             className="lg:hidden text-white w-12 h-12 flex items-center justify-end touch-target"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle Menu"
+            onClick={() => setIsMobileMenuOpen(true)}
+            aria-label="Open Menu"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            <Menu size={32} />
           </button>
         </div>
       </div>
+    </nav>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
@@ -111,19 +113,29 @@ export default function Navbar({ lang, dictionary }: { lang: string; dictionary:
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "spring", damping: 25 }}
-            className="fixed inset-0 z-40 lg:hidden bg-[#050505] pt-32 px-10"
+            transition={{ type: "tween", duration: 0.2, ease: "easeInOut" }}
+            className="fixed inset-0 z-[100] lg:hidden bg-[#0A0A0F] pt-6 px-8 flex flex-col h-screen overflow-y-auto"
           >
-            {/* Background Decoration */}
-            <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary/10 blur-[120px] rounded-full" />
+            {/* Header Area with Close Button */}
+            <div className="flex justify-end items-center w-full mb-12">
+              <button
+                className="text-white p-3 bg-white/5 hover:bg-white/10 rounded-full transition-colors flex items-center justify-center touch-target"
+                onClick={() => setIsMobileMenuOpen(false)}
+                aria-label="Close Menu"
+              >
+                <X size={28} />
+              </button>
+            </div>
+                    {/* Background Decoration */}
+            <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
 
-            <div className="flex flex-col gap-8 relative z-10">
+            <div className="flex flex-col gap-8 relative z-10 font-sans">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.name}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.05 }}
                 >
                   <Link
                     href={link.href}
@@ -131,17 +143,17 @@ export default function Navbar({ lang, dictionary }: { lang: string; dictionary:
                       if (link.href === `/${lang}`) handleHomeClick(e, link.href);
                       setIsMobileMenuOpen(false);
                     }}
-                    className="text-4xl font-black text-white hover:text-primary transition-colors flex items-center justify-between"
+                    className="text-3xl font-black text-white hover:text-primary transition-colors flex items-center justify-between"
                   >
                     {link.name}
-                    <ChevronRight className="text-primary" />
+                    <ChevronRight className="text-primary/70" size={24} />
                   </Link>
                 </motion.div>
               ))}
               <Link
                 href={`/${lang}/pricing`}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="mt-8 bg-primary text-black w-full py-6 rounded-[2rem] text-2xl font-extrabold text-center shadow-2xl shadow-primary/20"
+                className="mt-6 bg-metallic-gold text-black w-full py-5 rounded-[2rem] text-xl font-extrabold text-center shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:scale-105 active:scale-95 transition-all"
               >
                 {dictionary.get_started}
               </Link>
@@ -149,6 +161,6 @@ export default function Navbar({ lang, dictionary }: { lang: string; dictionary:
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </>
   );
 }
