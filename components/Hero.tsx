@@ -25,94 +25,99 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
     }, []);
 
     return (
-        <section className="relative min-h-screen flex flex-col items-center justify-center pt-[100px] overflow-hidden bg-[#0A0A0F]">
+        <section className="relative min-h-[100vh] flex flex-col items-center justify-center pt-[120px] pb-[80px] overflow-hidden bg-[#050505]">
             {/* Background Layer: Cinematic Full-Bleed Image Slideshow */}
-            <div className="absolute inset-0 z-0 overflow-hidden bg-[#0A0A0F]">
+            <div className="absolute inset-0 z-0 overflow-hidden bg-[#050505]">
                 <AnimatePresence initial={false}>
                     <motion.div
                         key={currentBg}
                         initial={{ opacity: 0, scale: 1.05 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 1.5, ease: "easeInOut" }}
+                        transition={{ duration: 2, ease: "easeInOut" }}
                         className="absolute inset-0"
                         style={{
                             backgroundImage: `url('${backgrounds[currentBg]}')`,
                             backgroundSize: "cover",
-                            backgroundPosition: "center",
+                            backgroundPosition: "center top",
                             backgroundRepeat: "no-repeat",
                         }}
                     />
                 </AnimatePresence>
-                {/* Dark gradient overlay — keeps text perfectly readable */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0F] via-[#0A0A0F]/90 to-[#0A0A0F]/40" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-transparent to-[#0A0A0F]/80" />
-                {/* Gold atmospheric glow on top of image */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(176,141,62,0.15)_0%,transparent_60%)]" />
+                
+                {/* Cinematic Vignette & Core Darkness Overlay */}
+                <div className="absolute inset-0 bg-[#050505]/40 mix-blend-multiply" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/80 via-transparent to-[#050505] shadow-[inset_0_0_150px_rgba(5,5,5,1)]" />
+                
+                {/* Netflix-style deep lateral fade */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-transparent to-[#050505]" />
+                
+                {/* Premium Gold Atmospheric Glow behind text */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[60%] bg-[radial-gradient(ellipse_at_top,rgba(212,175,55,0.15)_0%,transparent_70%)] mix-blend-color-dodge blur-2xl" />
             </div>
             
-            <div className="w-full max-w-4xl mx-auto px-6 relative z-10 flex flex-col items-center text-center">
+            <div className="w-full max-w-5xl mx-auto px-6 relative z-10 flex flex-col items-center text-center">
                 {/* Centered Content Block */}
-                <div className="flex flex-col items-center w-full">
+                <div className="flex flex-col items-center w-full mt-auto mb-auto">
 
-                    {/* Headline — Pyramid Layout */}
-                    <motion.div 
+                    {/* Headline — Optimized Client Hook */}
+                    <motion.h1 
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="flex flex-col items-center text-center mb-8 w-full"
+                        className="flex flex-col items-center text-center mb-8 w-full text-[clamp(2.5rem,7vw,3.5rem)] md:text-[clamp(4rem,7vw,5rem)] xl:text-[clamp(4.5rem,6vw,6rem)] font-black leading-[1.02] tracking-[-0.02em] uppercase antialiased drop-shadow-2xl"
                     >
                         {[
-                            { text: dictionary.title_part1, gold: false, scale: "scale-[1]", size: "text-[clamp(1.9rem,6vw,2.5rem)] md:text-[clamp(2.2rem,4.1vw,3.5rem)] xl:text-[clamp(3.1rem,3.8vw,4.2rem)]" },
-                            { text: dictionary.title_part2, gold: false, scale: "scale-[0.92]", size: "text-[clamp(1.7rem,5.5vw,2.2rem)] md:text-[clamp(2rem,3.8vw,3.2rem)] xl:text-[clamp(2.8rem,3.5vw,3.8rem)]" },
-                            { text: dictionary.title_part3, gold: true, scale: "scale-[0.88]", size: "text-[clamp(1.55rem,5vw,2rem)] md:text-[clamp(1.85rem,3.5vw,2.9rem)] xl:text-[clamp(2.5rem,3.2vw,3.4rem)]" },
-                            { text: dictionary.title_part4, gold: true, scale: "scale-[0.76]", size: "text-[clamp(1.25rem,4vw,1.7rem)] md:text-[clamp(1.55rem,2.9vw,2.3rem)] xl:text-[clamp(2rem,2.6vw,2.6rem)]" },
-                            { text: dictionary.title_part5, gold: true, scale: "scale-[0.68]", size: "text-[clamp(1.1rem,3.5vw,1.55rem)] md:text-[clamp(1.4rem,2.6vw,2rem)] xl:text-[clamp(1.8rem,2.3vw,2.2rem)]" },
+                            { text: dictionary.title_part1, gold: false },
+                            { text: dictionary.title_part2, gold: false },
+                            { text: dictionary.title_part3, gold: true },
+                            { text: dictionary.title_part4, gold: true },
+                            { text: dictionary.title_part5, gold: true },
                         ].filter(line => line.text && line.text.trim() !== "").map((line, i) => (
                             <motion.span
                                 key={i}
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.1 + i * 0.06 }}
-                                className={`block whitespace-nowrap ${line.scale} ${line.size} font-black leading-[1.15] tracking-tight italic uppercase antialiased origin-center ${
+                                transition={{ delay: 0.1 + i * 0.05 }}
+                                className={`block pb-1 ${
                                     line.gold 
-                                        ? "text-transparent bg-clip-text bg-gradient-to-b from-[#FBF3D5] via-[#D4AF37] to-[#8E6927]" 
-                                        : "text-white"
+                                        ? "text-transparent bg-clip-text bg-gradient-to-b from-white via-[#FFD700] to-[#AA7900] drop-shadow-[0_4px_8px_rgba(0,0,0,0.9)]" 
+                                        : "text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]"
                                 }`}
                             >
                                 {line.text}
                             </motion.span>
                         ))}
-                    </motion.div>
+                    </motion.h1>
 
-                    {/* Subtext */}
+                    {/* Subtext — Sleek & Elegant Contrast */}
                     <motion.p 
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ delay: 0.2 }}
-                        className="text-gray-100 text-[20px] md:text-2xl lg:text-3xl font-medium mb-10 max-w-3xl mx-auto leading-[1.6] text-balance"
+                        transition={{ delay: 0.3 }}
+                        className="text-white text-[1.1rem] md:text-[1.3rem] lg:text-[1.5rem] font-medium mb-12 max-w-2xl mx-auto leading-[1.6] tracking-wide text-balance drop-shadow-lg"
                     >
                         {dictionary.subtext}
                     </motion.p>
 
-                    {/* CTA Buttons */}
+                    {/* CTA Buttons — Luxury Gold Glow */}
                     <motion.div 
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                        className="flex items-center justify-center w-full"
+                        transition={{ delay: 0.4 }}
+                        className="flex flex-col items-center justify-center w-full"
                     >
                         <Link 
                             href={`/${lang}/pricing`} 
-                            className="w-full sm:w-auto bg-metallic-gold text-black px-10 py-4 md:px-14 md:py-5 rounded-[1.5rem] font-extrabold hover:scale-105 active:scale-95 transition-all shadow-[0_0_40px_rgba(212,175,55,0.4),0_0_80px_rgba(212,175,55,0.15)] group/btn relative overflow-hidden flex flex-col items-center justify-center gap-1 border border-yellow-400/30"
+                            className="w-full sm:w-auto bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] bg-[length:200%_auto] hover:bg-right text-black px-12 py-5 md:px-16 md:py-6 rounded-full font-black uppercase tracking-wider hover:scale-[1.02] active:scale-[0.98] transition-all duration-500 shadow-[0_0_50px_rgba(212,175,55,0.5),inset_0_2px_4px_rgba(255,240,179,0.8)] group/btn relative overflow-hidden flex items-center justify-center gap-3 border border-yellow-200/50"
                         >
                             {/* Animated shine sweep */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-200%] group-hover/btn:translate-x-[200%] transition-transform duration-1000" />
-                            {/* Pulsing glow ring */}
-                            <div className="absolute inset-0 rounded-[1.5rem] animate-pulse bg-primary/20 blur-xl -z-10" />
-                            <span className="relative z-10 text-lg md:text-xl tracking-tight flex items-center gap-2">
-                                <PlayCircle className="w-6 h-6 md:w-7 md:h-7" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-200%] group-hover/btn:translate-x-[200%] transition-transform duration-1000" />
+                            {/* Inner ring */}
+                            <div className="absolute inset-1 rounded-full border border-black/10 pointer-events-none" />
+                            <span className="relative z-10 text-lg md:text-xl flex items-center gap-3">
                                 {dictionary.cta_main}
+                                <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover/btn:translate-x-1 transition-transform" />
                             </span>
                         </Link>
                     </motion.div>
@@ -121,10 +126,10 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                     <motion.div 
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ delay: 0.4 }}
-                        className="mt-6 flex items-center justify-center gap-2 text-white/70 text-sm md:text-base font-medium"
+                        transition={{ delay: 0.5 }}
+                        className="mt-8 flex items-center justify-center gap-2 text-white/50 text-xs md:text-sm font-semibold tracking-widest uppercase backdrop-blur-sm bg-black/20 px-6 py-2 rounded-full border border-white/5"
                     >
-                        <ShieldCheck size={18} className="text-white/70" />
+                        <ShieldCheck size={16} className="text-[#D4AF37]" />
                         <span>{dictionary.trust_single_line || "7-day money-back guarantee · No hidden fees"}</span>
                     </motion.div>
                 </div>
