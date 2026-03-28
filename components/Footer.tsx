@@ -10,7 +10,10 @@ import {
     Phone,
     Mail,
     Globe,
-    MessageCircle
+    MessageCircle,
+    Building2,
+    ClipboardList,
+    Calendar
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -73,6 +76,82 @@ export default function Footer({ lang, dictionary, common }: { lang: string; dic
                 </div>
             </div>
 
+            {/* About Us Section */}
+            <div className="container-responsive mb-20 md:mb-32 relative z-10">
+                <div className="flex flex-col items-center mb-12">
+                    <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter mb-4 uppercase text-center">
+                        {dictionary.about_us_title}
+                    </h2>
+                    <div className="w-24 md:w-48 h-1.5 bg-gradient-to-r from-[#B08D3E] via-[#FFD700] to-[#B08D3E] rounded-full shadow-[0_0_15px_rgba(176,141,62,0.5)]" />
+                </div>
+
+                <div className="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
+                    {/* Description Card */}
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="glass-premium p-8 rounded-3xl border border-white/5 shadow-2xl relative overflow-hidden group"
+                    >
+                        <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                        <p className="text-gray-200 text-lg md:text-xl font-medium leading-relaxed text-center">
+                            {dictionary.about_us_desc}
+                        </p>
+                    </motion.div>
+
+                    {/* Info Cards Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {[
+                            { 
+                                label: dictionary.operating_as_label, 
+                                value: dictionary.operating_as_val, 
+                                icon: <Building2 className="text-primary" size={24} />,
+                                labelClass: "text-[#B08D3E]"
+                            },
+                            { 
+                                label: dictionary.company_no_label, 
+                                value: dictionary.company_no_val, 
+                                icon: <ClipboardList className="text-[#B08D3E]" size={24} />,
+                                labelClass: "text-white"
+                            },
+                            { 
+                                label: dictionary.registered_in_label, 
+                                value: dictionary.registered_in_val, 
+                                icon: <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center font-black text-xs text-white">GB</div>,
+                                labelClass: "text-white"
+                            },
+                            { 
+                                label: dictionary.since_label, 
+                                value: dictionary.since_val, 
+                                icon: <Calendar className="text-[#FF4D4D]" size={24} />,
+                                labelClass: "text-white"
+                            }
+                        ].map((item, idx) => (
+                            <motion.div 
+                                key={idx}
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: idx * 0.1 }}
+                                className="glass-premium p-6 rounded-2xl border border-white/5 flex items-center gap-6 group hover:border-primary/20 transition-all shadow-lg"
+                            >
+                                <div className="shrink-0">
+                                    {item.icon}
+                                </div>
+                                <div className="flex flex-col">
+                                    <span className={`text-base font-black uppercase tracking-wider ${item.labelClass}`}>
+                                        {item.label}
+                                    </span>
+                                    <span className="text-lg md:text-xl font-bold text-gray-200 uppercase tracking-tight">
+                                        {item.value}
+                                    </span>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
             <div className="container-responsive">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16 lg:gap-20 xl:gap-32 mb-16 md:mb-24 relative z-10">
                     {/* Brand Section */}
@@ -130,8 +209,7 @@ export default function Footer({ lang, dictionary, common }: { lang: string; dic
                                 { name: dictionary.help_center, href: `/${lang}/faq` },
                                 { name: dictionary.status, href: "#" },
                                 { name: dictionary.privacy_policy, href: `/${lang}/privacy` },
-                                { name: dictionary.tos, href: `/${lang}/terms` },
-                                { name: "Disclaimer", href: `/${lang}/disclaimer` }
+                                { name: dictionary.tos, href: `/${lang}/terms` }
                             ].map((link) => (
                                 <li key={link.name}>
                                     <Link href={link.href} className="text-gray-300 font-bold hover:text-primary transition-colors text-sm uppercase tracking-widest">{link.name}</Link>
@@ -195,20 +273,24 @@ export default function Footer({ lang, dictionary, common }: { lang: string; dic
                 </div>
 
                 <div className="pt-10 border-t border-white/5 flex flex-col items-center gap-8 md:gap-10 relative z-10">
-                    <p className="text-gray-300 font-bold uppercase tracking-[0.05em] text-[9px] md:text-[10px] text-center max-w-4xl px-4">
-                        We do not host, store, or distribute any media content. All services provided are for access to third-party content.
-                    </p>
-                    <p className="text-gray-600 font-bold uppercase tracking-[0.1em] text-[10px] md:text-xs text-center max-w-4xl px-4">
+                    <p className="text-gray-400 font-bold uppercase tracking-[0.1em] text-[10px] md:text-xs text-center max-w-7xl px-4 leading-relaxed opacity-80">
                         {dictionary.copyright}
                     </p>
 
                     {/* Payment Icons: Wrapped for mobile */}
-                    <div className="flex flex-wrap justify-center gap-3 md:gap-4 filter grayscale opacity-50 px-4">
+                    <div className="flex flex-wrap justify-center gap-3 md:gap-4 px-4 mt-6">
                         {[
-                            "PayPal", "Visa", "Mastercard", "Google Pay", "Apple Pay", "Bitcoin"
-                        ].map((alt) => (
-                            <div key={alt} className="bg-white/90 px-3 py-1.5 rounded-lg flex items-center justify-center h-8 w-12 md:h-10 md:w-16">
-                                <span className="text-[8px] font-black text-black">{alt}</span>
+                            { name: "PayPal", color: "text-[#003087]" },
+                            { name: "Visa", color: "text-[#1A1F71]" },
+                            { name: "Mastercard", color: "text-[#EB001B]" },
+                            { name: "Google Pay", color: "text-gray-700" },
+                            { name: "Apple Pay", color: "text-black" },
+                            { name: "Bitcoin", color: "text-[#F7931A]" }
+                        ].map((brand) => (
+                            <div key={brand.name} className="bg-white px-3 py-1.5 rounded-lg flex items-center justify-center h-8 w-12 md:h-10 md:w-20 shadow-sm border border-black/5 hover:scale-105 transition-transform cursor-default">
+                                <span className={`text-[9px] md:text-[11px] font-black uppercase tracking-tighter ${brand.color}`}>
+                                    {brand.name}
+                                </span>
                             </div>
                         ))}
                     </div>
@@ -218,8 +300,7 @@ export default function Footer({ lang, dictionary, common }: { lang: string; dic
                             { name: common.home, href: `/${lang}` },
                             { name: dictionary.privacy_policy, href: `/${lang}/privacy` },
                             { name: dictionary.refund_policy, href: `/${lang}/refund-policy` },
-                            { name: dictionary.tos, href: `/${lang}/terms` },
-                            { name: "Disclaimer", href: `/${lang}/disclaimer` }
+                            { name: dictionary.tos, href: `/${lang}/terms` }
                         ].map((l) => (
                             <Link key={l.name} href={l.href} className="text-gray-700 font-black uppercase tracking-widest text-[9px] md:text-[10px] hover:text-primary transition-colors touch-target">
                                 {l.name}
