@@ -229,10 +229,16 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                             <div className="mt-auto">
                                 <Link
                                     href={`/${lang}/checkout?plan=${plan.months}mo&devices=${activeDevices}`}
-                                    className="flex items-center justify-center gap-2 w-full py-4 md:py-5 rounded-2xl font-extrabold transition-all text-lg md:text-xl touch-target hover:scale-[1.02] active:scale-[0.98] bg-metallic-gold text-black shadow-lg shadow-primary/20 button-shine gold-reflection"
+                                    className="flex items-center justify-center gap-3 w-full py-4 md:py-5 rounded-full font-black uppercase tracking-wider transition-all duration-500 text-lg md:text-xl touch-target hover:scale-[1.03] active:scale-[0.98] bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] bg-[length:200%_auto] hover:bg-right text-black shadow-[0_0_30px_rgba(212,175,55,0.4),inset_0_2px_4px_rgba(255,240,179,0.9)] overflow-hidden relative group/btn border border-yellow-200/50"
                                 >
-                                    {plan.cta}
-                                    <ShoppingCart size={18} className="md:w-6 md:h-6" />
+                                    {/* Animated shine sweep */}
+                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-200%] group-hover/btn:translate-x-[200%] transition-transform duration-1000" />
+                                    {/* Inner ring */}
+                                    <div className="absolute inset-1 rounded-full border border-black/10 pointer-events-none" />
+                                    <span className="relative z-10 flex items-center gap-2 drop-shadow-sm">
+                                        {plan.cta}
+                                        <ShoppingCart size={20} className="md:w-6 md:h-6 group-hover/btn:rotate-12 transition-transform duration-300" />
+                                    </span>
                                 </Link>
                                 <div className="mt-4 flex items-center justify-center gap-2 text-[9px] font-bold text-gray-600 uppercase tracking-widest">
                                     <Zap size={10} className="text-primary" />
