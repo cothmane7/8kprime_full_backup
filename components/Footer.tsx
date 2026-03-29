@@ -209,6 +209,7 @@ export default function Footer({ lang, dictionary, common }: { lang: string; dic
                                 { name: dictionary.help_center, href: `/${lang}/faq` },
                                 { name: dictionary.status, href: "#" },
                                 { name: dictionary.privacy_policy, href: `/${lang}/privacy` },
+                                { name: dictionary.refund_policy, href: `/${lang}/refund-policy` },
                                 { name: dictionary.tos, href: `/${lang}/terms` }
                             ].map((link) => (
                                 <li key={link.name}>

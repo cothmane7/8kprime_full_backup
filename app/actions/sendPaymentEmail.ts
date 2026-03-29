@@ -39,6 +39,19 @@ const PAYPAL_LINKS: Record<string, string> = {
     "3mo_1": "https://www.paypal.com/ncp/payment/J6T5C6H8PP9WA",
     "6mo_1": "https://www.paypal.com/ncp/payment/GLW8GKB6LW3U8",
     "12mo_1": "https://www.paypal.com/ncp/payment/5N44QP2Y9CTBG",
+    "24mo_1": "https://www.paypal.com/ncp/payment/KGRQQV2X592N6",
+
+    // 2 Devices Plans
+    "3mo_2": "https://www.paypal.com/ncp/payment/GLW8GKB6LW3U8",
+    "6mo_2": "https://www.paypal.com/ncp/payment/FW3MRDXCDNJHJ",
+    "12mo_2": "https://www.paypal.com/ncp/payment/TK324HG894ZM8",
+    "24mo_2": "https://www.paypal.com/ncp/payment/YUV7HZK2SCDJU",
+
+    // 3 Devices Plans
+    "3mo_3": "https://www.paypal.com/ncp/payment/5N44QP2Y9CTBG",
+    "6mo_3": "https://www.paypal.com/ncp/payment/TK324HG894ZM8",
+    "12mo_3": "https://www.paypal.com/ncp/payment/6VW56E3RAZA5S",
+    "24mo_3": "https://www.paypal.com/ncp/payment/N32REYDFM7BNW",
 };
 
 export async function sendPaymentEmails({
@@ -67,8 +80,11 @@ export async function sendPaymentEmails({
         
         const planLabel = PLAN_LABELS[plan] || plan;
         const paymentKey = `${plan}_${devices}`;
-        const currentLinks = paymentMethod === "paypal" ? PAYPAL_LINKS : NAS_LINKS;
+        // Automatically default to PayPal for 24-month plans since Nas.io lacks links for that duration
+        const isActuallyPayPal = paymentMethod === "paypal" || plan === "24mo";
+        const currentLinks = isActuallyPayPal ? PAYPAL_LINKS : NAS_LINKS;
         const checkoutUrl = currentLinks[paymentKey];
+        const displayPaymentMethod = isActuallyPayPal ? "paypal" : paymentMethod;
 
         let transporter;
         if (process.env.SMTP_HOST && process.env.SMTP_HOST !== "") {
@@ -117,7 +133,7 @@ export async function sendPaymentEmails({
                         </tr>
                         <tr>
                             <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #888; font-size: 13px;">Payment Method</td>
-                            <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #d4a843; font-weight: bold; text-align: right; text-transform: uppercase;">${paymentMethod}</td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #d4a843; font-weight: bold; text-align: right; text-transform: uppercase;">${displayPaymentMethod}</td>
                         </tr>
                         <tr>
                             <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #888; font-size: 13px;">Total Price</td>
@@ -178,7 +194,7 @@ export async function sendPaymentEmails({
                         </tr>
                         <tr>
                             <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #888; font-size: 13px;">Payment Method</td>
-                            <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #d4a843; font-weight: bold; text-align: right; text-transform: uppercase;">${paymentMethod}</td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #d4a843; font-weight: bold; text-align: right; text-transform: uppercase;">${displayPaymentMethod}</td>
                         </tr>
                         <tr>
                             <td style="padding: 12px 0; color: #888; font-size: 13px;">Total</td>

@@ -1,6 +1,6 @@
 import { getDictionary } from "@/get-dictionary";
 import { Locale } from "@/i18n-config";
-import { Shield, Eye, FileText, Lock, ChevronRight } from "lucide-react";
+import { Shield, Lock } from "lucide-react";
 
 export async function generateMetadata(props: {
     params: Promise<{ lang: string }>;
@@ -20,75 +20,97 @@ export default async function PrivacyPage(props: {
     const lang = params.lang as Locale;
     const dictionary = await getDictionary(lang);
 
+    const sections = [
+        {
+            title: "1. COMMITMENT TO DATA PRIVACY",
+            content: [
+                "At 8KPRIME, we recognize the importance of personal data privacy. This Policy explains our data practices and the choices you can make about the way your information is collected and used in connection with our premium streaming services.",
+                "By utilizing our Platform, you consent to the data collection and usage practices described in this dynamic Policy."
+            ]
+        },
+        {
+            title: "2. CATEGORIES OF INFORMATION COLLECTED",
+            content: [
+                "To provide an elite streaming experience, we collect specific categories of information including:",
+                "• Identification Data: Name, email address, and billing credentials necessary for account management.",
+                "• Technical Metadata: IP addresses, device hardware identifiers, and operating system versions to ensure stream compatibility and security.",
+                "• Interaction Logs: Viewing history and service utilization patterns to optimize our global server load and content delivery."
+            ]
+        },
+        {
+            title: "3. UTILIZATION OF COLLECTED DATA",
+            content: [
+                "Your data is utilized strictly for the following operational purposes:",
+                "• Facilitating secure access to our 60,000+ channel infrastructure.",
+                "• Processing subscription renewals and prevent fraudulent transactions.",
+                "• Providing 24/7 VIP technical support and resolving service-level interruptions.",
+                "• Enhancing our proprietary anti-freeze technology based on localized performance metrics."
+            ]
+        },
+        {
+            title: "4. ARCHITECTURAL DATA SECURITY",
+            content: [
+                "We implement military-grade 256-bit AES encryption across all data transmission channels. Your information is stored on high-security, decentralized servers with strict access controls.",
+                "We do not store full credit card details on our servers; all financial processing is handled via PCI-DSS compliant payment gateways such as PayPal and major bank processors."
+            ]
+        },
+        {
+            title: "5. THIRD-PARTY DISCLOSURE POLICY",
+            content: [
+                "8KPRIME does not sell, rent, or lease its customer lists to third parties. We may share data with trusted partners to help perform statistical analysis, send you email or postal mail, or provide customer support.",
+                "All such third parties are prohibited from using your personal information except to provide these services to us, and they are required to maintain the strictest confidentiality of your data."
+            ]
+        }
+    ];
+
     return (
-        <div className="pt-32 min-h-screen bg-[#050505] pb-20 text-balance">
-            <div className="container mx-auto px-6 relative z-10 text-gray-400">
+        <div className="pt-32 min-h-screen bg-[#050505] pb-20">
+            <div className="container mx-auto px-6 relative z-10">
                 <div className="max-w-4xl mx-auto text-center mb-16">
-                    <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1 rounded-full mb-6">
-                        <Shield className="w-3.5 h-3.5 text-primary" />
-                        <span className="text-white text-[10px] font-bold uppercase tracking-widest">Legal Document</span>
+                    <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full mb-8">
+                        <Lock className="w-4 h-4 text-primary" />
+                        <span className="text-white text-[11px] font-bold uppercase tracking-[0.2em]">Data Protection</span>
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+                    <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tighter uppercase">
                         {dictionary.legal.privacy_title}
                     </h1>
-                    <p className="text-gray-400 text-lg md:text-xl font-medium leading-relaxed">
-                        Your privacy is our priority. Learn how 8KPRIME protects your data and ensures a secure streaming experience.
+                    <p className="text-zinc-400 text-lg md:text-xl font-medium leading-relaxed max-w-2xl mx-auto">
+                        Your digital sovereignty is our priority. Learn how 8KPRIME implements elite security protocols to protect your identity.
                     </p>
                 </div>
 
-                <div className="max-w-4xl mx-auto space-y-8">
-                    <section className="bg-[#0A0A0A] p-8 rounded-3xl border border-white/5">
-                        <div className="flex items-center gap-4 mb-6">
-                            <div className="text-primary">
-                                <Eye className="w-6 h-6" />
-                            </div>
-                            <h2 className="text-xl font-bold text-white tracking-wide">Introduction</h2>
-                        </div>
-                        <p className="text-gray-400 leading-relaxed text-base font-medium opacity-90">
-                            At 8KPRIME, we are committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal information when you use our premium IPTV services. By subscribing to 8KPRIME, you agree to the terms outlined in this policy.
-                        </p>
-                    </section>
-
-                    <section className="bg-[#0A0A0A] p-8 rounded-3xl border border-white/5">
-                        <div className="flex items-center gap-4 mb-6">
-                            <div className="text-primary">
-                                <FileText className="w-6 h-6" />
-                            </div>
-                            <h2 className="text-xl font-bold text-white tracking-wide">Information We Collect</h2>
-                        </div>
-                        <div className="space-y-4">
-                            {[
-                                { title: "Personal Details", desc: "Name, email address, and billing information used for account management." },
-                                { title: "Device Information", desc: "IP address, device type, and operating system to optimize streaming quality." },
-                                { title: "Usage Data", desc: "Viewing preferences and service usage patterns to improve our content recommendations." }
-                            ].map((item, i) => (
-                                <div key={i} className="flex gap-4 group">
-                                    <div className="mt-1.5 shrink-0">
-                                        <ChevronRight className="w-4 h-4 text-primary" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-white font-bold mb-1 text-sm tracking-wide">{item.title}</h3>
-                                        <p className="text-gray-400 text-sm font-medium">{item.desc}</p>
-                                    </div>
+                <div className="max-w-4xl mx-auto">
+                    <div className="space-y-12">
+                        {sections.map((section, index) => (
+                            <section key={index} className="relative group">
+                                <div className="absolute -left-6 top-0 w-1 h-full bg-primary/20 group-hover:bg-primary transition-colors duration-300 rounded-full hidden md:block" />
+                                <h2 className="text-2xl font-bold text-white mb-6 tracking-tight flex items-center gap-3">
+                                    <span className="text-primary text-sm font-mono opacity-50">#{index + 1}</span>
+                                    {section.title}
+                                </h2>
+                                <div className="space-y-6">
+                                    {section.content.map((paragraph, pIndex) => (
+                                        <p key={pIndex} className="text-zinc-100 leading-8 text-[17px] font-normal opacity-95 text-justify">
+                                            {paragraph}
+                                        </p>
+                                    ))}
                                 </div>
-                            ))}
-                        </div>
-                    </section>
+                            </section>
+                        ))}
+                    </div>
 
-                    <section className="bg-[#0A0A0A] p-8 rounded-3xl border border-white/5">
-                        <div className="flex items-center gap-4 mb-6">
-                            <div className="text-primary">
-                                <Lock className="w-6 h-6" />
-                            </div>
-                            <h2 className="text-xl font-bold text-white tracking-wide">Data Security</h2>
+                    <div className="mt-24 pt-12 border-t border-white/5 flex flex-col items-center gap-8">
+                        <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
+                            <Shield className="w-8 h-8 text-primary" />
                         </div>
-                        <p className="text-gray-400 leading-relaxed text-base font-medium opacity-90">
-                            We implement military-grade encryption and advanced security protocols to protect your data. Your information is stored on secure servers with restricted access, and all payment transactions are processed through verified, secure gateways.
-                        </p>
-                    </section>
-
-                    <div className="pt-12 text-center text-gray-600 font-bold uppercase tracking-[0.2em] text-[10px]">
-                        {dictionary.legal.last_updated}
+                        <div className="text-center">
+                            <p className="text-zinc-500 font-bold uppercase tracking-[0.3em] text-xs mb-2">
+                                {dictionary.legal.last_updated}
+                            </p>
+                            <p className="text-zinc-400 text-sm">
+                                Verified Secure. © 2018-2026 THE STREAMING AUDIO COMPANY LIMITED.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
