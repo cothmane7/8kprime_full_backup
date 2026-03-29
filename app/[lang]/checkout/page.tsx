@@ -165,6 +165,39 @@ function CheckoutContent({ lang }: { lang: string }) {
                     </div>
                 </div>
 
+                {/* Inline Confirmation Button */}
+                <div className="mb-12 px-1">
+                    <button 
+                        onClick={handleProceed}
+                        disabled={isSubmitting}
+                        className={`w-full flex items-center justify-center gap-3 px-8 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-base border border-yellow-200/30 relative overflow-hidden group/confirm shadow-[0_20px_50px_rgba(212,175,55,0.2)] transition-all ${
+                            isSubmitting 
+                            ? 'bg-gray-800 text-gray-400 cursor-not-allowed border-gray-700' 
+                            : 'bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] bg-[length:200%_auto] hover:bg-right text-black hover:scale-[1.01] active:scale-[0.99]'
+                        }`}
+                    >
+                        {isSubmitting ? (
+                            <>
+                                <div className="w-5 h-5 border-2 border-gray-500 border-t-white rounded-full animate-spin" />
+                                Processing...
+                            </>
+                        ) : (
+                            <>
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-200%] group-hover/confirm:translate-x-[200%] transition-transform duration-1000" />
+                                <span className="relative z-10">Confirm Order</span>
+                            </>
+                        )}
+                    </button>
+                    <div className="flex items-center justify-center gap-4 mt-6 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
+                        <div className="h-px bg-white/10 flex-grow" />
+                        <div className="flex items-center gap-2 text-[9px] text-gray-400 font-black uppercase tracking-[0.2em]">
+                            <Lock size={12} className="text-primary" />
+                            Secure Encryption
+                        </div>
+                        <div className="h-px bg-white/10 flex-grow" />
+                    </div>
+                </div>
+
                 {/* Order Summary Section */}
                 <div className="mb-6 mt-4">
                     <h2 className="text-gray-400 text-xs md:text-sm font-black uppercase tracking-widest mb-4 ml-1">Order Summary</h2>
