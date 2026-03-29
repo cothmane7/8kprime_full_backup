@@ -5,11 +5,13 @@ import { i18n } from './i18n-config'
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
 
-  // Bot Detection
+  // Bot Detection & Whitelisting
   const userAgent = request.headers.get('user-agent') || ''
-  const isBot = /bot|spider|crawl|scraper|curl|wget|python|java|php|libwww|httpclient/i.test(userAgent)
+  const isSearchEngine = /googlebot|adsbot-google|mediapartners-google|bingbot|yandexbot|duckduckbot|baiduspider/i.test(userAgent)
+  const isMaliciousBot = /spider|crawl|scraper|curl|wget|python|java|php|libwww|httpclient/i.test(userAgent)
 
-  if (isBot) {
+  // Block malicious bots but allow search engines and real users
+  if (isMaliciousBot && !isSearchEngine) {
     return new NextResponse('Access Denied', { status: 403 })
   }
 
