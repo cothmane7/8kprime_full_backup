@@ -8,6 +8,7 @@ import { getDictionary } from "@/get-dictionary";
 import { Barlow_Condensed, Outfit } from "next/font/google";
 import SecurityShield from "@/components/SecurityShield";
 import CrispChat from "@/components/CrispChat";
+import Script from "next/script";
 
 const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
@@ -61,6 +62,20 @@ export default async function RootLayout(props: {
   return (
     <html lang={lang} className={`${barlowCondensed.variable} ${outfit.variable}`}>
       <body className="antialiased bg-background text-foreground">
+        {/* Google Tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17990295486"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17990295486');
+          `}
+        </Script>
+
         <SecurityShield />
         <Navbar lang={lang} dictionary={dictionary.common} />
         <main>{children}</main>
