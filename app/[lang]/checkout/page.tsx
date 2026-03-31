@@ -3,7 +3,7 @@
 import { useState, Suspense, use } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { sendPaymentEmails } from "@/app/actions/sendPaymentEmail";
-import { Check, Lock, Globe, CreditCard } from "lucide-react";
+import { Check, Lock, Globe } from "lucide-react";
 import Link from "next/link";
 
 function CheckoutContent({ lang }: { lang: string }) {
@@ -14,7 +14,7 @@ function CheckoutContent({ lang }: { lang: string }) {
 
     const [email, setEmail] = useState("");
     const [confirmEmail, setConfirmEmail] = useState("");
-    const [paymentMethod, setPaymentMethod] = useState("paypal");
+    const paymentMethod = "paypal";
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [emailError, setEmailError] = useState(false);
     const [confirmEmailError, setConfirmEmailError] = useState(false);
@@ -124,43 +124,19 @@ function CheckoutContent({ lang }: { lang: string }) {
                     <div className="bg-[#0A0A0F] border border-white/5 rounded-2xl p-2.5 shadow-2xl flex flex-col gap-2">
                         
                         {/* PayPal Option */}
-                        <label className={`flex items-center p-4 rounded-xl cursor-pointer border transition-all duration-300 ${paymentMethod === 'paypal' ? 'border-primary bg-primary/5 shadow-[inset_0_0_20px_rgba(212,175,55,0.05)]' : 'border-transparent hover:bg-white/5'}`}>
-                            <input type="radio" name="payment" value="paypal" checked={paymentMethod === 'paypal'} onChange={() => setPaymentMethod('paypal')} className="hidden" />
-                            <div className={`w-4 h-4 rounded-full border flex items-center justify-center mr-4 shrink-0 transition-colors ${paymentMethod === 'paypal' ? 'border-primary' : 'border-gray-500'}`}>
-                                {paymentMethod === 'paypal' && <div className="w-2 h-2 rounded-full bg-primary" />}
+                        <div className={`flex items-center p-4 rounded-xl border transition-all duration-300 border-primary bg-primary/5 shadow-[inset_0_0_20px_rgba(212,175,55,0.05)]`}>
+                            <div className={`w-4 h-4 rounded-full border border-primary flex items-center justify-center mr-4 shrink-0 transition-colors`}>
+                                <div className="w-2 h-2 rounded-full bg-primary" />
                             </div>
                             <div className="w-8 h-8 bg-[#00457C] border border-[#0079C1] rounded flex items-center justify-center font-black text-white mr-4 italic shrink-0 shadow-lg">P</div>
                             <div className="flex-grow">
                                 <div className="text-sm font-black text-white uppercase tracking-wider mb-0.5">PayPal</div>
                                 <div className="text-[11px] text-gray-400 font-medium">Fast and Secure Payment</div>
                             </div>
-                            {paymentMethod === 'paypal' && (
-                                <div className="w-5 h-5 rounded-full bg-primary flex items-center justify-center text-black shrink-0 ml-2 shadow-[0_0_10px_rgba(212,175,55,0.5)]">
-                                    <Check size={12} strokeWidth={3} />
-                                </div>
-                            )}
-                        </label>
-
-                        {/* Credit/Debit Card Option */}
-                        <label className={`flex items-center p-4 rounded-xl cursor-pointer border transition-all duration-300 ${paymentMethod === 'card' ? 'border-primary bg-primary/5 shadow-[inset_0_0_20px_rgba(212,175,55,0.05)]' : 'border-transparent hover:bg-white/5'}`}>
-                            <input type="radio" name="payment" value="card" checked={paymentMethod === 'card'} onChange={() => setPaymentMethod('card')} className="hidden" />
-                            <div className={`w-4 h-4 rounded-full border flex items-center justify-center mr-4 shrink-0 transition-colors ${paymentMethod === 'card' ? 'border-primary' : 'border-gray-500'}`}>
-                                {paymentMethod === 'card' && <div className="w-2 h-2 rounded-full bg-primary" />}
+                            <div className="w-5 h-5 rounded-full bg-primary flex items-center justify-center text-black shrink-0 ml-2 shadow-[0_0_10px_rgba(212,175,55,0.5)]">
+                                <Check size={12} strokeWidth={3} />
                             </div>
-                            <div className="w-8 h-8 bg-[#f79e1b] rounded flex items-center justify-center text-white mr-4 shrink-0 shadow-lg relative overflow-hidden">
-                                <CreditCard size={18} className="text-white drop-shadow-md z-10" />
-                                <div className="absolute inset-0 bg-gradient-to-br from-[#eb001b] to-transparent opacity-50 block" />
-                            </div>
-                            <div className="flex-grow">
-                                <div className="text-sm font-black text-white uppercase tracking-wider mb-0.5">Credit / Debit Card</div>
-                                <div className="text-[11px] text-gray-400 font-medium whitespace-nowrap overflow-hidden text-ellipsis">Visa, Mastercard, Amex</div>
-                            </div>
-                            {paymentMethod === 'card' && (
-                                <div className="w-5 h-5 rounded-full bg-primary flex items-center justify-center text-black shrink-0 ml-2 shadow-[0_0_10px_rgba(212,175,55,0.5)]">
-                                    <Check size={12} strokeWidth={3} />
-                                </div>
-                            )}
-                        </label>
+                        </div>
 
                     </div>
                 </div>
