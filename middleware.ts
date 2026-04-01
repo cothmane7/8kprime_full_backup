@@ -2,6 +2,27 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { i18n } from './i18n-config'
 
+function getLocale(request: NextRequest): string {
+  const acceptLanguage = request.headers.get('accept-language')
+  if (!acceptLanguage) return i18n.defaultLocale
+
+  const locales = [...i18n.locales]
+  
+  // Parse Accept-Language header
+  const languages = acceptLanguage.split(',').map((lang) => {
+    const [code, q] = lang.split(';q=')
+    return { code: code.trim().split('-')[0], q: q ? parseFloat(q) : 1.0 }
+  }).sort((a, b) => b.q - a.q)
+
+  for (const lang of languages) {
+    if (locales.includes(lang.code as any)) {
+      return lang.code
+    }
+  }
+
+  return i18n.defaultLocale
+}
+
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
 
@@ -22,7 +43,7 @@ export function middleware(request: NextRequest) {
 
   // Redirect if there is no locale
   if (pathnameIsMissingLocale) {
-    const locale = i18n.defaultLocale
+    const locale = getLocale(request)
 
     const response = NextResponse.redirect(
       new URL(

@@ -65,17 +65,42 @@ export default function FloatingActions({ lang }: { lang: string }) {
                 </AnimatePresence>
 
                 <motion.button
-                    initial={{ scale: 0, opacity: 0 }}
+                    initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ delay: 1.2, type: "spring" }}
                     onClick={() => setIsLangOpen(!isLangOpen)}
-                    whileHover={{ scale: 1.05 }}
-                    className="bg-[#15151A] w-10 h-10 rounded-full flex items-center justify-center border border-white/15 hover:border-primary/50 shadow-lg relative group overflow-hidden transition-all duration-300"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="bg-[#15151A]/90 backdrop-blur-xl px-4 py-3 rounded-2xl flex items-center gap-4 border border-white/15 hover:border-primary/40 shadow-[0_20px_50px_rgba(0,0,0,0.5)] group transition-all duration-300 relative overflow-hidden"
                 >
-                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <Languages className="w-4 h-4 text-white group-hover:text-primary transition-colors relative z-10" />
-                    <div className="absolute -top-0.5 -right-0.5 bg-primary text-black text-[6px] font-black px-1 py-0.5 rounded-full uppercase shadow-lg border border-[#15151A] z-20">
-                        {lang.toUpperCase()}
+                    {/* Animated background glow */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    <div className="flex items-center gap-3 relative z-10">
+                        {languages.map((l) => (
+                            <div key={l.code} className="relative flex flex-col items-center">
+                                <span className={`text-xl transition-all duration-300 ${lang === l.code 
+                                    ? "scale-110 drop-shadow-[0_0_10px_rgba(212,175,55,0.5)] filter-none" 
+                                    : "opacity-30 grayscale group-hover:opacity-70 group-hover:grayscale-0"
+                                }`}>
+                                    {l.flag}
+                                </span>
+                                {lang === l.code && (
+                                    <motion.div 
+                                        layoutId="active-dot"
+                                        className="absolute -bottom-1.5 w-1 h-1 bg-primary rounded-full shadow-[0_0_8px_#D4AF37]"
+                                    />
+                                )}
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="h-5 w-[1px] bg-white/10 mx-1" />
+
+                    <div className="flex flex-col items-start relative z-10">
+                        <span className="text-[10px] font-black text-gray-200 group-hover:text-primary transition-colors tracking-[0.2em] uppercase leading-none">
+                            {lang}
+                        </span>
                     </div>
                 </motion.button>
             </div>
