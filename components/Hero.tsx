@@ -6,12 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const backgrounds = [
-    "/hero-bgs/Gemini_Generated_Image_3io7013io7013io7.png",
-    "/hero-bgs/Gemini_Generated_Image_ggl1asggl1asggl1 (1).png",
-    "/hero-bgs/Gemini_Generated_Image_ggl1asggl1asggl1 (2).png",
-    "/hero-bgs/Gemini_Generated_Image_ggl1asggl1asggl1 (3).png",
-    "/hero-bgs/Gemini_Generated_Image_ggl1asggl1asggl1 (4).png",
-    "/hero-bgs/Gemini_Generated_Image_ggl1asggl1asggl1.png"
+    "/hero-bgs/user-bck.jpg"
 ];
 
 export default function Hero({ lang, dictionary, common }: { lang: any; dictionary: any; common: any }) {

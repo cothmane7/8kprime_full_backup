@@ -4,7 +4,9 @@ import ComparisonTable from "@/components/ComparisonTable";
 import SportsSection from "@/components/SportsSection";
 import FAQ from "@/components/FAQ";
 import Process from "@/components/Process";
-
+import LeaguesCarousel from "@/components/LeaguesCarousel";
+import StreamingCarousel from "@/components/StreamingCarousel";
+import MovieGrid from "@/components/MovieGrid";
 import Testimonials from "@/components/Testimonials";
 import StickyCTA from "@/components/StickyCTA";
 import { getDictionary } from "@/get-dictionary";
@@ -20,7 +22,10 @@ export default async function Home(props: {
   return (
     <div className="flex flex-col min-h-screen bg-[#0B0B0F]">
       <Hero lang={lang} dictionary={dictionary.hero} common={dictionary.common} />
+      <LeaguesCarousel dictionary={dictionary.leagues_carousel} />
       <SportsSection dictionary={dictionary.sports} />
+      <StreamingCarousel dictionary={dictionary.streaming_apps} />
+      <MovieGrid lang={lang} dictionary={dictionary.movie_grid} />
       <ComparisonTable dictionary={dictionary.comparison} />
       <Pricing lang={lang} dictionary={dictionary.pricing} common={dictionary.common} />
       <Process dictionary={dictionary.process} />
