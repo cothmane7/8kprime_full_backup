@@ -3,8 +3,9 @@
 import { useState, Suspense, use } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { sendPaymentEmails } from "@/app/actions/sendPaymentEmail";
-import { Check, Lock, Globe } from "lucide-react";
+import { Check, Lock, Globe, ArrowLeft, ShieldCheck, Zap, Star, Shield, Monitor } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 function CheckoutContent({ lang }: { lang: string }) {
     const searchParams = useSearchParams();
@@ -14,7 +15,6 @@ function CheckoutContent({ lang }: { lang: string }) {
 
     const [email, setEmail] = useState("");
     const [confirmEmail, setConfirmEmail] = useState("");
-    const paymentMethod = "paypal";
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [emailError, setEmailError] = useState(false);
     const [confirmEmailError, setConfirmEmailError] = useState(false);
@@ -26,8 +26,7 @@ function CheckoutContent({ lang }: { lang: string }) {
         "24mo": "119.99",
     };
     
-    // Calculate final price with devices
-    const basePrice = parseFloat(priceMap[plan] || "79.99");
+    const basePrice = parseFloat(priceMap[plan] || "59.99");
     const multipliers: any = { 1: 1, 2: 1.5, 3: 2, 4: 2.5 };
     const finalPrice = (basePrice * multipliers[parseInt(devices)]).toFixed(2);
 
@@ -50,201 +49,225 @@ function CheckoutContent({ lang }: { lang: string }) {
         if (hasError) return;
 
         setIsSubmitting(true);
-        sendPaymentEmails({ email, paymentMethod, plan, devices }).catch(console.error);
+        sendPaymentEmails({ email, paymentMethod: "paypal", plan, devices }).catch(console.error);
         
-        // Slightly delay the routing for UX feedback
         setTimeout(() => {
             router.push("/thanks");
-        }, 1500);
+        }, 2000);
     };
 
     return (
-        <div className="min-h-screen bg-[#050505] text-white flex flex-col pt-24 pb-32 font-sans selection:bg-primary/30">
-            {/* Subtle premium background glow */}
-            <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-[40vh] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
+        <div className="min-h-screen bg-[#050505] text-white flex flex-col font-sans selection:bg-primary/30 antialiased overflow-x-hidden">
+            {/* Ambient Background Elements */}
+            <div className="fixed top-0 left-[-10%] w-[40%] h-[40%] bg-primary/5 blur-[120px] rounded-full pointer-events-none z-0" />
+            <div className="fixed bottom-0 right-[-10%] w-[40%] h-[40%] bg-primary/5 blur-[120px] rounded-full pointer-events-none z-0" />
 
-            <div className="max-w-xl mx-auto w-full px-5 flex-grow flex flex-col relative z-10">
-                
-                {/* Progress Bar */}
-                <div className="flex items-center justify-between mb-12 mt-4 px-2 text-[10px] md:text-xs font-black text-gray-500 uppercase tracking-[0.2em]">
-                    <div className="flex items-center gap-2">
-                        <div className="w-5 h-5 md:w-6 md:h-6 rounded-full border border-gray-600 flex items-center justify-center"><Check size={12} /></div>
-                        <span className="hidden sm:inline">Cart</span>
+            {/* Header / Nav */}
+            <nav className="relative z-20 px-6 py-6 flex items-center justify-between max-w-7xl mx-auto w-full">
+                <Link href={`/${lang}`} className="flex items-center gap-2 group transition-all">
+                    <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white/10 transition-colors">
+                        <ArrowLeft size={18} className="text-gray-400 group-hover:text-white" />
                     </div>
-                    <div className="h-px bg-gray-800 flex-grow mx-4" />
-                    <div className="flex items-center gap-2 text-primary">
-                        <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-gradient-to-br from-[#FBF3D5] via-[#D4AF37] to-[#8E6927] text-black shadow-[0_0_15px_rgba(212,175,55,0.4)] flex items-center justify-center">2</div>
-                        <span>Information</span>
-                    </div>
-                    <div className="h-px bg-gray-800 flex-grow mx-4" />
-                    <div className="flex items-center gap-2">
-                        <div className="w-5 h-5 md:w-6 md:h-6 rounded-full border border-gray-600 flex items-center justify-center">3</div>
-                        <span className="hidden sm:inline">Finish</span>
-                    </div>
+                </Link>
+                <div className="flex items-center gap-2">
+                    <span className="text-xl font-black italic tracking-tighter text-white">8K<span className="text-primary">PRIME</span></span>
                 </div>
+                <div className="w-10 h-10" /> {/* Spacer */}
+            </nav>
 
-                {/* Customer Information Section */}
-                <div className="mb-10">
-                    <h2 className="text-gray-400 text-xs md:text-sm font-black uppercase tracking-widest mb-4 ml-1">Customer Information</h2>
-                    <div className="bg-[#0A0A0F] border border-white/5 rounded-2xl p-5 shadow-2xl flex flex-col gap-5">
-                        <div>
-                            <label className="text-[11px] text-primary font-bold mb-2 block tracking-widest uppercase">Email Address <span className="text-red-500">*</span></label>
-                            <input
-                                type="email"
-                                placeholder="your@email.com"
-                                value={email}
-                                onChange={e => {
-                                    setEmail(e.target.value);
-                                    setEmailError(false);
-                                }}
-                                className={`w-full bg-[#111115] border ${emailError ? 'border-red-500' : 'border-white/5'} rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary/50 transition-colors text-sm md:text-base font-medium`}
-                            />
-                            {emailError && <p className="text-red-500 text-xs mt-2 font-bold ml-1">Please enter a valid email address</p>}
-                        </div>
-                        <div className="border-t border-white/5 pt-5">
-                            <label className="text-[11px] text-primary font-bold mb-2 block tracking-widest uppercase">Confirm Email <span className="text-red-500">*</span></label>
-                            <input
-                                type="email"
-                                placeholder="Please confirm your email"
-                                value={confirmEmail}
-                                onChange={e => {
-                                    setConfirmEmail(e.target.value);
-                                    setConfirmEmailError(false);
-                                }}
-                                className={`w-full bg-[#111115] border ${confirmEmailError ? 'border-red-500' : 'border-white/5'} rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary/50 transition-colors text-sm md:text-base font-medium`}
-                            />
-                            {confirmEmailError && <p className="text-red-500 text-xs mt-2 font-bold ml-1">Emails do not match</p>}
-                        </div>
-                    </div>
-                </div>
-
-                {/* Payment Method Section */}
-                <div className="mb-8">
-                    <h2 className="text-gray-400 text-xs md:text-sm font-black uppercase tracking-widest mb-4 ml-1">Payment Method</h2>
-                    <div className="bg-[#0A0A0F] border border-white/5 rounded-2xl p-2.5 shadow-2xl flex flex-col gap-2">
-                        
-                        {/* PayPal Option */}
-                        <div className={`flex items-center p-4 rounded-xl border transition-all duration-300 border-primary bg-primary/5 shadow-[inset_0_0_20px_rgba(212,175,55,0.05)]`}>
-                            <div className={`w-4 h-4 rounded-full border border-primary flex items-center justify-center mr-4 shrink-0 transition-colors`}>
-                                <div className="w-2 h-2 rounded-full bg-primary" />
-                            </div>
-                            <div className="w-8 h-8 bg-[#00457C] border border-[#0079C1] rounded flex items-center justify-center font-black text-white mr-4 italic shrink-0 shadow-lg">P</div>
-                            <div className="flex-grow">
-                                <div className="text-sm font-black text-white uppercase tracking-wider mb-0.5">PayPal</div>
-                                <div className="text-[11px] text-gray-400 font-medium">Fast and Secure Payment</div>
-                            </div>
-                            <div className="w-5 h-5 rounded-full bg-primary flex items-center justify-center text-black shrink-0 ml-2 shadow-[0_0_10px_rgba(212,175,55,0.5)]">
-                                <Check size={12} strokeWidth={3} />
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                {/* Inline Confirmation Button */}
-                <div className="mb-12 px-1">
-                    <button 
-                        onClick={handleProceed}
-                        disabled={isSubmitting}
-                        className={`w-full flex items-center justify-center gap-3 px-8 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-base border border-yellow-200/30 relative overflow-hidden group/confirm shadow-[0_20px_50px_rgba(212,175,55,0.2)] transition-all ${
-                            isSubmitting 
-                            ? 'bg-gray-800 text-gray-400 cursor-not-allowed border-gray-700' 
-                            : 'bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] bg-[length:200%_auto] hover:bg-right text-black hover:scale-[1.01] active:scale-[0.99]'
-                        }`}
-                    >
-                        {isSubmitting ? (
-                            <>
-                                <div className="w-5 h-5 border-2 border-gray-500 border-t-white rounded-full animate-spin" />
-                                Processing...
-                            </>
-                        ) : (
-                            <>
-                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-200%] group-hover/confirm:translate-x-[200%] transition-transform duration-1000" />
-                                <span className="relative z-10">Confirm Order</span>
-                            </>
-                        )}
-                    </button>
-                    <div className="flex items-center justify-center gap-4 mt-6 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
-                        <div className="h-px bg-white/10 flex-grow" />
-                        <div className="flex items-center gap-2 text-[9px] text-gray-400 font-black uppercase tracking-[0.2em]">
-                            <Lock size={12} className="text-primary" />
-                            Secure Encryption
-                        </div>
-                        <div className="h-px bg-white/10 flex-grow" />
-                    </div>
-                </div>
-
-                {/* Order Summary Section */}
-                <div className="mb-6 mt-4">
-                    <h2 className="text-gray-400 text-xs md:text-sm font-black uppercase tracking-widest mb-4 ml-1">Order Summary</h2>
-                    <div className="bg-[#0A0A0F] border border-white/5 rounded-2xl p-5 shadow-2xl flex flex-col gap-4">
-                        <div className="flex justify-between items-center border-b border-white/5 pb-4">
-                            <div>
-                                <div className="text-white font-black text-sm uppercase tracking-widest">{plan.replace('mo', ' MONTHS')} ACCESS</div>
-                                <div className="text-primary text-[10px] font-bold uppercase tracking-widest mt-1">{devices} {parseInt(devices) > 1 ? 'Devices' : 'Device'} Plan</div>
-                            </div>
-                            <div className="text-white font-black text-xl">€{finalPrice}</div>
-                        </div>
-                        <div className="flex justify-between items-center text-gray-300 font-bold text-[11px] uppercase tracking-widest">
-                            <span className="flex items-center gap-2">
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/50" />
-                                Instant Activation
-                            </span>
-                            <span className="text-emerald-500 drop-shadow-[0_0_5px_rgba(16,185,129,0.3)]">FREE</span>
-                        </div>
-                        <div className="flex justify-between items-center text-gray-300 font-bold text-[11px] uppercase tracking-widest mt-1">
-                            <span className="flex items-center gap-2">
-                                <span className="w-1.5 h-1.5 rounded-full bg-blue-500/50" />
-                                24/7 VIP Support
-                            </span>
-                            <span className="text-emerald-500 drop-shadow-[0_0_5px_rgba(16,185,129,0.3)]">INCLUDED</span>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Security Note */}
-                <div className="flex items-center gap-3 mt-2 mb-28 px-4 text-[11px] text-gray-500 font-medium leading-relaxed bg-[#111115] py-4 rounded-xl border border-white/5 shadow-inner">
-                    <Lock size={16} className="text-emerald-500 shrink-0 drop-shadow-[0_0_5px_rgba(16,185,129,0.3)]" />
-                    <p>Your data is encrypted and secure. By placing your order you agree to our <Link href="/privacy" className="text-primary font-bold hover:underline cursor-pointer hover:text-primary/80 transition-colors">privacy policy</Link>.</p>
-                </div>
-            </div>
-
-            {/* Sticky Bottom Bar */}
-            <div className="fixed bottom-0 left-0 right-0 bg-[#0A0A0F]/90 backdrop-blur-2xl border-t border-white/5 p-4 md:p-6 z-50 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
-                <div className="max-w-xl mx-auto flex gap-3 md:gap-4">
-                    <button className="flex items-center justify-center gap-2 px-6 py-4 bg-[#111115] rounded-[1.25rem] border border-white/5 text-xs font-black uppercase tracking-widest shadow-xl hover:bg-white/5 transition-colors text-white shrink-0">
-                        <Globe size={18} className="text-primary" />
-                        <span className="hidden sm:inline">English</span>
-                        <span className="sm:hidden">EN</span>
-                    </button>
+            <main className="relative z-10 flex-grow w-full max-w-7xl mx-auto px-6 pt-4 pb-20">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
                     
-                    <button 
-                        onClick={handleProceed}
-                        disabled={isSubmitting}
-                        className={`flex-grow flex items-center justify-between px-6 md:px-8 py-4 rounded-[1.25rem] font-black uppercase tracking-widest text-sm md:text-base border border-yellow-200/50 relative overflow-hidden group/btn shadow-[0_0_40px_rgba(212,175,55,0.25)] transition-all ${
-                            isSubmitting 
-                            ? 'bg-gray-800 text-gray-400 cursor-not-allowed border-gray-700 shadow-none' 
-                            : 'bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] bg-[length:200%_auto] hover:bg-right text-black hover:scale-[1.02] active:scale-[0.98]'
-                        }`}
-                    >
-                        {isSubmitting ? (
-                            <span className="w-full text-center flex items-center justify-center gap-2">
-                                <div className="w-5 h-5 border-2 border-gray-500 border-t-white rounded-full animate-spin" />
-                                Processing...
-                            </span>
-                        ) : (
-                            <>
-                                {/* Animated shine sweep */}
-                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-200%] group-hover/btn:translate-x-[200%] transition-transform duration-1000" />
-                                <span className="relative z-10 drop-shadow-sm">Place Order</span>
-                                <span className="relative z-10 drop-shadow-sm flex items-center gap-1">
-                                    <span className="text-[10px] md:text-xs tracking-tight align-top mt-1">—</span> €{finalPrice}
-                                </span>
-                            </>
-                        )}
-                    </button>
+                    {/* Left Column: Summary */}
+                    <div className="flex flex-col gap-10">
+                        <div>
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest mb-6 gold-reflection">
+                                <Zap size={12} className="fill-primary" />
+                                Almost there
+                            </div>
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-4">
+                                Complete your <br/>
+                                <span className="text-gradient-premium">order now.</span>
+                            </h1>
+                            <p className="text-gray-400 text-base md:text-lg max-w-md font-medium leading-relaxed">
+                                You are just 60 seconds away from the ultimate 8K streaming experience. Instant activation guaranteed.
+                            </p>
+                        </div>
+
+                        {/* Order Details Card */}
+                        <div className="bg-[#0A0A0F] border border-white/5 rounded-[2.5rem] p-8 md:p-10 shadow-2xl relative overflow-hidden group">
+                           {/* Shine Effect */}
+                           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+                           
+                           <div className="flex justify-between items-start mb-10">
+                                <div>
+                                    <h2 className="text-gray-400 text-xs font-black uppercase tracking-[0.2em] mb-2">Selected Plan</h2>
+                                    <div className="text-2xl font-black text-white uppercase tracking-tight">{plan.replace('mo', ' Months')} Access</div>
+                                    <div className="text-primary text-xs font-bold uppercase tracking-widest mt-1 flex items-center gap-2">
+                                        <Monitor size={12} />
+                                        {devices} {parseInt(devices) > 1 ? 'Devices' : 'Device'} Connection
+                                    </div>
+                                </div>
+                                <div className="text-right">
+                                    <div className="text-gray-400 text-xs font-black uppercase tracking-[0.2em] mb-2">Total Price</div>
+                                    <div className="text-4xl font-black text-white">€{finalPrice}</div>
+                                </div>
+                           </div>
+
+                           <div className="space-y-5 mb-8">
+                                <div className="flex items-center gap-4 text-sm font-bold text-gray-200">
+                                    <div className="w-6 h-6 rounded-full bg-emerald-500/10 flex items-center justify-center">
+                                        <Check size={14} className="text-emerald-500" />
+                                    </div>
+                                    60,000+ Premium Live Channels
+                                </div>
+                                <div className="flex items-center gap-4 text-sm font-bold text-gray-200">
+                                    <div className="w-6 h-6 rounded-full bg-emerald-500/10 flex items-center justify-center">
+                                        <Check size={14} className="text-emerald-500" />
+                                    </div>
+                                    160,000+ Movies & Series in 4K/8K
+                                </div>
+                                <div className="flex items-center gap-4 text-sm font-bold text-gray-200">
+                                    <div className="w-6 h-6 rounded-full bg-emerald-500/10 flex items-center justify-center">
+                                        <Check size={14} className="text-emerald-500" />
+                                    </div>
+                                    Anti-Freeze Technology 10.0
+                                </div>
+                                <div className="flex items-center gap-4 text-sm font-bold text-gray-200">
+                                    <div className="w-6 h-6 rounded-full bg-emerald-500/10 flex items-center justify-center">
+                                        <Check size={14} className="text-emerald-500" />
+                                    </div>
+                                    Instant Global Activation
+                                </div>
+                           </div>
+
+                           <div className="pt-8 border-t border-white/5 flex flex-wrap gap-4">
+                                <div className="flex items-center gap-2 bg-[#111115] px-4 py-2 rounded-xl border border-white/5 text-[10px] font-black uppercase tracking-widest text-gray-400">
+                                    <ShieldCheck size={14} className="text-primary" />
+                                    7-Day Guarantee
+                                </div>
+                                <div className="flex items-center gap-2 bg-[#111115] px-4 py-2 rounded-xl border border-white/5 text-[10px] font-black uppercase tracking-widest text-gray-400">
+                                    <Star size={14} className="text-primary" />
+                                    VIP Support
+                                </div>
+                           </div>
+                        </div>
+
+                        {/* Trust Indicator */}
+                        <div className="flex items-center gap-6 opacity-40 grayscale group-hover:grayscale-0 transition-all duration-700 mt-4">
+                           <div className="text-gray-400 font-black text-xs uppercase tracking-widest">Secure Checkout Powered by</div>
+                           <div className="flex items-center gap-3">
+                                <div className="w-8 h-8 bg-[#00457C] rounded flex items-center justify-center font-black text-white italic text-[10px]">P</div>
+                                <span className="font-bold text-sm">PayPal</span>
+                           </div>
+                        </div>
+                    </div>
+
+                    {/* Right Column: Form */}
+                    <div className="lg:sticky lg:top-10">
+                        <div className="bg-[#0D0D12] border border-white/5 rounded-[3rem] p-8 md:p-12 shadow-[0_30px_100px_rgba(0,0,0,0.6)] relative">
+                            {/* Inner Glow */}
+                            <div className="absolute inset-0 rounded-[3rem] bg-primary/5 blur-3xl pointer-events-none opacity-20" />
+                            
+                            <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight mb-10 text-center lg:text-left">Customer Details</h2>
+
+                            <div className="flex flex-col gap-8 relative z-10">
+                                {/* Email Field */}
+                                <div className="group/input">
+                                    <label className="text-[10px] text-primary font-black mb-3 block tracking-[0.2em] uppercase transition-all group-focus-within/input:text-white">Email Address</label>
+                                    <div className="relative">
+                                        <input
+                                            type="email"
+                                            placeholder="you@example.com"
+                                            value={email}
+                                            onChange={e => {
+                                                setEmail(e.target.value);
+                                                setEmailError(false);
+                                            }}
+                                            className={`w-full bg-[#15151A] border-2 ${emailError ? 'border-red-500' : 'border-white/5 group-focus-within/input:border-primary/50'} rounded-2xl px-6 py-5 text-white focus:outline-none transition-all text-base md:text-lg font-bold placeholder:text-gray-600 shadow-inner`}
+                                        />
+                                        <div className="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 group-focus-within/input:opacity-100 transition-opacity">
+                                            <Zap size={18} className="text-primary animate-pulse" />
+                                        </div>
+                                    </div>
+                                    {emailError && <p className="text-red-500 text-[11px] mt-3 font-bold uppercase tracking-wider ml-1">Please enter a valid email address</p>}
+                                </div>
+
+                                {/* Confirm Email Field */}
+                                <div className="group/input">
+                                    <label className="text-[10px] text-primary font-black mb-3 block tracking-[0.2em] uppercase transition-all group-focus-within/input:text-white">Confirm Email</label>
+                                    <input
+                                        type="email"
+                                        placeholder="Repeat your email"
+                                        value={confirmEmail}
+                                        onChange={e => {
+                                            setConfirmEmail(e.target.value);
+                                            setConfirmEmailError(false);
+                                        }}
+                                        className={`w-full bg-[#15151A] border-2 ${confirmEmailError ? 'border-red-500' : 'border-white/5 group-focus-within/input:border-primary/50'} rounded-2xl px-6 py-5 text-white focus:outline-none transition-all text-base md:text-lg font-bold placeholder:text-gray-600 shadow-inner`}
+                                    />
+                                    {confirmEmailError && <p className="text-red-500 text-[11px] mt-3 font-bold uppercase tracking-wider ml-1">The emails do not match</p>}
+                                </div>
+
+                                <div className="mt-6">
+                                    <button 
+                                        onClick={handleProceed}
+                                        disabled={isSubmitting}
+                                        className={`w-full flex items-center justify-center gap-4 px-10 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-lg md:text-xl border border-yellow-200/30 relative overflow-hidden group/confirm shadow-[0_20px_60px_rgba(212,175,55,0.25)] transition-all ${
+                                            isSubmitting 
+                                            ? 'bg-gray-800 text-gray-400 cursor-not-allowed border-gray-700 pb-5' 
+                                            : 'bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] bg-[length:200%_auto] hover:bg-right text-black hover:scale-[1.03] active:scale-[0.98]'
+                                        }`}
+                                    >
+                                        {isSubmitting ? (
+                                            <>
+                                                <div className="w-6 h-6 border-3 border-gray-500 border-t-white rounded-full animate-spin" />
+                                                Processing...
+                                            </>
+                                        ) : (
+                                            <>
+                                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent translate-x-[-200%] group-hover/confirm:translate-x-[200%] transition-transform duration-1000" />
+                                                <span className="relative z-10 flex items-center gap-3">
+                                                    Confirm Order
+                                                    <Zap size={20} className="fill-black" />
+                                                </span>
+                                            </>
+                                        )}
+                                    </button>
+                                    
+                                    <div className="mt-8 flex items-center justify-center gap-2 text-[10px] font-black text-gray-500 uppercase tracking-widest bg-white/5 py-4 rounded-xl border border-white/5">
+                                        <Shield size={14} className="text-emerald-500" />
+                                        100% Encrypted & Secure Checkout
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Mobile Order Summary (Visible on small screens only) */}
+                        <div className="mt-10 lg:hidden text-center opacity-60">
+                             <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">
+                                Instant access delivery to your inbox
+                             </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </main>
+
+            {/* Footer Status */}
+            <footer className="relative z-20 py-10 border-t border-white/5 px-6">
+                <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 opacity-30 text-[10px] font-black uppercase tracking-[0.3em] text-gray-400">
+                    <div>© 2018-2026 8KPRIME Inc.</div>
+                    <div className="flex gap-8">
+                        <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
+                        <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+                        <Link href="/contact" className="hover:text-white transition-colors">Support</Link>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        Service Operational
+                    </div>
+                </div>
+            </footer>
         </div>
     );
 }
