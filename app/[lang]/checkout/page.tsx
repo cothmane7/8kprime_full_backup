@@ -62,18 +62,8 @@ function CheckoutContent({ lang }: { lang: string }) {
             <div className="fixed top-0 left-[-10%] w-[40%] h-[40%] bg-primary/5 blur-[120px] rounded-full pointer-events-none z-0" />
             <div className="fixed bottom-0 right-[-10%] w-[40%] h-[40%] bg-primary/5 blur-[120px] rounded-full pointer-events-none z-0" />
 
-            {/* Header / Nav */}
-            <nav className="relative z-20 px-6 py-6 flex items-center justify-between max-w-7xl mx-auto w-full">
-                <Link href={`/${lang}`} className="flex items-center gap-2 group transition-all">
-                    <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white/10 transition-colors">
-                        <ArrowLeft size={18} className="text-gray-400 group-hover:text-white" />
-                    </div>
-                </Link>
-                <div className="flex items-center gap-2">
-                    <span className="text-xl font-black italic tracking-tighter text-white">8K<span className="text-primary">PRIME</span></span>
-                </div>
-                <div className="w-10 h-10" /> {/* Spacer */}
-            </nav>
+            {/* Added spacer for fixed global Navbar */}
+            <div className="h-24 md:h-32" />
 
             <main className="relative z-10 flex-grow w-full max-w-7xl mx-auto px-6 pt-4 pb-20">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
