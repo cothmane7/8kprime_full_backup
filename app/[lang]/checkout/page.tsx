@@ -20,10 +20,10 @@ function CheckoutContent({ lang }: { lang: string }) {
     const [confirmEmailError, setConfirmEmailError] = useState(false);
 
     const priceMap: Record<string, string> = {
-        "12mo": "79.99",
-        "6mo": "59.99",
-        "3mo": "39.99",
-        "24mo": "129.99",
+        "12mo": "59.99",
+        "6mo": "39.99",
+        "3mo": "29.99",
+        "24mo": "119.99",
     };
     
     // Calculate final price with devices

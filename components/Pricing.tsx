@@ -11,7 +11,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
     const plans = [
         {
             months: 3,
-            price: 39.99,
+            price: 29.99,
             label: dictionary.label_quarterly,
             isPopular: false,
             tag: dictionary.trial_plan,
@@ -29,11 +29,11 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
         },
         {
             months: 6,
-            price: 59.99,
+            price: 39.99,
             label: dictionary.label_semi_annual,
             isPopular: false,
             tag: dictionary.smart_choice,
-            saveLabel: `${dictionary.save} 44%`,
+            saveLabel: `${dictionary.save} 63%`,
             cta: dictionary.cta_subscribe,
             features: [
                 { icon: PlayCircle, text: dictionary.feature_live_channels },
@@ -47,11 +47,11 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
         },
         {
             months: 12,
-            price: 79.99,
+            price: 59.99,
             label: dictionary.label_annual,
             isPopular: true,
             tag: dictionary.best_value,
-            saveLabel: `${dictionary.save} 61%`,
+            saveLabel: `${dictionary.save} 72%`,
             cta: dictionary.cta_subscribe,
             features: [
                 { icon: PlayCircle, text: dictionary.feature_live_channels },
@@ -65,11 +65,11 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
         },
         {
             months: 24,
-            price: 129.99,
+            price: 119.99,
             label: dictionary.label_2_year,
             isPopular: false,
             tag: dictionary.max_savings,
-            saveLabel: `${dictionary.save} 69%`,
+            saveLabel: `${dictionary.save} 72%`,
             cta: dictionary.cta_subscribe,
             features: [
                 { icon: PlayCircle, text: dictionary.feature_live_channels },

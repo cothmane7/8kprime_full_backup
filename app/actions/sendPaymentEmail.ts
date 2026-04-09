@@ -4,10 +4,10 @@ import nodemailer from "nodemailer";
 import { headers } from "next/headers";
 
 const PRICE_MAP: Record<string, string> = {
-    "12mo": "€79.99",
-    "6mo": "€59.99",
-    "3mo": "€39.99",
-    "24mo": "€129.99",
+    "12mo": "€59.99",
+    "6mo": "€39.99",
+    "3mo": "€29.99",
+    "24mo": "€119.99",
 };
 
 const PLAN_LABELS: Record<string, string> = {
@@ -19,10 +19,10 @@ const PLAN_LABELS: Record<string, string> = {
 
 const PAYPAL_LINKS: Record<string, string> = {
     // 1 Device Plans
-    "3mo_1": "https://www.paypal.com/ncp/payment/J6T5C6H8PP9WA",
-    "6mo_1": "https://www.paypal.com/ncp/payment/GLW8GKB6LW3U8",
-    "12mo_1": "https://www.paypal.com/ncp/payment/5N44QP2Y9CTBG",
-    "24mo_1": "https://www.paypal.com/ncp/payment/KGRQQV2X592N6",
+    "3mo_1": "https://www.paypal.com/ncp/payment/JKB4L3Z33JN6N",
+    "6mo_1": "https://www.paypal.com/ncp/payment/TJGUAJKSDC8KY",
+    "12mo_1": "https://www.paypal.com/ncp/payment/FUC32WLY2VHN2",
+    "24mo_1": "https://www.paypal.com/ncp/payment/3ZSGWQJCUTE6Y",
 
     // 2 Devices Plans
     "3mo_2": "https://www.paypal.com/ncp/payment/GLW8GKB6LW3U8",
