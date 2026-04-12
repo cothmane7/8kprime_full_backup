@@ -24,9 +24,9 @@ export default async function Home(props: {
     <div className="flex flex-col min-h-screen bg-[#0B0B0F]">
       <Hero lang={lang} dictionary={dictionary.hero} common={dictionary.common} />
       <LeaguesCarousel dictionary={dictionary.leagues_carousel} />
-      <SportsSection dictionary={dictionary.sports} />
       <StreamingCarousel dictionary={dictionary.streaming_apps} />
       <MovieGrid lang={lang} dictionary={dictionary.movie_grid} />
+      <SportsSection dictionary={dictionary.sports} />
       <ComparisonTable dictionary={dictionary.comparison} />
       <SavingsCalculator />
       <Pricing lang={lang} dictionary={dictionary.pricing} common={dictionary.common} />

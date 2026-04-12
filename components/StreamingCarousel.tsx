@@ -20,25 +20,10 @@ export default function StreamingCarousel({ dictionary }: { dictionary: any }) {
     ];
 
     return (
-        <section className="py-20 bg-[#050505] relative overflow-hidden border-b border-white/5">
+        <section className="py-10 bg-[#050505] relative overflow-hidden">
             {/* Atmospheric Background Glows */}
             <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[30%] h-[50%] bg-purple-600/5 blur-[120px] rounded-full pointer-events-none" />
             <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[30%] h-[50%] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
-
-            <div className="container mx-auto px-6 relative z-10 w-full mb-12">
-                <div className="flex flex-col items-center">
-                    <div className="flex items-center justify-center gap-6 mb-4">
-                        <div className="h-[1px] w-12 md:w-24 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
-                        <span className="text-xl md:text-3xl font-black text-white tracking-[0.2em] uppercase flex items-center gap-4 shadow-[0_0_15px_rgba(212,175,55,0.3)] gold-reflection soft-gold-glow">
-                            <span className="text-2xl md:text-4xl">🍿</span>
-                            <span className="text-primary/90">{dictionary.badge_part1}</span> <span className="text-gradient-premium italic">{dictionary.badge_part2}</span>
-                            <span className="text-2xl md:text-4xl">✨</span>
-                        </span>
-                        <div className="h-[1px] w-12 md:w-24 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
-                    </div>
-                    <p className="text-gray-300 font-bold text-[10px] md:text-xs tracking-[0.4em] uppercase">{dictionary.subtext}</p>
-                </div>
-            </div>
 
             <div className="relative overflow-hidden w-full">
                 <div className="marquee-container animate-marquee-left py-4">
@@ -58,17 +43,6 @@ export default function StreamingCarousel({ dictionary }: { dictionary: any }) {
                     ))}
                 </div>
             </div>
-
-            <style jsx global>{`
-                @keyframes marquee {
-                    0% {
-                        transform: translateX(0%);
-                    }
-                    100% {
-                        transform: translateX(-50%);
-                    }
-                }
-            `}</style>
         </section>
     );
 }

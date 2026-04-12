@@ -21,40 +21,15 @@ export default function MovieGrid({ lang, dictionary }: { lang: string; dictiona
     ];
 
     return (
-        <section className="py-20 md:py-32 bg-[#050505] relative overflow-hidden" id="channels">
+        <section className="pt-10 pb-20 bg-[#050505] relative overflow-hidden" id="channels">
             <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
 
             <div className="container-responsive relative z-10 w-full max-w-none">
-                {/* Header Section: Mobile Optimized */}
-                <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 gap-6 max-w-7xl mx-auto">
-                    <div className="w-full">
-                        <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            className="text-primary font-black uppercase tracking-[0.3em] text-[10px] md:text-xs mb-4 inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full border border-primary/20 shadow-[0_0_15px_rgba(212,175,55,0.1)] gold-reflection soft-gold-glow"
-                        >
-                            {dictionary.badge}
-                        </motion.div>
-                        <motion.h2
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            className="text-4xl md:text-8xl font-black text-white leading-tight tracking-tighter"
-                        >
-                            <span className="text-primary/90">{dictionary.title_line1}</span> <span className="text-gradient-premium italic">{dictionary.title_line2}</span>
-                        </motion.h2>
-                    </div>
-
-                    <div className="flex w-full md:w-auto items-center justify-between md:justify-end gap-6 border-t md:border-t-0 border-white/5 pt-6 md:pt-0 text-right">
-                        <Link href={`/${lang}/channels`} className="text-gray-200 font-black uppercase tracking-widest text-[10px] md:text-xs hover:text-white transition-colors flex items-center gap-2 group touch-target">
-                            {dictionary.explore_cta}
-                            <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                    </div>
-                </div>
+                
 
                 {/* Continuous Marquee */}
                 <div className="relative overflow-hidden w-full py-4">
-                    <div className="marquee-container animate-marquee-left">
+                    <div className="marquee-container animate-marquee-right">
                         {[...content, ...content, ...content].map((item, index) => (
                             <div
                                 key={index}

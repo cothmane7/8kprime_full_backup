@@ -26,7 +26,7 @@ export default function LeaguesCarousel({ dictionary }: { dictionary: any }) {
 
     // Double the content config for marquee
     return (
-        <section className="py-20 bg-[#050505] relative overflow-hidden border-y border-white/5">
+        <section className="pt-20 pb-10 bg-[#050505] relative overflow-hidden border-t border-white/5">
             {/* Atmospheric Background Glows */}
             <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[30%] h-[50%] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
             <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[30%] h-[50%] bg-purple-600/5 blur-[120px] rounded-full pointer-events-none" />
@@ -64,17 +64,6 @@ export default function LeaguesCarousel({ dictionary }: { dictionary: any }) {
                     ))}
                 </div>
             </div>
-
-            <style jsx global>{`
-                @keyframes marquee {
-                    0% {
-                        transform: translateX(0%);
-                    }
-                    100% {
-                        transform: translateX(-50%);
-                    }
-                }
-            `}</style>
         </section>
     );
 }
