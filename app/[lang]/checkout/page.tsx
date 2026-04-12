@@ -15,13 +15,17 @@ function CheckoutContent({ lang }: { lang: string }) {
 
     const [email, setEmail] = useState("");
     const [confirmEmail, setConfirmEmail] = useState("");
+    const [username, setUsername] = useState("");
+    const [whatsapp, setWhatsapp] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [emailError, setEmailError] = useState(false);
     const [confirmEmailError, setConfirmEmailError] = useState(false);
+    const [usernameError, setUsernameError] = useState(false);
+    const [whatsappError, setWhatsappError] = useState(false);
 
     const priceMap: Record<string, string> = {
-        "12mo": "59.99",
-        "6mo": "39.99",
+        "12mo": "69.99",
+        "6mo": "49.99",
         "3mo": "29.99",
         "24mo": "119.99",
     };
@@ -46,10 +50,24 @@ function CheckoutContent({ lang }: { lang: string }) {
             setConfirmEmailError(false);
         }
 
+        if (!username) {
+            setUsernameError(true);
+            hasError = true;
+        } else {
+            setUsernameError(false);
+        }
+
+        if (!whatsapp) {
+            setWhatsappError(true);
+            hasError = true;
+        } else {
+            setWhatsappError(false);
+        }
+
         if (hasError) return;
 
         setIsSubmitting(true);
-        sendPaymentEmails({ email, paymentMethod: "paypal", plan, devices }).catch(console.error);
+        sendPaymentEmails({ email, username, whatsapp, paymentMethod: "paypal", plan, devices }).catch(console.error);
         
         setTimeout(() => {
             router.push("/thanks");
@@ -66,24 +84,145 @@ function CheckoutContent({ lang }: { lang: string }) {
             <div className="h-24 md:h-32" />
 
             <main className="relative z-10 flex-grow w-full max-w-7xl mx-auto px-6 pt-4 pb-20">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+                <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
                     
-                    {/* Left Column: Summary */}
-                    <div className="flex flex-col gap-10">
-                        <div>
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest mb-6 gold-reflection">
-                                <Zap size={12} className="fill-primary" />
-                                Almost there
+                    {/* Header Section - Order 1 on Mobile, Column 1 on Desktop */}
+                    <div className="order-1">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest mb-6 gold-reflection">
+                            <Zap size={12} className="fill-primary" />
+                            Almost there
+                        </div>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-4">
+                            Complete your <br/>
+                            <span className="text-gradient-premium">order now.</span>
+                        </h1>
+                        <p className="text-gray-400 text-base md:text-lg max-w-md font-medium leading-relaxed mb-6 lg:mb-0">
+                            You are just 60 seconds away from the ultimate 8K streaming experience. Instant activation guaranteed.
+                        </p>
+                    </div>
+
+                    {/* Right Column: Form - Order 2 on Mobile, Column 2 on Desktop (Sticky) */}
+                    <div className="lg:sticky lg:top-10 order-2 lg:row-span-2">
+                        <div className="bg-[#0D0D12] border border-white/5 rounded-[3rem] p-8 md:p-12 shadow-[0_30px_100px_rgba(0,0,0,0.6)] relative">
+                            {/* Inner Glow */}
+                            <div className="absolute inset-0 rounded-[3rem] bg-primary/5 blur-3xl pointer-events-none opacity-20" />
+                            
+                            <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight mb-10 text-center lg:text-left">Customer Details</h2>
+
+                            <div className="flex flex-col gap-8 relative z-10">
+                                {/* Email Field */}
+                                <div className="group/input">
+                                    <label className="text-[10px] text-primary font-black mb-3 block tracking-[0.2em] uppercase transition-all group-focus-within/input:text-white">Email Address</label>
+                                    <div className="relative">
+                                        <input
+                                            type="email"
+                                            placeholder="you@example.com"
+                                            value={email}
+                                            onChange={e => {
+                                                setEmail(e.target.value);
+                                                setEmailError(false);
+                                            }}
+                                            className={`w-full bg-[#15151A] border-2 ${emailError ? 'border-red-500' : 'border-white/5 group-focus-within/input:border-primary/50'} rounded-2xl px-6 py-5 text-white focus:outline-none transition-all text-base md:text-lg font-bold placeholder:text-gray-600 shadow-inner`}
+                                        />
+                                        <div className="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 group-focus-within/input:opacity-100 transition-opacity">
+                                            <Zap size={18} className="text-primary animate-pulse" />
+                                        </div>
+                                    </div>
+                                    {emailError && <p className="text-red-500 text-[11px] mt-3 font-bold uppercase tracking-wider ml-1">Please enter a valid email address</p>}
+                                </div>
+
+                                {/* Confirm Email Field */}
+                                <div className="group/input">
+                                    <label className="text-[10px] text-primary font-black mb-3 block tracking-[0.2em] uppercase transition-all group-focus-within/input:text-white">Confirm Email</label>
+                                    <input
+                                        type="email"
+                                        placeholder="Repeat your email"
+                                        value={confirmEmail}
+                                        onChange={e => {
+                                            setConfirmEmail(e.target.value);
+                                            setConfirmEmailError(false);
+                                        }}
+                                        className={`w-full bg-[#15151A] border-2 ${confirmEmailError ? 'border-red-500' : 'border-white/5 group-focus-within/input:border-primary/50'} rounded-2xl px-6 py-5 text-white focus:outline-none transition-all text-base md:text-lg font-bold placeholder:text-gray-600 shadow-inner`}
+                                    />
+                                    {confirmEmailError && <p className="text-red-500 text-[11px] mt-3 font-bold uppercase tracking-wider ml-1">The emails do not match</p>}
+                                </div>
+
+                                {/* Username Field */}
+                                <div className="group/input">
+                                    <label className="text-[10px] text-primary font-black mb-3 block tracking-[0.2em] uppercase transition-all group-focus-within/input:text-white">Desired Username</label>
+                                    <input
+                                        type="text"
+                                        placeholder="Choose a username"
+                                        value={username}
+                                        onChange={e => {
+                                            setUsername(e.target.value);
+                                            setUsernameError(false);
+                                        }}
+                                        className={`w-full bg-[#15151A] border-2 ${usernameError ? 'border-red-500' : 'border-white/5 group-focus-within/input:border-primary/50'} rounded-2xl px-6 py-5 text-white focus:outline-none transition-all text-base md:text-lg font-bold placeholder:text-gray-600 shadow-inner`}
+                                    />
+                                    {usernameError && <p className="text-red-500 text-[11px] mt-3 font-bold uppercase tracking-wider ml-1">Please enter a desired username</p>}
+                                </div>
+
+                                {/* WhatsApp Field */}
+                                <div className="group/input">
+                                    <label className="text-[10px] text-primary font-black mb-3 block tracking-[0.2em] uppercase transition-all group-focus-within/input:text-white">WhatsApp Number</label>
+                                    <input
+                                        type="tel"
+                                        placeholder="+1 (555) 000-0000"
+                                        value={whatsapp}
+                                        onChange={e => {
+                                            setWhatsapp(e.target.value);
+                                            setWhatsappError(false);
+                                        }}
+                                        className={`w-full bg-[#15151A] border-2 ${whatsappError ? 'border-red-500' : 'border-white/5 group-focus-within/input:border-primary/50'} rounded-2xl px-6 py-5 text-white focus:outline-none transition-all text-base md:text-lg font-bold placeholder:text-gray-600 shadow-inner`}
+                                    />
+                                    {whatsappError && <p className="text-red-500 text-[11px] mt-3 font-bold uppercase tracking-wider ml-1">Please enter your WhatsApp number</p>}
+                                </div>
+
+                                <div className="mt-6">
+                                    <button 
+                                        onClick={handleProceed}
+                                        disabled={isSubmitting}
+                                        className={`w-full flex items-center justify-center gap-4 px-10 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-lg md:text-xl border border-yellow-200/30 relative overflow-hidden group/confirm shadow-[0_20px_60px_rgba(212,175,55,0.25)] transition-all ${
+                                            isSubmitting 
+                                            ? 'bg-gray-800 text-gray-400 cursor-not-allowed border-gray-700 pb-5' 
+                                            : 'bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] bg-[length:200%_auto] hover:bg-right text-black hover:scale-[1.03] active:scale-[0.98]'
+                                        }`}
+                                    >
+                                        {isSubmitting ? (
+                                            <>
+                                                <div className="w-6 h-6 border-3 border-gray-500 border-t-white rounded-full animate-spin" />
+                                                Processing...
+                                            </>
+                                        ) : (
+                                            <>
+                                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent translate-x-[-200%] group-hover/confirm:translate-x-[200%] transition-transform duration-1000" />
+                                                <span className="relative z-10 flex items-center gap-3">
+                                                    Confirm Order
+                                                    <Zap size={20} className="fill-black" />
+                                                </span>
+                                            </>
+                                        )}
+                                    </button>
+                                    
+                                    <div className="mt-8 flex items-center justify-center gap-2 text-[10px] font-black text-gray-500 uppercase tracking-widest bg-white/5 py-4 rounded-xl border border-white/5">
+                                        <Shield size={14} className="text-emerald-500" />
+                                        100% Encrypted & Secure Checkout
+                                    </div>
+                                </div>
                             </div>
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] mb-4">
-                                Complete your <br/>
-                                <span className="text-gradient-premium">order now.</span>
-                            </h1>
-                            <p className="text-gray-400 text-base md:text-lg max-w-md font-medium leading-relaxed">
-                                You are just 60 seconds away from the ultimate 8K streaming experience. Instant activation guaranteed.
-                            </p>
                         </div>
 
+                        {/* Mobile Trust Indicator (Visible under form on small screens) */}
+                        <div className="mt-10 lg:hidden text-center opacity-60">
+                             <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">
+                                Instant access delivery to your inbox
+                             </p>
+                        </div>
+                    </div>
+
+                    {/* Order Summary (Conclusion) - Order 3 on Mobile, Column 1 (below header) on Desktop */}
+                    <div className="flex flex-col gap-10 order-3 lg:mt-[-40px]">
                         {/* Order Details Card */}
                         <div className="bg-[#0A0A0F] border border-white/5 rounded-[2.5rem] p-8 md:p-10 shadow-2xl relative overflow-hidden group">
                            {/* Shine Effect */}
@@ -100,7 +239,7 @@ function CheckoutContent({ lang }: { lang: string }) {
                                 </div>
                                 <div className="text-right">
                                     <div className="text-gray-400 text-xs font-black uppercase tracking-[0.2em] mb-2">Total Price</div>
-                                    <div className="text-4xl font-black text-white">€{finalPrice}</div>
+                                    <div className="text-4xl font-black text-white">${finalPrice}</div>
                                 </div>
                            </div>
 
@@ -150,94 +289,6 @@ function CheckoutContent({ lang }: { lang: string }) {
                                 <div className="w-8 h-8 bg-[#00457C] rounded flex items-center justify-center font-black text-white italic text-[10px]">P</div>
                                 <span className="font-bold text-sm">PayPal</span>
                            </div>
-                        </div>
-                    </div>
-
-                    {/* Right Column: Form */}
-                    <div className="lg:sticky lg:top-10">
-                        <div className="bg-[#0D0D12] border border-white/5 rounded-[3rem] p-8 md:p-12 shadow-[0_30px_100px_rgba(0,0,0,0.6)] relative">
-                            {/* Inner Glow */}
-                            <div className="absolute inset-0 rounded-[3rem] bg-primary/5 blur-3xl pointer-events-none opacity-20" />
-                            
-                            <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight mb-10 text-center lg:text-left">Customer Details</h2>
-
-                            <div className="flex flex-col gap-8 relative z-10">
-                                {/* Email Field */}
-                                <div className="group/input">
-                                    <label className="text-[10px] text-primary font-black mb-3 block tracking-[0.2em] uppercase transition-all group-focus-within/input:text-white">Email Address</label>
-                                    <div className="relative">
-                                        <input
-                                            type="email"
-                                            placeholder="you@example.com"
-                                            value={email}
-                                            onChange={e => {
-                                                setEmail(e.target.value);
-                                                setEmailError(false);
-                                            }}
-                                            className={`w-full bg-[#15151A] border-2 ${emailError ? 'border-red-500' : 'border-white/5 group-focus-within/input:border-primary/50'} rounded-2xl px-6 py-5 text-white focus:outline-none transition-all text-base md:text-lg font-bold placeholder:text-gray-600 shadow-inner`}
-                                        />
-                                        <div className="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 group-focus-within/input:opacity-100 transition-opacity">
-                                            <Zap size={18} className="text-primary animate-pulse" />
-                                        </div>
-                                    </div>
-                                    {emailError && <p className="text-red-500 text-[11px] mt-3 font-bold uppercase tracking-wider ml-1">Please enter a valid email address</p>}
-                                </div>
-
-                                {/* Confirm Email Field */}
-                                <div className="group/input">
-                                    <label className="text-[10px] text-primary font-black mb-3 block tracking-[0.2em] uppercase transition-all group-focus-within/input:text-white">Confirm Email</label>
-                                    <input
-                                        type="email"
-                                        placeholder="Repeat your email"
-                                        value={confirmEmail}
-                                        onChange={e => {
-                                            setConfirmEmail(e.target.value);
-                                            setConfirmEmailError(false);
-                                        }}
-                                        className={`w-full bg-[#15151A] border-2 ${confirmEmailError ? 'border-red-500' : 'border-white/5 group-focus-within/input:border-primary/50'} rounded-2xl px-6 py-5 text-white focus:outline-none transition-all text-base md:text-lg font-bold placeholder:text-gray-600 shadow-inner`}
-                                    />
-                                    {confirmEmailError && <p className="text-red-500 text-[11px] mt-3 font-bold uppercase tracking-wider ml-1">The emails do not match</p>}
-                                </div>
-
-                                <div className="mt-6">
-                                    <button 
-                                        onClick={handleProceed}
-                                        disabled={isSubmitting}
-                                        className={`w-full flex items-center justify-center gap-4 px-10 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-lg md:text-xl border border-yellow-200/30 relative overflow-hidden group/confirm shadow-[0_20px_60px_rgba(212,175,55,0.25)] transition-all ${
-                                            isSubmitting 
-                                            ? 'bg-gray-800 text-gray-400 cursor-not-allowed border-gray-700 pb-5' 
-                                            : 'bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] bg-[length:200%_auto] hover:bg-right text-black hover:scale-[1.03] active:scale-[0.98]'
-                                        }`}
-                                    >
-                                        {isSubmitting ? (
-                                            <>
-                                                <div className="w-6 h-6 border-3 border-gray-500 border-t-white rounded-full animate-spin" />
-                                                Processing...
-                                            </>
-                                        ) : (
-                                            <>
-                                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent translate-x-[-200%] group-hover/confirm:translate-x-[200%] transition-transform duration-1000" />
-                                                <span className="relative z-10 flex items-center gap-3">
-                                                    Confirm Order
-                                                    <Zap size={20} className="fill-black" />
-                                                </span>
-                                            </>
-                                        )}
-                                    </button>
-                                    
-                                    <div className="mt-8 flex items-center justify-center gap-2 text-[10px] font-black text-gray-500 uppercase tracking-widest bg-white/5 py-4 rounded-xl border border-white/5">
-                                        <Shield size={14} className="text-emerald-500" />
-                                        100% Encrypted & Secure Checkout
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Mobile Order Summary (Visible on small screens only) */}
-                        <div className="mt-10 lg:hidden text-center opacity-60">
-                             <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">
-                                Instant access delivery to your inbox
-                             </p>
                         </div>
                     </div>
                 </div>

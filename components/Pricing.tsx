@@ -29,7 +29,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
         },
         {
             months: 6,
-            price: 39.99,
+            price: 49.99,
             label: dictionary.label_semi_annual,
             isPopular: false,
             tag: dictionary.smart_choice,
@@ -47,7 +47,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
         },
         {
             months: 12,
-            price: 59.99,
+            price: 69.99,
             label: dictionary.label_annual,
             isPopular: true,
             tag: dictionary.best_value,
@@ -192,7 +192,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                                 <p className="text-[10px] font-black uppercase tracking-wider mb-6 text-primary">{plan.tag}</p>
 
                                 <div className="flex items-start gap-1">
-                                    <span className="text-2xl font-black text-white mt-1">€</span>
+                                    <span className="text-2xl font-black text-white mt-1">$</span>
                                     <span className="text-5xl md:text-6xl font-black text-white tracking-tighter leading-none">
                                         {calculatePrice(plan.price).split('.')[0]}
                                     </span>
@@ -206,11 +206,11 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                                     {plan.months > 3 && (
                                         <div className="text-gray-500 text-xs font-bold">
                                             <span>{dictionary.regular_price}: </span>
-                                            <span className="line-through">€{(17.99 * activeDevices * (activeDevices > 1 ? 0.75 : 1) / activeDevices).toFixed(2)}{dictionary.per_month}</span>
+                                            <span className="line-through">${(17.99 * activeDevices * (activeDevices > 1 ? 0.75 : 1) / activeDevices).toFixed(2)}{dictionary.per_month}</span>
                                         </div>
                                     )}
                                     <div className={`text-sm font-extrabold tracking-tight ${plan.isPopular ? 'text-primary' : 'text-primary/80'}`}>
-                                        €{(Math.floor((parseFloat(calculatePrice(plan.price)) / plan.months / activeDevices) * 100) / 100).toFixed(2)}{dictionary.per_month} {activeDevices > 1 && <span className="text-[10px] font-medium opacity-60 ml-0.5">/ {activeDevices === 1 ? dictionary.device || "device" : dictionary.device || "device"}</span>}
+                                        ${(Math.floor((parseFloat(calculatePrice(plan.price)) / plan.months / activeDevices) * 100) / 100).toFixed(2)}{dictionary.per_month} {activeDevices > 1 && <span className="text-[10px] font-medium opacity-60 ml-0.5">/ {activeDevices === 1 ? dictionary.device || "device" : dictionary.device || "device"}</span>}
                                     </div>
                                 </div>
                             </div>
@@ -234,11 +234,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
 
                             <div className="mt-auto">
                                 <Link
-                                    href={activeDevices === 1 
-                                        ? `/${lang}/checkout?plan=${plan.months}mo&devices=${activeDevices}`
-                                        : `https://wa.me/18185656691?text=${encodeURIComponent(`Hi, I am interested in the ${plan.months} Months plan with ${activeDevices} Devices connection.`)}`
-                                    }
-                                    target={activeDevices === 1 ? "_self" : "_blank"}
+                                    href={`/${lang}/checkout?plan=${plan.months}mo&devices=${activeDevices}`}
                                     className="flex items-center justify-center gap-3 w-full py-4 md:py-5 rounded-full font-black uppercase tracking-wider transition-all duration-500 text-lg md:text-xl touch-target hover:scale-[1.03] active:scale-[0.98] bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] bg-[length:200%_auto] hover:bg-right text-black shadow-[0_0_30px_rgba(212,175,55,0.4),inset_0_2px_4px_rgba(255,240,179,0.9)] overflow-hidden relative group/btn border border-yellow-200/50"
                                 >
                                     {/* Animated shine sweep */}

@@ -105,7 +105,7 @@ export default function ResellerPage(props: { params: Promise<{ lang: string }> 
                                 </h3>
                                 
                                 <div className="flex items-start gap-1">
-                                    <span className="text-2xl font-black text-white mt-1">€</span>
+                                    <span className="text-2xl font-black text-white mt-1">$</span>
                                     <span className="text-5xl md:text-6xl font-black text-white tracking-tighter leading-none">{tier.price}</span>
                                 </div>
                             </div>
@@ -125,7 +125,7 @@ export default function ResellerPage(props: { params: Promise<{ lang: string }> 
 
                             <div className="mt-auto">
                                 <a 
-                                    href={`https://wa.me/18185656691?text=${encodeURIComponent(`Hello 8KPRIME, I am interested in the ${tier.title} Reseller Plan (€${tier.price}).`)}`}
+                                    href={`https://wa.me/18185656691?text=${encodeURIComponent(`Hello 8KPRIME, I am interested in the ${tier.title} Reseller Plan ($${tier.price}).`)}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center justify-center gap-3 w-full py-4 md:py-5 rounded-full font-black uppercase tracking-wider transition-all duration-500 text-lg md:text-xl touch-target hover:scale-[1.03] active:scale-[0.98] bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] bg-[length:200%_auto] hover:bg-right text-black shadow-[0_0_30px_rgba(212,175,55,0.4),inset_0_2px_4px_rgba(255,240,179,0.9)] overflow-hidden relative group/btn border border-yellow-200/50"

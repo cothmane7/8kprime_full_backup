@@ -9,25 +9,25 @@ export default function Testimonials({ dictionary }: { dictionary: any }) {
             name: dictionary.t1_name,
             country: dictionary.t1_country,
             text: dictionary.t1_text,
-            flag: "🇩🇪",
+            flag: "🇺🇸",
         },
         {
             name: dictionary.t2_name,
             country: dictionary.t2_country,
             text: dictionary.t2_text,
-            flag: "🇫🇷",
+            flag: "🇨🇦",
         },
         {
             name: dictionary.t3_name,
             country: dictionary.t3_country,
             text: dictionary.t3_text,
-            flag: "🇬🇧",
+            flag: "🇺🇸",
         },
         {
             name: dictionary.t4_name,
             country: dictionary.t4_country,
             text: dictionary.t4_text,
-            flag: "🇵🇱",
+            flag: "🇨🇦",
         },
     ];
 

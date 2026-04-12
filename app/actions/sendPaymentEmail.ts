@@ -4,10 +4,10 @@ import nodemailer from "nodemailer";
 import { headers } from "next/headers";
 
 const PRICE_MAP: Record<string, string> = {
-    "12mo": "€59.99",
-    "6mo": "€39.99",
-    "3mo": "€29.99",
-    "24mo": "€119.99",
+    "12mo": "$69.99",
+    "6mo": "$49.99",
+    "3mo": "$29.99",
+    "24mo": "$119.99",
 };
 
 const PLAN_LABELS: Record<string, string> = {
@@ -39,11 +39,15 @@ const PAYPAL_LINKS: Record<string, string> = {
 
 export async function sendPaymentEmails({
     email,
+    username,
+    whatsapp,
     paymentMethod,
     plan,
     devices,
 }: {
     email: string;
+    username?: string;
+    whatsapp?: string;
     paymentMethod: string;
     plan: string;
     devices: string;
@@ -59,7 +63,7 @@ export async function sendPaymentEmails({
         const basePriceNum = basePriceMatch ? parseFloat(basePriceMatch[0]) : 0;
         const multipliers: Record<string, number> = { "1": 1, "2": 1.5, "3": 2, "4": 2.5 };
         const finalPriceNum = basePriceNum * (multipliers[devices] || 1);
-        const price = basePriceNum > 0 ? `€${finalPriceNum.toFixed(2)}` : "N/A";
+        const price = basePriceNum > 0 ? `$${finalPriceNum.toFixed(2)}` : "N/A";
         
         const planLabel = PLAN_LABELS[plan] || plan;
         const paymentKey = `${plan}_${devices}`;
@@ -105,6 +109,14 @@ export async function sendPaymentEmails({
                             <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #fff; font-weight: bold; text-align: right;">${email}</td>
                         </tr>
                         <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #888; font-size: 13px;">Desired Username</td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #d4a843; font-weight: bold; text-align: right;">${username || 'N/A'}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #888; font-size: 13px;">WhatsApp</td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #fff; font-weight: bold; text-align: right;">${whatsapp || 'N/A'}</td>
+                        </tr>
+                        <tr>
                             <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #888; font-size: 13px;">Plan</td>
                             <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #fff; font-weight: bold; text-align: right;">${planLabel}</td>
                         </tr>
@@ -135,63 +147,50 @@ export async function sendPaymentEmails({
 
         // ── Customer confirmation email ──
         const userHtml = `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0a0a0a; color: #ffffff; border-radius: 16px; overflow: hidden;">
-                <div style="background: linear-gradient(135deg, #b08d3e, #d4a843); padding: 24px 32px;">
-                    <h1 style="margin: 0; font-size: 22px; color: #000;">✅ Order Confirmation</h1>
-                    <p style="margin: 8px 0 0; color: #000; font-size: 14px;">Thank you for choosing 8K PRIME TV</p>
-                </div>
-                <div style="padding: 32px;">
-                    <p style="color: #fff; line-height: 1.6; margin-bottom: 24px; text-align: center; font-size: 15px;">
-                        To activate your subscription instantly, please complete your secure payment by selecting one of the plans below:
-                    </p>
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff; color: #333333; border: 1px solid #eeeeee; border-radius: 8px; overflow: hidden; padding: 40px;">
+                <p style="font-size: 16px; margin-bottom: 24px;">Dear Client,</p>
+                
+                <p style="font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
+                    Your order has been successfully confirmed and is now pending final payment.
+                </p>
+                
+                <p style="font-size: 15px; line-height: 1.6; margin-bottom: 24px;">
+                    To activate your service and receive your login details, please complete the payment using the secure link below.
+                </p>
 
-                    <!-- Payment Button (Dynamic) -->
-                    ${checkoutUrl ? `
-                    <div style="text-align: center; margin-bottom: 32px;">
-                        <div style="background: #111; border: 1px solid ${plan === '12mo' ? '#d4a843' : '#333'}; border-radius: 12px; padding: 20px; margin-bottom: 16px;">
-                            ${plan === '12mo' ? `<div style="background: #d4a843; color: #000; font-size: 11px; font-weight: bold; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 8px;">Most Popular</div>` : ''}
-                            <h3 style="color: #fff; margin: 0 0 8px; font-size: 18px;">${planLabel}</h3>
-                            <p style="color: #d4a843; font-size: 20px; font-weight: bold; margin: 0 0 16px;">${price}</p>
-                            <a href="${checkoutUrl}" style="display: inline-block; background: linear-gradient(135deg, #b08d3e, #d4a843); color: #000; text-decoration: none; font-weight: bold; padding: 12px 24px; border-radius: 8px; text-transform: uppercase; font-size: 14px;">Get Instant Access</a>
-                        </div>
-                    </div>
-                    ` : `
-                    <div style="text-align: center; margin-bottom: 32px;">
-                        <p style="color: #d4a843; font-size: 15px; font-weight: bold;">Our team will reply shortly with the payment details for your chosen plan.</p>
-                    </div>
-                    `}
-
-                    <p style="color: #888; font-size: 13px; margin-bottom: 16px; border-top: 1px solid #222; padding-top: 24px;">
-                        Order Request Summary:
-                    </p>
-                    <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
-                        <tr>
-                            <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #888; font-size: 13px;">Plan</td>
-                            <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #fff; font-weight: bold; text-align: right;">${planLabel}</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #888; font-size: 13px;">Devices</td>
-                            <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #fff; font-weight: bold; text-align: right;">${devices}</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #888; font-size: 13px;">Payment Method</td>
-                            <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #d4a843; font-weight: bold; text-align: right; text-transform: uppercase;">${displayPaymentMethod}</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 0; color: #888; font-size: 13px;">Total</td>
-                            <td style="padding: 12px 0; color: #4ade80; font-weight: bold; font-size: 18px; text-align: right;">${price}</td>
-                        </tr>
-                    </table>
-                    <div style="background: #111; border: 1px solid #222; border-radius: 12px; padding: 20px; margin-bottom: 24px;">
-                        <p style="color: #d4a843; font-weight: bold; margin: 0 0 8px;">⏳ What happens next?</p>
-                        <p style="color: #aaa; font-size: 13px; line-height: 1.6; margin: 0;">
-                            Our team will process your payment and deliver your subscription credentials and setup instructions to this email address shortly.
-                        </p>
-                    </div>
-                    <p style="color: #666; font-size: 11px; text-align: center; margin: 0;">
-                        If you have any questions, reply to this email or contact us at infos8kprime@gmail.com
-                    </p>
+                <div style="background: #f9f9f9; padding: 24px; border-radius: 8px; margin-bottom: 24px;">
+                    <h3 style="margin: 0 0 16px; font-size: 16px; color: #000; border-bottom: 1px solid #ddd; padding-bottom: 8px;">Order Details:</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 2;">
+                        <li><strong>Service Plan:</strong> ${planLabel} (${basePriceStr})</li>
+                        <li><strong>Devices:</strong> ${devices} (${price})</li>
+                        <li><strong>Total Amount:</strong> <span style="font-size: 18px; color: #d4a843;">${price}</span></li>
+                    </ul>
                 </div>
+
+                <div style="margin-bottom: 24px;">
+                    <h3 style="margin: 0 0 16px; font-size: 16px; color: #000;">Payment Instructions:</h3>
+                    <ol style="padding-left: 20px; margin: 0; font-size: 14px; line-height: 1.8;">
+                        <li>Click the secure link below to open the payment page</li>
+                        <li>Enter the exact amount: <strong>${price}</strong></li>
+                        <li>Complete the payment using your preferred method</li>
+                    </ol>
+                </div>
+
+                <div style="text-align: center; margin-bottom: 32px; padding: 20px; background: #fffdf5; border: 1px dashed #d4a843; border-radius: 8px;">
+                    <p style="margin: 0 0 12px; font-weight: bold; font-size: 14px;">Secure Payment Link:</p>
+                    <a href="https://www.paypal.com/paypalme/nohakd/${finalPriceNum.toFixed(2)}" style="display: inline-block; background: #d4a843; color: #ffffff; text-decoration: none; font-weight: bold; padding: 14px 32px; border-radius: 4px; font-size: 16px;">PayPal.me Payment Link</a>
+                </div>
+
+                <p style="font-size: 14px; line-height: 1.6; color: #666; margin-bottom: 24px;">
+                    Once your payment is confirmed, you will automatically receive a separate email with your account credentials and setup instructions.
+                </p>
+
+                <p style="font-size: 14px; line-height: 1.6; color: #666; margin-bottom: 32px;">
+                    If you have any questions or need assistance, simply reply to this email and we will assist you.
+                </p>
+
+                <p style="font-size: 15px; margin-bottom: 0;">Best regards,</p>
+                <p style="font-size: 15px; font-weight: bold; margin: 4px 0 0; color: #d4a843;">8KPRIME TV Team</p>
             </div>
         `;
 
