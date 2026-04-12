@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, PlayCircle, ShieldCheck, Star } from "lucide-react";
+import { ArrowRight, Play, ShieldCheck, Star, CheckCircle2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -119,31 +119,74 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                         transition={{ delay: 0.4 }}
                         className="flex flex-col items-center justify-center w-full"
                     >
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 pt-4">
                         <Link 
                             href={`/${lang}#pricing`} 
                             onClick={(e) => handleScrollTo(e, `/${lang}#pricing`)}
-                            className="w-full sm:w-auto bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] bg-[length:200%_auto] hover:bg-right text-black px-12 py-5 md:px-16 md:py-6 rounded-full font-black uppercase tracking-wider hover:scale-[1.02] active:scale-[0.98] transition-all duration-500 shadow-[0_0_50px_rgba(212,175,55,0.5),inset_0_2px_4px_rgba(255,240,179,0.8)] group/btn relative overflow-hidden flex items-center justify-center gap-3 border border-yellow-200/50"
+                            className="w-full sm:w-auto bg-[#E50914] hover:bg-[#B20710] text-white px-10 py-5 md:px-12 md:py-6 rounded-full font-black uppercase tracking-wider hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-[0_0_30px_rgba(229,9,20,0.4)] group/btn relative overflow-hidden flex items-center justify-center gap-3 border border-red-500/50"
                         >
-                            {/* Animated shine sweep */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-200%] group-hover/btn:translate-x-[200%] transition-transform duration-1000" />
-                            {/* Inner ring */}
-                            <div className="absolute inset-1 rounded-full border border-black/10 pointer-events-none" />
-                            <span className="relative z-10 text-lg md:text-xl flex items-center gap-3">
-                                {dictionary.cta_main}
-                                <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover/btn:translate-x-1 transition-transform" />
+                            <span className="relative z-10 flex items-center gap-3">
+                                <Play className="w-5 h-5 fill-current" />
+                                {dictionary.cta_watch}
                             </span>
                         </Link>
+
+                        <Link 
+                            href={`/${lang}#pricing`} 
+                            onClick={(e) => handleScrollTo(e, `/${lang}#pricing`)}
+                            className="w-full sm:w-auto bg-transparent backdrop-blur-md border-2 border-[#D4AF37] hover:bg-[#D4AF37] text-[#D4AF37] hover:text-black px-10 py-5 md:px-12 md:py-6 rounded-full font-black uppercase tracking-wider hover:scale-[1.02] active:scale-[0.98] transition-all duration-500 shadow-[0_0_20px_rgba(212,175,55,0.2)] group/btn-alt relative overflow-hidden flex items-center justify-center gap-3"
+                        >
+                            <span className="relative z-10 flex items-center gap-3">
+                                {dictionary.cta_plans}
+                                <ArrowRight className="w-5 h-5 group-hover/btn-alt:translate-x-1 transition-transform" />
+                            </span>
+                        </Link>
+                    </div>
                     </motion.div>
 
-                    {/* Trust Indicators */}
+                    {/* Trust Indicators — From Image Reference */}
                     <motion.div 
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.5 }}
-                        className="mt-8 flex items-center justify-center gap-2 text-white/50 text-xs md:text-sm font-semibold tracking-widest uppercase backdrop-blur-sm bg-black/20 px-6 py-2 rounded-full border border-white/5"
+                        className="mt-12 flex flex-col items-center gap-8"
                     >
-                        <ShieldCheck size={16} className="text-[#D4AF37]" />
-                        <span>{dictionary.trust_single_line || "7-day money-back guarantee · No hidden fees"}</span>
+                        {/* Features Row */}
+                        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-white/90 text-[0.95rem] md:text-[1.05rem] font-bold tracking-tight">
+                            <div className="flex items-center gap-2">
+                                <CheckCircle2 size={20} className="text-[#E50914] fill-transparent" />
+                                <span>{dictionary.trust_instant || "Instant Activation"}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <CheckCircle2 size={20} className="text-[#E50914] fill-transparent" />
+                                <span>{dictionary.trust_devices || "Works on All Devices"}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <CheckCircle2 size={20} className="text-[#E50914] fill-transparent" />
+                                <span>{dictionary.trust_support || "24/7 Support"}</span>
+                            </div>
+                        </div>
+
+                        {/* Trustpilot Badge */}
+                        <div className="bg-black/40 backdrop-blur-md px-6 py-3 rounded-full border border-white/10 flex items-center gap-4 shadow-2xl">
+                            <div className="flex items-center gap-1">
+                                <Star size={18} className="text-[#00B67A] fill-[#00B67A]" />
+                                <span className="text-white font-bold text-sm tracking-tight">Trustpilot</span>
+                            </div>
+                            
+                            <div className="flex items-center gap-0.5">
+                                {[...Array(5)].map((_, i) => (
+                                    <div key={i} className={`w-4 h-4 rounded-sm flex items-center justify-center ${i < 4 ? "bg-[#00B67A]" : "bg-[#00B67A]/50"}`}>
+                                        <Star size={10} className="text-white fill-white" />
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div className="flex items-center gap-1 text-sm">
+                                <span className="text-white font-black">4.7</span>
+                                <span className="text-white/40">/ 5</span>
+                            </div>
+                        </div>
                     </motion.div>
                 </div>
             </div>

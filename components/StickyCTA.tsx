@@ -51,7 +51,7 @@ export default function StickyCTA({ lang, dictionary }: { lang: string; dictiona
                             onClick={(e) => handleScrollTo(e, `/${lang}#pricing`)}
                             className="flex items-center justify-center gap-2 w-full bg-metallic-gold text-black py-4 rounded-2xl font-extrabold text-base shadow-lg shadow-primary/20 active:scale-[0.98] transition-transform"
                         >
-                            {dictionary.cta_main}
+                            {dictionary.cta_watch}
                             <ArrowRight className="w-4 h-4" />
                         </Link>
                     </div>
