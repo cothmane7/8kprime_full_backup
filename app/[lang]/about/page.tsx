@@ -18,7 +18,7 @@ export default async function AboutPage(props: { params: Promise<{ lang: string 
     const offerings = [
         { icon: <Zap className="text-primary" />, title: "30,000+ Channels", desc: "Live local and international feeds across sports, news, and entertainment." },
         { icon: <Globe className="text-primary" />, title: "175,000+ VOD", desc: "A massive library of the latest movies and series, updated daily." },
-        { icon: <Zap className="text-primary" />, title: "8K Quality", desc: "Support for crystal-clear 4K and 8K streaming with 99.9% uptime." },
+        { icon: <Zap className="text-primary" />, title: "4K Quality", desc: "Support for crystal-clear 4K and Ultra HD streaming with 99.9% uptime." },
         { icon: <Users className="text-primary" />, title: "Multi-Device", desc: "Seamless experience on Smart TV, Android, iOS, and Fire Stick." }
     ];
 
@@ -34,7 +34,7 @@ export default async function AboutPage(props: { params: Promise<{ lang: string 
                         <section>
                             <h2 className="text-2xl font-bold text-white mb-6 uppercase tracking-wide italic">Who We Are</h2>
                             <p>
-                                Welcome to 8KPRIME, your premier destination for high-quality streaming services. Since our inception, we’ve been dedicated to delivering exceptional entertainment experiences through cutting-edge streaming technology. We provide access to thousands of live TV channels, movies, and series from around the world, all in stunning quality from SD to 8K resolution.
+                                Welcome to 8KPRIME, your premier destination for high-quality streaming services. Since our inception, we’ve been dedicated to delivering exceptional entertainment experiences through cutting-edge streaming technology. We provide access to thousands of live TV channels, movies, and series from around the world, all in stunning quality from SD to 4K Ultra HD resolution.
                             </p>
                         </section>
 
@@ -51,7 +51,7 @@ export default async function AboutPage(props: { params: Promise<{ lang: string 
                             <ul className="space-y-4 list-disc pl-6 marker:text-primary">
                                 <li><strong>30,000+ Live TV Channels</strong>: Access channels from over 190 countries, covering sports, news, entertainment, kids’ content, and more.</li>
                                 <li><strong>175,000+ Movies & Series</strong>: Extensive on-demand library featuring the latest releases and timeless classics.</li>
-                                <li><strong>Premium Quality Streaming</strong>: Support for SD, HD, FHD, 4K, and 8K resolution for the ultimate viewing experience.</li>
+                                <li><strong>Premium Quality Streaming</strong>: Support for SD, HD, FHD, and 4K Ultra HD resolution for the ultimate viewing experience.</li>
                                 <li><strong>EPG (Electronic Program Guide)</strong>: Easy-to-navigate program guides for seamless content discovery.</li>
                                 <li><strong>Multi-Device Support</strong>: Compatible with Smart TVs, Android devices, iOS, Fire Stick, MAG boxes, and more.</li>
                                 <li><strong>99.9% Uptime</strong>: Reliable service with minimal interruptions and buffer-free streaming.</li>

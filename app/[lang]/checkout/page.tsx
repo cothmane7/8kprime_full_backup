@@ -97,7 +97,7 @@ function CheckoutContent({ lang }: { lang: string }) {
                             <span className="text-gradient-premium">order now.</span>
                         </h1>
                         <p className="text-gray-400 text-base md:text-lg max-w-md font-medium leading-relaxed mb-6 lg:mb-0">
-                            You are just 60 seconds away from the ultimate 8K streaming experience. Instant activation guaranteed.
+                            You are just 60 seconds away from the ultimate 4K streaming experience. Instant activation guaranteed.
                         </p>
                     </div>
 
@@ -254,7 +254,7 @@ function CheckoutContent({ lang }: { lang: string }) {
                                     <div className="w-6 h-6 rounded-full bg-emerald-500/10 flex items-center justify-center">
                                         <Check size={14} className="text-emerald-500" />
                                     </div>
-                                    160,000+ Movies & Series in 4K/8K
+                                    160,000+ Movies & Series in 4K UHD quality
                                 </div>
                                 <div className="flex items-center gap-4 text-sm font-bold text-gray-200">
                                     <div className="w-6 h-6 rounded-full bg-emerald-500/10 flex items-center justify-center">

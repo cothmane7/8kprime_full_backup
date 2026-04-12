@@ -50,7 +50,7 @@ export default function ThankYouPage(props: { params: Promise<{ lang: string }> 
                             <span className="text-gradient-premium">ELITE ACCESS.</span>
                         </h1>
                         <p className="text-gray-300 text-lg md:text-2xl font-medium mb-12 max-w-3xl mx-auto leading-relaxed">
-                            You're just <span className="text-white font-black underline decoration-primary underline-offset-4">one step away</span> from unlocking 60,000+ channels and 160,000+ titles in 8K resolution.
+                            You're just <span className="text-white font-black underline decoration-primary underline-offset-4">one step away</span> from unlocking 60,000+ channels and 160,000+ titles in 4K resolution.
                         </p>
                     </motion.div>
 

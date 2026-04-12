@@ -42,7 +42,7 @@ export async function generateMetadata(props: {
 
   return {
     title: "8KPRIME TV | Elite Global Entertainment",
-    description: "Experience ultra-luxury entertainment with 8K resolution and zero-latency switching.",
+    description: "Experience ultra-luxury entertainment with 4K Ultra HD resolution and zero-latency switching.",
     alternates: {
       canonical: `/${lang}`,
       languages: alternates,

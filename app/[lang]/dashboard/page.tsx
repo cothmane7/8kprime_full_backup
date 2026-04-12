@@ -119,7 +119,7 @@ export default function DashboardPage(props: { params: Promise<{ lang: string }>
                                     <div className="bg-white/5 rounded-3xl p-8 border border-white/5">
                                         <Zap className="w-6 h-6 text-primary mb-4" />
                                         <div className="text-gray-300 text-[10px] font-black uppercase tracking-widest mb-1">Quality</div>
-                                        <div className="text-xl font-black text-white">4K / 8K UHD</div>
+                                        <div className="text-xl font-black text-white">4K / Ultra HD</div>
                                     </div>
                                 </div>
                             </div>

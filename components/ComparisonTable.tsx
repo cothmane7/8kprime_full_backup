@@ -63,7 +63,7 @@ export default function ComparisonTable({ dictionary }: { dictionary: any }) {
                                 {/* TV Body */}
                                 <div className="relative z-10 w-11 h-8 md:w-12 md:h-9 bg-black border-2 border-[#D4AF37] rounded-lg flex items-center justify-center shadow-[3px_3px_0px_#D4AF37] group-hover:shadow-[5px_5px_0px_#D4AF37] group-hover:-translate-y-[2px] group-hover:-translate-x-[2px] transition-all duration-300">
                                   <span className="text-[#D4AF37] font-black text-sm md:text-[17px] tracking-tighter drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">
-                                    8K
+                                    4K
                                   </span>
                                   <div className="absolute top-0 left-0 w-full h-[30%] bg-gradient-to-b from-white/10 to-transparent rounded-t-lg pointer-events-none"></div>
                                 </div>
