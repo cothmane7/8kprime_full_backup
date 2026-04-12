@@ -12,6 +12,7 @@ function CheckoutContent({ lang }: { lang: string }) {
     const router = useRouter();
     const plan = searchParams.get("plan") || "12mo";
     const devices = searchParams.get("devices") || "1";
+    const ibo = searchParams.get("ibo") === "1";
 
     const [email, setEmail] = useState("");
     const [confirmEmail, setConfirmEmail] = useState("");
@@ -32,7 +33,7 @@ function CheckoutContent({ lang }: { lang: string }) {
     
     const basePrice = parseFloat(priceMap[plan] || "59.99");
     const multipliers: any = { 1: 1, 2: 1.5, 3: 2, 4: 2.5 };
-    const finalPrice = (basePrice * multipliers[parseInt(devices)]).toFixed(2);
+    const finalPrice = (basePrice * multipliers[parseInt(devices)] + (ibo ? 10 : 0)).toFixed(2);
 
     const handleProceed = () => {
         let hasError = false;
@@ -67,7 +68,7 @@ function CheckoutContent({ lang }: { lang: string }) {
         if (hasError) return;
 
         setIsSubmitting(true);
-        sendPaymentEmails({ email, username, whatsapp, paymentMethod: "paypal", plan, devices }).catch(console.error);
+        sendPaymentEmails({ email, username, whatsapp, paymentMethod: "paypal", plan, devices, ibo }).catch(console.error);
         
         setTimeout(() => {
             router.push("/thanks");
@@ -268,6 +269,14 @@ function CheckoutContent({ lang }: { lang: string }) {
                                     </div>
                                     Instant Global Activation
                                 </div>
+                                {ibo && (
+                                    <div className="flex items-center gap-4 text-sm font-bold text-[#E50914]">
+                                        <div className="w-6 h-6 rounded-full bg-[#E50914]/10 flex items-center justify-center">
+                                            <Check size={14} className="text-[#E50914]" />
+                                        </div>
+                                        IBO Player Activation
+                                    </div>
+                                )}
                            </div>
 
                            <div className="pt-8 border-t border-white/5 flex flex-wrap gap-4">

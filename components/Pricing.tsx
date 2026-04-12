@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, ShoppingCart, Monitor, ShieldCheck, Zap, PlayCircle, Film, Sparkles, Clock, Star } from "lucide-react";
+import { Check, ShoppingCart, Monitor, ShieldCheck, Zap, PlayCircle, Film, Sparkles, Clock, Star, ToggleRight, ToggleLeft } from "lucide-react";
 import Link from "next/link";
 
 export default function Pricing({ lang, dictionary, common }: { lang: any; dictionary: any; common: any }) {
     const [activeDevices, setActiveDevices] = useState(1);
+    const [iboPlayer, setIboPlayer] = useState(false);
 
     const plans = [
         {
@@ -232,9 +233,36 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                                 ))}
                             </div>
 
+                            {/* IBO Player Optional Add-on */}
+                            <div className="mb-6">
+                                <button
+                                    onClick={() => setIboPlayer(!iboPlayer)}
+                                    className={`w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl border-2 transition-all duration-300 ${
+                                        iboPlayer
+                                            ? 'border-[#E50914] bg-[#E50914]/10 shadow-[0_0_15px_rgba(229,9,20,0.15)]'
+                                            : 'border-white/10 bg-white/[0.02] hover:border-white/20'
+                                    }`}
+                                >
+                                    <div className="flex items-center gap-3">
+                                        <PlayCircle size={16} className={iboPlayer ? 'text-[#E50914]' : 'text-gray-500'} />
+                                        <span className={`text-xs font-bold uppercase tracking-wider ${iboPlayer ? 'text-white' : 'text-gray-400'}`}>
+                                            IBO Player Activation
+                                        </span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <span className={`text-[10px] font-black tracking-widest ${iboPlayer ? 'text-white' : 'text-gray-600'}`}>
+                                            +$10
+                                        </span>
+                                        <div className={`w-9 h-5 rounded-full relative transition-all duration-300 ${iboPlayer ? 'bg-[#E50914]' : 'bg-white/10'}`}>
+                                            <div className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow-md transition-all duration-300 ${iboPlayer ? 'left-[18px]' : 'left-0.5'}`} />
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+
                             <div className="mt-auto">
                                 <Link
-                                    href={`/${lang}/checkout?plan=${plan.months}mo&devices=${activeDevices}`}
+                                    href={`/${lang}/checkout?plan=${plan.months}mo&devices=${activeDevices}${iboPlayer ? '&ibo=1' : ''}`}
                                     className="flex items-center justify-center gap-3 w-full py-4 md:py-5 rounded-full font-black uppercase tracking-wider transition-all duration-500 text-lg md:text-xl touch-target hover:scale-[1.03] active:scale-[0.98] bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] bg-[length:200%_auto] hover:bg-right text-black shadow-[0_0_30px_rgba(212,175,55,0.4),inset_0_2px_4px_rgba(255,240,179,0.9)] overflow-hidden relative group/btn border border-yellow-200/50"
                                 >
                                     {/* Animated shine sweep */}

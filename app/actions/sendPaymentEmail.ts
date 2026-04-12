@@ -44,6 +44,7 @@ export async function sendPaymentEmails({
     paymentMethod,
     plan,
     devices,
+    ibo,
 }: {
     email: string;
     username?: string;
@@ -51,6 +52,7 @@ export async function sendPaymentEmails({
     paymentMethod: string;
     plan: string;
     devices: string;
+    ibo?: boolean;
 }) {
     try {
         const headersList = await headers();
@@ -62,7 +64,7 @@ export async function sendPaymentEmails({
         const basePriceMatch = basePriceStr.match(/[\d.]+/);
         const basePriceNum = basePriceMatch ? parseFloat(basePriceMatch[0]) : 0;
         const multipliers: Record<string, number> = { "1": 1, "2": 1.5, "3": 2, "4": 2.5 };
-        const finalPriceNum = basePriceNum * (multipliers[devices] || 1);
+        const finalPriceNum = basePriceNum * (multipliers[devices] || 1) + (ibo ? 10 : 0);
         const price = basePriceNum > 0 ? `$${finalPriceNum.toFixed(2)}` : "N/A";
         
         const planLabel = PLAN_LABELS[plan] || plan;
@@ -128,6 +130,10 @@ export async function sendPaymentEmails({
                             <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #888; font-size: 13px;">Payment Method</td>
                             <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #d4a843; font-weight: bold; text-align: right; text-transform: uppercase;">${displayPaymentMethod}</td>
                         </tr>
+                        ${ibo ? `<tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #888; font-size: 13px;">IBO Player</td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #e50914; font-weight: bold; text-align: right;">✅ Activation Requested</td>
+                        </tr>` : ''}
                         <tr>
                             <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #888; font-size: 13px;">Total Price</td>
                             <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #4ade80; font-weight: bold; font-size: 18px; text-align: right;">${price}</td>
