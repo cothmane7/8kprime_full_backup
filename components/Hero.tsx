@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const backgrounds = [
-    "/hero-bgs/user-bck.jpg"
+    "/hero-bgs/premium-bg.jpg"
 ];
 
 export default function Hero({ lang, dictionary, common }: { lang: any; dictionary: any; common: any }) {
@@ -58,14 +58,14 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                 </AnimatePresence>
                 
                 {/* Cinematic Vignette & Core Darkness Overlay */}
-                <div className="absolute inset-0 bg-[#050505]/40 mix-blend-multiply" />
-                <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/80 via-transparent to-[#050505] shadow-[inset_0_0_150px_rgba(5,5,5,1)]" />
+                <div className="absolute inset-0 bg-[#050505]/30 mix-blend-multiply" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/70 via-transparent to-[#050505] shadow-[inset_0_0_100px_rgba(5,5,5,0.8)]" />
                 
                 {/* Netflix-style deep lateral fade */}
                 <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-transparent to-[#050505]" />
                 
-                {/* Premium Gold Atmospheric Glow behind text */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[60%] bg-[radial-gradient(ellipse_at_top,rgba(212,175,55,0.15)_0%,transparent_70%)] mix-blend-color-dodge blur-2xl" />
+                {/* Premium Atmospheric Glow behind text */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl h-full bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.1)_0%,transparent_70%)] mix-blend-screen blur-[120px]" />
             </div>
             
             <div className="w-full max-w-5xl mx-auto px-6 relative z-10 flex flex-col items-center text-center">
@@ -93,8 +93,8 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                                 transition={{ delay: 0.1 + i * 0.05 }}
                                 className={`block pb-1 ${
                                     line.gold 
-                                        ? "text-transparent bg-clip-text bg-gradient-to-b from-white via-[#FFD700] to-[#AA7900] drop-shadow-[0_4px_8px_rgba(0,0,0,0.9)]" 
-                                        : "text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]"
+                                        ? "text-transparent bg-clip-text bg-gradient-to-b from-white via-[#FFD700] to-[#AA7900] drop-shadow-[0_8px_32px_rgba(0,0,0,1)]" 
+                                        : "text-white drop-shadow-[0_8px_32px_rgba(0,0,0,1)]"
                                 }`}
                             >
                                 {line.text}
