@@ -113,7 +113,7 @@ export default function SportsSection({ dictionary }: { dictionary: any }) {
                 </div>
                 <div className="flex flex-col items-center text-center">
                   <span className="text-white font-extrabold text-sm lg:text-base tracking-tight">Extreme Quality</span>
-                  <span className="text-gray-400 font-medium text-xs lg:text-sm mt-0.5">Enjoy Watching up to 8K</span>
+                  <span className="text-gray-400 font-medium text-xs lg:text-sm mt-0.5">Enjoy Watching in 4K Ultra HD</span>
                 </div>
               </motion.div>
             </div>
