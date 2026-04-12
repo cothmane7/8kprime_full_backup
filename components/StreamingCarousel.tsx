@@ -20,13 +20,13 @@ export default function StreamingCarousel({ dictionary }: { dictionary: any }) {
     ];
 
     return (
-        <section className="py-10 bg-[#050505] relative overflow-hidden">
+        <section className="py-4 md:py-10 bg-[#050505] relative overflow-hidden">
             {/* Atmospheric Background Glows */}
             <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[30%] h-[50%] bg-purple-600/5 blur-[120px] rounded-full pointer-events-none" />
             <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[30%] h-[50%] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
 
             <div className="relative overflow-hidden w-full">
-                <div className="marquee-container animate-marquee-left py-4">
+                <div className="marquee-container animate-marquee-left py-2 md:py-4">
                     {[...services, ...services, ...services].map((item, index) => (
                         <div
                             key={index}

@@ -26,12 +26,12 @@ export default function LeaguesCarousel({ dictionary }: { dictionary: any }) {
 
     // Double the content config for marquee
     return (
-        <section className="pt-20 pb-10 bg-[#050505] relative overflow-hidden border-t border-white/5">
+        <section className="pt-16 md:pt-20 pb-4 md:pb-10 bg-[#050505] relative overflow-hidden border-t border-white/5">
             {/* Atmospheric Background Glows */}
             <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[30%] h-[50%] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
             <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[30%] h-[50%] bg-purple-600/5 blur-[120px] rounded-full pointer-events-none" />
 
-            <div className="container mx-auto px-6 relative z-10 w-full mb-12">
+            <div className="container mx-auto px-6 relative z-10 w-full mb-6 md:mb-12">
                 <div className="flex flex-col items-center">
                     <div className="flex items-center justify-center gap-6 mb-4">
                         <div className="h-[1px] w-12 md:w-24 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
@@ -47,7 +47,7 @@ export default function LeaguesCarousel({ dictionary }: { dictionary: any }) {
             </div>
 
             <div className="relative overflow-hidden w-full">
-                <div className="marquee-container animate-marquee-right py-4">
+                <div className="marquee-container animate-marquee-right py-2 md:py-4">
                     {[...leagues, ...leagues, ...leagues].map((item, index) => (
                         <div
                             key={index}

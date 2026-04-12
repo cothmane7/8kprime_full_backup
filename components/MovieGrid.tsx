@@ -21,14 +21,14 @@ export default function MovieGrid({ lang, dictionary }: { lang: string; dictiona
     ];
 
     return (
-        <section className="pt-10 pb-20 bg-[#050505] relative overflow-hidden" id="channels">
+        <section className="pt-4 md:pt-10 pb-20 bg-[#050505] relative overflow-hidden" id="channels">
             <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
 
             <div className="container-responsive relative z-10 w-full max-w-none">
                 
 
                 {/* Continuous Marquee */}
-                <div className="relative overflow-hidden w-full py-4">
+                <div className="relative overflow-hidden w-full py-2 md:py-4">
                     <div className="marquee-container animate-marquee-right">
                         {[...content, ...content, ...content].map((item, index) => (
                             <div
