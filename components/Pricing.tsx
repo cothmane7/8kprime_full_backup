@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Check, ShoppingCart, Monitor, ShieldCheck, Zap, PlayCircle, Film, Sparkles, Clock, Star, ToggleRight, ToggleLeft } from "lucide-react";
 import Link from "next/link";
 
@@ -86,7 +86,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
 
     const calculatePrice = (basePrice: number) => {
         const multipliers: any = { 1: 1, 2: 1.5, 3: 2, 4: 2.5 };
-        return (basePrice * multipliers[activeDevices]).toFixed(2);
+        return (basePrice * multipliers[activeDevices] + (iboPlayer ? 10 * activeDevices : 0)).toFixed(2);
     };
 
     return (
@@ -192,13 +192,33 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                                 </div>
                                 <p className="text-[10px] font-black uppercase tracking-wider mb-6 text-primary">{plan.tag}</p>
 
-                                <div className="flex items-start gap-1">
+                                <div className="flex items-start gap-1 relative">
                                     <span className="text-2xl font-black text-white mt-1">$</span>
-                                    <span className="text-5xl md:text-6xl font-black text-white tracking-tighter leading-none">
-                                        {calculatePrice(plan.price).split('.')[0]}
-                                    </span>
+                                    <AnimatePresence mode="popLayout">
+                                        <motion.span
+                                            key={calculatePrice(plan.price).split('.')[0]}
+                                            initial={{ y: 20, opacity: 0 }}
+                                            animate={{ y: 0, opacity: 1 }}
+                                            exit={{ y: -20, opacity: 0 }}
+                                            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                                            className="text-5xl md:text-6xl font-black text-white tracking-tighter leading-none inline-block"
+                                        >
+                                            {calculatePrice(plan.price).split('.')[0]}
+                                        </motion.span>
+                                    </AnimatePresence>
                                     <div className="flex flex-col justify-end">
-                                        <span className="text-xl md:text-2xl font-black text-white">.{calculatePrice(plan.price).split('.')[1]}</span>
+                                        <AnimatePresence mode="popLayout">
+                                            <motion.span
+                                                key={calculatePrice(plan.price).split('.')[1]}
+                                                initial={{ y: 12, opacity: 0 }}
+                                                animate={{ y: 0, opacity: 1 }}
+                                                exit={{ y: -12, opacity: 0 }}
+                                                transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                                                className="text-xl md:text-2xl font-black text-white inline-block"
+                                            >
+                                                .{calculatePrice(plan.price).split('.')[1]}
+                                            </motion.span>
+                                        </AnimatePresence>
                                     </div>
                                 </div>
 
@@ -251,7 +271,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <span className={`text-[10px] font-black tracking-widest ${iboPlayer ? 'text-white' : 'text-gray-600'}`}>
-                                            +$10
+                                            +${10 * activeDevices}
                                         </span>
                                         <div className={`w-9 h-5 rounded-full relative transition-all duration-300 ${iboPlayer ? 'bg-[#E50914]' : 'bg-white/10'}`}>
                                             <div className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow-md transition-all duration-300 ${iboPlayer ? 'left-[18px]' : 'left-0.5'}`} />

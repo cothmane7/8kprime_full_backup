@@ -33,7 +33,7 @@ function CheckoutContent({ lang }: { lang: string }) {
     
     const basePrice = parseFloat(priceMap[plan] || "59.99");
     const multipliers: any = { 1: 1, 2: 1.5, 3: 2, 4: 2.5 };
-    const finalPrice = (basePrice * multipliers[parseInt(devices)] + (ibo ? 10 : 0)).toFixed(2);
+    const finalPrice = (basePrice * multipliers[parseInt(devices)] + (ibo ? 10 * parseInt(devices) : 0)).toFixed(2);
 
     const handleProceed = () => {
         let hasError = false;

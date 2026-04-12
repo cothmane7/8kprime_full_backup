@@ -64,7 +64,7 @@ export async function sendPaymentEmails({
         const basePriceMatch = basePriceStr.match(/[\d.]+/);
         const basePriceNum = basePriceMatch ? parseFloat(basePriceMatch[0]) : 0;
         const multipliers: Record<string, number> = { "1": 1, "2": 1.5, "3": 2, "4": 2.5 };
-        const finalPriceNum = basePriceNum * (multipliers[devices] || 1) + (ibo ? 10 : 0);
+        const finalPriceNum = basePriceNum * (multipliers[devices] || 1) + (ibo ? 10 * parseInt(devices) : 0);
         const price = basePriceNum > 0 ? `$${finalPriceNum.toFixed(2)}` : "N/A";
         
         const planLabel = PLAN_LABELS[plan] || plan;
