@@ -166,27 +166,6 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                                 <span>{dictionary.trust_support || "24/7 Support"}</span>
                             </div>
                         </div>
-
-                        {/* Trustpilot Badge */}
-                        <div className="bg-black/40 backdrop-blur-md px-6 py-3 rounded-full border border-white/10 flex items-center gap-4 shadow-2xl">
-                            <div className="flex items-center gap-1">
-                                <Star size={18} className="text-[#00B67A] fill-[#00B67A]" />
-                                <span className="text-white font-bold text-sm tracking-tight">Trustpilot</span>
-                            </div>
-                            
-                            <div className="flex items-center gap-0.5">
-                                {[...Array(5)].map((_, i) => (
-                                    <div key={i} className={`w-4 h-4 rounded-sm flex items-center justify-center ${i < 4 ? "bg-[#00B67A]" : "bg-[#00B67A]/50"}`}>
-                                        <Star size={10} className="text-white fill-white" />
-                                    </div>
-                                ))}
-                            </div>
-
-                            <div className="flex items-center gap-1 text-sm">
-                                <span className="text-white font-black">4.7</span>
-                                <span className="text-white/40">/ 5</span>
-                            </div>
-                        </div>
                     </motion.div>
                 </div>
             </div>
