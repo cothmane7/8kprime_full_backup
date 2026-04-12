@@ -153,50 +153,43 @@ export async function sendPaymentEmails({
 
         // ── Customer confirmation email ──
         const userHtml = `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff; color: #333333; border: 1px solid #eeeeee; border-radius: 8px; overflow: hidden; padding: 40px;">
-                <p style="font-size: 16px; margin-bottom: 24px;">Dear Client,</p>
-                
-                <p style="font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
-                    Your order has been successfully confirmed and is now pending final payment.
-                </p>
-                
-                <p style="font-size: 15px; line-height: 1.6; margin-bottom: 24px;">
-                    To activate your service and receive your login details, please complete the payment using the secure link below.
-                </p>
-
-                <div style="background: #f9f9f9; padding: 24px; border-radius: 8px; margin-bottom: 24px;">
-                    <h3 style="margin: 0 0 16px; font-size: 16px; color: #000; border-bottom: 1px solid #ddd; padding-bottom: 8px;">Order Details:</h3>
-                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 2;">
-                        <li><strong>Service Plan:</strong> ${planLabel} (${basePriceStr})</li>
-                        <li><strong>Devices:</strong> ${devices} (${price})</li>
-                        <li><strong>Total Amount:</strong> <span style="font-size: 18px; color: #d4a843;">${price}</span></li>
-                    </ul>
+            <div style="font-family: Arial, sans-serif; max-width: 520px; margin: 0 auto; background: #ffffff; color: #333;">
+                <div style="background: #0a0a0a; padding: 20px 24px; text-align: center;">
+                    <h1 style="margin: 0; font-size: 18px; color: #d4a843; letter-spacing: 2px;">8KPRIME TV</h1>
                 </div>
+                <div style="padding: 24px;">
+                    <p style="margin: 0 0 16px; font-size: 15px;">Hi <strong>${username || 'there'}</strong>, your order is confirmed! 🎉</p>
 
-                <div style="margin-bottom: 24px;">
-                    <h3 style="margin: 0 0 16px; font-size: 16px; color: #000;">Payment Instructions:</h3>
-                    <ol style="padding-left: 20px; margin: 0; font-size: 14px; line-height: 1.8;">
-                        <li>Click the secure link below to open the payment page</li>
-                        <li>Enter the exact amount: <strong>${price}</strong></li>
-                        <li>Complete the payment using your preferred method</li>
-                    </ol>
+                    <table style="width: 100%; background: #f7f7f7; border-radius: 8px; padding: 2px; margin-bottom: 16px; border-collapse: collapse;">
+                        <tr>
+                            <td style="padding: 10px 14px; font-size: 13px; color: #666;">Plan</td>
+                            <td style="padding: 10px 14px; font-size: 13px; font-weight: bold; text-align: right;">${planLabel}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 14px; font-size: 13px; color: #666; border-top: 1px solid #eee;">Devices</td>
+                            <td style="padding: 10px 14px; font-size: 13px; font-weight: bold; text-align: right; border-top: 1px solid #eee;">${devices}</td>
+                        </tr>
+                        ${ibo ? `<tr>
+                            <td style="padding: 10px 14px; font-size: 13px; color: #666; border-top: 1px solid #eee;">IBO Player</td>
+                            <td style="padding: 10px 14px; font-size: 13px; font-weight: bold; text-align: right; color: #e50914; border-top: 1px solid #eee;">Included</td>
+                        </tr>` : ''}
+                        <tr>
+                            <td style="padding: 12px 14px; font-size: 15px; font-weight: bold; border-top: 2px solid #d4a843;">Total</td>
+                            <td style="padding: 12px 14px; font-size: 20px; font-weight: bold; text-align: right; color: #d4a843; border-top: 2px solid #d4a843;">${price}</td>
+                        </tr>
+                    </table>
+
+                    <p style="margin: 0 0 8px; font-size: 14px; font-weight: bold;">Complete payment in 3 steps:</p>
+                    <p style="margin: 0 0 4px; font-size: 13px; color: #444;">1️⃣ Click the button below</p>
+                    <p style="margin: 0 0 4px; font-size: 13px; color: #444;">2️⃣ Send <strong>${price}</strong> via PayPal</p>
+                    <p style="margin: 0 0 16px; font-size: 13px; color: #444;">3️⃣ You'll receive your login within minutes</p>
+
+                    <div style="text-align: center; margin-bottom: 16px;">
+                        <a href="https://www.paypal.com/paypalme/nohakd/${finalPriceNum.toFixed(2)}" style="display: inline-block; background: #d4a843; color: #000; text-decoration: none; font-weight: bold; padding: 14px 40px; border-radius: 6px; font-size: 16px;">PAY ${price} NOW →</a>
+                    </div>
+
+                    <p style="margin: 0; font-size: 11px; color: #999; text-align: center;">Questions? Reply to this email or WhatsApp us at +1 818 565 6691</p>
                 </div>
-
-                <div style="text-align: center; margin-bottom: 32px; padding: 20px; background: #fffdf5; border: 1px dashed #d4a843; border-radius: 8px;">
-                    <p style="margin: 0 0 12px; font-weight: bold; font-size: 14px;">Secure Payment Link:</p>
-                    <a href="https://www.paypal.com/paypalme/nohakd/${finalPriceNum.toFixed(2)}" style="display: inline-block; background: #d4a843; color: #ffffff; text-decoration: none; font-weight: bold; padding: 14px 32px; border-radius: 4px; font-size: 16px;">PayPal.me Payment Link</a>
-                </div>
-
-                <p style="font-size: 14px; line-height: 1.6; color: #666; margin-bottom: 24px;">
-                    Once your payment is confirmed, you will automatically receive a separate email with your account credentials and setup instructions.
-                </p>
-
-                <p style="font-size: 14px; line-height: 1.6; color: #666; margin-bottom: 32px;">
-                    If you have any questions or need assistance, simply reply to this email and we will assist you.
-                </p>
-
-                <p style="font-size: 15px; margin-bottom: 0;">Best regards,</p>
-                <p style="font-size: 15px; font-weight: bold; margin: 4px 0 0; color: #d4a843;">8KPRIME TV Team</p>
             </div>
         `;
 
