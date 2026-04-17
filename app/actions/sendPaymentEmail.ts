@@ -159,6 +159,12 @@ export async function sendPaymentEmails({
                     <p style="margin: 0 0 4px; font-size: 13px; color: #444;">2️⃣ Send <strong>${price}</strong> via PayPal</p>
                     <p style="margin: 0 0 16px; font-size: 13px; color: #444;">3️⃣ You'll receive your login within minutes</p>
 
+                    <div style="background: #fee2e2; border: 2px solid #ef4444; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+                        <p style="margin: 0 0 8px; font-size: 14px; font-weight: bold; color: #dc2626; text-align: center;">⚠️ VERY IMPORTANT — READ BEFORE PAYING ⚠️</p>
+                        <p style="margin: 0 0 6px; font-size: 13px; color: #991b1b; text-align: center; font-weight: bold;">DO NOT write anything in the PayPal notes/message field.</p>
+                        <p style="margin: 0; font-size: 12px; color: #991b1b; text-align: center;">Never mention IPTV, streaming, channels, or TV in your payment. Leave the notes section <strong>completely empty</strong>. Failure to do so may result in payment delays or cancellation.</p>
+                    </div>
+
                     <div style="text-align: center; margin-bottom: 16px;">
                         <a href="https://www.paypal.com/paypalme/nohakd/${finalPriceNum.toFixed(2)}" style="display: inline-block; background: #d4a843; color: #000; text-decoration: none; font-weight: bold; padding: 14px 40px; border-radius: 6px; font-size: 16px;">PAY ${price} NOW →</a>
                     </div>
