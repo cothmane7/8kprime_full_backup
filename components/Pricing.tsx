@@ -9,10 +9,17 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
     const [activeDevices, setActiveDevices] = useState(1);
     const [iboPlayer, setIboPlayer] = useState(false);
 
+    // Fixed price lookup: priceTable[devices][months]
+    const priceTable: Record<number, Record<number, number>> = {
+        1: { 3: 39.99, 6: 59.99, 12: 79.99 },
+        2: { 3: 69.99, 6: 99.99, 12: 149.99 },
+        3: { 3: 99.99, 6: 159.99, 12: 199.99 },
+        4: { 3: 129.99, 6: 199.99, 12: 259.99 },
+    };
+
     const plans = [
         {
             months: 3,
-            price: 29.99,
             label: dictionary.label_quarterly,
             isPopular: false,
             tag: dictionary.trial_plan,
@@ -29,30 +36,11 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
             ]
         },
         {
-            months: 6,
-            price: 49.99,
-            label: dictionary.label_semi_annual,
-            isPopular: false,
-            tag: dictionary.smart_choice,
-            saveLabel: `${dictionary.save} 63%`,
-            cta: dictionary.cta_subscribe,
-            features: [
-                { icon: PlayCircle, text: dictionary.feature_live_channels },
-                { icon: Film, text: dictionary.feature_vod },
-                { icon: Sparkles, text: dictionary.feature_quality },
-                { icon: ShieldCheck, text: dictionary.feature_anti_freeze },
-                { icon: Zap, text: common.instant_activation },
-                { icon: Monitor, text: dictionary.feature_devices },
-                { icon: Clock, text: dictionary.feature_support },
-            ]
-        },
-        {
             months: 12,
-            price: 69.99,
             label: dictionary.label_annual,
             isPopular: true,
             tag: dictionary.best_value,
-            saveLabel: `${dictionary.save} 72%`,
+            saveLabel: `${dictionary.save} 50%`,
             cta: dictionary.cta_subscribe,
             features: [
                 { icon: PlayCircle, text: dictionary.feature_live_channels },
@@ -65,12 +53,11 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
             ]
         },
         {
-            months: 24,
-            price: 119.99,
-            label: dictionary.label_2_year,
+            months: 6,
+            label: dictionary.label_semi_annual,
             isPopular: false,
-            tag: dictionary.max_savings,
-            saveLabel: `${dictionary.save} 72%`,
+            tag: dictionary.smart_choice,
+            saveLabel: `${dictionary.save} 25%`,
             cta: dictionary.cta_subscribe,
             features: [
                 { icon: PlayCircle, text: dictionary.feature_live_channels },
@@ -84,9 +71,9 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
         },
     ];
 
-    const calculatePrice = (basePrice: number) => {
-        const multipliers: any = { 1: 1, 2: 1.5, 3: 2, 4: 2.5 };
-        return (basePrice * multipliers[activeDevices] + (iboPlayer ? 10 * activeDevices : 0)).toFixed(2);
+    const getPrice = (months: number) => {
+        const base = priceTable[activeDevices]?.[months] || 0;
+        return (base + (iboPlayer ? 10 * activeDevices : 0)).toFixed(2);
     };
 
     return (
@@ -138,16 +125,16 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                             className="absolute inset-y-1.5 rounded-[2.5rem] bg-metallic-gold shadow-[0_0_20px_rgba(212,175,55,0.4)]"
                             initial={false}
                             animate={{
-                                left: `${(activeDevices - 1) * 33.33}%`,
-                                width: '33.33%',
+                                left: `${(activeDevices - 1) * 25}%`,
+                                width: '25%',
                             }}
                             transition={{ type: "spring", stiffness: 300, damping: 30 }}
                         />
-                        {[1, 2, 3].map((num) => (
+                        {[1, 2, 3, 4].map((num) => (
                             <button
                                 key={num}
                                 onClick={() => setActiveDevices(num)}
-                                className={`relative z-10 w-24 sm:w-32 md:w-40 py-3 md:py-4 rounded-[2.5rem] text-sm md:text-base font-black transition-colors duration-500 flex items-center justify-center gap-2 flex-shrink-0 touch-target ${activeDevices === num
+                                className={`relative z-10 w-20 sm:w-28 md:w-36 py-3 md:py-4 rounded-[2.5rem] text-sm md:text-base font-black transition-colors duration-500 flex items-center justify-center gap-2 flex-shrink-0 touch-target ${activeDevices === num
                                     ? "text-black"
                                     : "text-gray-300 hover:text-white"
                                     }`}
@@ -163,7 +150,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                 </div>
 
                 {/* Pricing Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8 max-w-[1500px] mx-auto items-stretch relative z-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8 max-w-[1200px] mx-auto items-stretch relative z-20">
                     {plans.map((plan, index) => (
                         <motion.div
                             key={index}
@@ -196,27 +183,27 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                                     <span className="text-2xl font-black text-white mt-1">$</span>
                                     <AnimatePresence mode="popLayout">
                                         <motion.span
-                                            key={calculatePrice(plan.price).split('.')[0]}
+                                            key={getPrice(plan.months).split('.')[0]}
                                             initial={{ y: 20, opacity: 0 }}
                                             animate={{ y: 0, opacity: 1 }}
                                             exit={{ y: -20, opacity: 0 }}
                                             transition={{ type: "spring", stiffness: 300, damping: 25 }}
                                             className="text-5xl md:text-6xl font-black text-white tracking-tighter leading-none inline-block"
                                         >
-                                            {calculatePrice(plan.price).split('.')[0]}
+                                            {getPrice(plan.months).split('.')[0]}
                                         </motion.span>
                                     </AnimatePresence>
                                     <div className="flex flex-col justify-end">
                                         <AnimatePresence mode="popLayout">
                                             <motion.span
-                                                key={calculatePrice(plan.price).split('.')[1]}
+                                                key={getPrice(plan.months).split('.')[1]}
                                                 initial={{ y: 12, opacity: 0 }}
                                                 animate={{ y: 0, opacity: 1 }}
                                                 exit={{ y: -12, opacity: 0 }}
                                                 transition={{ type: "spring", stiffness: 300, damping: 25 }}
                                                 className="text-xl md:text-2xl font-black text-white inline-block"
                                             >
-                                                .{calculatePrice(plan.price).split('.')[1]}
+                                                .{getPrice(plan.months).split('.')[1]}
                                             </motion.span>
                                         </AnimatePresence>
                                     </div>
@@ -224,14 +211,8 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
 
                                 {/* Per-month price breakdown */}
                                 <div className="mt-3 flex flex-col gap-1">
-                                    {plan.months > 3 && (
-                                        <div className="text-gray-500 text-xs font-bold">
-                                            <span>{dictionary.regular_price}: </span>
-                                            <span className="line-through">${(17.99 * activeDevices * (activeDevices > 1 ? 0.75 : 1) / activeDevices).toFixed(2)}{dictionary.per_month}</span>
-                                        </div>
-                                    )}
                                     <div className={`text-sm font-extrabold tracking-tight ${plan.isPopular ? 'text-primary' : 'text-primary/80'}`}>
-                                        ${(Math.floor((parseFloat(calculatePrice(plan.price)) / plan.months / activeDevices) * 100) / 100).toFixed(2)}{dictionary.per_month} {activeDevices > 1 && <span className="text-[10px] font-medium opacity-60 ml-0.5">/ {activeDevices === 1 ? dictionary.device || "device" : dictionary.device || "device"}</span>}
+                                        ${(Math.floor((parseFloat(getPrice(plan.months)) / plan.months) * 100) / 100).toFixed(2)}{dictionary.per_month}
                                     </div>
                                 </div>
                             </div>

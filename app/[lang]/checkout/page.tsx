@@ -24,16 +24,15 @@ function CheckoutContent({ lang }: { lang: string }) {
     const [usernameError, setUsernameError] = useState(false);
     const [whatsappError, setWhatsappError] = useState(false);
 
-    const priceMap: Record<string, string> = {
-        "12mo": "69.99",
-        "6mo": "49.99",
-        "3mo": "29.99",
-        "24mo": "119.99",
+    const priceTable: Record<string, Record<string, number>> = {
+        "1": { "3mo": 39.99, "6mo": 59.99, "12mo": 79.99 },
+        "2": { "3mo": 69.99, "6mo": 99.99, "12mo": 149.99 },
+        "3": { "3mo": 99.99, "6mo": 159.99, "12mo": 199.99 },
+        "4": { "3mo": 129.99, "6mo": 199.99, "12mo": 259.99 },
     };
     
-    const basePrice = parseFloat(priceMap[plan] || "59.99");
-    const multipliers: any = { 1: 1, 2: 1.5, 3: 2, 4: 2.5 };
-    const finalPrice = (basePrice * multipliers[parseInt(devices)] + (ibo ? 10 * parseInt(devices) : 0)).toFixed(2);
+    const basePrice = priceTable[devices]?.[plan] || 59.99;
+    const finalPrice = (basePrice + (ibo ? 10 * parseInt(devices) : 0)).toFixed(2);
 
     const handleProceed = () => {
         let hasError = false;

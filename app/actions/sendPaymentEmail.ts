@@ -3,38 +3,17 @@
 import nodemailer from "nodemailer";
 import { headers } from "next/headers";
 
-const PRICE_MAP: Record<string, string> = {
-    "12mo": "$69.99",
-    "6mo": "$49.99",
-    "3mo": "$29.99",
-    "24mo": "$119.99",
+const PRICE_TABLE: Record<string, Record<string, number>> = {
+    "1": { "3mo": 39.99, "6mo": 59.99, "12mo": 79.99 },
+    "2": { "3mo": 69.99, "6mo": 99.99, "12mo": 149.99 },
+    "3": { "3mo": 99.99, "6mo": 159.99, "12mo": 199.99 },
+    "4": { "3mo": 129.99, "6mo": 199.99, "12mo": 259.99 },
 };
 
 const PLAN_LABELS: Record<string, string> = {
     "12mo": "12 Months Access",
     "6mo": "6 Months Access",
     "3mo": "3 Months Access",
-    "24mo": "24 Months Access",
-};
-
-const PAYPAL_LINKS: Record<string, string> = {
-    // 1 Device Plans
-    "3mo_1": "https://www.paypal.com/ncp/payment/JKB4L3Z33JN6N",
-    "6mo_1": "https://www.paypal.com/ncp/payment/TJGUAJKSDC8KY",
-    "12mo_1": "https://www.paypal.com/ncp/payment/FUC32WLY2VHN2",
-    "24mo_1": "https://www.paypal.com/ncp/payment/3ZSGWQJCUTE6Y",
-
-    // 2 Devices Plans
-    "3mo_2": "https://www.paypal.com/ncp/payment/GLW8GKB6LW3U8",
-    "6mo_2": "https://www.paypal.com/ncp/payment/FW3MRDXCDNJHJ",
-    "12mo_2": "https://www.paypal.com/ncp/payment/TK324HG894ZM8",
-    "24mo_2": "https://www.paypal.com/ncp/payment/YUV7HZK2SCDJU",
-
-    // 3 Devices Plans
-    "3mo_3": "https://www.paypal.com/ncp/payment/5N44QP2Y9CTBG",
-    "6mo_3": "https://www.paypal.com/ncp/payment/TK324HG894ZM8",
-    "12mo_3": "https://www.paypal.com/ncp/payment/6VW56E3RAZA5S",
-    "24mo_3": "https://www.paypal.com/ncp/payment/N32REYDFM7BNW",
 };
 
 export async function sendPaymentEmails({
@@ -59,18 +38,14 @@ export async function sendPaymentEmails({
         const ip = headersList.get("x-forwarded-for") || headersList.get("x-real-ip") || "Unknown IP";
         const dateTime = new Date().toLocaleString("en-US", { timeZoneName: "short" });
         
-        // Compute dynamic price using the device multiplier strategy
-        const basePriceStr = PRICE_MAP[plan] || "0";
-        const basePriceMatch = basePriceStr.match(/[\d.]+/);
-        const basePriceNum = basePriceMatch ? parseFloat(basePriceMatch[0]) : 0;
-        const multipliers: Record<string, number> = { "1": 1, "2": 1.5, "3": 2, "4": 2.5 };
-        const finalPriceNum = basePriceNum * (multipliers[devices] || 1) + (ibo ? 10 * parseInt(devices) : 0);
+        // Compute price from fixed lookup table
+        const basePriceNum = PRICE_TABLE[devices]?.[plan] || 0;
+        const finalPriceNum = basePriceNum + (ibo ? 10 * parseInt(devices) : 0);
         const price = basePriceNum > 0 ? `$${finalPriceNum.toFixed(2)}` : "N/A";
         
         const planLabel = PLAN_LABELS[plan] || plan;
-        const paymentKey = `${plan}_${devices}`;
-        // Exclusively use PayPal links
-        const checkoutUrl = PAYPAL_LINKS[paymentKey];
+        // Dynamic PayPal.me link with preset amount
+        const checkoutUrl = `https://www.paypal.com/paypalme/nohakd/${finalPriceNum.toFixed(2)}`;
         const displayPaymentMethod = "paypal";
 
         let transporter;

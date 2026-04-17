@@ -87,8 +87,8 @@ export default function SavingsCalculator() {
                                 8KPRIME TV
                                 <span className="text-[10px] tracking-widest text-primary font-black opacity-80">(All-In-One Access)</span>
                             </div>
-                            <div className="text-right text-primary font-black text-lg md:text-2xl tracking-tighter">$5.00</div>
-                            <div className="text-right text-primary font-black text-lg md:text-2xl tracking-tighter">$60</div>
+                            <div className="text-right text-primary font-black text-lg md:text-2xl tracking-tighter">$6.67</div>
+                            <div className="text-right text-primary font-black text-lg md:text-2xl tracking-tighter">$80</div>
                         </div>
 
                         {/* Savings Final Row */}
@@ -99,7 +99,7 @@ export default function SavingsCalculator() {
                                 className="flex flex-col items-center gap-2"
                             >
                                 <div className="text-black font-black text-2xl md:text-4xl uppercase tracking-tighter leading-none">
-                                    YOU SAVE $2,880 PER YEAR!
+                                    YOU SAVE $2,860 PER YEAR!
                                 </div>
                                 <div className="flex items-center gap-2 text-black/60 font-black text-[10px] uppercase tracking-widest mt-2">
                                     <TrendingDown size={14} />
