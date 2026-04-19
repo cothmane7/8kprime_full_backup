@@ -24,6 +24,7 @@ export async function sendPaymentEmails({
     plan,
     devices,
     ibo,
+    couponApplied,
 }: {
     email: string;
     username?: string;
@@ -32,6 +33,7 @@ export async function sendPaymentEmails({
     plan: string;
     devices: string;
     ibo?: boolean;
+    couponApplied?: boolean;
 }) {
     try {
         const headersList = await headers();
@@ -40,7 +42,9 @@ export async function sendPaymentEmails({
         
         // Compute price from fixed lookup table
         const basePriceNum = PRICE_TABLE[devices]?.[plan] || 0;
-        const finalPriceNum = basePriceNum + (ibo ? 10 * parseInt(devices) : 0);
+        const subtotal = basePriceNum + (ibo ? 10 * parseInt(devices) : 0);
+        const discountAmount = couponApplied ? subtotal * 0.1 : 0;
+        const finalPriceNum = subtotal - discountAmount;
         const price = basePriceNum > 0 ? `$${finalPriceNum.toFixed(2)}` : "N/A";
         
         const planLabel = PLAN_LABELS[plan] || plan;
@@ -108,6 +112,10 @@ export async function sendPaymentEmails({
                         ${ibo ? `<tr>
                             <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #888; font-size: 13px;">IBO Player</td>
                             <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #e50914; font-weight: bold; text-align: right;">✅ Activation Requested</td>
+                        </tr>` : ''}
+                        ${couponApplied ? `<tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #888; font-size: 13px;">Coupon Discount</td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #4ade80; font-weight: bold; text-align: right;">-10% (EXTRA10) applied</td>
                         </tr>` : ''}
                         <tr>
                             <td style="padding: 12px 0; border-bottom: 1px solid #222; color: #888; font-size: 13px;">Total Price</td>

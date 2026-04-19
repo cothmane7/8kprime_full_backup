@@ -18,6 +18,9 @@ function CheckoutContent({ lang }: { lang: string }) {
     const [confirmEmail, setConfirmEmail] = useState("");
     const [username, setUsername] = useState("");
     const [whatsapp, setWhatsapp] = useState("");
+    const [couponCode, setCouponCode] = useState("");
+    const [isDiscountApplied, setIsDiscountApplied] = useState(false);
+    const [couponError, setCouponError] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [emailError, setEmailError] = useState(false);
     const [confirmEmailError, setConfirmEmailError] = useState(false);
@@ -32,7 +35,19 @@ function CheckoutContent({ lang }: { lang: string }) {
     };
     
     const basePrice = priceTable[devices]?.[plan] || 59.99;
-    const finalPrice = (basePrice + (ibo ? 10 * parseInt(devices) : 0)).toFixed(2);
+    const priceWithIbo = basePrice + (ibo ? 10 * parseInt(devices) : 0);
+    const discountAmount = isDiscountApplied ? priceWithIbo * 0.1 : 0;
+    const finalPrice = (priceWithIbo - discountAmount).toFixed(2);
+
+    const applyCoupon = () => {
+        if (couponCode.toUpperCase() === "EXTRA10") {
+            setIsDiscountApplied(true);
+            setCouponError("");
+        } else {
+            setCouponError("Invalid coupon code");
+            setIsDiscountApplied(false);
+        }
+    };
 
     const handleProceed = () => {
         let hasError = false;
@@ -67,7 +82,16 @@ function CheckoutContent({ lang }: { lang: string }) {
         if (hasError) return;
 
         setIsSubmitting(true);
-        sendPaymentEmails({ email, username, whatsapp, paymentMethod: "paypal", plan, devices, ibo }).catch(console.error);
+        sendPaymentEmails({ 
+            email, 
+            username, 
+            whatsapp, 
+            paymentMethod: "paypal", 
+            plan, 
+            devices, 
+            ibo,
+            couponApplied: isDiscountApplied 
+        }).catch(console.error);
         
         setTimeout(() => {
             router.push("/thanks");
@@ -239,8 +263,43 @@ function CheckoutContent({ lang }: { lang: string }) {
                                 </div>
                                 <div className="text-right">
                                     <div className="text-gray-400 text-xs font-black uppercase tracking-[0.2em] mb-2">Total Price</div>
-                                    <div className="text-4xl font-black text-white">${finalPrice}</div>
+                                    <div className="flex flex-col items-end">
+                                        {isDiscountApplied && (
+                                            <span className="text-gray-500 text-sm line-through font-bold mb-1">
+                                                ${(priceWithIbo).toFixed(2)}
+                                            </span>
+                                        )}
+                                        <div className="text-4xl font-black text-white">${finalPrice}</div>
+                                        {isDiscountApplied && (
+                                            <span className="text-primary text-[10px] font-black uppercase tracking-widest mt-1 animate-pulse">
+                                                10% Discount Applied!
+                                            </span>
+                                        )}
+                                    </div>
                                 </div>
+                           </div>
+
+                           {/* Coupon Code Section */}
+                           <div className="mb-10 pt-6 border-t border-white/5">
+                                <label className="text-[10px] text-gray-500 font-black mb-3 block tracking-[0.2em] uppercase">Promo Code</label>
+                                <div className="flex gap-3">
+                                    <input
+                                        type="text"
+                                        placeholder="Enter code"
+                                        value={couponCode}
+                                        onChange={(e) => setCouponCode(e.target.value)}
+                                        className="flex-grow bg-[#15151A] border border-white/5 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 transition-all font-bold placeholder:text-gray-700 uppercase"
+                                    />
+                                    <button
+                                        onClick={applyCoupon}
+                                        className="px-6 py-3 bg-primary/10 border border-primary/20 text-primary rounded-xl font-black uppercase tracking-wider text-xs hover:bg-primary/20 transition-all shadow-sm"
+                                    >
+                                        Apply
+                                    </button>
+                                </div>
+                                {couponError && (
+                                    <p className="text-red-500 text-[9px] mt-2 font-black uppercase tracking-widest ml-1">{couponError}</p>
+                                )}
                            </div>
 
                            <div className="space-y-5 mb-8">
