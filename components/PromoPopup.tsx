@@ -43,15 +43,16 @@ export default function PromoPopup() {
                         className="relative w-full max-w-lg bg-[#0D0D12] border border-primary/30 rounded-[2.5rem] overflow-hidden shadow-[0_0_50px_rgba(212,175,55,0.3)]"
                     >
                         {/* Background Decoration */}
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-3xl rounded-full" />
-                        <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/5 blur-3xl rounded-full" />
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-3xl rounded-full pointer-events-none" />
+                        <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/5 blur-3xl rounded-full pointer-events-none" />
 
                         {/* Close Button */}
                         <button 
                             onClick={closePopup}
-                            className="absolute top-6 right-6 p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors text-white/60 hover:text-white z-10"
+                            className="absolute top-4 right-4 md:top-6 md:right-6 p-3 md:p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors text-white/60 hover:text-white z-50 touch-target"
+                            aria-label="Close"
                         >
-                            <X size={20} />
+                            <X size={24} className="md:w-5 md:h-5" />
                         </button>
 
                         <div className="p-8 md:p-12 text-center relative z-10">

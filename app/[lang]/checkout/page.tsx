@@ -282,17 +282,17 @@ function CheckoutContent({ lang }: { lang: string }) {
                            {/* Coupon Code Section */}
                            <div className="mb-10 pt-6 border-t border-white/5">
                                 <label className="text-[10px] text-gray-500 font-black mb-3 block tracking-[0.2em] uppercase">Promo Code</label>
-                                <div className="flex gap-3">
+                                <div className="flex items-center gap-2 md:gap-3">
                                     <input
                                         type="text"
                                         placeholder="Enter code"
                                         value={couponCode}
                                         onChange={(e) => setCouponCode(e.target.value)}
-                                        className="flex-grow bg-[#15151A] border border-white/5 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 transition-all font-bold placeholder:text-gray-700 uppercase"
+                                        className="flex-grow min-w-0 bg-[#15151A] border border-white/5 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 transition-all font-bold placeholder:text-gray-700 uppercase text-sm"
                                     />
                                     <button
                                         onClick={applyCoupon}
-                                        className="px-6 py-3 bg-primary/10 border border-primary/20 text-primary rounded-xl font-black uppercase tracking-wider text-xs hover:bg-primary/20 transition-all shadow-sm"
+                                        className="flex-shrink-0 px-5 md:px-6 py-3 bg-primary/10 border border-primary/20 text-primary rounded-xl font-black uppercase tracking-wider text-[10px] md:text-xs hover:bg-primary/20 transition-all shadow-sm whitespace-nowrap"
                                     >
                                         Apply
                                     </button>
