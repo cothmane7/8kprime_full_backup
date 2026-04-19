@@ -12,13 +12,25 @@ export default function PromoPopup() {
     const COUPON_CODE = "EXTRA10";
 
     useEffect(() => {
+        // Logic to determine if we are on a home page
+        // Home paths: "/en", "/fr", etc. (exactly 3 chars or just "/")
+        const homeLocales = ["en", "de", "fr", "nl", "pl"];
+        const isHomePage = homeLocales.some(locale => 
+            pathname === `/${locale}` || pathname === `/${locale}/` || pathname === "/"
+        );
+
+        if (!isHomePage) {
+            setIsVisible(false);
+            return;
+        }
+
         const timer = setTimeout(() => {
             setIsVisible(true);
         }, 3000); // Show after 3 seconds
         
         return () => {
             clearTimeout(timer);
-            setIsVisible(false); // Reset on unmount/path change
+            setIsVisible(false);
         };
     }, [pathname]);
 
