@@ -125,9 +125,9 @@ function CheckoutContent({ lang }: { lang: string }) {
                         </p>
                     </div>
 
-                    {/* Right Column: Form - Order 2 on Mobile, Column 2 on Desktop (Sticky) */}
-                    <div className="lg:sticky lg:top-10 order-2 lg:row-span-2">
-                        <div className="bg-[#0D0D12] border border-white/5 rounded-[3rem] p-8 md:p-12 shadow-[0_30px_100px_rgba(0,0,0,0.6)] relative">
+                    {/* Right Column: NOW Order 3 on Mobile, Column 2 on Desktop (Sticky) */}
+                    <div className="lg:sticky lg:top-10 order-3 lg:row-span-2 w-full">
+                        <div className="bg-[#0D0D12] border border-white/5 rounded-[2rem] md:rounded-[3rem] p-6 md:p-12 shadow-[0_30px_100px_rgba(0,0,0,0.6)] relative overflow-hidden">
                             {/* Inner Glow */}
                             <div className="absolute inset-0 rounded-[3rem] bg-primary/5 blur-3xl pointer-events-none opacity-20" />
                             
@@ -207,7 +207,7 @@ function CheckoutContent({ lang }: { lang: string }) {
                                     <button 
                                         onClick={handleProceed}
                                         disabled={isSubmitting}
-                                        className={`w-full flex items-center justify-center gap-4 px-10 py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-lg md:text-xl border border-yellow-200/30 relative overflow-hidden group/confirm shadow-[0_20px_60px_rgba(212,175,55,0.25)] transition-all ${
+                                        className={`w-full flex items-center justify-center gap-4 px-6 md:px-10 py-5 md:py-6 rounded-2xl font-black uppercase tracking-[0.2em] text-base md:text-xl border border-yellow-200/30 relative overflow-hidden group/confirm shadow-[0_20px_60px_rgba(212,175,55,0.25)] transition-all ${
                                             isSubmitting 
                                             ? 'bg-gray-800 text-gray-400 cursor-not-allowed border-gray-700 pb-5' 
                                             : 'bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] bg-[length:200%_auto] hover:bg-right text-black hover:scale-[1.03] active:scale-[0.98]'
@@ -245,10 +245,10 @@ function CheckoutContent({ lang }: { lang: string }) {
                         </div>
                     </div>
 
-                    {/* Order Summary (Conclusion) - Order 3 on Mobile, Column 1 (below header) on Desktop */}
-                    <div className="flex flex-col gap-10 order-3 lg:mt-[-40px]">
+                    {/* Order Summary (Conclusion) - NOW Order 2 on Mobile, Column 1 (below header) on Desktop */}
+                    <div className="flex flex-col gap-10 order-2 lg:order-3 w-full">
                         {/* Order Details Card */}
-                        <div className="bg-[#0A0A0F] border border-white/5 rounded-[2.5rem] p-8 md:p-10 shadow-2xl relative overflow-hidden group">
+                        <div className="bg-[#0A0A0F] border border-white/5 rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-10 shadow-2xl relative overflow-hidden group">
                            {/* Shine Effect */}
                            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
                            
