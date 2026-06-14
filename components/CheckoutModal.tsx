@@ -81,12 +81,12 @@ export default function CheckoutModal({ isOpen, onClose, plan }: CheckoutModalPr
                         onClick={(e) => e.stopPropagation()}
                     >
                             {/* Close */}
-                            <button
-                                onClick={() => handleClose()}
-                                className="absolute top-4 right-4 text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 p-2 rounded-full transition-colors z-10"
-                            >
-                                <X size={20} />
-                            </button>
+                        <button
+                            onClick={() => handleClose()}
+                            className="absolute top-4 right-4 text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 p-2 rounded-full transition-colors z-10"
+                        >
+                            <X size={20} />
+                        </button>
 
                         {/* Header */}
                         <div className="bg-gradient-to-r from-[#1A1A22] to-[#0A0A0F] px-6 py-5 border-b border-white/5">
@@ -227,7 +227,7 @@ export default function CheckoutModal({ isOpen, onClose, plan }: CheckoutModalPr
                                 <p className="text-primary font-black text-xs">${plan.price.toFixed(2)}</p>
                             </div>
                             <button
-                                onClick={handleClose}
+                                onClick={() => handleClose()}
                                 className="text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 p-2 rounded-full transition-colors"
                             >
                                 <X size={18} />

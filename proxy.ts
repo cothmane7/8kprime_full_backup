@@ -7,7 +7,7 @@ function getLocale(request: NextRequest): string {
   if (!acceptLanguage) return i18n.defaultLocale
 
   const locales = [...i18n.locales]
-  
+
   // Parse Accept-Language header
   const languages = acceptLanguage.split(',').map((lang) => {
     const [code, q] = lang.split(';q=')
@@ -51,22 +51,22 @@ export function middleware(request: NextRequest) {
         request.url
       )
     )
-    
+
     // Add Security Headers
     response.headers.set('X-Frame-Options', 'DENY')
     response.headers.set('X-Content-Type-Options', 'nosniff')
     response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin')
-    
+
     return response
   }
 
   const response = NextResponse.next()
-  
+
   // Add Security Headers to all requests
   response.headers.set('X-Frame-Options', 'DENY')
   response.headers.set('X-Content-Type-Options', 'nosniff')
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin')
-  
+
   return response
 }
 
