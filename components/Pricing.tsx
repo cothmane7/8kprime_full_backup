@@ -2,32 +2,23 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ShoppingCart, Monitor, ShieldCheck, Zap, PlayCircle, Film, Sparkles, Clock, Star, ToggleRight, ToggleLeft } from "lucide-react";
-import Link from "next/link";
+import { ShoppingCart, Monitor, ShieldCheck, Zap, PlayCircle, Film, Sparkles, Clock, Star } from "lucide-react";
 import CheckoutModal from "./CheckoutModal";
 
 export default function Pricing({ lang, dictionary, common }: { lang: any; dictionary: any; common: any }) {
-    const [activeDevices, setActiveDevices] = useState(1);
-    const [iboPlayer, setIboPlayer] = useState(false);
     const [selectedPlan, setSelectedPlan] = useState<any>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    // Fixed price lookup: priceTable[devices][months]
-    const priceTable: Record<number, Record<number, number>> = {
-        1: { 3: 39.99, 6: 59.99, 12: 79.99 },
-        2: { 3: 69.99, 6: 99.99, 12: 149.99 },
-        3: { 3: 99.99, 6: 159.99, 12: 199.99 },
-        4: { 3: 129.99, 6: 199.99, 12: 259.99 },
-    };
-
     const plans = [
         {
-            months: 3,
-            label: dictionary.label_quarterly,
+            months: 1,
+            price: 11.99,
+            label: "1 Month",
+            tag: dictionary.trial_plan || "Starter",
             isPopular: false,
-            tag: dictionary.trial_plan,
             saveLabel: "",
             cta: dictionary.cta_subscribe,
+            iframeSrc: "https://pay.hotmart.com/Q102240615C?off=31l91jqt&checkoutMode=10&hidename=1&hideemail=1&hidephone=1",
             features: [
                 { icon: PlayCircle, text: dictionary.feature_live_channels },
                 { icon: Film, text: dictionary.feature_vod },
@@ -36,15 +27,17 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                 { icon: Zap, text: common.instant_activation },
                 { icon: Monitor, text: dictionary.feature_devices },
                 { icon: Clock, text: dictionary.feature_support },
-            ]
+            ],
         },
         {
-            months: 12,
-            label: dictionary.label_annual,
-            isPopular: true,
-            tag: dictionary.best_value,
-            saveLabel: `${dictionary.save} 50%`,
+            months: 3,
+            price: 35.99,
+            label: "3 Months",
+            tag: dictionary.label_quarterly || "Quarterly",
+            isPopular: false,
+            saveLabel: "",
             cta: dictionary.cta_subscribe,
+            iframeSrc: "https://pay.hotmart.com/Q102240615C?off=cgj0eh3v&checkoutMode=10&hidename=1&hideemail=1&hidephone=1",
             features: [
                 { icon: PlayCircle, text: dictionary.feature_live_channels },
                 { icon: Film, text: dictionary.feature_vod },
@@ -53,15 +46,17 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                 { icon: Zap, text: common.instant_activation },
                 { icon: Monitor, text: dictionary.feature_devices },
                 { icon: Clock, text: dictionary.feature_support },
-            ]
+            ],
         },
         {
             months: 6,
-            label: dictionary.label_semi_annual,
+            price: 49.99,
+            label: "6 Months",
+            tag: dictionary.smart_choice || "Smart Choice",
             isPopular: false,
-            tag: dictionary.smart_choice,
-            saveLabel: `${dictionary.save} 25%`,
+            saveLabel: `${dictionary.save || "Save"} 30%`,
             cta: dictionary.cta_subscribe,
+            iframeSrc: "https://pay.hotmart.com/Q102240615C?off=x69l6ecu&checkoutMode=10&hidename=1&hideemail=1&hidephone=1",
             features: [
                 { icon: PlayCircle, text: dictionary.feature_live_channels },
                 { icon: Film, text: dictionary.feature_vod },
@@ -70,14 +65,28 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                 { icon: Zap, text: common.instant_activation },
                 { icon: Monitor, text: dictionary.feature_devices },
                 { icon: Clock, text: dictionary.feature_support },
-            ]
+            ],
+        },
+        {
+            months: 12,
+            price: 69.99,
+            label: "12 Months",
+            tag: dictionary.best_value || "Best Value",
+            isPopular: true,
+            saveLabel: `${dictionary.save || "Save"} 50%`,
+            cta: dictionary.cta_subscribe,
+            iframeSrc: "https://pay.hotmart.com/Q102240615C?off=zj5owiaz&checkoutMode=10&hidename=1&hideemail=1&hidephone=1",
+            features: [
+                { icon: PlayCircle, text: dictionary.feature_live_channels },
+                { icon: Film, text: dictionary.feature_vod },
+                { icon: Sparkles, text: dictionary.feature_quality },
+                { icon: ShieldCheck, text: dictionary.feature_anti_freeze },
+                { icon: Zap, text: common.instant_activation },
+                { icon: Monitor, text: dictionary.feature_devices },
+                { icon: Clock, text: dictionary.feature_support },
+            ],
         },
     ];
-
-    const getPrice = (months: number) => {
-        const base = priceTable[activeDevices]?.[months] || 0;
-        return (base + (iboPlayer ? 10 * activeDevices : 0)).toFixed(2);
-    };
 
     return (
         <section className="py-20 md:py-32 bg-[#050505] relative overflow-hidden" id="pricing">
@@ -87,7 +96,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
 
             <div className="container-responsive relative z-10 w-full px-4 md:px-8">
 
-                {/* Header Section */}
+                {/* Header */}
                 <div className="text-center mb-12 md:mb-16 max-w-3xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
@@ -106,7 +115,8 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                         transition={{ delay: 0.1 }}
                         className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight tracking-tighter mb-6 uppercase"
                     >
-                        <span className="text-primary/90">{dictionary.title_part1}</span> <span className="text-gradient-premium">{dictionary.title_part2}</span>
+                        <span className="text-primary/90">{dictionary.title_part1}</span>{" "}
+                        <span className="text-gradient-premium">{dictionary.title_part2}</span>
                     </motion.h2>
 
                     <motion.p
@@ -120,178 +130,120 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                     </motion.p>
                 </div>
 
-                {/* Device Selector */}
-                <div className="flex flex-col items-center mb-16 md:mb-20 relative z-20">
-                    <p className="text-[10px] md:text-xs text-gray-300 font-black mb-5 uppercase tracking-[0.4em]">{dictionary.device_selector_label}</p>
-                    <div className="inline-flex bg-[#0A0A0F] p-1.5 rounded-[3rem] border border-white/10 shadow-2xl relative overflow-hidden">
-                        <motion.div 
-                            className="absolute inset-y-1.5 rounded-[2.5rem] bg-metallic-gold shadow-[0_0_20px_rgba(212,175,55,0.4)]"
-                            initial={false}
-                            animate={{
-                                left: `${(activeDevices - 1) * 25}%`,
-                                width: '25%',
-                            }}
-                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                        />
-                        {[1, 2, 3, 4].map((num) => (
-                            <button
-                                key={num}
-                                onClick={() => setActiveDevices(num)}
-                                className={`relative z-10 w-20 sm:w-28 md:w-36 py-3 md:py-4 rounded-[2.5rem] text-sm md:text-base font-black transition-colors duration-500 flex items-center justify-center gap-2 flex-shrink-0 touch-target ${activeDevices === num
-                                    ? "text-black"
-                                    : "text-gray-300 hover:text-white"
-                                    }`}
-                            >
-                                <Monitor size={16} className={activeDevices === num ? "text-black" : "text-gray-300"} />
-                                <span className="uppercase tracking-widest">
-                                    {num} <span className="hidden sm:inline">{num === 1 ? dictionary.device : dictionary.devices}</span>
-                                    <span className="sm:hidden">{num === 1 ? dictionary.dev : dictionary.devs}</span>
-                                </span>
-                            </button>
-                        ))}
-                    </div>
-                </div>
+                {/* Pricing Cards — 4 columns */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 xl:gap-6 max-w-[1400px] mx-auto items-stretch relative z-20">
+                    {plans.map((plan, index) => {
+                        const priceStr = plan.price.toFixed(2);
+                        const [whole, decimal] = priceStr.split(".");
+                        const perMonth = (plan.price / plan.months).toFixed(2);
 
-                {/* Pricing Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8 max-w-[1200px] mx-auto items-stretch relative z-20">
-                    {plans.map((plan, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
-                            className={`relative flex flex-col p-8 md:p-10 rounded-[2.5rem] md:rounded-[2rem] transition-all duration-500 group gold-glow-hover h-full ${plan.isPopular
-                                ? "bg-gradient-to-b from-[#1A1A22] via-primary/10 to-[#0A0A0F] border-2 border-primary shadow-[0_0_80px_rgba(212,175,55,0.5)] z-10 md:scale-[1.05]"
-                                : "bg-gradient-to-b from-[#1A1A22] to-[#0A0A0F] border border-white/5"
+                        return (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.08 }}
+                                className={`relative flex flex-col p-7 md:p-8 rounded-[2rem] transition-all duration-500 group gold-glow-hover h-full ${
+                                    plan.isPopular
+                                        ? "bg-gradient-to-b from-[#1A1A22] via-primary/10 to-[#0A0A0F] border-2 border-primary shadow-[0_0_60px_rgba(212,175,55,0.4)]"
+                                        : "bg-gradient-to-b from-[#1A1A22] to-[#0A0A0F] border border-white/5 hover:border-white/10"
                                 }`}
-                        >
-                            {plan.isPopular && (
-                                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-metallic-gold text-black text-[9px] font-black uppercase tracking-widest py-1.5 px-6 rounded-full shadow-lg shadow-primary/30 flex items-center gap-2 whitespace-nowrap gold-reflection">
-                                    <Star size={12} className="fill-black" />
-                                    {dictionary.most_popular}
-                                </div>
-                            )}
+                            >
+                                {/* Popular badge */}
+                                {plan.isPopular && (
+                                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-metallic-gold text-black text-[9px] font-black uppercase tracking-widest py-1.5 px-5 rounded-full shadow-lg shadow-primary/30 flex items-center gap-1.5 whitespace-nowrap gold-reflection">
+                                        <Star size={11} className="fill-black" />
+                                        {dictionary.most_popular}
+                                    </div>
+                                )}
 
-                            <div className="mb-8">
-                                <div className="flex justify-between items-start mb-1">
-                                    <h3 className="text-xl md:text-2xl font-black text-white tracking-tight uppercase">{plan.months} {plan.months === 1 ? dictionary.month : dictionary.months}</h3>
-                                    {plan.saveLabel && (
-                                        <span className="text-gradient-premium font-black text-[9px] tracking-widest">{plan.saveLabel}</span>
-                                    )}
-                                </div>
-                                <p className="text-[10px] font-black uppercase tracking-wider mb-6 text-primary">{plan.tag}</p>
+                                {/* Plan header */}
+                                <div className="mb-6">
+                                    <div className="flex justify-between items-start mb-1">
+                                        <h3 className="text-lg md:text-xl font-black text-white tracking-tight uppercase">
+                                            {plan.months} {plan.months === 1 ? dictionary.month || "Month" : dictionary.months || "Months"}
+                                        </h3>
+                                        {plan.saveLabel && (
+                                            <span className="text-gradient-premium font-black text-[9px] tracking-widest">
+                                                {plan.saveLabel}
+                                            </span>
+                                        )}
+                                    </div>
+                                    <p className="text-[10px] font-black uppercase tracking-wider mb-5 text-primary">
+                                        {plan.tag}
+                                    </p>
 
-                                <div className="flex items-start gap-1 relative">
-                                    <span className="text-2xl font-black text-white mt-1">$</span>
-                                    <AnimatePresence mode="popLayout">
-                                        <motion.span
-                                            key={getPrice(plan.months).split('.')[0]}
-                                            initial={{ y: 20, opacity: 0 }}
-                                            animate={{ y: 0, opacity: 1 }}
-                                            exit={{ y: -20, opacity: 0 }}
-                                            transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                                            className="text-5xl md:text-6xl font-black text-white tracking-tighter leading-none inline-block"
-                                        >
-                                            {getPrice(plan.months).split('.')[0]}
-                                        </motion.span>
-                                    </AnimatePresence>
-                                    <div className="flex flex-col justify-end">
+                                    {/* Price */}
+                                    <div className="flex items-start gap-1 relative">
+                                        <span className="text-xl font-black text-white mt-1">$</span>
                                         <AnimatePresence mode="popLayout">
                                             <motion.span
-                                                key={getPrice(plan.months).split('.')[1]}
-                                                initial={{ y: 12, opacity: 0 }}
+                                                key={whole}
+                                                initial={{ y: 20, opacity: 0 }}
                                                 animate={{ y: 0, opacity: 1 }}
-                                                exit={{ y: -12, opacity: 0 }}
+                                                exit={{ y: -20, opacity: 0 }}
                                                 transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                                                className="text-xl md:text-2xl font-black text-white inline-block"
+                                                className="text-4xl md:text-5xl font-black text-white tracking-tighter leading-none inline-block"
                                             >
-                                                .{getPrice(plan.months).split('.')[1]}
+                                                {whole}
                                             </motion.span>
                                         </AnimatePresence>
-                                    </div>
-                                </div>
-
-                                {/* Per-month price breakdown */}
-                                <div className="mt-3 flex flex-col gap-1">
-                                    <div className={`text-sm font-extrabold tracking-tight ${plan.isPopular ? 'text-primary' : 'text-primary/80'}`}>
-                                        ${(Math.floor((parseFloat(getPrice(plan.months)) / plan.months) * 100) / 100).toFixed(2)}{dictionary.per_month}
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="space-y-4 mb-10 flex-grow">
-                                <div className="flex items-center gap-3 text-xs md:text-[13px] font-bold text-primary bg-primary/10 px-4 py-2.5 rounded-xl border border-primary/20 shadow-[0_0_15px_rgba(212,175,55,0.1)]">
-                                    <Monitor className="w-4 h-4 text-primary shrink-0" />
-                                    <span className="leading-none uppercase tracking-wide">
-                                        {activeDevices} {activeDevices === 1 ? dictionary.device_connection : dictionary.devices_connection}
-                                    </span>
-                                </div>
-                                {plan.features.map((feature, i) => (
-                                    <div key={i} className="flex items-start gap-3 text-xs md:text-[13px] font-semibold text-gray-200">
-                                        <div className="mt-0.5">
-                                            <feature.icon className="w-4 h-4 text-primary" />
-                                        </div>
-                                        <span className="leading-snug">{feature.text}</span>
-                                    </div>
-                                ))}
-                            </div>
-
-                            {/* IBO Player Optional Add-on */}
-                            <div className="mb-6">
-                                <button
-                                    onClick={() => setIboPlayer(!iboPlayer)}
-                                    className={`w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl border-2 transition-all duration-300 ${
-                                        iboPlayer
-                                            ? 'border-[#E50914] bg-[#E50914]/10 shadow-[0_0_15px_rgba(229,9,20,0.15)]'
-                                            : 'border-white/10 bg-white/[0.02] hover:border-white/20'
-                                    }`}
-                                >
-                                    <div className="flex items-center gap-3">
-                                        <PlayCircle size={16} className={iboPlayer ? 'text-[#E50914]' : 'text-gray-500'} />
-                                        <span className={`text-xs font-bold uppercase tracking-wider ${iboPlayer ? 'text-white' : 'text-gray-400'}`}>
-                                            IBO Player Activation
-                                        </span>
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                        <span className={`text-[10px] font-black tracking-widest ${iboPlayer ? 'text-white' : 'text-gray-600'}`}>
-                                            +${10 * activeDevices}
-                                        </span>
-                                        <div className={`w-9 h-5 rounded-full relative transition-all duration-300 ${iboPlayer ? 'bg-[#E50914]' : 'bg-white/10'}`}>
-                                            <div className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow-md transition-all duration-300 ${iboPlayer ? 'left-[18px]' : 'left-0.5'}`} />
+                                        <div className="flex flex-col justify-end">
+                                            <span className="text-lg md:text-xl font-black text-white inline-block">
+                                                .{decimal}
+                                            </span>
                                         </div>
                                     </div>
-                                </button>
-                            </div>
 
-                            <div className="mt-auto">
-                                <button
-                                    onClick={() => {
-                                        setSelectedPlan({ ...plan, price: parseFloat(getPrice(plan.months)) });
-                                        setIsModalOpen(true);
-                                    }}
-                                    className="flex items-center justify-center gap-3 w-full py-4 md:py-5 rounded-full font-black uppercase tracking-wider transition-all duration-500 text-lg md:text-xl touch-target hover:scale-[1.03] active:scale-[0.98] bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] bg-[length:200%_auto] hover:bg-right text-black shadow-[0_0_30px_rgba(212,175,55,0.4),inset_0_2px_4px_rgba(255,240,179,0.9)] overflow-hidden relative group/btn border border-yellow-200/50"
-                                >
-                                    {/* Animated shine sweep */}
-                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-200%] group-hover/btn:translate-x-[200%] transition-transform duration-1000" />
-                                    {/* Inner ring */}
-                                    <div className="absolute inset-1 rounded-full border border-black/10 pointer-events-none" />
-                                    <span className="relative z-10 flex items-center gap-2 drop-shadow-sm">
-                                        {plan.cta}
-                                        <ShoppingCart size={20} className="md:w-6 md:h-6 group-hover/btn:rotate-12 transition-transform duration-300" />
-                                    </span>
-                                </button>
-                                <div className="mt-4 flex items-center justify-center gap-2 text-[9px] font-bold text-gray-600 uppercase tracking-widest">
-                                    <Zap size={10} className="text-primary" />
-                                    {dictionary.instant_global_access}
+                                    {/* Per-month breakdown */}
+                                    <div className={`mt-2 text-sm font-extrabold tracking-tight ${plan.isPopular ? "text-primary" : "text-primary/80"}`}>
+                                        ${perMonth}{dictionary.per_month || "/mo"}
+                                    </div>
                                 </div>
-                            </div>
-                        </motion.div>
-                    ))}
+
+                                {/* Features */}
+                                <div className="space-y-3 mb-8 flex-grow">
+                                    {plan.features.map((feature, i) => (
+                                        <div key={i} className="flex items-start gap-3 text-xs md:text-[13px] font-semibold text-gray-200">
+                                            <div className="mt-0.5">
+                                                <feature.icon className="w-4 h-4 text-primary" />
+                                            </div>
+                                            <span className="leading-snug">{feature.text}</span>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* CTA Button */}
+                                <div className="mt-auto">
+                                    <button
+                                        onClick={() => {
+                                            setSelectedPlan(plan);
+                                            setIsModalOpen(true);
+                                        }}
+                                        className="flex items-center justify-center gap-3 w-full py-4 md:py-5 rounded-full font-black uppercase tracking-wider transition-all duration-500 text-base md:text-lg touch-target hover:scale-[1.03] active:scale-[0.98] bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] bg-[length:200%_auto] hover:bg-right text-black shadow-[0_0_30px_rgba(212,175,55,0.4),inset_0_2px_4px_rgba(255,240,179,0.9)] overflow-hidden relative group/btn border border-yellow-200/50"
+                                    >
+                                        {/* Shine sweep */}
+                                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-200%] group-hover/btn:translate-x-[200%] transition-transform duration-1000" />
+                                        {/* Inner ring */}
+                                        <div className="absolute inset-1 rounded-full border border-black/10 pointer-events-none" />
+                                        <span className="relative z-10 flex items-center gap-2 drop-shadow-sm">
+                                            {plan.cta}
+                                            <ShoppingCart size={18} className="md:w-5 md:h-5 group-hover/btn:rotate-12 transition-transform duration-300" />
+                                        </span>
+                                    </button>
+                                    <div className="mt-3 flex items-center justify-center gap-2 text-[9px] font-bold text-gray-600 uppercase tracking-widest">
+                                        <Zap size={10} className="text-primary" />
+                                        {dictionary.instant_global_access}
+                                    </div>
+                                </div>
+                            </motion.div>
+                        );
+                    })}
                 </div>
 
                 {/* Trust & Guarantee Section */}
-                <div className="mt-24 max-w-5xl mx-auto relative z-20">
+                <div className="mt-20 max-w-5xl mx-auto relative z-20">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-[#0A0A0F] border border-white/5 rounded-3xl p-8 mb-10 shadow-2xl">
                         <div className="flex flex-col items-center text-center gap-3 p-4">
                             <div className="w-12 h-12 bg-emerald-500/10 rounded-full flex items-center justify-center mb-2">
@@ -325,11 +277,11 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                     </div>
                 </div>
             </div>
+
             <CheckoutModal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
                 plan={selectedPlan}
-                devices={activeDevices}
             />
         </section>
     );
