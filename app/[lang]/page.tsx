@@ -29,7 +29,7 @@ export default async function Home(props: {
     <SportsSection dictionary={dictionary.sports} />
     <MovieGrid lang={lang} dictionary={dictionary.movie_grid} />
     <Pricing lang={lang} dictionary={dictionary.pricing} common={dictionary.common} />
-    <Process dictionary={dictionary.process} />
+
     <ComparisonTable dictionary={dictionary.comparison} />
     <SavingsCalculator />
     <Testimonials dictionary={dictionary.testimonials} />
