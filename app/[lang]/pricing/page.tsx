@@ -1,4 +1,5 @@
 import { Shield, Globe, Monitor } from "lucide-react";
+import Pricing from "@/components/Pricing";
 import Process from "@/components/Process";
 import { getDictionary } from "@/get-dictionary";
 import { Locale } from "@/i18n-config";
