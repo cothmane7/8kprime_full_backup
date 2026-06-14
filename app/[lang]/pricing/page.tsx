@@ -1,5 +1,5 @@
 import { Shield, Globe, Monitor } from "lucide-react";
-import Pricing from "@/components/Pricing";
+import Process from "@/components/Process";
 import { getDictionary } from "@/get-dictionary";
 import { Locale } from "@/i18n-config";
 
@@ -23,6 +23,7 @@ export default async function PricingPage(props: {
                 </div>
 
                 <Pricing lang={lang} dictionary={dictionary.pricing} common={dictionary.common} />
+                <Process dictionary={dictionary.process} />
 
                 <div className="max-w-6xl mx-auto mt-24">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

@@ -23,18 +23,18 @@ export default async function Home(props: {
   return (
     <div className="flex flex-col min-h-screen bg-[#0B0B0F]">
       <Hero lang={lang} dictionary={dictionary.hero} common={dictionary.common} />
-      {/* Hidden to avoid DM2A – uncomment to restore */}
-      {/* <LeaguesCarousel dictionary={dictionary.leagues_carousel} /> */}
-      {/* <StreamingCarousel dictionary={dictionary.streaming_apps} /> */}
-      <SportsSection dictionary={dictionary.sports} />
-      <MovieGrid lang={lang} dictionary={dictionary.movie_grid} />
-      <Pricing lang={lang} dictionary={dictionary.pricing} common={dictionary.common} />
-      <ComparisonTable dictionary={dictionary.comparison} />
-      <SavingsCalculator />
-      <Process dictionary={dictionary.process} />
-      <Testimonials dictionary={dictionary.testimonials} />
-      <FAQ dictionary={dictionary.faq} />
-      <StickyCTA lang={lang} dictionary={dictionary.hero} />
+    {/* Hidden to avoid DM2A – uncomment to restore */}
+    {/* <LeaguesCarousel dictionary={dictionary.leagues_carousel} /> */}
+    {/* <StreamingCarousel dictionary={dictionary.streaming_apps} /> */}
+    <SportsSection dictionary={dictionary.sports} />
+    <MovieGrid lang={lang} dictionary={dictionary.movie_grid} />
+    <Pricing lang={lang} dictionary={dictionary.pricing} common={dictionary.common} />
+    <Process dictionary={dictionary.process} />
+    <ComparisonTable dictionary={dictionary.comparison} />
+    <SavingsCalculator />
+    <Testimonials dictionary={dictionary.testimonials} />
+    <FAQ dictionary={dictionary.faq} />
+    <StickyCTA lang={lang} dictionary={dictionary.hero} />
     </div>
   );
 }
