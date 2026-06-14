@@ -4,10 +4,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, ShoppingCart, Monitor, ShieldCheck, Zap, PlayCircle, Film, Sparkles, Clock, Star, ToggleRight, ToggleLeft } from "lucide-react";
 import Link from "next/link";
+import CheckoutModal from "./CheckoutModal";
 
 export default function Pricing({ lang, dictionary, common }: { lang: any; dictionary: any; common: any }) {
     const [activeDevices, setActiveDevices] = useState(1);
     const [iboPlayer, setIboPlayer] = useState(false);
+    const [selectedPlan, setSelectedPlan] = useState<any>(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     // Fixed price lookup: priceTable[devices][months]
     const priceTable: Record<number, Record<number, number>> = {
@@ -262,10 +265,11 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                             </div>
 
                             <div className="mt-auto">
-                                <a
-                                    href={`https://wa.me/18185656691?text=${encodeURIComponent(`Hi, I'm interested in the ${plan.months} Months plan for ${activeDevices} device(s)${iboPlayer ? ' with IBO Player activation' : ''}.`)}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                <button
+                                    onClick={() => {
+                                        setSelectedPlan({ ...plan, price: parseFloat(getPrice(plan.months)) });
+                                        setIsModalOpen(true);
+                                    }}
                                     className="flex items-center justify-center gap-3 w-full py-4 md:py-5 rounded-full font-black uppercase tracking-wider transition-all duration-500 text-lg md:text-xl touch-target hover:scale-[1.03] active:scale-[0.98] bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] bg-[length:200%_auto] hover:bg-right text-black shadow-[0_0_30px_rgba(212,175,55,0.4),inset_0_2px_4px_rgba(255,240,179,0.9)] overflow-hidden relative group/btn border border-yellow-200/50"
                                 >
                                     {/* Animated shine sweep */}
@@ -276,7 +280,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                                         {plan.cta}
                                         <ShoppingCart size={20} className="md:w-6 md:h-6 group-hover/btn:rotate-12 transition-transform duration-300" />
                                     </span>
-                                </a>
+                                </button>
                                 <div className="mt-4 flex items-center justify-center gap-2 text-[9px] font-bold text-gray-600 uppercase tracking-widest">
                                     <Zap size={10} className="text-primary" />
                                     {dictionary.instant_global_access}
@@ -321,6 +325,12 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                     </div>
                 </div>
             </div>
+            <CheckoutModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                plan={selectedPlan}
+                devices={activeDevices}
+            />
         </section>
     );
 }

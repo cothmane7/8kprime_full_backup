@@ -8,7 +8,6 @@ import { getDictionary } from "@/get-dictionary";
 import { Barlow_Condensed, Outfit } from "next/font/google";
 import SecurityShield from "@/components/SecurityShield";
 import CrispChat from "@/components/CrispChat";
-import PromoPopup from "@/components/PromoPopup";
 import PurchaseNotifications from "@/components/PurchaseNotifications";
 import Script from "next/script";
 
@@ -79,7 +78,6 @@ export default async function RootLayout(props: {
         </Script>
 
         <SecurityShield />
-        <PromoPopup />
         <PurchaseNotifications />
         <Navbar lang={lang} dictionary={dictionary.common} />
         <main>{children}</main>
