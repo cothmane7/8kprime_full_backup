@@ -2,12 +2,15 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShoppingCart, Monitor, ShieldCheck, Zap, PlayCircle, Film, Sparkles, Clock, Star } from "lucide-react";
+import { ShoppingCart, Monitor, ShieldCheck, Zap, PlayCircle, Film, Sparkles, Clock, Star, MessageCircle } from "lucide-react";
 import CheckoutModal from "./CheckoutModal";
 
 export default function Pricing({ lang, dictionary, common }: { lang: any; dictionary: any; common: any }) {
     const [selectedPlan, setSelectedPlan] = useState<any>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedScreens, setSelectedScreens] = useState(2);
+
+    const screenOptions = [2, 3, 4, 5];
 
     const plans = [
         {
@@ -87,6 +90,11 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
             ],
         },
     ];
+
+    const whatsappMessage = encodeURIComponent(
+        `Hello 8KPRIME! I'm interested in a multi-screen plan for ${selectedScreens} screens. I'd like to discuss pricing and options.`
+    );
+    const whatsappUrl = `https://wa.me/18185656691?text=${whatsappMessage}`;
 
     return (
         <section className="py-20 md:py-32 bg-[#050505] relative overflow-hidden" id="pricing">
@@ -241,6 +249,91 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                         );
                     })}
                 </div>
+
+                {/* ─── Multi-Screen Selector Section ─── */}
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.15 }}
+                    className="mt-14 max-w-2xl mx-auto relative z-20"
+                >
+                    <div className="relative rounded-[2rem] bg-gradient-to-b from-[#1A1A22] to-[#0A0A0F] border border-white/10 p-8 md:p-10 overflow-hidden">
+                        {/* Decorative glow */}
+                        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-[#25D366]/10 blur-[100px] rounded-full pointer-events-none" />
+
+                        {/* Header */}
+                        <div className="text-center mb-8 relative">
+                            <div className="inline-flex items-center gap-2 text-[#25D366] font-bold uppercase tracking-widest text-[10px] md:text-xs mb-4 bg-[#25D366]/10 px-5 py-2 rounded-full border border-[#25D366]/20">
+                                <Monitor size={14} />
+                                Multi-Screen
+                            </div>
+                            <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight mb-2">
+                                Want Multiple Screens?
+                            </h3>
+                            <p className="text-gray-400 text-sm md:text-base font-medium">
+                                Select how many screens you need and chat with us for a custom deal
+                            </p>
+                        </div>
+
+                        {/* Screen Count Selector */}
+                        <div className="flex items-center justify-center gap-3 md:gap-4 mb-8">
+                            {screenOptions.map((count) => (
+                                <button
+                                    key={count}
+                                    onClick={() => setSelectedScreens(count)}
+                                    className={`relative w-16 h-16 md:w-20 md:h-20 rounded-2xl font-black text-2xl md:text-3xl transition-all duration-300 flex flex-col items-center justify-center gap-0.5 ${
+                                        selectedScreens === count
+                                            ? "bg-[#25D366] text-white scale-110 shadow-[0_0_30px_rgba(37,211,102,0.4)] border-2 border-[#25D366]"
+                                            : "bg-white/5 text-gray-400 border border-white/10 hover:border-white/20 hover:bg-white/10 hover:text-white"
+                                    }`}
+                                >
+                                    <span className="leading-none">{count}</span>
+                                    <span className={`text-[8px] md:text-[9px] uppercase tracking-wider font-bold ${
+                                        selectedScreens === count ? "text-white/80" : "text-gray-500"
+                                    }`}>
+                                        {count === 1 ? "Screen" : "Screens"}
+                                    </span>
+                                    {selectedScreens === count && (
+                                        <motion.div
+                                            layoutId="screen-indicator"
+                                            className="absolute -bottom-1.5 w-6 h-1 bg-[#25D366] rounded-full shadow-[0_0_10px_rgba(37,211,102,0.6)]"
+                                            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                                        />
+                                    )}
+                                </button>
+                            ))}
+                        </div>
+
+                        {/* Selected summary */}
+                        <div className="text-center mb-6">
+                            <p className="text-gray-300 text-sm font-semibold">
+                                You selected <span className="text-[#25D366] font-black text-lg">{selectedScreens}</span> screens
+                            </p>
+                        </div>
+
+                        {/* WhatsApp CTA Button */}
+                        <a
+                            href={whatsappUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            id="multi-screen-whatsapp-cta"
+                            className="flex items-center justify-center gap-3 w-full py-4 md:py-5 rounded-full font-black uppercase tracking-wider transition-all duration-500 text-base md:text-lg hover:scale-[1.03] active:scale-[0.98] bg-gradient-to-r from-[#25D366] via-[#2EE676] to-[#25D366] bg-[length:200%_auto] hover:bg-right text-white shadow-[0_0_30px_rgba(37,211,102,0.35)] overflow-hidden relative group/wa border border-[#34E878]/50"
+                        >
+                            {/* Shine sweep */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover/wa:translate-x-[200%] transition-transform duration-1000" />
+                            <div className="absolute inset-1 rounded-full border border-white/10 pointer-events-none" />
+                            <span className="relative z-10 flex items-center gap-2.5 drop-shadow-sm">
+                                <MessageCircle size={20} className="group-hover/wa:rotate-12 transition-transform duration-300" />
+                                Chat on WhatsApp
+                            </span>
+                        </a>
+
+                        <p className="text-center text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-4">
+                            Get a personalized quote instantly
+                        </p>
+                    </div>
+                </motion.div>
 
                 {/* Trust & Guarantee Section */}
                 <div className="mt-20 max-w-5xl mx-auto relative z-20">
