@@ -7,6 +7,7 @@ import Process from "@/components/Process";
 import LeaguesCarousel from "@/components/LeaguesCarousel";
 import StreamingCarousel from "@/components/StreamingCarousel";
 import MovieGrid from "@/components/MovieGrid";
+import OneSubscription from "@/components/OneSubscription";
 import Testimonials from "@/components/Testimonials";
 import SavingsCalculator from "@/components/SavingsCalculator";
 import StickyCTA from "@/components/StickyCTA";
@@ -29,6 +30,9 @@ export default async function Home(props: {
     {/* <StreamingCarousel dictionary={dictionary.streaming_apps} /> */}
     <SportsSection dictionary={dictionary.sports} />
     <MovieGrid lang={lang} dictionary={dictionary.movie_grid} />
+    
+    <OneSubscription />
+    
     <Pricing lang={lang} dictionary={dictionary.pricing} common={dictionary.common} />
 
     <ComparisonTable dictionary={dictionary.comparison} />
