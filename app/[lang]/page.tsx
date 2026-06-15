@@ -10,6 +10,7 @@ import MovieGrid from "@/components/MovieGrid";
 import Testimonials from "@/components/Testimonials";
 import SavingsCalculator from "@/components/SavingsCalculator";
 import StickyCTA from "@/components/StickyCTA";
+import ReferralPromo from "@/components/ReferralPromo";
 import { getDictionary } from "@/get-dictionary";
 import { Locale } from "@/i18n-config";
 
@@ -33,6 +34,7 @@ export default async function Home(props: {
     <ComparisonTable dictionary={dictionary.comparison} />
     <SavingsCalculator />
     <Testimonials dictionary={dictionary.testimonials} />
+    <ReferralPromo lang={lang} />
     <FAQ dictionary={dictionary.faq} />
     <StickyCTA lang={lang} dictionary={dictionary.hero} />
     </div>
