@@ -222,8 +222,8 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                                     ))}
                                 </div>
 
-                                {/* CTA Button */}
-                                <div className="mt-auto">
+                                {/* CTA Buttons */}
+                                <div className="mt-auto flex flex-col gap-3">
                                     <button
                                         onClick={() => {
                                             setSelectedPlan(plan);
@@ -240,7 +240,19 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                                             <ShoppingCart size={18} className="md:w-5 md:h-5 group-hover/btn:rotate-12 transition-transform duration-300" />
                                         </span>
                                     </button>
-                                    <div className="mt-3 flex items-center justify-center gap-2 text-[9px] font-bold text-gray-600 uppercase tracking-widest">
+
+                                    {/* WhatsApp Secondary CTA */}
+                                    <a
+                                        href={`https://wa.me/18185656691?text=${encodeURIComponent(`Hello 8KPRIME! I'm interested in the ${plan.label} plan.`)}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full font-bold uppercase tracking-wide transition-all duration-300 text-sm md:text-base border border-white/10 bg-white/5 hover:bg-[#25D366]/10 hover:border-[#25D366]/40 text-gray-300 hover:text-white"
+                                    >
+                                        <MessageCircle size={16} className="text-[#25D366]" />
+                                        Order via WhatsApp
+                                    </a>
+
+                                    <div className="mt-1 flex items-center justify-center gap-2 text-[9px] font-bold text-gray-600 uppercase tracking-widest">
                                         <Zap size={10} className="text-primary" />
                                         {dictionary.instant_global_access}
                                     </div>
