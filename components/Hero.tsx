@@ -16,12 +16,31 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
     const [timeLeft, setTimeLeft] = useState(10 * 60 * 60);
 
     useEffect(() => {
-        const timerInterval = setInterval(() => {
-            setTimeLeft((prev) => {
-                if (prev <= 1) return 10 * 60 * 60;
-                return prev - 1;
-            });
-        }, 1000);
+        const TIMER_DURATION = 10 * 60 * 60; // 10 hours
+        const storedEndTime = localStorage.getItem('offerEndTime');
+        let endTime = storedEndTime ? parseInt(storedEndTime, 10) : 0;
+
+        if (!storedEndTime || isNaN(endTime) || endTime <= Date.now()) {
+            endTime = Date.now() + TIMER_DURATION * 1000;
+            localStorage.setItem('offerEndTime', endTime.toString());
+        }
+
+        const updateTimer = () => {
+            const now = Date.now();
+            const remaining = Math.floor((endTime - now) / 1000);
+            
+            if (remaining <= 0) {
+                const newEndTime = Date.now() + TIMER_DURATION * 1000;
+                localStorage.setItem('offerEndTime', newEndTime.toString());
+                setTimeLeft(TIMER_DURATION);
+                endTime = newEndTime;
+            } else {
+                setTimeLeft(remaining);
+            }
+        };
+
+        updateTimer();
+        const timerInterval = setInterval(updateTimer, 1000);
         return () => clearInterval(timerInterval);
     }, []);
 
@@ -113,7 +132,7 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                                     <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
                                     Offer ends in
                                 </span>
-                                <div className="flex items-center gap-1.5 text-xl font-black text-white tracking-widest font-mono">
+                                <div className="flex items-center gap-1.5 text-xl font-black text-white tracking-widest font-mono" suppressHydrationWarning>
                                     <Timer size={18} className="text-[#D4AF37]" />
                                     {formatTime(timeLeft)}
                                 </div>

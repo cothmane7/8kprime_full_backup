@@ -17,7 +17,6 @@ interface CheckoutModalProps {
 }
 
 export default function CheckoutModal({ isOpen, onClose, plan }: CheckoutModalProps) {
-    const [step, setStep] = useState(1);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [formData, setFormData] = useState({
         type: "new",
@@ -31,7 +30,6 @@ export default function CheckoutModal({ isOpen, onClose, plan }: CheckoutModalPr
     const handleClose = (redirect?: boolean) => {
         onClose();
         setTimeout(() => {
-            setStep(1);
             setFormData({ type: "new", fullName: "", email: "", whatsapp: "" });
             setIsSubmitting(false);
             if (redirect) {
@@ -52,8 +50,6 @@ export default function CheckoutModal({ isOpen, onClose, plan }: CheckoutModalPr
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
-        setStep(2);
-        setIsSubmitting(false);
 
         // Fire-and-forget admin notification
         fetch("/api/checkout", {
@@ -61,6 +57,14 @@ export default function CheckoutModal({ isOpen, onClose, plan }: CheckoutModalPr
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ ...formData, plan, price: plan.price }),
         }).catch(console.error);
+
+        const message = `Hello 8KPRIME! I'm interested in the ${plan.label} plan.\nName: ${formData.fullName}\nEmail: ${formData.email}\nWhatsApp: ${formData.whatsapp}\nType: ${formData.type === "new" ? "New Account" : "Renew Account"}`;
+        const whatsappUrl = `https://wa.me/18185656691?text=${encodeURIComponent(message)}`;
+
+        window.location.href = whatsappUrl;
+
+        setIsSubmitting(false);
+        handleClose();
     };
 
     return (
@@ -69,8 +73,6 @@ export default function CheckoutModal({ isOpen, onClose, plan }: CheckoutModalPr
             className="fixed inset-0 z-[100] flex items-start justify-center bg-black/80 backdrop-blur-sm overflow-y-auto py-6 px-4"
             >
             <AnimatePresence mode="wait">
-                {step === 1 ? (
-                    /* ── STEP 1: FORM ── */
                     <motion.div
                         key="form"
                         initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -184,7 +186,7 @@ export default function CheckoutModal({ isOpen, onClose, plan }: CheckoutModalPr
                             <div className="bg-primary/10 border border-primary/20 rounded-xl p-3 flex items-start gap-2">
                                 <Info size={13} className="text-primary mt-0.5 flex-shrink-0" />
                                 <p className="text-[11px] text-gray-300 font-medium leading-relaxed">
-                                    You will be redirected to our secure payment page. Credentials delivered to your email after payment.
+                                    You will be redirected to WhatsApp to complete your order. Credentials delivered to your email after payment.
                                 </p>
                             </div>
 
@@ -198,71 +200,10 @@ export default function CheckoutModal({ isOpen, onClose, plan }: CheckoutModalPr
                                         : "bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] bg-[length:200%_auto] hover:bg-right text-black shadow-[0_0_25px_rgba(212,175,55,0.35)] hover:scale-[1.02] active:scale-[0.98]"
                                 }`}
                             >
-                                {isSubmitting ? "Processing..." : "Proceed to Payment →"}
+                                {isSubmitting ? "Processing..." : "Proceed to WhatsApp →"}
                             </button>
                         </form>
                     </motion.div>
-                ) : (
-                    /* ── STEP 2: PAYMENT IFRAME — same centered modal ── */
-                    <motion.div
-                        key="payment"
-                        initial={{ opacity: 0, scale: 0.97, y: 20 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.97, y: -20 }}
-                        transition={{ type: "spring", damping: 25, stiffness: 280 }}
-                        className="relative w-full max-w-md bg-[#0A0A0F] border border-white/10 rounded-3xl shadow-[0_0_60px_rgba(176,141,62,0.2)] overflow-hidden my-auto"
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        {/* Modal header bar */}
-                        <div className="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-[#1A1A22] to-[#0A0A0F] border-b border-white/5">
-                            <button
-                                onClick={() => setStep(1)}
-                                className="flex items-center gap-2 text-gray-400 hover:text-white text-xs font-bold uppercase tracking-widest transition-colors"
-                            >
-                                <ArrowLeft size={14} />
-                                Back
-                            </button>
-                            <div className="text-center">
-                                <p className="text-white font-black text-sm uppercase tracking-tight">{plan.label}</p>
-                                <p className="text-primary font-black text-xs">${plan.price.toFixed(2)}</p>
-                            </div>
-                            <button
-                                onClick={() => handleClose()}
-                                className="text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 p-2 rounded-full transition-colors"
-                            >
-                                <X size={18} />
-                            </button>
-                        </div>
-
-                        {/* Iframe clip wrapper — hides Hotmart header via negative margin-top */}
-                        <div style={{ overflow: "hidden" }}>
-                            <iframe
-                                src={plan.iframeSrc}
-                                {...({ scrolling: "yes" } as any)}
-                                referrerPolicy="no-referrer"
-                                style={{
-                                    width: "100%",
-                                    height: "2500px",
-                                    border: "none",
-                                    position: "relative",
-                                    zIndex: 1,
-                                    display: "block",
-                                    backgroundColor: "#ffffff",
-                                    marginTop: "-450px",
-                                }}
-                            />
-                        </div>
-                        {/* Finish button after payment */}
-                        <div className="flex justify-center py-4">
-                            <button
-                                onClick={() => handleClose(true)}
-                                className="px-6 py-2 bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] text-black font-black rounded-xl hover:scale-105 transition-transform"
-                            >
-                                Thank You &amp; Return
-                            </button>
-                        </div>
-                    </motion.div>
-                )}
             </AnimatePresence>
         </div>
     );

@@ -41,36 +41,8 @@ export async function POST(req: Request) {
             `,
         };
 
-        // 2. Email to client
-        const clientMailOptions = {
-            from: `"8KPRIME TV" <${process.env.SMTP_FROM}>`,
-            to: email,
-            subject: `Order Received - 8KPRIME TV`,
-            html: `
-                <div style="font-family: Arial, sans-serif; max-w: 600px; margin: 0 auto;">
-                    <h2 style="color: #D4AF37;">Thank you for your order, ${fullName}!</h2>
-                    <p>We have successfully received your request for a <strong>${plan.months} Months</strong> subscription (${type === 'new' ? 'New' : 'Renewal'}).</p>
-                    <p>Our deployment team is currently working on setting up your elite access. You will receive another email shortly with your login credentials and setup instructions for your ${deviceType}.</p>
-                    <br/>
-                    <p><strong>Order Summary:</strong></p>
-                    <ul>
-                        <li>Plan: ${plan.months} Months</li>
-                        <li>Connections: ${devices}</li>
-                        <li>Total: €${price}</li>
-                    </ul>
-                    <br/>
-                    <p>If you have any immediate questions, feel free to contact us on WhatsApp: ${whatsapp}.</p>
-                    <br/>
-                    <p>Best regards,<br/><strong>8KPRIME TV Team</strong></p>
-                </div>
-            `,
-        };
-
-        // Send both emails
-        await Promise.all([
-            transporter.sendMail(adminMailOptions),
-            transporter.sendMail(clientMailOptions)
-        ]);
+        // Send admin email only
+        await transporter.sendMail(adminMailOptions);
 
         return NextResponse.json({ success: true, message: "Emails sent successfully" });
     } catch (error) {
