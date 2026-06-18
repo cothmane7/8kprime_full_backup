@@ -15,7 +15,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
     const plans = [
         {
             months: 1,
-            price: 11.99,
+            price: 17.99,
             label: "1 Month",
             tag: dictionary.trial_plan || "Starter",
             isPopular: false,

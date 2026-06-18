@@ -106,7 +106,7 @@ export default function Navbar({ lang, dictionary }: { lang: string; dictionary:
             <Link 
               href={`/${lang}#pricing`} 
               onClick={(e) => handleScrollTo(e, `/${lang}#pricing`)}
-              className="bg-metallic-gold text-black px-6 xl:px-10 py-4 xl:py-5 rounded-[1.5rem] xl:rounded-[1.8rem] text-sm xl:text-lg font-bold hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/30 button-shine soft-gold-glow"
+              className="bg-metallic-gold text-black px-6 xl:px-10 py-4 xl:py-5 rounded-[1.5rem] xl:rounded-[1.8rem] text-sm xl:text-lg font-bold hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/30 button-shine soft-gold-glow border border-white/30"
             >
               {dictionary.get_started}
             </Link>
@@ -174,7 +174,7 @@ export default function Navbar({ lang, dictionary }: { lang: string; dictionary:
                   handleScrollTo(e, `/${lang}#pricing`);
                   setIsMobileMenuOpen(false);
                 }}
-                className="mt-6 bg-metallic-gold text-black w-full py-5 rounded-[2rem] text-xl font-extrabold text-center shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:scale-105 active:scale-95 transition-all"
+                className="mt-6 bg-metallic-gold text-black w-full py-5 rounded-[2rem] text-xl font-extrabold text-center shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:scale-105 active:scale-95 transition-all border border-white/30"
               >
                 {dictionary.get_started}
               </Link>

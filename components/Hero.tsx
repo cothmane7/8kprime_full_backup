@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Play, CheckCircle2, Zap, Timer } from "lucide-react";
+import { ArrowRight, Play, CheckCircle2, Zap, Timer, Unlock, Film, Monitor } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -76,7 +76,7 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
     };
 
     return (
-        <section className="relative min-h-[100vh] flex flex-col items-center pt-[140px] overflow-hidden bg-[#050505]">
+        <section className="relative min-h-[100vh] flex flex-col items-center pt-[100px] lg:pt-[120px] overflow-hidden bg-[#050505]">
             {/* Background Layer: Radial Glow from Top */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] md:w-[1200px] h-[600px] md:h-[800px] bg-[radial-gradient(ellipse_at_top,rgba(212,175,55,0.15)_0%,transparent_70%)] mix-blend-screen blur-[80px]" />
@@ -85,13 +85,13 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
             <div className="w-full max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20 items-center">
                 
                 {/* Left Column: Text & CTA */}
-                <div className="flex flex-col text-left pt-10 lg:pt-0">
+                <div className="flex flex-col text-left pt-6 lg:pt-0">
                     {/* Headline */}
                     <motion.h1 
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="text-[2.5rem] md:text-[3.5rem] lg:text-[4.2rem] font-black leading-[1.1] tracking-tight mb-6 uppercase"
+                        className="text-[2.5rem] md:text-[3.5rem] lg:text-[4.2rem] font-black leading-[1.1] tracking-tight mb-4 uppercase"
                     >
                         <span className="block text-white mb-2 drop-shadow-lg">
                             All Your Sports, <br className="hidden lg:block" /> Movies & Series.
@@ -102,14 +102,14 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                     </motion.h1>
 
                     {/* Subtext */}
-                    <motion.p 
+                    <motion.div 
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.3 }}
-                        className="text-gray-300 text-[1.1rem] md:text-[1.2rem] font-medium mb-10 max-w-xl leading-relaxed"
+                        className="text-gray-200 text-[1.4rem] md:text-[1.6rem] font-medium mb-6 max-w-3xl leading-relaxed whitespace-normal md:whitespace-nowrap"
                     >
-                        {dictionary.subtext}
-                    </motion.p>
+                        60,000+ channels · 160,000+ titles · 4K UHD — from <span className="text-[#D4AF37] font-bold">$6.67/mo</span>
+                    </motion.div>
 
                     {/* CTA Section */}
                     <motion.div 
@@ -118,16 +118,8 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                         transition={{ delay: 0.4 }}
                         className="flex flex-col items-start gap-3"
                     >
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-                            <Link 
-                                href={`/${lang}#pricing`} 
-                                onClick={(e) => handleScrollTo(e, `/${lang}#pricing`)}
-                                className="bg-gradient-to-r from-[#D4AF37] to-[#AA7900] hover:from-[#FFF0B3] hover:to-[#D4AF37] text-black px-10 py-4 rounded-xl font-bold uppercase tracking-wider transition-all duration-300 shadow-[0_0_30px_rgba(212,175,55,0.4)] flex items-center justify-center gap-2"
-                            >
-                                Claim The Offer <Play size={18} className="fill-black" />
-                            </Link>
-
-                            <div className="flex flex-col items-start sm:items-center bg-white/5 border border-white/10 px-5 py-2.5 rounded-xl">
+                        <div className="flex flex-col items-start gap-3">
+                            <div className="flex flex-col items-start sm:items-center bg-white/5 border border-white/10 px-5 py-2 rounded-xl w-fit">
                                 <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-0.5 flex items-center gap-1.5">
                                     <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
                                     Offer ends in
@@ -137,8 +129,24 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                                     {formatTime(timeLeft)}
                                 </div>
                             </div>
+
+                            <Link 
+                                href={`/${lang}#pricing`} 
+                                onClick={(e) => handleScrollTo(e, `/${lang}#pricing`)}
+                                className="bg-gradient-to-r from-[#D4AF37] to-[#AA7900] hover:from-[#FFF0B3] hover:to-[#D4AF37] text-black px-10 py-3.5 rounded-xl font-bold uppercase tracking-wider transition-all duration-300 shadow-[0_0_30px_rgba(212,175,55,0.4)] flex items-center justify-center gap-2"
+                            >
+                                Claim The Offer <Play size={18} className="fill-black" />
+                            </Link>
                         </div>
-                        <p className="text-xs text-gray-400 pl-2 font-medium">Starts at $9.99. Cancel anytime.</p>
+                        <div className="flex flex-wrap items-center gap-3 mt-1 text-[10px] md:text-[11px] text-white/80 font-medium">
+                            <span className="flex items-center gap-1.5"><Zap size={14} className="text-[#D4AF37]" /> Instant Activation</span>
+                            <span className="opacity-50">•</span>
+                            <span className="flex items-center gap-1.5"><Unlock size={14} className="text-[#D4AF37]" /> No Contract</span>
+                            <span className="opacity-50">•</span>
+                            <span className="flex items-center gap-1.5"><Film size={14} className="text-[#D4AF37]" /> 4K UHD</span>
+                            <span className="opacity-50">•</span>
+                            <span className="flex items-center gap-1.5"><Monitor size={14} className="text-[#D4AF37]" /> All Devices</span>
+                        </div>
                     </motion.div>
                 </div>
 
@@ -149,6 +157,7 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                     transition={{ delay: 0.6, duration: 0.8 }}
                     className="relative w-full h-[300px] sm:h-[400px] lg:h-[600px] flex items-center justify-center"
                 >
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.2)_0%,transparent_60%)] mix-blend-screen blur-[40px] pointer-events-none" />
                     <AnimatePresence mode="wait">
                         <motion.img
                             key={currentImageIndex}
