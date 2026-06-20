@@ -148,7 +148,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                 {/* Screens Selector */}
                 <div className="flex flex-col items-center mb-12 md:mb-16 relative z-20">
                     <span className="text-xs font-black text-primary uppercase tracking-widest mb-4 bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20">
-                        Screens (per plan, 1/2/3/4 screens)
+                        Choose your devices
                     </span>
                     <div className="inline-flex p-1 bg-[#15151E]/60 border border-white/5 rounded-2xl glass-premium gap-1">
                         {screenOptions.map((count) => (
