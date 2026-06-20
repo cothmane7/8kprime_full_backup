@@ -1,0 +1,26 @@
+# Task: Add Sports Images to Leagues Carousel
+
+- [x] List images in `C:\Users\bsi\Pictures\sports`
+- [x] Copy images to `public/sports`
+- [x] Update `LeaguesCarousel.tsx` with new images
+- [x] Verify changes on the live site
+- [x] Reversing movie carousel direction to the right
+- [x] Implementing High-Conversion Hero Section
+  - [x] Update copy for headline and subheadline
+  - [x] Refine CTA button styles and interactions
+  - [x] Add animated scroll hook and visual polish
+- [x] Refining Hero Section
+  - [x] Shorten CTA to "START STREAMING"
+  - [x] Remove scroll indicator
+  - [x] Add Instant Activation & VIP Support badges
+- [x] Updating Hero Messaging
+  - [x] Change headline to emphasize "ALL-IN-ONE"
+  - [x] Update subheadline for better alignment
+- [x] Linking Hero Buttons
+  - [x] Point "START STREAMING" to #pricing
+  - [x] Point "VIEW CHANNEL LIST" to /channels
+- [x] Hero Spacing Adjustment
+  - [x] Pull down Hero section below header
+- [/] Carousel Premium Rebranding
+  - [/] Apply gold theme to LeaguesCarousel
+  - [ ] Apply gold theme to StreamingCarousel

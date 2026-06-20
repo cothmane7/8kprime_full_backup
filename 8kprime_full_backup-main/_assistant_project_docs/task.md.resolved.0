@@ -1,0 +1,6 @@
+# Task: Add Sports Images to Leagues Carousel
+
+- [x] List images in `C:\Users\bsi\Pictures\sports`
+- [x] Copy images to `public/sports`
+- [/] Update `LeaguesCarousel.tsx` with new images
+- [ ] Verify changes on the live site
