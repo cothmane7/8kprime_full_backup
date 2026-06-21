@@ -26,7 +26,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
-        }, 1800);
+        }, 1000);
     };
 
     const screenOptions = [1, 2, 3, 4];
