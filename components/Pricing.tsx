@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShoppingCart, Monitor, ShieldCheck, Zap, PlayCircle, Film, Sparkles, Clock, Star, MessageCircle } from "lucide-react";
 import CheckoutModal from "./CheckoutModal";
@@ -11,6 +12,8 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
     const [selectedScreens, setSelectedScreens] = useState(1);
     const [isRedirecting, setIsRedirecting] = useState(false);
     const [redirectingLabel, setRedirectingLabel] = useState("");
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => { setMounted(true); }, []);
 
     const handleCheckout = (url: string, planLabel: string) => {
         setRedirectingLabel(planLabel);
@@ -387,7 +390,10 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                 plan={selectedPlan}
             />
 
-            {/* Checkout redirect loading overlay */}
+        </section>
+
+        {/* Portal: rendered directly in document.body, outside any section/overflow/transform context */}
+        {mounted && createPortal(
             <AnimatePresence>
                 {isRedirecting && (
                     <motion.div
@@ -449,7 +455,8 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                         </motion.div>
                     </motion.div>
                 )}
-            </AnimatePresence>
-        </section>
+            </AnimatePresence>,
+            document.body
+        )}
     );
 }
