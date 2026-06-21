@@ -123,6 +123,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
     const whatsappUrl = `https://wa.me/18185656691?text=${whatsappMessage}`;
 
     return (
+        <>
         <section className="py-20 md:py-32 bg-[#050505] relative overflow-hidden" id="pricing">
             {/* Background Effects */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/10 blur-[150px] rounded-full pointer-events-none" />
@@ -458,5 +459,6 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
             </AnimatePresence>,
             document.body
         )}
+        </>
     );
 }
