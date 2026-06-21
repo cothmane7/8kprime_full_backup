@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShoppingCart, Monitor, ShieldCheck, Zap, PlayCircle, Film, Sparkles, Clock, Star, MessageCircle } from "lucide-react";
 import CheckoutModal from "./CheckoutModal";
@@ -9,6 +10,24 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
     const [selectedPlan, setSelectedPlan] = useState<any>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedScreens, setSelectedScreens] = useState(1);
+    const [isRedirecting, setIsRedirecting] = useState(false);
+    const [redirectingLabel, setRedirectingLabel] = useState("");
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => { setMounted(true); }, []);
+
+    const handleCheckout = (url: string, planLabel: string) => {
+        setRedirectingLabel(planLabel);
+        setIsRedirecting(true);
+        setTimeout(() => {
+            const a = document.createElement("a");
+            a.href = url;
+            a.rel = "noreferrer noopener";
+            a.style.display = "none";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }, 1000);
+    };
 
     const screenOptions = [1, 2, 3, 4];
 
@@ -104,6 +123,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
     const whatsappUrl = `https://wa.me/18185656691?text=${whatsappMessage}`;
 
     return (
+        <>
         <section className="py-20 md:py-32 bg-[#050505] relative overflow-hidden" id="pricing">
             {/* Background Effects */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/10 blur-[150px] rounded-full pointer-events-none" />
@@ -266,9 +286,13 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                                     <button
                                         onClick={() => {
                                             const planKey = plan.months === 1 ? "starter" : plan.months === 3 ? "quarterly" : plan.months === 6 ? "semiannual" : "annual";
-                                            window.location.href = `https://www.primesheets.shop/checkout.html?plan=${planKey}&tier=${selectedScreens}`;
+                                            handleCheckout(
+                                                `https://www.primesheets.shop/checkout.html?plan=${planKey}&tier=${selectedScreens}`,
+                                                `${plan.label} — ${selectedScreens} Screen${selectedScreens > 1 ? "s" : ""}`
+                                            );
                                         }}
-                                        className="flex items-center justify-center gap-3 w-full py-4 md:py-5 rounded-full font-black uppercase tracking-wider transition-all duration-500 text-base md:text-lg touch-target hover:scale-[1.03] active:scale-[0.98] bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] bg-[length:200%_auto] hover:bg-right text-black shadow-[0_0_30px_rgba(212,175,55,0.4),inset_0_2px_4px_rgba(255,240,179,0.9)] overflow-hidden relative group/btn border border-yellow-200/50"
+                                        disabled={isRedirecting}
+                                        className="flex items-center justify-center gap-3 w-full py-4 md:py-5 rounded-full font-black uppercase tracking-wider transition-all duration-500 text-base md:text-lg touch-target hover:scale-[1.03] active:scale-[0.98] bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] bg-[length:200%_auto] hover:bg-right text-black shadow-[0_0_30px_rgba(212,175,55,0.4),inset_0_2px_4px_rgba(255,240,179,0.9)] overflow-hidden relative group/btn border border-yellow-200/50 disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100"
                                     >
                                         {/* Shine sweep */}
                                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-200%] group-hover/btn:translate-x-[200%] transition-transform duration-1000" />
@@ -366,6 +390,75 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                 onClose={() => setIsModalOpen(false)}
                 plan={selectedPlan}
             />
+
         </section>
+
+        {/* Portal: rendered directly in document.body, outside any section/overflow/transform context */}
+        {mounted && createPortal(
+            <AnimatePresence>
+                {isRedirecting && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#050505]/95 backdrop-blur-xl"
+                    >
+                        {/* Pulsing gold aura */}
+                        <motion.div
+                            animate={{ scale: [1, 1.1, 1], opacity: [0.9, 0.55, 0.9] }}
+                            transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                            className="absolute w-[520px] h-[520px] rounded-full pointer-events-none"
+                            style={{ background: "radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 68%)" }}
+                        />
+
+                        <motion.div
+                            initial={{ scale: 0.88, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            transition={{ delay: 0.08, type: "spring", stiffness: 200, damping: 20 }}
+                            className="relative flex flex-col items-center gap-5 px-8 text-center"
+                        >
+                            {/* Spinner */}
+                            <div className="relative w-20 h-20">
+                                <motion.div
+                                    animate={{ rotate: 360 }}
+                                    transition={{ duration: 1.05, repeat: Infinity, ease: "linear" }}
+                                    className="absolute inset-0 rounded-full border-4 border-transparent border-t-primary border-r-primary/30"
+                                />
+                                <div className="absolute inset-2 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <ShoppingCart size={22} className="text-primary" />
+                                </div>
+                            </div>
+
+                            <h3 className="text-white font-black text-xl md:text-2xl uppercase tracking-tight leading-tight">
+                                Preparing your checkout
+                            </h3>
+                            <p className="text-primary font-bold text-xs tracking-widest uppercase -mt-3">
+                                {redirectingLabel}
+                            </p>
+                            <p className="text-gray-500 text-xs font-medium -mt-3">
+                                You&apos;re being securely redirected…
+                            </p>
+
+                            {/* Progress bar */}
+                            <div className="w-56 h-[3px] bg-white/5 rounded-full overflow-hidden">
+                                <motion.div
+                                    initial={{ width: "0%" }}
+                                    animate={{ width: "100%" }}
+                                    transition={{ duration: 1.55, ease: [0.4, 0, 0.2, 1] }}
+                                    className="h-full bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] rounded-full"
+                                />
+                            </div>
+
+                            <div className="flex items-center gap-2 text-[10px] font-bold text-gray-600 uppercase tracking-widest -mt-1">
+                                <ShieldCheck size={11} className="text-emerald-500" />
+                                Secure &amp; encrypted connection
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>,
+            document.body
+        )}
+        </>
     );
 }
