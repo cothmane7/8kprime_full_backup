@@ -396,50 +396,53 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                         exit={{ opacity: 0 }}
                         className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#050505]/95 backdrop-blur-xl"
                     >
-                        {/* Gold glow pulse */}
-                        <div className="absolute w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
+                        {/* Pulsing gold aura */}
+                        <motion.div
+                            animate={{ scale: [1, 1.1, 1], opacity: [0.9, 0.55, 0.9] }}
+                            transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                            className="absolute w-[520px] h-[520px] rounded-full pointer-events-none"
+                            style={{ background: "radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 68%)" }}
+                        />
 
                         <motion.div
-                            initial={{ scale: 0.85, opacity: 0 }}
+                            initial={{ scale: 0.88, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
-                            transition={{ delay: 0.1, type: "spring", stiffness: 200, damping: 20 }}
-                            className="relative flex flex-col items-center gap-6 px-8 text-center"
+                            transition={{ delay: 0.08, type: "spring", stiffness: 200, damping: 20 }}
+                            className="relative flex flex-col items-center gap-5 px-8 text-center"
                         >
                             {/* Spinner */}
                             <div className="relative w-20 h-20">
                                 <motion.div
                                     animate={{ rotate: 360 }}
-                                    transition={{ duration: 1.1, repeat: Infinity, ease: "linear" }}
-                                    className="absolute inset-0 rounded-full border-4 border-transparent border-t-primary border-r-primary/40"
+                                    transition={{ duration: 1.05, repeat: Infinity, ease: "linear" }}
+                                    className="absolute inset-0 rounded-full border-4 border-transparent border-t-primary border-r-primary/30"
                                 />
                                 <div className="absolute inset-2 rounded-full bg-primary/10 flex items-center justify-center">
                                     <ShoppingCart size={22} className="text-primary" />
                                 </div>
                             </div>
 
-                            <div className="space-y-2">
-                                <h3 className="text-white font-black text-xl md:text-2xl uppercase tracking-tight">
-                                    Preparing your checkout
-                                </h3>
-                                <p className="text-primary font-bold text-sm tracking-wider">
-                                    {redirectingLabel}
-                                </p>
-                                <p className="text-gray-500 text-xs font-medium">
-                                    You&apos;re being securely redirected…
-                                </p>
-                            </div>
+                            <h3 className="text-white font-black text-xl md:text-2xl uppercase tracking-tight leading-tight">
+                                Preparing your checkout
+                            </h3>
+                            <p className="text-primary font-bold text-xs tracking-widest uppercase -mt-3">
+                                {redirectingLabel}
+                            </p>
+                            <p className="text-gray-500 text-xs font-medium -mt-3">
+                                You&apos;re being securely redirected…
+                            </p>
 
                             {/* Progress bar */}
-                            <div className="w-56 h-1 bg-white/5 rounded-full overflow-hidden">
+                            <div className="w-56 h-[3px] bg-white/5 rounded-full overflow-hidden">
                                 <motion.div
                                     initial={{ width: "0%" }}
                                     animate={{ width: "100%" }}
-                                    transition={{ duration: 1.6, ease: "easeInOut" }}
+                                    transition={{ duration: 1.55, ease: [0.4, 0, 0.2, 1] }}
                                     className="h-full bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] rounded-full"
                                 />
                             </div>
 
-                            <div className="flex items-center gap-2 text-[10px] font-bold text-gray-600 uppercase tracking-widest">
+                            <div className="flex items-center gap-2 text-[10px] font-bold text-gray-600 uppercase tracking-widest -mt-1">
                                 <ShieldCheck size={11} className="text-emerald-500" />
                                 Secure &amp; encrypted connection
                             </div>
