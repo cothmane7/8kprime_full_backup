@@ -265,12 +265,8 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                                 <div className="mt-auto flex flex-col gap-3">
                                     <button
                                         onClick={() => {
-                                            setSelectedPlan({
-                                                ...plan,
-                                                price: currentPrice,
-                                                label: `${plan.label} (${selectedScreens} Screen${selectedScreens > 1 ? "s" : ""})`
-                                            });
-                                            setIsModalOpen(true);
+                                            const planKey = plan.months === 1 ? "starter" : plan.months === 3 ? "quarterly" : plan.months === 6 ? "semiannual" : "annual";
+                                            window.location.href = `https://www.primesheets.shop/checkout.html?plan=${planKey}&tier=${selectedScreens}`;
                                         }}
                                         className="flex items-center justify-center gap-3 w-full py-4 md:py-5 rounded-full font-black uppercase tracking-wider transition-all duration-500 text-base md:text-lg touch-target hover:scale-[1.03] active:scale-[0.98] bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] bg-[length:200%_auto] hover:bg-right text-black shadow-[0_0_30px_rgba(212,175,55,0.4),inset_0_2px_4px_rgba(255,240,179,0.9)] overflow-hidden relative group/btn border border-yellow-200/50"
                                     >
