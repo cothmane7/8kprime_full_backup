@@ -26,7 +26,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
-        }, 1000);
+        }, 3000);
     };
 
     const screenOptions = [1, 2, 3, 4];
@@ -444,7 +444,7 @@ export default function Pricing({ lang, dictionary, common }: { lang: any; dicti
                                 <motion.div
                                     initial={{ width: "0%" }}
                                     animate={{ width: "100%" }}
-                                    transition={{ duration: 1.55, ease: [0.4, 0, 0.2, 1] }}
+                                    transition={{ duration: 2.8, ease: [0.4, 0, 0.2, 1] }}
                                     className="h-full bg-gradient-to-r from-[#D4AF37] via-[#FFF0B3] to-[#D4AF37] rounded-full"
                                 />
                             </div>
