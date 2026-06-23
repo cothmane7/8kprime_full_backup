@@ -103,6 +103,13 @@ export default async function RootLayout(props: {
           />
         </noscript>
 
+        {/* Reignat Analytics */}
+        <Script
+          src="https://reignat.com/tracker.js"
+          data-site="7d3b5f78-d1e5-4f10-a1f0-c68134aefe03"
+          strategy="afterInteractive"
+        />
+
         <SecurityShield />
         <PurchaseNotifications />
         <Navbar lang={lang} dictionary={dictionary.common} />
