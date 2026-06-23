@@ -102,13 +102,44 @@ export default function Hero({ lang, dictionary, common }: { lang: any; dictiona
                     </motion.h1>
 
                     {/* Subtext */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.3 }}
-                        className="text-gray-200 text-[1.4rem] md:text-[1.6rem] font-medium mb-6 max-w-3xl leading-relaxed whitespace-normal md:whitespace-nowrap"
+                        className="text-gray-200 text-[1.4rem] md:text-[1.6rem] font-medium mb-3 max-w-3xl leading-relaxed whitespace-normal md:whitespace-nowrap"
                     >
                         60,000+ channels · 160,000+ titles · 4K UHD — from <span className="text-[#D4AF37] font-bold">$6.67/mo</span>
+                    </motion.div>
+
+                    {/* NFL / Sports callout */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.35 }}
+                        className="flex flex-wrap items-center gap-2 mb-6"
+                    >
+                        {/* NFL — logo + label, gold featured pill */}
+                        <span className="inline-flex items-center gap-2 bg-[#D4AF37]/10 border border-[#D4AF37]/40 text-[#D4AF37] text-[11px] font-black uppercase tracking-widest pl-1.5 pr-3 py-1 rounded-full shadow-[0_0_12px_rgba(212,175,55,0.25)]">
+                            <img
+                                src="/sports/70787d4bf30789ae4e802585cddb9708.jpg"
+                                alt="NFL"
+                                className="w-8 h-8 rounded-full object-contain bg-white p-0.5"
+                            />
+                            NFL
+                        </span>
+                        <span className="inline-flex items-center gap-1.5 bg-white/5 border border-white/10 text-gray-300 text-[11px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full">
+                            🏀 NBA
+                        </span>
+                        <span className="inline-flex items-center gap-1.5 bg-white/5 border border-white/10 text-gray-300 text-[11px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full">
+                            ⚾ MLB
+                        </span>
+                        <span className="inline-flex items-center gap-1.5 bg-white/5 border border-white/10 text-gray-300 text-[11px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full">
+                            🏒 NHL
+                        </span>
+                        <span className="inline-flex items-center gap-1.5 bg-white/5 border border-white/10 text-gray-300 text-[11px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full">
+                            🥊 UFC
+                        </span>
+                        <span className="text-gray-600 text-[11px] font-bold">& more</span>
                     </motion.div>
 
                     {/* CTA Section */}

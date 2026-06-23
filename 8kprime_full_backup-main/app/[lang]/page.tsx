@@ -1,7 +1,6 @@
 import Hero from "@/components/Hero";
 import Pricing from "@/components/Pricing";
 import ComparisonTable from "@/components/ComparisonTable";
-import SportsSection from "@/components/SportsSection";
 import FAQ from "@/components/FAQ";
 import Process from "@/components/Process";
 import LeaguesCarousel from "@/components/LeaguesCarousel";
@@ -11,6 +10,7 @@ import OneSubscription from "@/components/OneSubscription";
 import Testimonials from "@/components/Testimonials";
 import SavingsCalculator from "@/components/SavingsCalculator";
 import StickyCTA from "@/components/StickyCTA";
+import SportsTicker from "@/components/SportsTicker";
 import ReferralPromo from "@/components/ReferralPromo";
 import { getDictionary } from "@/get-dictionary";
 import { Locale } from "@/i18n-config";
@@ -28,7 +28,7 @@ export default async function Home(props: {
     {/* Hidden to avoid DM2A – uncomment to restore */}
     {/* <LeaguesCarousel dictionary={dictionary.leagues_carousel} /> */}
     {/* <StreamingCarousel dictionary={dictionary.streaming_apps} /> */}
-    <SportsSection dictionary={dictionary.sports} />
+    <SportsTicker />
     <MovieGrid lang={lang} dictionary={dictionary.movie_grid} />
     
     <OneSubscription />
