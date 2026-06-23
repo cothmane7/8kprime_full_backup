@@ -74,6 +74,7 @@ export default async function RootLayout(props: {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'AW-17990295486');
+            gtag('config', 'AW-17994696094');
           `}
         </Script>
 
